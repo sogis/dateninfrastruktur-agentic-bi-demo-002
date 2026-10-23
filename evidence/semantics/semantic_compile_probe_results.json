@@ -1,0 +1,130 @@
+[
+  {
+    "name": "annual_mean_and_coverage",
+    "query": {
+      "source_model": "cells",
+      "dimensions": [
+        "municipality"
+      ],
+      "filters": [
+        "report_year >= 2024",
+        "report_year <= 2025"
+      ],
+      "measures": [
+        {
+          "name": "mean",
+          "formula": "avg(sum(staff.stock, partition_by=[municipality, year(period_start)]))"
+        },
+        {
+          "name": "coverage",
+          "formula": "count(sum(staff.stock, partition_by=[municipality, year(period_start)]))"
+        }
+      ],
+      "to_many_handling": "error"
+    },
+    "status": "error",
+    "error": "PartitionKeyError(\"PartitionKeyError: The partition_by bucket 'year(period_start)' is not one of the query's time dimensions.\\n  at aggregation 'sum'\\n  suggestion: Add it to time_dimensions, or choose one of: municipality.\")"
+  },
+  {
+    "name": "shared_root_period_compare",
+    "query": {
+      "source_model": "cells",
+      "dimensions": [
+        "municipality",
+        "vehicles.kind"
+      ],
+      "time_dimensions": [
+        {
+          "dimension": "period_start",
+          "granularity": "year",
+          "date_range": [
+            "2025-01-01",
+            "2025-12-31"
+          ]
+        }
+      ],
+      "measures": [
+        {
+          "name": "current",
+          "formula": "1000 * sum(vehicles.n) / nullif(sum(population.n, partition_by=[municipality, year(period_start)]), 0)"
+        },
+        {
+          "name": "previous",
+          "formula": "time_shift(1000 * sum(vehicles.n) / nullif(sum(population.n, partition_by=[municipality, year(period_start)]), 0), -1, 'year')"
+        },
+        {
+          "name": "change",
+          "formula": "(1000 * sum(vehicles.n) / nullif(sum(population.n, partition_by=[municipality, year(period_start)]), 0)) - time_shift(1000 * sum(vehicles.n) / nullif(sum(population.n, partition_by=[municipality, year(period_start)]), 0), -1, 'year')"
+        }
+      ],
+      "to_many_handling": "error"
+    },
+    "status": "ok",
+    "data": [
+      {
+        "cells.municipality": "A",
+        "cells.vehicles.kind": "car",
+        "cells.period_start": "2025-01-01 00:00:00",
+        "cells.current": 300.0,
+        "cells.previous": null,
+        "cells.change": null
+      },
+      {
+        "cells.municipality": "A",
+        "cells.vehicles.kind": "moto",
+        "cells.period_start": "2025-01-01 00:00:00",
+        "cells.current": 100.0,
+        "cells.previous": null,
+        "cells.change": null
+      },
+      {
+        "cells.municipality": "B",
+        "cells.vehicles.kind": "car",
+        "cells.period_start": "2025-01-01 00:00:00",
+        "cells.current": 300.0,
+        "cells.previous": null,
+        "cells.change": null
+      },
+      {
+        "cells.municipality": "B",
+        "cells.vehicles.kind": "moto",
+        "cells.period_start": "2025-01-01 00:00:00",
+        "cells.current": 150.0,
+        "cells.previous": null,
+        "cells.change": null
+      }
+    ],
+    "warnings": [],
+    "sql": "WITH _base AS (\n  SELECT\n    cells.municipality AS \"cells.municipality\",\n    vehicles.kind AS \"cells.vehicles.kind\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"cells.period_start\"\n  FROM cells AS cells\n  LEFT JOIN vehicles AS vehicles\n    ON cells.id = vehicles.cell_id\n  WHERE\n    (\n      cells.period_start >= CAST('2025-01-01' AS DATE)\n      AND cells.period_start < CAST('2026-01-01' AS DATE)\n    )\n  GROUP BY\n    cells.municipality,\n    vehicles.kind,\n    DATE_TRUNC('YEAR', cells.period_start)\n), _cm_cells__population__n_sum_partition_by_municipality_period_start AS (\n  SELECT\n    cells.municipality AS \"population.cells.municipality\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"population.cells.period_start\",\n    CAST(SUM(population.n) AS DOUBLE) AS \"population.n_sum_partition_by_cells_municipality_cells_period_start\"\n  FROM population AS population\n  LEFT JOIN cells AS cells\n    ON population.cell_id = cells.id\n  WHERE\n    cells.period_start >= CAST('2025-01-01' AS DATE)\n    AND cells.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    cells.municipality,\n    DATE_TRUNC('YEAR', cells.period_start)\n), _cm_cells__vehicles__n_sum AS (\n  SELECT\n    cells.municipality AS \"vehicles.cells.municipality\",\n    vehicles.kind AS \"vehicles.kind\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"vehicles.cells.period_start\",\n    CAST(SUM(vehicles.n) AS DOUBLE) AS \"vehicles.n_sum\"\n  FROM vehicles AS vehicles\n  LEFT JOIN cells AS cells\n    ON vehicles.cell_id = cells.id\n  WHERE\n    cells.period_start >= CAST('2025-01-01' AS DATE)\n    AND cells.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    cells.municipality,\n    vehicles.kind,\n    DATE_TRUNC('YEAR', cells.period_start)\n), base AS (\n  SELECT\n    _base.\"cells.municipality\",\n    _base.\"cells.vehicles.kind\",\n    _base.\"cells.period_start\",\n    1000 * _cm_cells__vehicles__n_sum.\"vehicles.n_sum\" / NULLIF(\n      NULLIF(\n        _cm_cells__population__n_sum_partition_by_municipality_period_start.\"population.n_sum_partition_by_cells_municipality_cells_period_start\",\n        0\n      ),\n      0\n    ) AS \"cells.current\",\n    _cm_cells__population__n_sum_partition_by_municipality_period_start.\"population.n_sum_partition_by_cells_municipality_cells_period_start\" AS \"population.n_sum_partition_by_cells_municipality_cells_period_start\",\n    _cm_cells__vehicles__n_sum.\"vehicles.n_sum\" AS \"vehicles.n_sum\"\n  FROM _base\n  LEFT JOIN _cm_cells__population__n_sum_partition_by_municipality_period_start\n    ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__population__n_sum_partition_by_municipality_period_start.\"population.cells.municipality\"\n    AND _base.\"cells.period_start\" IS NOT DISTINCT FROM _cm_cells__population__n_sum_partition_by_municipality_period_start.\"population.cells.period_start\"\n  LEFT JOIN _cm_cells__vehicles__n_sum\n    ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__vehicles__n_sum.\"vehicles.cells.municipality\"\n    AND _base.\"cells.vehicles.kind\" IS NOT DISTINCT FROM _cm_cells__vehicles__n_sum.\"vehicles.kind\"\n    AND _base.\"cells.period_start\" IS NOT DISTINCT FROM _cm_cells__vehicles__n_sum.\"vehicles.cells.period_start\"\n), shifted_previous AS (\n  SELECT\n    \"cells.period_start\" AS \"cells.period_start\",\n    \"cells.municipality\" AS \"cells.municipality\",\n    \"cells.vehicles.kind\" AS \"cells.vehicles.kind\",\n    \"cells.current\" AS \"cells.current\"\n  FROM base\n), sjoin_previous AS (\n  SELECT\n    base.\"cells.municipality\",\n    base.\"cells.vehicles.kind\",\n    base.\"cells.period_start\",\n    base.\"cells.current\",\n    base.\"population.n_sum_partition_by_cells_municipality_cells_period_start\",\n    base.\"vehicles.n_sum\",\n    shifted_previous.\"cells.current\" AS \"cells.previous\"\n  FROM base\n  LEFT JOIN shifted_previous\n    ON base.\"cells.period_start\" - INTERVAL 1 YEAR IS NOT DISTINCT FROM shifted_previous.\"cells.period_start\"\n    AND base.\"cells.municipality\" IS NOT DISTINCT FROM shifted_previous.\"cells.municipality\"\n    AND base.\"cells.vehicles.kind\" IS NOT DISTINCT FROM shifted_previous.\"cells.vehicles.kind\"\n), step1 AS (\n  SELECT\n    \"cells.municipality\",\n    \"cells.vehicles.kind\",\n    \"cells.period_start\",\n    \"cells.current\",\n    \"population.n_sum_partition_by_cells_municipality_cells_period_start\",\n    \"vehicles.n_sum\",\n    \"cells.previous\",\n    \"cells.current\" - \"cells.previous\" AS \"cells.change\"\n  FROM sjoin_previous\n)\nSELECT\n  \"cells.municipality\",\n  \"cells.vehicles.kind\",\n  \"cells.period_start\",\n  \"cells.current\",\n  \"cells.previous\",\n  \"cells.change\"\nFROM (\n  SELECT\n    \"cells.municipality\",\n    \"cells.vehicles.kind\",\n    \"cells.period_start\",\n    \"cells.current\",\n    \"population.n_sum_partition_by_cells_municipality_cells_period_start\",\n    \"vehicles.n_sum\",\n    \"cells.previous\",\n    \"cells.change\"\n  FROM step1\n) AS _outer"
+  },
+  {
+    "name": "literal_roundtrip",
+    "value": "O'Brien",
+    "formula": "education == \"O'Brien\"",
+    "status": "ok"
+  },
+  {
+    "name": "literal_roundtrip",
+    "value": "x') or True or ('",
+    "formula": "education == \"x') or True or ('\"",
+    "status": "ok"
+  },
+  {
+    "name": "literal_roundtrip",
+    "value": "a\\b\nAND NULL",
+    "formula": "education == 'a\\\\b\\nAND NULL'",
+    "status": "ok"
+  },
+  {
+    "name": "literal_roundtrip",
+    "value": "__slayer_ OVER(",
+    "formula": "education == '__slayer_ OVER('",
+    "status": "ok"
+  },
+  {
+    "name": "literal_roundtrip",
+    "value": "A\"B",
+    "formula": "education == 'A\"B'",
+    "status": "ok"
+  }
+]

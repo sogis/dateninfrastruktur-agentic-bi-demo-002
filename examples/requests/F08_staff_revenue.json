@@ -1,0 +1,40 @@
+{
+  "period": {
+    "from_year": 2024,
+    "to_year": 2025
+  },
+  "group_by": [
+    "year"
+  ],
+  "outputs": [
+    {
+      "id": "staff",
+      "expr": {
+        "kind": "aggregate",
+        "metric": "staff.count"
+      }
+    },
+    {
+      "id": "nominal_chf",
+      "expr": {
+        "kind": "aggregate",
+        "metric": "revenue.nominal_chf"
+      }
+    },
+    {
+      "id": "chf_per_staff",
+      "expr": {
+        "kind": "binary",
+        "op": "divide",
+        "left": {
+          "kind": "aggregate",
+          "metric": "revenue.nominal_chf"
+        },
+        "right": {
+          "kind": "aggregate",
+          "metric": "staff.count"
+        }
+      }
+    }
+  ]
+}

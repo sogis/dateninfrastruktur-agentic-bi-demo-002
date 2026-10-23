@@ -1,0 +1,68 @@
+version: 15
+name: ebau
+description: Monatliche Gemeindebestände und eingereichte Dossiers; ausserhalb des
+  Jahresvertrags.
+sql_table: ebau
+data_source: pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: false
+- name: period_start
+  type: DATE
+  primary_key: true
+  granularity: month
+- name: municipalities_stock
+  type: INT
+  primary_key: false
+  label: Gemeinden in eBau
+  description: Gemeinden in eBau; Monatliche Gemeindebestände und eingereichte Dossiers;
+    ausserhalb des Jahresvertrags.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: ebau.municipalities_stock
+      unit: municipalities
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - year
+      additive_over: []
+- name: submitted_dossiers
+  type: INT
+  primary_key: false
+  label: Eingereichte Dossiers
+  description: Eingereichte Dossiers; Monatliche Gemeindebestände und eingereichte
+    Dossiers; ausserhalb des Jahresvertrags.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: ebau.submitted_dossiers
+      unit: dossiers
+      temporal_kind: flow
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - year
+      additive_over: []
+joins: []
+default_time_dimension: period_start
+meta:
+  analytics:
+    source_id: ebau
+    domain: ebau_monthly
+    root_model: ebau
+    population: so_ebau
+    period_kind: month
+    cell_key: period_start
+    temporal_kind: stock
+    reference_dates:
+      '2025': null
+    coverage: unknown
+    required: false
+    status: unavailable
+    status_reason: UNSUPPORTED_PERIOD
+    label: eBau Monatsstatistik

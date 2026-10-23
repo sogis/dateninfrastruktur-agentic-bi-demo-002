@@ -1,0 +1,21 @@
+{
+  "period": {
+    "from_year": 2025,
+    "to_year": 2025
+  },
+  "group_by": [],
+  "outputs": [
+    {
+      "id": "growth",
+      "expr": {
+        "kind": "period",
+        "op": "relative_change",
+        "years": 1,
+        "value": {
+          "kind": "aggregate",
+          "metric": "revenue.nominal_chf"
+        }
+      }
+    }
+  ]
+}

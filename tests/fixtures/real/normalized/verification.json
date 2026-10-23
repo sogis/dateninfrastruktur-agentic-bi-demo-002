@@ -1,0 +1,169 @@
+{
+  "verified_at_utc": "2026-10-23T09:36:37.812710Z",
+  "database": "pilot.duckdb",
+  "database_sha256": "dd8147f862c5092d1d0780a297b8e5c7ba4c9a515c123c2ba2abf047a45fd795",
+  "reference_engine_version": "2.0.0",
+  "physical_tables_only": true,
+  "raw_hashes_unchanged": true,
+  "vehicle_observation_date_still_unknown": true,
+  "checks": [
+    {
+      "reference_query": "population_total",
+      "rows_compared": 1,
+      "status": "passed"
+    },
+    {
+      "reference_query": "population_by_municipality",
+      "rows_compared": 106,
+      "status": "passed"
+    },
+    {
+      "reference_query": "population_by_district",
+      "rows_compared": 10,
+      "status": "passed"
+    },
+    {
+      "reference_query": "vehicles_by_category",
+      "rows_compared": 42,
+      "status": "passed"
+    },
+    {
+      "reference_query": "vehicles_total",
+      "rows_compared": 1,
+      "status": "passed"
+    },
+    {
+      "reference_query": "population_vehicles_by_municipality",
+      "rows_compared": 106,
+      "status": "passed"
+    },
+    {
+      "reference_query": "population_vehicles_by_district",
+      "rows_compared": 10,
+      "status": "passed"
+    },
+    {
+      "reference_query": "staff_by_year",
+      "rows_compared": 46,
+      "status": "passed"
+    },
+    {
+      "reference_query": "staff_revenue_by_year",
+      "rows_compared": 46,
+      "status": "passed"
+    },
+    {
+      "reference_query": "staff_average_of_annual_totals_2024_2025",
+      "rows_compared": 1,
+      "status": "passed"
+    },
+    {
+      "reference_query": "staff_2025_by_education",
+      "rows_compared": 5,
+      "status": "passed"
+    },
+    {
+      "reference_query": "ebau_by_quarter",
+      "rows_compared": 8,
+      "status": "passed"
+    },
+    {
+      "reference_query": "heating_total",
+      "rows_compared": 1,
+      "status": "passed"
+    }
+  ],
+  "author_invariants": [
+    {
+      "check_name": "annual_period_start_is_technical_year_key",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "cell_id_exact_and_present",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "ebau_key_unique",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "gws_category_marginal_total",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "gws_heating_marginal_total",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "gws_matching_building_totals",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "municipality_key_unique",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "population_key_unique",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "population_marginal_identities",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "population_snapshot_as_published",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "population_to_municipalities_complete",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "population_to_vehicles_complete",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "revenue_key_unique",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "staff_key_unique",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "vehicle_key_unique",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "vehicle_unknown_snapshot_not_fabricated",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "vehicle_values_01_60_complete",
+      "violations": 0,
+      "status": "passed"
+    },
+    {
+      "check_name": "vehicles_to_population_complete",
+      "violations": 0,
+      "status": "passed"
+    }
+  ],
+  "note": "Verifies fixture preparation against raw-source SQL oracles; does not test SLayer or constitute approval of a strict-snapshot population/vehicle ratio."
+}

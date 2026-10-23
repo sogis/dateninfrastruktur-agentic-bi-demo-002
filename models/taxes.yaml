@@ -1,0 +1,77 @@
+version: 15
+name: taxes
+description: Steuererträge 2025 im Gemeindestand 2026, räumlich nicht mit Bevölkerung
+  2025 kompatibel.
+sql_table: taxes
+data_source: pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+- name: period_start
+  type: DATE
+  primary_key: false
+  granularity: year
+- name: geo_version
+  type: INT
+  primary_key: true
+- name: municipality_id
+  type: INT
+  primary_key: true
+- name: cell_id
+  type: TEXT
+  primary_key: false
+- name: municipality_name
+  type: TEXT
+  primary_key: false
+- name: natural_person_tax_tchf
+  type: INT
+  primary_key: false
+- name: legal_person_tax_tchf
+  type: INT
+  primary_key: false
+- name: tax_total_tchf
+  type: INT
+  primary_key: false
+- name: tax_total_chf
+  type: DOUBLE
+  primary_key: false
+  db_type: DECIMAL(18,2)
+  label: Staatssteuerertrag in CHF
+  description: Staatssteuerertrag in CHF; Steuererträge 2025 im Gemeindestand 2026,
+    räumlich nicht mit Bevölkerung 2025 kompatibel.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: taxes.total_chf
+      unit: CHF
+      temporal_kind: flow
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+      - year
+joins: []
+default_time_dimension: period_start
+meta:
+  analytics:
+    source_id: taxes
+    domain: municipal_annual
+    root_model: taxes
+    population: so_municipalities_v2026
+    period_kind: year
+    cell_key: cell_id
+    temporal_kind: flow
+    reference_dates:
+      '2025': null
+    coverage: unknown
+    required: false
+    status: unavailable
+    status_reason: INCOMPATIBLE_GEOGRAPHY
+    label: Staatssteuererträge

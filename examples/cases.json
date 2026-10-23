@@ -1,0 +1,119 @@
+{
+  "scope": "Grammar validated; expected semantic outcomes are implementation obligations, not implemented by contracts_reference.py.",
+  "cases": [
+    {
+      "file": "requests/F01_population.json",
+      "expected_outcome": "success",
+      "oracle": "population_total",
+      "notes": null
+    },
+    {
+      "file": "requests/F02_municipalities.json",
+      "expected_outcome": "success",
+      "oracle": "population_vehicles_by_municipality",
+      "notes": null
+    },
+    {
+      "file": "requests/F03_districts.json",
+      "expected_outcome": "success",
+      "oracle": "population_vehicles_by_district",
+      "notes": "Map oracle district names to the checked district integer IDs."
+    },
+    {
+      "file": "requests/F04_selected_vehicles.json",
+      "expected_outcome": "success",
+      "oracle": "canton_vehicle_ratios",
+      "notes": null
+    },
+    {
+      "file": "requests/F05_selected_by_municipality.json",
+      "expected_outcome": "success",
+      "oracle": "population_vehicles_by_municipality",
+      "notes": null
+    },
+    {
+      "file": "requests/F06_reference_denominator.json",
+      "expected_outcome": "success",
+      "oracle": "vehicles_by_category",
+      "notes": "All 42 categories; canton population denominator is 293081; measured coverage determines notices."
+    },
+    {
+      "file": "requests/F08_staff_revenue.json",
+      "expected_outcome": "success",
+      "oracle": "staff_revenue_2024_2025",
+      "notes": null
+    },
+    {
+      "file": "requests/F09_annual_mean.json",
+      "expected_outcome": "success",
+      "oracle": "staff_average_of_annual_totals_2024_2025",
+      "notes": null
+    },
+    {
+      "file": "requests/F10_revenue_sum.json",
+      "expected_outcome": "success",
+      "oracle": null,
+      "notes": "Expected exact decimal string 5328676.00."
+    },
+    {
+      "file": "requests/F11_revenue_growth.json",
+      "expected_outcome": "success",
+      "oracle": "nominal_growth_2025",
+      "notes": "Contract result is a dimensionless fraction, unlike the percent-valued SQL oracle."
+    },
+    {
+      "file": "requests/F12_revenue_per_staff_growth.json",
+      "expected_outcome": "success",
+      "oracle": "nominal_growth_2025",
+      "notes": "Contract result is a dimensionless fraction. Scan 2024-2025; return 2025 only."
+    },
+    {
+      "file": "requests/F14_heat_pump_share.json",
+      "expected_outcome": "success",
+      "oracle": "heating_total",
+      "notes": null
+    },
+    {
+      "file": "requests/F16_annual_mean_education.json",
+      "expected_outcome": "success",
+      "oracle": null,
+      "notes": null
+    },
+    {
+      "file": "requests/N02_strict_snapshot.json",
+      "expected_outcome": "E_REFERENCE_DATE_UNKNOWN",
+      "oracle": null,
+      "notes": null
+    },
+    {
+      "file": "requests/N03_global_fact_filter.json",
+      "expected_outcome": "E_GLOBAL_FILTER_NOT_SHARED",
+      "oracle": null,
+      "notes": null
+    },
+    {
+      "file": "requests/N04_revenue_by_education.json",
+      "expected_outcome": "E_CROSS_CLASSIFICATION_UNAVAILABLE",
+      "oracle": null,
+      "notes": null
+    },
+    {
+      "file": "requests/N05_stock_sum_years.json",
+      "expected_outcome": "E_TIME_AGGREGATION_NOT_ALLOWED",
+      "oracle": null,
+      "notes": null
+    },
+    {
+      "file": "requests/N06_product.json",
+      "expected_outcome": "E_UNSUPPORTED_PRODUCT",
+      "oracle": null,
+      "notes": null
+    },
+    {
+      "file": "requests/N06_nested_denominator.json",
+      "expected_outcome": "E_UNSUPPORTED_DENOMINATOR",
+      "oracle": null,
+      "notes": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "specification_version": "1.0",
+  "production_application_implemented": false,
+  "normative_chapters": 6,
+  "structured_request_examples": 19,
+  "json_blocks_in_spec_parsed": 7,
+  "raw_files": 9,
+  "raw_bytes": 55119,
+  "raw_hashes_valid": true,
+  "reference_queries": 24,
+  "normalized_comparisons": 13,
+  "normalized_rows_compared": 383,
+  "author_invariants_passed": 18,
+  "native_real_probes_passed": 11,
+  "native_metadata_model_valid": true,
+  "mcp_probe_passed": true
+}

@@ -1,0 +1,37 @@
+version: 15
+name: municipalities
+sql_table: municipalities
+query_variables: {}
+data_source: real_pilot
+columns:
+- name: geo_version
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: municipality_id
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: municipality_name
+  type: TEXT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: district_name
+  type: TEXT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: district_id
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+measures: []
+aggregations: []
+joins: []
+filters: []
+hidden: false
+access_tags: []

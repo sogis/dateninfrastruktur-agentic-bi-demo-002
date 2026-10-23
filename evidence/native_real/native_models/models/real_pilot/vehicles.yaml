@@ -1,0 +1,84 @@
+version: 15
+name: vehicles
+sql_table: vehicles
+query_variables: {}
+data_source: real_pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: period_start
+  type: DATE
+  primary_key: false
+  unique: false
+  hidden: false
+  granularity: year
+- name: reference_date
+  type: DATE
+  primary_key: false
+  unique: false
+  hidden: false
+- name: geo_version
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: municipality_id
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: cell_id
+  type: TEXT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: vehicle_category_code
+  type: TEXT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: vehicle_category_name
+  type: TEXT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: vehicle_group_code
+  type: TEXT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: vehicle_group_name
+  type: TEXT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: vehicles
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: registrations
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+measures: []
+aggregations: []
+joins:
+- target_model: population
+  join_pairs:
+  - - report_year
+    - report_year
+  - - geo_version
+    - geo_version
+  - - municipality_id
+    - municipality_id
+  join_type: left
+  cardinality: many_to_one
+filters: []
+default_time_dimension: period_start
+hidden: false
+access_tags: []

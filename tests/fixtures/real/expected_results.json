@@ -1,0 +1,3315 @@
+{
+  "reference_engine": "DuckDB",
+  "reference_engine_version": "2.0.0",
+  "reference_method": "independent explicit SQL on unchanged real Parquet snapshots, no SLayer execution",
+  "float_absolute_tolerance": 1e-09,
+  "money_representation": "decimal strings in CHF with two fractional digits",
+  "source_sha256": {
+    "building_category": "9af9b8b2cb73f57730fcc1c4b4ae77eb68f3c05ca3f584da916da4ffd340245b",
+    "ebau": "6fe91a3cde375356d08f15f8cfde363ddbe7436f5b8614da6c157bf6a029a132",
+    "heating": "2df4fbe698b798639773865025736917e76984041bb83dc2e1ee8c43e501c3b6",
+    "population_age": "72647f0811e9db892f1571275bc7adf6201aee30f18cac4fe64228175546c750",
+    "population_sex_nationality": "26bb6a4452a0626a211a82b47a516ad45f894430204d37b01b0e80eb794da583",
+    "revenue": "61039f6321eff0e0888157e2acba6eefc05bef6a941ee5822fd66c2b9d3e2328",
+    "staff": "149d720c99993c838d8e02ecbb09f3986a144562fe7f836ee78361c53f8955aa",
+    "taxes": "2434371697f848bccd55eecb1a7c037242a2a9ec77ef733b3d07be01d5b2d9bf",
+    "vehicles": "0e09e311cb5e089f5533e52c3d27724a421f385f3c4b31a5f57129bbcba7fd08"
+  },
+  "vehicle_population_time_alignment": "arithmetic test only; strict same-snapshot comparison blocked because vehicle reference date is unspecified",
+  "results": {
+    "population_total": {
+      "columns": [
+        "municipalities",
+        "people",
+        "women",
+        "men",
+        "people_65_plus"
+      ],
+      "rows": [
+        [
+          106,
+          293081,
+          146123,
+          146958,
+          63260
+        ]
+      ],
+      "sql": "SELECT COUNT(*) AS municipalities, SUM(Total) AS people,\n       SUM(Total_Weiblich) AS women, SUM(Total_Maennlich) AS men,\n       SUM(Alter_65_bis_79 + Alter_80_und_mehr) AS people_65_plus\nFROM population_age;"
+    },
+    "population_by_municipality": {
+      "columns": [
+        "municipality_id",
+        "municipality",
+        "district",
+        "people"
+      ],
+      "rows": [
+        [
+          2401,
+          "Egerkingen",
+          "Bezirk Gäu",
+          4362
+        ],
+        [
+          2402,
+          "Härkingen",
+          "Bezirk Gäu",
+          1774
+        ],
+        [
+          2403,
+          "Kestenholz",
+          "Bezirk Gäu",
+          1891
+        ],
+        [
+          2404,
+          "Neuendorf",
+          "Bezirk Gäu",
+          2422
+        ],
+        [
+          2405,
+          "Niederbuchsiten",
+          "Bezirk Gäu",
+          1376
+        ],
+        [
+          2406,
+          "Oberbuchsiten",
+          "Bezirk Gäu",
+          2408
+        ],
+        [
+          2407,
+          "Oensingen",
+          "Bezirk Gäu",
+          6839
+        ],
+        [
+          2408,
+          "Wolfwil",
+          "Bezirk Gäu",
+          2489
+        ],
+        [
+          2421,
+          "Aedermannsdorf",
+          "Bezirk Thal",
+          609
+        ],
+        [
+          2422,
+          "Balsthal",
+          "Bezirk Thal",
+          6669
+        ],
+        [
+          2424,
+          "Herbetswil",
+          "Bezirk Thal",
+          611
+        ],
+        [
+          2425,
+          "Holderbank (SO)",
+          "Bezirk Thal",
+          828
+        ],
+        [
+          2426,
+          "Laupersdorf",
+          "Bezirk Thal",
+          1927
+        ],
+        [
+          2427,
+          "Matzendorf",
+          "Bezirk Thal",
+          1440
+        ],
+        [
+          2428,
+          "Mümliswil-Ramiswil",
+          "Bezirk Thal",
+          2486
+        ],
+        [
+          2430,
+          "Welschenrohr-Gänsbrunnen",
+          "Bezirk Thal",
+          1201
+        ],
+        [
+          2445,
+          "Biezwil",
+          "Bezirk Bucheggberg",
+          348
+        ],
+        [
+          2455,
+          "Lüterkofen-Ichertswil",
+          "Bezirk Bucheggberg",
+          925
+        ],
+        [
+          2457,
+          "Messen",
+          "Bezirk Bucheggberg",
+          1505
+        ],
+        [
+          2461,
+          "Schnottwil",
+          "Bezirk Bucheggberg",
+          1164
+        ],
+        [
+          2463,
+          "Unterramsern",
+          "Bezirk Bucheggberg",
+          230
+        ],
+        [
+          2464,
+          "Lüsslingen-Nennigkofen",
+          "Bezirk Bucheggberg",
+          1131
+        ],
+        [
+          2465,
+          "Buchegg",
+          "Bezirk Bucheggberg",
+          2982
+        ],
+        [
+          2471,
+          "Bättwil",
+          "Bezirk Dorneck",
+          1194
+        ],
+        [
+          2472,
+          "Büren (SO)",
+          "Bezirk Dorneck",
+          1062
+        ],
+        [
+          2473,
+          "Dornach",
+          "Bezirk Dorneck",
+          6947
+        ],
+        [
+          2474,
+          "Gempen",
+          "Bezirk Dorneck",
+          920
+        ],
+        [
+          2475,
+          "Hochwald",
+          "Bezirk Dorneck",
+          1280
+        ],
+        [
+          2476,
+          "Hofstetten-Flüh",
+          "Bezirk Dorneck",
+          3419
+        ],
+        [
+          2477,
+          "Metzerlen-Mariastein",
+          "Bezirk Dorneck",
+          980
+        ],
+        [
+          2478,
+          "Nuglar-St. Pantaleon",
+          "Bezirk Dorneck",
+          1582
+        ],
+        [
+          2479,
+          "Rodersdorf",
+          "Bezirk Dorneck",
+          1398
+        ],
+        [
+          2480,
+          "Seewen",
+          "Bezirk Dorneck",
+          1096
+        ],
+        [
+          2481,
+          "Witterswil",
+          "Bezirk Dorneck",
+          1474
+        ],
+        [
+          2491,
+          "Hauenstein-Ifenthal",
+          "Bezirk Gösgen",
+          349
+        ],
+        [
+          2492,
+          "Kienberg",
+          "Bezirk Gösgen",
+          528
+        ],
+        [
+          2493,
+          "Lostorf",
+          "Bezirk Gösgen",
+          4119
+        ],
+        [
+          2495,
+          "Niedergösgen",
+          "Bezirk Gösgen",
+          4322
+        ],
+        [
+          2497,
+          "Obergösgen",
+          "Bezirk Gösgen",
+          2563
+        ],
+        [
+          2499,
+          "Stüsslingen",
+          "Bezirk Gösgen",
+          1268
+        ],
+        [
+          2500,
+          "Trimbach",
+          "Bezirk Gösgen",
+          7023
+        ],
+        [
+          2501,
+          "Winznau",
+          "Bezirk Gösgen",
+          2066
+        ],
+        [
+          2502,
+          "Wisen (SO)",
+          "Bezirk Gösgen",
+          452
+        ],
+        [
+          2503,
+          "Erlinsbach (SO)",
+          "Bezirk Gösgen",
+          3770
+        ],
+        [
+          2511,
+          "Aeschi (SO)",
+          "Bezirk Wasseramt",
+          1350
+        ],
+        [
+          2513,
+          "Biberist",
+          "Bezirk Wasseramt",
+          9579
+        ],
+        [
+          2514,
+          "Bolken",
+          "Bezirk Wasseramt",
+          576
+        ],
+        [
+          2516,
+          "Deitingen",
+          "Bezirk Wasseramt",
+          2434
+        ],
+        [
+          2517,
+          "Derendingen",
+          "Bezirk Wasseramt",
+          7255
+        ],
+        [
+          2518,
+          "Etziken",
+          "Bezirk Wasseramt",
+          1095
+        ],
+        [
+          2519,
+          "Gerlafingen",
+          "Bezirk Wasseramt",
+          5881
+        ],
+        [
+          2520,
+          "Halten",
+          "Bezirk Wasseramt",
+          832
+        ],
+        [
+          2523,
+          "Horriwil",
+          "Bezirk Wasseramt",
+          940
+        ],
+        [
+          2524,
+          "Hüniken",
+          "Bezirk Wasseramt",
+          160
+        ],
+        [
+          2525,
+          "Kriegstetten",
+          "Bezirk Wasseramt",
+          1463
+        ],
+        [
+          2526,
+          "Lohn-Ammannsegg",
+          "Bezirk Wasseramt",
+          2947
+        ],
+        [
+          2527,
+          "Luterbach",
+          "Bezirk Wasseramt",
+          3762
+        ],
+        [
+          2528,
+          "Obergerlafingen",
+          "Bezirk Wasseramt",
+          1218
+        ],
+        [
+          2529,
+          "Oekingen",
+          "Bezirk Wasseramt",
+          888
+        ],
+        [
+          2530,
+          "Recherswil",
+          "Bezirk Wasseramt",
+          2266
+        ],
+        [
+          2532,
+          "Subingen",
+          "Bezirk Wasseramt",
+          3312
+        ],
+        [
+          2534,
+          "Zuchwil",
+          "Bezirk Wasseramt",
+          9660
+        ],
+        [
+          2535,
+          "Drei Höfe",
+          "Bezirk Wasseramt",
+          729
+        ],
+        [
+          2541,
+          "Balm bei Günsberg",
+          "Bezirk Lebern",
+          207
+        ],
+        [
+          2542,
+          "Bellach",
+          "Bezirk Lebern",
+          5664
+        ],
+        [
+          2543,
+          "Bettlach",
+          "Bezirk Lebern",
+          4952
+        ],
+        [
+          2544,
+          "Feldbrunnen-St. Niklaus",
+          "Bezirk Lebern",
+          1069
+        ],
+        [
+          2545,
+          "Flumenthal",
+          "Bezirk Lebern",
+          1027
+        ],
+        [
+          2546,
+          "Grenchen",
+          "Bezirk Lebern",
+          19215
+        ],
+        [
+          2547,
+          "Günsberg",
+          "Bezirk Lebern",
+          1170
+        ],
+        [
+          2548,
+          "Hubersdorf",
+          "Bezirk Lebern",
+          728
+        ],
+        [
+          2549,
+          "Kammersrohr",
+          "Bezirk Lebern",
+          31
+        ],
+        [
+          2550,
+          "Langendorf",
+          "Bezirk Lebern",
+          3996
+        ],
+        [
+          2551,
+          "Lommiswil",
+          "Bezirk Lebern",
+          1616
+        ],
+        [
+          2553,
+          "Oberdorf (SO)",
+          "Bezirk Lebern",
+          1808
+        ],
+        [
+          2554,
+          "Riedholz",
+          "Bezirk Lebern",
+          2332
+        ],
+        [
+          2555,
+          "Rüttenen",
+          "Bezirk Lebern",
+          1501
+        ],
+        [
+          2556,
+          "Selzach",
+          "Bezirk Lebern",
+          3766
+        ],
+        [
+          2571,
+          "Boningen",
+          "Bezirk Olten",
+          812
+        ],
+        [
+          2572,
+          "Däniken",
+          "Bezirk Olten",
+          3120
+        ],
+        [
+          2573,
+          "Dulliken",
+          "Bezirk Olten",
+          5540
+        ],
+        [
+          2574,
+          "Eppenberg-Wöschnau",
+          "Bezirk Olten",
+          344
+        ],
+        [
+          2575,
+          "Fulenbach",
+          "Bezirk Olten",
+          1849
+        ],
+        [
+          2576,
+          "Gretzenbach",
+          "Bezirk Olten",
+          2841
+        ],
+        [
+          2578,
+          "Gunzgen",
+          "Bezirk Olten",
+          1788
+        ],
+        [
+          2579,
+          "Hägendorf",
+          "Bezirk Olten",
+          5339
+        ],
+        [
+          2580,
+          "Kappel (SO)",
+          "Bezirk Olten",
+          3594
+        ],
+        [
+          2581,
+          "Olten",
+          "Bezirk Olten",
+          19349
+        ],
+        [
+          2582,
+          "Rickenbach (SO)",
+          "Bezirk Olten",
+          1211
+        ],
+        [
+          2583,
+          "Schönenwerd",
+          "Bezirk Olten",
+          5473
+        ],
+        [
+          2584,
+          "Starrkirch-Wil",
+          "Bezirk Olten",
+          2025
+        ],
+        [
+          2585,
+          "Walterswil (SO)",
+          "Bezirk Olten",
+          770
+        ],
+        [
+          2586,
+          "Wangen bei Olten",
+          "Bezirk Olten",
+          5645
+        ],
+        [
+          2601,
+          "Solothurn",
+          "Bezirk Solothurn",
+          16881
+        ],
+        [
+          2611,
+          "Bärschwil",
+          "Bezirk Thierstein",
+          810
+        ],
+        [
+          2612,
+          "Beinwil (SO)",
+          "Bezirk Thierstein",
+          262
+        ],
+        [
+          2613,
+          "Breitenbach",
+          "Bezirk Thierstein",
+          4486
+        ],
+        [
+          2614,
+          "Büsserach",
+          "Bezirk Thierstein",
+          2487
+        ],
+        [
+          2615,
+          "Erschwil",
+          "Bezirk Thierstein",
+          1006
+        ],
+        [
+          2616,
+          "Fehren",
+          "Bezirk Thierstein",
+          619
+        ],
+        [
+          2617,
+          "Grindel",
+          "Bezirk Thierstein",
+          509
+        ],
+        [
+          2618,
+          "Himmelried",
+          "Bezirk Thierstein",
+          979
+        ],
+        [
+          2619,
+          "Kleinlützel",
+          "Bezirk Thierstein",
+          1198
+        ],
+        [
+          2620,
+          "Meltingen",
+          "Bezirk Thierstein",
+          624
+        ],
+        [
+          2621,
+          "Nunningen",
+          "Bezirk Thierstein",
+          1954
+        ],
+        [
+          2622,
+          "Zullwil",
+          "Bezirk Thierstein",
+          708
+        ]
+      ],
+      "sql": "SELECT BFS_Nr AS municipality_id, Gemeinde AS municipality, Bezirk AS district,\n       Total AS people\nFROM population_age\nORDER BY BFS_Nr;"
+    },
+    "population_by_district": {
+      "columns": [
+        "district",
+        "municipalities",
+        "people"
+      ],
+      "rows": [
+        [
+          "Bezirk Bucheggberg",
+          7,
+          8285
+        ],
+        [
+          "Bezirk Dorneck",
+          11,
+          21352
+        ],
+        [
+          "Bezirk Gäu",
+          8,
+          23561
+        ],
+        [
+          "Bezirk Gösgen",
+          10,
+          26460
+        ],
+        [
+          "Bezirk Lebern",
+          15,
+          49082
+        ],
+        [
+          "Bezirk Olten",
+          15,
+          59700
+        ],
+        [
+          "Bezirk Solothurn",
+          1,
+          16881
+        ],
+        [
+          "Bezirk Thal",
+          8,
+          15771
+        ],
+        [
+          "Bezirk Thierstein",
+          12,
+          15642
+        ],
+        [
+          "Bezirk Wasseramt",
+          19,
+          56347
+        ]
+      ],
+      "sql": "SELECT Bezirk AS district, COUNT(*) AS municipalities, SUM(Total) AS people\nFROM population_age\nGROUP BY Bezirk\nORDER BY Bezirk;"
+    },
+    "vehicles_by_category": {
+      "columns": [
+        "vehicle_category_code",
+        "vehicle_category",
+        "observed_municipalities",
+        "vehicles",
+        "registrations_with_shared_plates_counted_once"
+      ],
+      "rows": [
+        [
+          "01",
+          "Personenwagen",
+          106,
+          168245,
+          156331
+        ],
+        [
+          "02",
+          "Schwerer Personenwagen",
+          6,
+          21,
+          21
+        ],
+        [
+          "10",
+          "Leichter Motorwagen",
+          105,
+          3565,
+          3540
+        ],
+        [
+          "11",
+          "Schwerer Motorwagen",
+          76,
+          262,
+          262
+        ],
+        [
+          "20",
+          "Gesellschaftswagen",
+          23,
+          159,
+          159
+        ],
+        [
+          "21",
+          "Kleinbus",
+          45,
+          95,
+          95
+        ],
+        [
+          "22",
+          "Gelenkbus",
+          5,
+          60,
+          60
+        ],
+        [
+          "30",
+          "Lieferwagen",
+          106,
+          15214,
+          14962
+        ],
+        [
+          "35",
+          "Lastwagen",
+          87,
+          1707,
+          1679
+        ],
+        [
+          "37",
+          "Schweres Sattelmotorfahrzeug",
+          1,
+          1,
+          1
+        ],
+        [
+          "38",
+          "Sattelschlepper",
+          67,
+          989,
+          985
+        ],
+        [
+          "42",
+          "Traktor",
+          82,
+          272,
+          269
+        ],
+        [
+          "43",
+          "Landw. Traktor",
+          106,
+          4552,
+          4181
+        ],
+        [
+          "50",
+          "Arbeitsmaschine",
+          90,
+          686,
+          682
+        ],
+        [
+          "51",
+          "Arbeitskarren",
+          94,
+          992,
+          985
+        ],
+        [
+          "52",
+          "Landw. Arbeitskarren",
+          98,
+          501,
+          495
+        ],
+        [
+          "60",
+          "Motorrad",
+          106,
+          22164,
+          19011
+        ],
+        [
+          "61",
+          "Kleinmotorrad",
+          97,
+          732,
+          712
+        ],
+        [
+          "62",
+          "Motorrad-Dreirad",
+          15,
+          20,
+          20
+        ],
+        [
+          "63",
+          "Motorrad-Seitenwagen",
+          55,
+          93,
+          91
+        ],
+        [
+          "64",
+          "Kleinmotorrad-Dreirad",
+          45,
+          288,
+          287
+        ],
+        [
+          "65",
+          "Leichtmotorfahrzeug",
+          22,
+          27,
+          27
+        ],
+        [
+          "66",
+          "Kleinmotorfahrzeug",
+          103,
+          488,
+          483
+        ],
+        [
+          "67",
+          "Dreiradriges Motorfahrzeug",
+          73,
+          154,
+          154
+        ],
+        [
+          "68",
+          "Motorschlitten",
+          4,
+          5,
+          4
+        ],
+        [
+          "80",
+          "Motorkarren",
+          90,
+          737,
+          732
+        ],
+        [
+          "81",
+          "Landw. Motorkarren",
+          87,
+          459,
+          450
+        ],
+        [
+          "82",
+          "Motoreinachser",
+          9,
+          9,
+          9
+        ],
+        [
+          "83",
+          "Landw. Motoreinachser",
+          76,
+          256,
+          252
+        ],
+        [
+          "85",
+          "Landw. Anhänger",
+          91,
+          528,
+          528
+        ],
+        [
+          "86",
+          "Motorrad-Anhänger",
+          25,
+          229,
+          229
+        ],
+        [
+          "87",
+          "Landw. Arbeitsanhänger",
+          89,
+          386,
+          384
+        ],
+        [
+          "88",
+          "Sattel-Wohnanhänger",
+          8,
+          9,
+          9
+        ],
+        [
+          "89",
+          "Sattel-Anhänger",
+          3,
+          3,
+          3
+        ],
+        [
+          "90",
+          "Sachentransportanhänger",
+          106,
+          10981,
+          10116
+        ],
+        [
+          "92",
+          "Wohnanhänger",
+          103,
+          1822,
+          1804
+        ],
+        [
+          "93",
+          "Sportgerateanhänger",
+          97,
+          647,
+          622
+        ],
+        [
+          "94",
+          "Arbeitsanhänger",
+          93,
+          1316,
+          1309
+        ],
+        [
+          "95",
+          "Sattel-Sachentransportanh",
+          59,
+          622,
+          613
+        ],
+        [
+          "97",
+          "Sattel-Sportgerateanhänger",
+          1,
+          1,
+          1
+        ],
+        [
+          "98",
+          "Sattel-Arbeitsanhänger",
+          3,
+          18,
+          18
+        ],
+        [
+          "99",
+          "Anhänger",
+          66,
+          264,
+          261
+        ]
+      ],
+      "sql": "SELECT FZART_CD AS vehicle_category_code, FZART_NA AS vehicle_category,\n       COUNT(*) AS observed_municipalities, SUM(Anzahl) AS vehicles,\n       SUM(Anzahl_ohne_WS) AS registrations_with_shared_plates_counted_once\nFROM vehicles\nGROUP BY FZART_CD, FZART_NA\nORDER BY FZART_CD, FZART_NA;"
+    },
+    "vehicles_total": {
+      "columns": [
+        "rows",
+        "municipalities",
+        "vehicles",
+        "registrations",
+        "passenger_cars",
+        "motorcycles",
+        "selected_vehicles"
+      ],
+      "rows": [
+        [
+          2623,
+          106,
+          239579,
+          222836,
+          168245,
+          22164,
+          190409
+        ]
+      ],
+      "sql": "SELECT COUNT(*) AS rows, COUNT(DISTINCT GDENR) AS municipalities,\n       SUM(Anzahl) AS vehicles, SUM(Anzahl_ohne_WS) AS registrations,\n       SUM(Anzahl) FILTER (WHERE FZART_CD='01') AS passenger_cars,\n       SUM(Anzahl) FILTER (WHERE FZART_CD='60') AS motorcycles,\n       SUM(Anzahl) FILTER (WHERE FZART_CD IN ('01','60')) AS selected_vehicles\nFROM vehicles;"
+    },
+    "population_vehicles_by_municipality": {
+      "columns": [
+        "municipality_id",
+        "municipality",
+        "district",
+        "people",
+        "vehicles",
+        "passenger_cars",
+        "selected_vehicles",
+        "cars_per_1000_people",
+        "selected_per_1000_people"
+      ],
+      "rows": [
+        [
+          2401,
+          "Egerkingen",
+          "Bezirk Gäu",
+          4362,
+          3869,
+          2706,
+          2917,
+          620.3576341127923,
+          668.7299403943146
+        ],
+        [
+          2402,
+          "Härkingen",
+          "Bezirk Gäu",
+          1774,
+          3070,
+          1564,
+          1713,
+          881.6234498308906,
+          965.6144306651635
+        ],
+        [
+          2403,
+          "Kestenholz",
+          "Bezirk Gäu",
+          1891,
+          1797,
+          1215,
+          1390,
+          642.5171866737176,
+          735.0608143839238
+        ],
+        [
+          2404,
+          "Neuendorf",
+          "Bezirk Gäu",
+          2422,
+          2231,
+          1516,
+          1718,
+          625.9289843104872,
+          709.3311312964493
+        ],
+        [
+          2405,
+          "Niederbuchsiten",
+          "Bezirk Gäu",
+          1376,
+          1396,
+          929,
+          1050,
+          675.1453488372093,
+          763.0813953488372
+        ],
+        [
+          2406,
+          "Oberbuchsiten",
+          "Bezirk Gäu",
+          2408,
+          2163,
+          1550,
+          1719,
+          643.687707641196,
+          713.8704318936877
+        ],
+        [
+          2407,
+          "Oensingen",
+          "Bezirk Gäu",
+          6839,
+          6223,
+          4241,
+          4601,
+          620.1199005702588,
+          672.759175318029
+        ],
+        [
+          2408,
+          "Wolfwil",
+          "Bezirk Gäu",
+          2489,
+          2676,
+          1643,
+          1847,
+          660.1044596223383,
+          742.0650863800723
+        ],
+        [
+          2421,
+          "Aedermannsdorf",
+          "Bezirk Thal",
+          609,
+          650,
+          398,
+          446,
+          653.5303776683087,
+          732.3481116584564
+        ],
+        [
+          2422,
+          "Balsthal",
+          "Bezirk Thal",
+          6669,
+          5450,
+          3857,
+          4251,
+          578.3475783475783,
+          637.4269005847954
+        ],
+        [
+          2424,
+          "Herbetswil",
+          "Bezirk Thal",
+          611,
+          648,
+          381,
+          436,
+          623.5679214402619,
+          713.5842880523732
+        ],
+        [
+          2425,
+          "Holderbank (SO)",
+          "Bezirk Thal",
+          828,
+          797,
+          518,
+          608,
+          625.6038647342995,
+          734.2995169082126
+        ],
+        [
+          2426,
+          "Laupersdorf",
+          "Bezirk Thal",
+          1927,
+          1827,
+          1196,
+          1350,
+          620.6538661131292,
+          700.570835495589
+        ],
+        [
+          2427,
+          "Matzendorf",
+          "Bezirk Thal",
+          1440,
+          1488,
+          873,
+          1013,
+          606.25,
+          703.4722222222222
+        ],
+        [
+          2428,
+          "Mümliswil-Ramiswil",
+          "Bezirk Thal",
+          2486,
+          2661,
+          1599,
+          1786,
+          643.2019308125502,
+          718.4231697506034
+        ],
+        [
+          2430,
+          "Welschenrohr-Gänsbrunnen",
+          "Bezirk Thal",
+          1201,
+          1265,
+          768,
+          870,
+          639.4671107410492,
+          724.3963363863447
+        ],
+        [
+          2445,
+          "Biezwil",
+          "Bezirk Bucheggberg",
+          348,
+          401,
+          255,
+          302,
+          732.7586206896551,
+          867.816091954023
+        ],
+        [
+          2455,
+          "Lüterkofen-Ichertswil",
+          "Bezirk Bucheggberg",
+          925,
+          868,
+          576,
+          692,
+          622.7027027027027,
+          748.1081081081081
+        ],
+        [
+          2457,
+          "Messen",
+          "Bezirk Bucheggberg",
+          1505,
+          1635,
+          1009,
+          1178,
+          670.4318936877077,
+          782.7242524916943
+        ],
+        [
+          2461,
+          "Schnottwil",
+          "Bezirk Bucheggberg",
+          1164,
+          1380,
+          785,
+          923,
+          674.3986254295532,
+          792.955326460481
+        ],
+        [
+          2463,
+          "Unterramsern",
+          "Bezirk Bucheggberg",
+          230,
+          259,
+          159,
+          179,
+          691.304347826087,
+          778.2608695652174
+        ],
+        [
+          2464,
+          "Lüsslingen-Nennigkofen",
+          "Bezirk Bucheggberg",
+          1131,
+          1092,
+          688,
+          787,
+          608.3112290008842,
+          695.8443854995579
+        ],
+        [
+          2465,
+          "Buchegg",
+          "Bezirk Bucheggberg",
+          2982,
+          3454,
+          2139,
+          2492,
+          717.3038229376258,
+          835.6807511737089
+        ],
+        [
+          2471,
+          "Bättwil",
+          "Bezirk Dorneck",
+          1194,
+          1114,
+          722,
+          862,
+          604.6901172529314,
+          721.9430485762144
+        ],
+        [
+          2472,
+          "Büren (SO)",
+          "Bezirk Dorneck",
+          1062,
+          1030,
+          637,
+          779,
+          599.8116760828625,
+          733.5216572504709
+        ],
+        [
+          2473,
+          "Dornach",
+          "Bezirk Dorneck",
+          6947,
+          4582,
+          3357,
+          3844,
+          483.23017129696274,
+          553.3323736864834
+        ],
+        [
+          2474,
+          "Gempen",
+          "Bezirk Dorneck",
+          920,
+          990,
+          608,
+          713,
+          660.8695652173913,
+          775.0
+        ],
+        [
+          2475,
+          "Hochwald",
+          "Bezirk Dorneck",
+          1280,
+          1372,
+          891,
+          1038,
+          696.09375,
+          810.9375
+        ],
+        [
+          2476,
+          "Hofstetten-Flüh",
+          "Bezirk Dorneck",
+          3419,
+          2772,
+          2010,
+          2344,
+          587.8911962562153,
+          685.5805791167008
+        ],
+        [
+          2477,
+          "Metzerlen-Mariastein",
+          "Bezirk Dorneck",
+          980,
+          1063,
+          647,
+          786,
+          660.204081632653,
+          802.0408163265306
+        ],
+        [
+          2478,
+          "Nuglar-St. Pantaleon",
+          "Bezirk Dorneck",
+          1582,
+          1430,
+          941,
+          1069,
+          594.8166877370418,
+          675.7269279393173
+        ],
+        [
+          2479,
+          "Rodersdorf",
+          "Bezirk Dorneck",
+          1398,
+          1069,
+          742,
+          881,
+          530.758226037196,
+          630.1859799713877
+        ],
+        [
+          2480,
+          "Seewen",
+          "Bezirk Dorneck",
+          1096,
+          1374,
+          750,
+          877,
+          684.3065693430657,
+          800.1824817518249
+        ],
+        [
+          2481,
+          "Witterswil",
+          "Bezirk Dorneck",
+          1474,
+          1187,
+          814,
+          973,
+          552.2388059701492,
+          660.1085481682496
+        ],
+        [
+          2491,
+          "Hauenstein-Ifenthal",
+          "Bezirk Gösgen",
+          349,
+          360,
+          206,
+          258,
+          590.2578796561604,
+          739.2550143266476
+        ],
+        [
+          2492,
+          "Kienberg",
+          "Bezirk Gösgen",
+          528,
+          644,
+          338,
+          399,
+          640.1515151515151,
+          755.6818181818181
+        ],
+        [
+          2493,
+          "Lostorf",
+          "Bezirk Gösgen",
+          4119,
+          3691,
+          2612,
+          3071,
+          634.1344986647244,
+          745.569312940034
+        ],
+        [
+          2495,
+          "Niedergösgen",
+          "Bezirk Gösgen",
+          4322,
+          3404,
+          2427,
+          2747,
+          561.5455807496529,
+          635.5853771402128
+        ],
+        [
+          2497,
+          "Obergösgen",
+          "Bezirk Gösgen",
+          2563,
+          2063,
+          1446,
+          1692,
+          564.1825985173625,
+          660.1638704642996
+        ],
+        [
+          2499,
+          "Stüsslingen",
+          "Bezirk Gösgen",
+          1268,
+          1219,
+          814,
+          959,
+          641.9558359621451,
+          756.3091482649842
+        ],
+        [
+          2500,
+          "Trimbach",
+          "Bezirk Gösgen",
+          7023,
+          4020,
+          3079,
+          3439,
+          438.41663106934357,
+          489.67677630642174
+        ],
+        [
+          2501,
+          "Winznau",
+          "Bezirk Gösgen",
+          2066,
+          1658,
+          1157,
+          1374,
+          560.0193610842207,
+          665.053242981607
+        ],
+        [
+          2502,
+          "Wisen (SO)",
+          "Bezirk Gösgen",
+          452,
+          464,
+          292,
+          338,
+          646.0176991150443,
+          747.787610619469
+        ],
+        [
+          2503,
+          "Erlinsbach (SO)",
+          "Bezirk Gösgen",
+          3770,
+          2661,
+          1967,
+          2276,
+          521.7506631299734,
+          603.7135278514589
+        ],
+        [
+          2511,
+          "Aeschi (SO)",
+          "Bezirk Wasseramt",
+          1350,
+          1289,
+          899,
+          1008,
+          665.925925925926,
+          746.6666666666666
+        ],
+        [
+          2513,
+          "Biberist",
+          "Bezirk Wasseramt",
+          9579,
+          6522,
+          4865,
+          5502,
+          507.8818248251383,
+          574.3814594425305
+        ],
+        [
+          2514,
+          "Bolken",
+          "Bezirk Wasseramt",
+          576,
+          542,
+          373,
+          442,
+          647.5694444444445,
+          767.3611111111111
+        ],
+        [
+          2516,
+          "Deitingen",
+          "Bezirk Wasseramt",
+          2434,
+          2382,
+          1582,
+          1843,
+          649.9589153656533,
+          757.189811010682
+        ],
+        [
+          2517,
+          "Derendingen",
+          "Bezirk Wasseramt",
+          7255,
+          5120,
+          4001,
+          4486,
+          551.4817367332873,
+          618.3321847002068
+        ],
+        [
+          2518,
+          "Etziken",
+          "Bezirk Wasseramt",
+          1095,
+          959,
+          685,
+          779,
+          625.5707762557078,
+          711.4155251141552
+        ],
+        [
+          2519,
+          "Gerlafingen",
+          "Bezirk Wasseramt",
+          5881,
+          4333,
+          3318,
+          3689,
+          564.1897636456385,
+          627.274273082809
+        ],
+        [
+          2520,
+          "Halten",
+          "Bezirk Wasseramt",
+          832,
+          785,
+          524,
+          627,
+          629.8076923076923,
+          753.6057692307693
+        ],
+        [
+          2523,
+          "Horriwil",
+          "Bezirk Wasseramt",
+          940,
+          872,
+          584,
+          671,
+          621.2765957446809,
+          713.8297872340426
+        ],
+        [
+          2524,
+          "Hüniken",
+          "Bezirk Wasseramt",
+          160,
+          172,
+          98,
+          112,
+          612.5,
+          700.0
+        ],
+        [
+          2525,
+          "Kriegstetten",
+          "Bezirk Wasseramt",
+          1463,
+          1198,
+          946,
+          1078,
+          646.6165413533835,
+          736.8421052631579
+        ],
+        [
+          2526,
+          "Lohn-Ammannsegg",
+          "Bezirk Wasseramt",
+          2947,
+          2615,
+          1909,
+          2156,
+          647.7774007465218,
+          731.5914489311164
+        ],
+        [
+          2527,
+          "Luterbach",
+          "Bezirk Wasseramt",
+          3762,
+          3163,
+          2187,
+          2460,
+          581.3397129186603,
+          653.9074960127592
+        ],
+        [
+          2528,
+          "Obergerlafingen",
+          "Bezirk Wasseramt",
+          1218,
+          1211,
+          836,
+          958,
+          686.3711001642037,
+          786.5353037766831
+        ],
+        [
+          2529,
+          "Oekingen",
+          "Bezirk Wasseramt",
+          888,
+          789,
+          588,
+          671,
+          662.1621621621622,
+          755.6306306306307
+        ],
+        [
+          2530,
+          "Recherswil",
+          "Bezirk Wasseramt",
+          2266,
+          2146,
+          1508,
+          1734,
+          665.4898499558693,
+          765.22506619594
+        ],
+        [
+          2532,
+          "Subingen",
+          "Bezirk Wasseramt",
+          3312,
+          3223,
+          2157,
+          2449,
+          651.268115942029,
+          739.4323671497584
+        ],
+        [
+          2534,
+          "Zuchwil",
+          "Bezirk Wasseramt",
+          9660,
+          6598,
+          5023,
+          5467,
+          519.9792960662526,
+          565.9420289855072
+        ],
+        [
+          2535,
+          "Drei Höfe",
+          "Bezirk Wasseramt",
+          729,
+          790,
+          534,
+          633,
+          732.5102880658436,
+          868.312757201646
+        ],
+        [
+          2541,
+          "Balm bei Günsberg",
+          "Bezirk Lebern",
+          207,
+          269,
+          156,
+          182,
+          753.6231884057971,
+          879.2270531400966
+        ],
+        [
+          2542,
+          "Bellach",
+          "Bezirk Lebern",
+          5664,
+          4472,
+          3334,
+          3660,
+          588.6299435028249,
+          646.1864406779661
+        ],
+        [
+          2543,
+          "Bettlach",
+          "Bezirk Lebern",
+          4952,
+          4305,
+          3163,
+          3657,
+          638.7318255250403,
+          738.4894991922456
+        ],
+        [
+          2544,
+          "Feldbrunnen-St. Niklaus",
+          "Bezirk Lebern",
+          1069,
+          1060,
+          827,
+          917,
+          773.6202057998129,
+          857.8110383536015
+        ],
+        [
+          2545,
+          "Flumenthal",
+          "Bezirk Lebern",
+          1027,
+          1059,
+          716,
+          835,
+          697.1762414800389,
+          813.047711781889
+        ],
+        [
+          2546,
+          "Grenchen",
+          "Bezirk Lebern",
+          19215,
+          13313,
+          10360,
+          11430,
+          539.1621129326047,
+          594.8477751756441
+        ],
+        [
+          2547,
+          "Günsberg",
+          "Bezirk Lebern",
+          1170,
+          1158,
+          811,
+          943,
+          693.1623931623932,
+          805.982905982906
+        ],
+        [
+          2548,
+          "Hubersdorf",
+          "Bezirk Lebern",
+          728,
+          632,
+          463,
+          538,
+          635.989010989011,
+          739.010989010989
+        ],
+        [
+          2549,
+          "Kammersrohr",
+          "Bezirk Lebern",
+          31,
+          41,
+          22,
+          24,
+          709.6774193548387,
+          774.1935483870968
+        ],
+        [
+          2550,
+          "Langendorf",
+          "Bezirk Lebern",
+          3996,
+          2577,
+          2022,
+          2244,
+          506.00600600600603,
+          561.5615615615616
+        ],
+        [
+          2551,
+          "Lommiswil",
+          "Bezirk Lebern",
+          1616,
+          1351,
+          985,
+          1132,
+          609.5297029702971,
+          700.4950495049505
+        ],
+        [
+          2553,
+          "Oberdorf (SO)",
+          "Bezirk Lebern",
+          1808,
+          1398,
+          1027,
+          1177,
+          568.0309734513274,
+          650.9955752212389
+        ],
+        [
+          2554,
+          "Riedholz",
+          "Bezirk Lebern",
+          2332,
+          2072,
+          1509,
+          1736,
+          647.0840480274443,
+          744.4253859348199
+        ],
+        [
+          2555,
+          "Rüttenen",
+          "Bezirk Lebern",
+          1501,
+          1110,
+          768,
+          880,
+          511.65889407061957,
+          586.275816122585
+        ],
+        [
+          2556,
+          "Selzach",
+          "Bezirk Lebern",
+          3766,
+          3282,
+          2348,
+          2679,
+          623.473181093999,
+          711.3648433351036
+        ],
+        [
+          2571,
+          "Boningen",
+          "Bezirk Olten",
+          812,
+          815,
+          517,
+          619,
+          636.6995073891626,
+          762.3152709359606
+        ],
+        [
+          2572,
+          "Däniken",
+          "Bezirk Olten",
+          3120,
+          3153,
+          2109,
+          2409,
+          675.9615384615385,
+          772.1153846153846
+        ],
+        [
+          2573,
+          "Dulliken",
+          "Bezirk Olten",
+          5540,
+          3779,
+          2888,
+          3222,
+          521.2996389891697,
+          581.5884476534296
+        ],
+        [
+          2574,
+          "Eppenberg-Wöschnau",
+          "Bezirk Olten",
+          344,
+          453,
+          199,
+          220,
+          578.4883720930233,
+          639.5348837209302
+        ],
+        [
+          2575,
+          "Fulenbach",
+          "Bezirk Olten",
+          1849,
+          1835,
+          1209,
+          1370,
+          653.8669551108708,
+          740.9410492157923
+        ],
+        [
+          2576,
+          "Gretzenbach",
+          "Bezirk Olten",
+          2841,
+          2629,
+          1874,
+          2142,
+          659.6268919394579,
+          753.9598732840549
+        ],
+        [
+          2578,
+          "Gunzgen",
+          "Bezirk Olten",
+          1788,
+          1819,
+          1175,
+          1330,
+          657.158836689038,
+          743.8478747203579
+        ],
+        [
+          2579,
+          "Hägendorf",
+          "Bezirk Olten",
+          5339,
+          4700,
+          3221,
+          3613,
+          603.2964974714366,
+          676.718486607979
+        ],
+        [
+          2580,
+          "Kappel (SO)",
+          "Bezirk Olten",
+          3594,
+          2753,
+          2075,
+          2364,
+          577.3511407902059,
+          657.762938230384
+        ],
+        [
+          2581,
+          "Olten",
+          "Bezirk Olten",
+          19349,
+          10751,
+          8010,
+          8904,
+          413.97488242286425,
+          460.17882061088426
+        ],
+        [
+          2582,
+          "Rickenbach (SO)",
+          "Bezirk Olten",
+          1211,
+          1269,
+          816,
+          931,
+          673.8232865400496,
+          768.7861271676301
+        ],
+        [
+          2583,
+          "Schönenwerd",
+          "Bezirk Olten",
+          5473,
+          3803,
+          2836,
+          3157,
+          518.1801571350265,
+          576.8317193495341
+        ],
+        [
+          2584,
+          "Starrkirch-Wil",
+          "Bezirk Olten",
+          2025,
+          1269,
+          1028,
+          1159,
+          507.65432098765433,
+          572.3456790123457
+        ],
+        [
+          2585,
+          "Walterswil (SO)",
+          "Bezirk Olten",
+          770,
+          895,
+          538,
+          638,
+          698.7012987012987,
+          828.5714285714286
+        ],
+        [
+          2586,
+          "Wangen bei Olten",
+          "Bezirk Olten",
+          5645,
+          3907,
+          2906,
+          3273,
+          514.7918511957484,
+          579.8051372896368
+        ],
+        [
+          2601,
+          "Solothurn",
+          "Bezirk Solothurn",
+          16881,
+          12154,
+          9084,
+          9962,
+          538.1197796339079,
+          590.1309164149043
+        ],
+        [
+          2611,
+          "Bärschwil",
+          "Bezirk Thierstein",
+          810,
+          879,
+          505,
+          600,
+          623.4567901234568,
+          740.7407407407408
+        ],
+        [
+          2612,
+          "Beinwil (SO)",
+          "Bezirk Thierstein",
+          262,
+          433,
+          199,
+          235,
+          759.5419847328244,
+          896.9465648854962
+        ],
+        [
+          2613,
+          "Breitenbach",
+          "Bezirk Thierstein",
+          4486,
+          3496,
+          2517,
+          2888,
+          561.0789121711992,
+          643.7806509139546
+        ],
+        [
+          2614,
+          "Büsserach",
+          "Bezirk Thierstein",
+          2487,
+          2534,
+          1594,
+          1876,
+          640.9328508242863,
+          754.3224768797749
+        ],
+        [
+          2615,
+          "Erschwil",
+          "Bezirk Thierstein",
+          1006,
+          1189,
+          572,
+          683,
+          568.5884691848906,
+          678.9264413518887
+        ],
+        [
+          2616,
+          "Fehren",
+          "Bezirk Thierstein",
+          619,
+          602,
+          381,
+          450,
+          615.5088852988691,
+          726.9789983844911
+        ],
+        [
+          2617,
+          "Grindel",
+          "Bezirk Thierstein",
+          509,
+          435,
+          295,
+          337,
+          579.5677799607073,
+          662.0825147347741
+        ],
+        [
+          2618,
+          "Himmelried",
+          "Bezirk Thierstein",
+          979,
+          1033,
+          656,
+          788,
+          670.0715015321757,
+          804.902962206333
+        ],
+        [
+          2619,
+          "Kleinlützel",
+          "Bezirk Thierstein",
+          1198,
+          1236,
+          746,
+          868,
+          622.7045075125209,
+          724.5409015025042
+        ],
+        [
+          2620,
+          "Meltingen",
+          "Bezirk Thierstein",
+          624,
+          678,
+          421,
+          500,
+          674.6794871794872,
+          801.2820512820513
+        ],
+        [
+          2621,
+          "Nunningen",
+          "Bezirk Thierstein",
+          1954,
+          2121,
+          1315,
+          1589,
+          672.978505629478,
+          813.2036847492324
+        ],
+        [
+          2622,
+          "Zullwil",
+          "Bezirk Thierstein",
+          708,
+          684,
+          409,
+          496,
+          577.6836158192091,
+          700.5649717514125
+        ]
+      ],
+      "sql": "WITH v AS (\n  SELECT GDENR AS municipality_id,\n         SUM(Anzahl) AS vehicles,\n         SUM(Anzahl) FILTER (WHERE FZART_CD='01') AS passenger_cars,\n         SUM(Anzahl) FILTER (WHERE FZART_CD IN ('01','60')) AS selected_vehicles\n  FROM vehicles GROUP BY GDENR\n)\nSELECT p.BFS_Nr AS municipality_id, p.Gemeinde AS municipality, p.Bezirk AS district,\n       p.Total AS people, v.vehicles, v.passenger_cars, v.selected_vehicles,\n       1000.0*v.passenger_cars/NULLIF(p.Total,0) AS cars_per_1000_people,\n       1000.0*v.selected_vehicles/NULLIF(p.Total,0) AS selected_per_1000_people\nFROM population_age p LEFT JOIN v ON p.BFS_Nr=v.municipality_id\nORDER BY p.BFS_Nr;"
+    },
+    "population_vehicles_by_district": {
+      "columns": [
+        "district",
+        "people",
+        "vehicles",
+        "passenger_cars",
+        "selected_vehicles",
+        "cars_per_1000_people",
+        "selected_per_1000_people"
+      ],
+      "rows": [
+        [
+          "Bezirk Bucheggberg",
+          8285,
+          9089,
+          5611,
+          6553,
+          677.2480386240193,
+          790.9474954737477
+        ],
+        [
+          "Bezirk Dorneck",
+          21352,
+          17983,
+          12119,
+          14166,
+          567.5814911952042,
+          663.4507306107156
+        ],
+        [
+          "Bezirk Gäu",
+          23561,
+          23425,
+          15364,
+          16955,
+          652.0945630491066,
+          719.6214082594117
+        ],
+        [
+          "Bezirk Gösgen",
+          26460,
+          20184,
+          14338,
+          16553,
+          541.8745275888133,
+          625.5857898715042
+        ],
+        [
+          "Bezirk Lebern",
+          49082,
+          38099,
+          28511,
+          32034,
+          580.8850495089849,
+          652.6628906727517
+        ],
+        [
+          "Bezirk Olten",
+          59700,
+          43830,
+          31401,
+          35351,
+          525.9798994974874,
+          592.14405360134
+        ],
+        [
+          "Bezirk Solothurn",
+          16881,
+          12154,
+          9084,
+          9962,
+          538.1197796339079,
+          590.1309164149043
+        ],
+        [
+          "Bezirk Thal",
+          15771,
+          14786,
+          9590,
+          10760,
+          608.0781180648025,
+          682.264916619111
+        ],
+        [
+          "Bezirk Thierstein",
+          15642,
+          15320,
+          9610,
+          11310,
+          614.3715637386523,
+          723.0533179900268
+        ],
+        [
+          "Bezirk Wasseramt",
+          56347,
+          44709,
+          32617,
+          36765,
+          578.8595666140167,
+          652.4748433811916
+        ]
+      ],
+      "sql": "WITH v AS (\n  SELECT GDENR AS municipality_id, SUM(Anzahl) AS vehicles,\n         SUM(Anzahl) FILTER (WHERE FZART_CD='01') AS passenger_cars,\n         SUM(Anzahl) FILTER (WHERE FZART_CD IN ('01','60')) AS selected_vehicles\n  FROM vehicles GROUP BY GDENR\n)\nSELECT p.Bezirk AS district, SUM(p.Total) AS people, SUM(v.vehicles) AS vehicles,\n       SUM(v.passenger_cars) AS passenger_cars, SUM(v.selected_vehicles) AS selected_vehicles,\n       1000.0*SUM(v.passenger_cars)/NULLIF(SUM(p.Total),0) AS cars_per_1000_people,\n       1000.0*SUM(v.selected_vehicles)/NULLIF(SUM(p.Total),0) AS selected_per_1000_people\nFROM population_age p LEFT JOIN v ON p.BFS_Nr=v.municipality_id\nGROUP BY p.Bezirk\nORDER BY p.Bezirk;"
+    },
+    "canton_vehicle_ratios": {
+      "columns": [
+        "people",
+        "vehicles",
+        "passenger_cars",
+        "selected_vehicles",
+        "cars_per_1000_people",
+        "selected_per_1000_people"
+      ],
+      "rows": [
+        [
+          293081,
+          239579,
+          168245,
+          190409,
+          574.0563189016005,
+          649.6804637625776
+        ]
+      ],
+      "sql": "WITH p AS (SELECT SUM(Total) AS people FROM population_age),\nv AS (SELECT SUM(Anzahl) AS vehicles,\n             SUM(Anzahl) FILTER (WHERE FZART_CD='01') AS passenger_cars,\n             SUM(Anzahl) FILTER (WHERE FZART_CD IN ('01','60')) AS selected_vehicles FROM vehicles)\nSELECT p.people,v.vehicles,v.passenger_cars,v.selected_vehicles,\n       1000.0*v.passenger_cars/NULLIF(p.people,0) AS cars_per_1000_people,\n       1000.0*v.selected_vehicles/NULLIF(p.people,0) AS selected_per_1000_people\nFROM p CROSS JOIN v;"
+    },
+    "fixed_population_denominator_by_category": {
+      "columns": [
+        "vehicle_category_code",
+        "vehicle_category",
+        "vehicles",
+        "canton_population_reference",
+        "vehicles_per_1000_people"
+      ],
+      "rows": [
+        [
+          "01",
+          "Personenwagen",
+          168245,
+          293081,
+          574.0563189016005
+        ],
+        [
+          "60",
+          "Motorrad",
+          22164,
+          293081,
+          75.624144860977
+        ]
+      ],
+      "sql": "WITH p AS (SELECT SUM(Total) AS people FROM population_age)\nSELECT v.FZART_CD AS vehicle_category_code, v.FZART_NA AS vehicle_category,\n       SUM(v.Anzahl) AS vehicles, MAX(p.people) AS canton_population_reference,\n       1000.0*SUM(v.Anzahl)/NULLIF(MAX(p.people),0) AS vehicles_per_1000_people\nFROM vehicles v CROSS JOIN p\nWHERE v.FZART_CD IN ('01','60')\nGROUP BY v.FZART_CD,v.FZART_NA ORDER BY v.FZART_CD;"
+    },
+    "staff_by_year": {
+      "columns": [
+        "report_year",
+        "people",
+        "education_rows"
+      ],
+      "rows": [
+        [
+          1980,
+          65,
+          5
+        ],
+        [
+          1981,
+          68,
+          5
+        ],
+        [
+          1982,
+          69,
+          5
+        ],
+        [
+          1983,
+          65,
+          5
+        ],
+        [
+          1984,
+          69,
+          5
+        ],
+        [
+          1985,
+          65,
+          5
+        ],
+        [
+          1986,
+          63,
+          5
+        ],
+        [
+          1987,
+          66,
+          5
+        ],
+        [
+          1988,
+          64,
+          5
+        ],
+        [
+          1989,
+          71,
+          4
+        ],
+        [
+          1990,
+          68,
+          4
+        ],
+        [
+          1991,
+          80,
+          4
+        ],
+        [
+          1992,
+          76,
+          4
+        ],
+        [
+          1993,
+          79,
+          4
+        ],
+        [
+          1994,
+          80,
+          4
+        ],
+        [
+          1995,
+          81,
+          5
+        ],
+        [
+          1996,
+          75,
+          5
+        ],
+        [
+          1997,
+          75,
+          5
+        ],
+        [
+          1998,
+          80,
+          5
+        ],
+        [
+          1999,
+          79,
+          5
+        ],
+        [
+          2000,
+          79,
+          5
+        ],
+        [
+          2001,
+          76,
+          5
+        ],
+        [
+          2002,
+          74,
+          5
+        ],
+        [
+          2003,
+          72,
+          5
+        ],
+        [
+          2004,
+          72,
+          5
+        ],
+        [
+          2005,
+          72,
+          5
+        ],
+        [
+          2006,
+          69,
+          5
+        ],
+        [
+          2007,
+          71,
+          5
+        ],
+        [
+          2008,
+          75,
+          5
+        ],
+        [
+          2009,
+          76,
+          5
+        ],
+        [
+          2010,
+          68,
+          5
+        ],
+        [
+          2011,
+          61,
+          5
+        ],
+        [
+          2012,
+          60,
+          5
+        ],
+        [
+          2013,
+          65,
+          5
+        ],
+        [
+          2014,
+          62,
+          5
+        ],
+        [
+          2015,
+          61,
+          5
+        ],
+        [
+          2016,
+          64,
+          5
+        ],
+        [
+          2017,
+          68,
+          5
+        ],
+        [
+          2018,
+          73,
+          5
+        ],
+        [
+          2019,
+          75,
+          5
+        ],
+        [
+          2020,
+          70,
+          5
+        ],
+        [
+          2021,
+          67,
+          5
+        ],
+        [
+          2022,
+          68,
+          5
+        ],
+        [
+          2023,
+          66,
+          5
+        ],
+        [
+          2024,
+          66,
+          5
+        ],
+        [
+          2025,
+          65,
+          5
+        ]
+      ],
+      "sql": "SELECT jahr AS report_year,SUM(anzahl_mitarbeitende) AS people,\n       COUNT(*) AS education_rows\nFROM staff GROUP BY jahr ORDER BY jahr;"
+    },
+    "staff_revenue_by_year": {
+      "columns": [
+        "report_year",
+        "people",
+        "nominal_revenue_chf",
+        "nominal_chf_per_person"
+      ],
+      "rows": [
+        [
+          1980,
+          65,
+          null,
+          null
+        ],
+        [
+          1981,
+          68,
+          null,
+          null
+        ],
+        [
+          1982,
+          69,
+          null,
+          null
+        ],
+        [
+          1983,
+          65,
+          "2612700.00",
+          40195.38461538462
+        ],
+        [
+          1984,
+          69,
+          "2531850.00",
+          36693.47826086957
+        ],
+        [
+          1985,
+          65,
+          "2471030.00",
+          38015.846153846156
+        ],
+        [
+          1986,
+          63,
+          "2511138.00",
+          39859.333333333336
+        ],
+        [
+          1987,
+          66,
+          "2999240.00",
+          45443.030303030304
+        ],
+        [
+          1988,
+          64,
+          "2775300.00",
+          43364.0625
+        ],
+        [
+          1989,
+          71,
+          "3023870.00",
+          42589.718309859156
+        ],
+        [
+          1990,
+          68,
+          "3176925.00",
+          46719.48529411765
+        ],
+        [
+          1991,
+          80,
+          "3461677.00",
+          43270.9625
+        ],
+        [
+          1992,
+          76,
+          "3998883.00",
+          52616.88157894737
+        ],
+        [
+          1993,
+          79,
+          "4062400.00",
+          51422.784810126584
+        ],
+        [
+          1994,
+          80,
+          "4092301.00",
+          51153.7625
+        ],
+        [
+          1995,
+          81,
+          "3520350.00",
+          43461.11111111111
+        ],
+        [
+          1996,
+          75,
+          "3451000.00",
+          46013.333333333336
+        ],
+        [
+          1997,
+          75,
+          "3507000.00",
+          46760.0
+        ],
+        [
+          1998,
+          80,
+          "3742243.00",
+          46778.0375
+        ],
+        [
+          1999,
+          79,
+          "3636381.00",
+          46030.13924050633
+        ],
+        [
+          2000,
+          79,
+          "3529612.00",
+          44678.63291139241
+        ],
+        [
+          2001,
+          76,
+          "3241170.00",
+          42646.97368421053
+        ],
+        [
+          2002,
+          74,
+          "3560600.00",
+          48116.21621621621
+        ],
+        [
+          2003,
+          72,
+          "3496779.00",
+          48566.375
+        ],
+        [
+          2004,
+          72,
+          "3776777.50",
+          52455.243055555555
+        ],
+        [
+          2005,
+          72,
+          "3733640.75",
+          51856.12152777778
+        ],
+        [
+          2006,
+          69,
+          "3323974.00",
+          48173.536231884056
+        ],
+        [
+          2007,
+          71,
+          "3178275.00",
+          44764.43661971831
+        ],
+        [
+          2008,
+          75,
+          "3613613.00",
+          48181.50666666667
+        ],
+        [
+          2009,
+          76,
+          "3356558.00",
+          44165.23684210526
+        ],
+        [
+          2010,
+          68,
+          "3604769.00",
+          53011.30882352941
+        ],
+        [
+          2011,
+          61,
+          "3540756.00",
+          58045.18032786885
+        ],
+        [
+          2012,
+          60,
+          "3401039.00",
+          56683.98333333333
+        ],
+        [
+          2013,
+          65,
+          "3597118.00",
+          55340.276923076926
+        ],
+        [
+          2014,
+          62,
+          "3642608.00",
+          58751.74193548387
+        ],
+        [
+          2015,
+          61,
+          "3278757.00",
+          53750.11475409836
+        ],
+        [
+          2016,
+          64,
+          "3349200.00",
+          52331.25
+        ],
+        [
+          2017,
+          68,
+          "3542345.00",
+          52093.30882352941
+        ],
+        [
+          2018,
+          73,
+          "3228252.00",
+          44222.6301369863
+        ],
+        [
+          2019,
+          75,
+          "3448764.00",
+          45983.52
+        ],
+        [
+          2020,
+          70,
+          "3211410.00",
+          45877.28571428572
+        ],
+        [
+          2021,
+          67,
+          "3127819.00",
+          46683.86567164179
+        ],
+        [
+          2022,
+          68,
+          "3028039.00",
+          44529.98529411765
+        ],
+        [
+          2023,
+          66,
+          "2762610.00",
+          41857.72727272727
+        ],
+        [
+          2024,
+          66,
+          "2566066.00",
+          38879.78787878788
+        ],
+        [
+          2025,
+          65,
+          "2762610.00",
+          42501.692307692305
+        ]
+      ],
+      "sql": "WITH s AS (SELECT jahr,SUM(anzahl_mitarbeitende) AS people FROM staff GROUP BY jahr)\nSELECT s.jahr AS report_year,s.people,CAST(r.umsatz AS DECIMAL(18,2)) AS nominal_revenue_chf,\n       CAST(r.umsatz AS DECIMAL(18,2))/NULLIF(s.people,0) AS nominal_chf_per_person\nFROM s LEFT JOIN revenue r USING(jahr) ORDER BY s.jahr;"
+    },
+    "staff_revenue_2024_2025": {
+      "columns": [
+        "report_year",
+        "people",
+        "nominal_revenue_chf",
+        "nominal_chf_per_person"
+      ],
+      "rows": [
+        [
+          2024,
+          66,
+          "2566066.00",
+          38879.78787878788
+        ],
+        [
+          2025,
+          65,
+          "2762610.00",
+          42501.692307692305
+        ]
+      ],
+      "sql": "WITH s AS (SELECT jahr,SUM(anzahl_mitarbeitende) AS people FROM staff GROUP BY jahr)\nSELECT s.jahr AS report_year,s.people,CAST(r.umsatz AS DECIMAL(18,2)) AS nominal_revenue_chf,\n       CAST(r.umsatz AS DECIMAL(18,2))/NULLIF(s.people,0) AS nominal_chf_per_person\nFROM s JOIN revenue r USING(jahr) WHERE s.jahr IN(2024,2025) ORDER BY s.jahr;"
+    },
+    "staff_average_of_annual_totals_2024_2025": {
+      "columns": [
+        "average_annual_total",
+        "observed_years"
+      ],
+      "rows": [
+        [
+          65.5,
+          2
+        ]
+      ],
+      "sql": "WITH s AS (SELECT jahr,SUM(anzahl_mitarbeitende) AS people FROM staff WHERE jahr IN(2024,2025) GROUP BY jahr)\nSELECT AVG(people) AS average_annual_total,COUNT(*) AS observed_years FROM s;"
+    },
+    "nominal_growth_2025": {
+      "columns": [
+        "nominal_revenue_growth_pct",
+        "nominal_revenue_per_person_growth_pct"
+      ],
+      "rows": [
+        [
+          7.659350928619912,
+          9.315648635214057
+        ]
+      ],
+      "sql": "WITH s AS(SELECT jahr,SUM(anzahl_mitarbeitende) AS people FROM staff GROUP BY jahr),\nx AS(SELECT s.jahr,s.people,CAST(r.umsatz AS DECIMAL(18,2)) AS revenue FROM s JOIN revenue r USING(jahr))\nSELECT (curr.revenue/NULLIF(prev.revenue,0)-1)*100 AS nominal_revenue_growth_pct,\n       ((curr.revenue/curr.people)/(prev.revenue/prev.people)-1)*100 AS nominal_revenue_per_person_growth_pct\nFROM x curr JOIN x prev ON prev.jahr=curr.jahr-1 WHERE curr.jahr=2025;"
+    },
+    "staff_2025_by_education": {
+      "columns": [
+        "education",
+        "people"
+      ],
+      "rows": [
+        [
+          "Geomatiker",
+          25
+        ],
+        [
+          "Ingenieur ETH",
+          1
+        ],
+        [
+          "Lernende",
+          13
+        ],
+        [
+          "Patentierter Ingenieur-Geometer",
+          9
+        ],
+        [
+          "Techniker HTL / FH / FA",
+          17
+        ]
+      ],
+      "sql": "SELECT ausbildung AS education,anzahl_mitarbeitende AS people\nFROM staff WHERE jahr=2025 ORDER BY ausbildung;"
+    },
+    "ebau_by_quarter": {
+      "columns": [
+        "report_year",
+        "report_quarter",
+        "months_present",
+        "first_present_month",
+        "last_present_month",
+        "submitted_dossiers",
+        "municipalities_last_present_month"
+      ],
+      "rows": [
+        [
+          2024,
+          4,
+          2,
+          "2024-11-01",
+          "2024-12-01",
+          48,
+          6
+        ],
+        [
+          2025,
+          1,
+          3,
+          "2025-01-01",
+          "2025-03-01",
+          170,
+          6
+        ],
+        [
+          2025,
+          2,
+          3,
+          "2025-04-01",
+          "2025-06-01",
+          232,
+          6
+        ],
+        [
+          2025,
+          3,
+          3,
+          "2025-07-01",
+          "2025-09-01",
+          226,
+          10
+        ],
+        [
+          2025,
+          4,
+          3,
+          "2025-10-01",
+          "2025-12-01",
+          200,
+          10
+        ],
+        [
+          2026,
+          1,
+          3,
+          "2026-01-01",
+          "2026-03-01",
+          618,
+          34
+        ],
+        [
+          2026,
+          2,
+          3,
+          "2026-04-01",
+          "2026-06-01",
+          1009,
+          51
+        ],
+        [
+          2026,
+          3,
+          3,
+          "2026-07-01",
+          "2026-09-01",
+          1135,
+          64
+        ]
+      ],
+      "sql": "SELECT year(berichtsmonat) AS report_year,quarter(berichtsmonat) AS report_quarter,\n       COUNT(*) AS months_present,MIN(berichtsmonat) AS first_present_month,\n       MAX(berichtsmonat) AS last_present_month,\n       SUM(anzahl_ueber_ebau_eingereichte_dossiers) AS submitted_dossiers,\n       arg_max(anzahl_gemeinden_in_ebau,berichtsmonat) AS municipalities_last_present_month\nFROM ebau GROUP BY report_year,report_quarter ORDER BY report_year,report_quarter;"
+    },
+    "heating_by_district": {
+      "columns": [
+        "report_year",
+        "district_id",
+        "district",
+        "buildings",
+        "heat_pump_buildings",
+        "heat_pump_share_pct"
+      ],
+      "rows": [
+        [
+          2025,
+          1101,
+          "Gäu",
+          5169,
+          2003,
+          38.750241826272
+        ],
+        [
+          2025,
+          1102,
+          "Thal",
+          4700,
+          1178,
+          25.06382978723404
+        ],
+        [
+          2025,
+          1103,
+          "Bucheggberg",
+          2781,
+          823,
+          29.593671341244157
+        ],
+        [
+          2025,
+          1104,
+          "Dorneck",
+          7009,
+          1987,
+          28.349265230418034
+        ],
+        [
+          2025,
+          1105,
+          "Gösgen",
+          6556,
+          2137,
+          32.5960951799878
+        ],
+        [
+          2025,
+          1106,
+          "Wasseramt",
+          12870,
+          3439,
+          26.721056721056723
+        ],
+        [
+          2025,
+          1107,
+          "Lebern",
+          10972,
+          2604,
+          23.733138899015675
+        ],
+        [
+          2025,
+          1108,
+          "Olten",
+          12859,
+          3649,
+          28.377012209347537
+        ],
+        [
+          2025,
+          1109,
+          "Solothurn",
+          3242,
+          339,
+          10.456508328192474
+        ],
+        [
+          2025,
+          1110,
+          "Thierstein",
+          5090,
+          1371,
+          26.93516699410609
+        ]
+      ],
+      "sql": "SELECT jahr AS report_year,bfs_bezirk_nr AS district_id,bezirk AS district,\n       SUM(gebaeude_total) AS buildings,SUM(geb_hz_waermepumpe) AS heat_pump_buildings,\n       100.0*SUM(geb_hz_waermepumpe)/NULLIF(SUM(gebaeude_total),0) AS heat_pump_share_pct\nFROM heating GROUP BY jahr,bfs_bezirk_nr,bezirk ORDER BY jahr,bfs_bezirk_nr;"
+    },
+    "heating_total": {
+      "columns": [
+        "report_year",
+        "buildings",
+        "heat_pump_buildings",
+        "heat_pump_share_pct"
+      ],
+      "rows": [
+        [
+          2025,
+          71248,
+          19530,
+          27.411295755670334
+        ]
+      ],
+      "sql": "SELECT jahr AS report_year,SUM(gebaeude_total) AS buildings,\n       SUM(geb_hz_waermepumpe) AS heat_pump_buildings,\n       100.0*SUM(geb_hz_waermepumpe)/NULLIF(SUM(gebaeude_total),0) AS heat_pump_share_pct\nFROM heating GROUP BY jahr ORDER BY jahr;"
+    },
+    "quality_duplicate_population_sex_keys": {
+      "columns": [
+        "municipality_id",
+        "rows",
+        "municipality_names",
+        "people_in_duplicate_rows"
+      ],
+      "rows": [
+        [
+          2525,
+          3,
+          "Halten, Kriegstetten, Oekingen",
+          3183
+        ]
+      ],
+      "sql": "SELECT BFS_Nr AS municipality_id,COUNT(*) AS rows,\n       string_agg(Gemeinde,', ' ORDER BY Gemeinde) AS municipality_names,\n       SUM(Total) AS people_in_duplicate_rows\nFROM population_sex_nationality GROUP BY BFS_Nr HAVING COUNT(*)>1 ORDER BY BFS_Nr;"
+    },
+    "quality_tax_geography_difference": {
+      "columns": [
+        "municipality_id",
+        "municipality",
+        "people"
+      ],
+      "rows": [
+        [
+          2520,
+          "Halten",
+          832
+        ],
+        [
+          2529,
+          "Oekingen",
+          888
+        ]
+      ],
+      "sql": "SELECT p.BFS_Nr AS municipality_id,p.Gemeinde AS municipality,p.Total AS people\nFROM population_age p LEFT JOIN taxes t ON p.BFS_Nr=t.gemeinde_bfs_nr\nWHERE t.gemeinde_bfs_nr IS NULL ORDER BY p.BFS_Nr;"
+    },
+    "quality_fusion_context": {
+      "columns": [
+        "municipality_id",
+        "municipality",
+        "people",
+        "tax_total_tchf_if_same_number"
+      ],
+      "rows": [
+        [
+          2520,
+          "Halten",
+          832,
+          null
+        ],
+        [
+          2525,
+          "Kriegstetten",
+          1463,
+          8999
+        ],
+        [
+          2529,
+          "Oekingen",
+          888,
+          null
+        ]
+      ],
+      "sql": "SELECT p.BFS_Nr AS municipality_id,p.Gemeinde AS municipality,p.Total AS people,\n       t.staatssteuer_total_tchf AS tax_total_tchf_if_same_number\nFROM population_age p LEFT JOIN taxes t ON p.BFS_Nr=t.gemeinde_bfs_nr\nWHERE p.BFS_Nr IN(2520,2525,2529) ORDER BY p.BFS_Nr;"
+    },
+    "negative_control_naive_population_vehicle_join": {
+      "columns": [
+        "incorrectly_repeated_population",
+        "vehicles"
+      ],
+      "rows": [
+        [
+          8309998,
+          239579
+        ]
+      ],
+      "sql": "SELECT SUM(p.Total) AS incorrectly_repeated_population,\n       SUM(v.Anzahl) AS vehicles\nFROM population_age p JOIN vehicles v ON p.BFS_Nr=v.GDENR;"
+    },
+    "negative_control_naive_staff_revenue_join_2025": {
+      "columns": [
+        "staff",
+        "incorrectly_repeated_revenue"
+      ],
+      "rows": [
+        [
+          65,
+          "13813050.00"
+        ]
+      ],
+      "sql": "SELECT SUM(s.anzahl_mitarbeitende) AS staff,\n       SUM(CAST(r.umsatz AS DECIMAL(18,2))) AS incorrectly_repeated_revenue\nFROM staff s JOIN revenue r USING(jahr) WHERE s.jahr=2025;"
+    },
+    "negative_control_average_staff_rows_2024_2025": {
+      "columns": [
+        "wrong_average_of_education_rows",
+        "disallowed_sum_of_stock_years"
+      ],
+      "rows": [
+        [
+          13.1,
+          131
+        ]
+      ],
+      "sql": "SELECT AVG(anzahl_mitarbeitende) AS wrong_average_of_education_rows,\n       SUM(anzahl_mitarbeitende) AS disallowed_sum_of_stock_years\nFROM staff WHERE jahr IN(2024,2025);"
+    }
+  }
+}

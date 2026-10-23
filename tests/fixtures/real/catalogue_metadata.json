@@ -1,0 +1,3731 @@
+{
+  "ch.so.abstimmungsresultate": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.abstimmungsresultate",
+      "identifier": "ch.so.abstimmungsresultate",
+      "title": "Abstimmungsresultate nach Gemeinde",
+      "description": "Resultate eidgenössischer und kantonaler Abstimmungen in den Gemeinden des Kantons Solothurn. Resultate kommunaler Abstimmungsvorlagen sind ausgeschlossen. Eine Zeile beschreibt eine Geschäftskomponente in einer Gemeinde an einem Abstimmungstag. Hauptvorlage, Gegenvorschlag und Stichfrage werden als separate, verknüpfbare Komponenten geführt. Enthalten sind Geschäftsangaben, Stimmberechtigte, Stimmrechtsausweise, Auszählstatus, Zeitstempel, Stimmbeteiligung sowie Stimmzettel- und Stimmenzahlen. Die CSV-Ausgaben der Hop-Pipeline werden je Abstimmungstag aus eCH-0252-v1-Lieferungen erstellt. Der Datensatz wird mit weiteren Lieferungen fortgeführt. Fehlende oder für den Geschäftstyp unzutreffende Werte bleiben leer und sind nicht mit dem Zahlenwert 0 gleichzusetzen. Wiederholte Angaben zu Stimmberechtigten und Stimmrechtsausweisen dürfen nicht über Geschäftskomponenten summiert werden.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Politische Rechte",
+      "landingPage": "https://data.so.ch/datasets/ch.so.abstimmungsresultate",
+      "issued": "2026-10-15",
+      "modified": "2026-10-15",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "attributes": null,
+      "model": "ch_so_abstimmungsresultate_20261015",
+      "surveyMethod": "Aufbereitung der gelieferten Abstimmungsresultate aus eCH-0252 Version 1 (voteBaseDelivery) durch die Hop-Pipeline. Berücksichtigt werden ausschliesslich Geschäfte mit dem Einflussbereichstyp CH (Bund) oder CT (Kanton); kommunale Geschäfte mit dem Einflussbereichstyp MU sind ausgeschlossen. Die Resultate dieser eidgenössischen und kantonalen Geschäfte werden weiterhin je Gemeinde-Auszählkreis (MU) mit den Geschäftsangaben verbunden und als flache CSV exportiert. Die Auswahl betrifft die Ebene des Geschäfts, nicht den Typ des Auszählkreises. Die Pipeline prüft Struktur, Schlüssel, Hauptgeschäft-Verweise und Stimmensummen. Deutsche Titel und gelieferte Einzelklassifikationen der Stimmberechtigten werden übernommen; Kreuzklassifikationen werden nicht aufsummiert. Bei Stichfragen werden die beiden Stimmenzahlen als Präferenz für Hauptvorlage beziehungsweise Gegenvorschlag ausgegeben. Fehlende optionale Werte bleiben leer. Die Ausgabe erfolgt je Abstimmungstag in UTF-8 ohne BOM mit Semikolon, Kopfzeile und Dezimalpunkt. Die Pflichtangabe pro Attribut bezeichnet eine Belegung in jeder Resultatzeile; bei nur bedingt belegten Stimmenfeldern ist sie false und die Bedingung steht in der Attributbeschreibung.",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Abstimmungsresultate nach Gemeinde"
+      },
+      {
+        "field": "description",
+        "value": "Resultate eidgenössischer und kantonaler Abstimmungen in den Gemeinden des Kantons Solothurn. Resultate kommunaler Abstimmungsvorlagen sind ausgeschlossen. Eine Zeile beschreibt eine Geschäftskomponente in einer Gemeinde an einem Abstimmungstag. Hauptvorlage, Gegenvorschlag und Stichfrage werden als separate, verknüpfbare Komponenten geführt. Enthalten sind Geschäftsangaben, Stimmberechtigte, Stimmrechtsausweise, Auszählstatus, Zeitstempel, Stimmbeteiligung sowie Stimmzettel- und Stimmenzahlen. Die CSV-Ausgaben der Hop-Pipeline werden je Abstimmungstag aus eCH-0252-v1-Lieferungen erstellt. Der Datensatz wird mit weiteren Lieferungen fortgeführt. Fehlende oder für den Geschäftstyp unzutreffende Werte bleiben leer und sind nicht mit dem Zahlenwert 0 gleichzusetzen. Wiederholte Angaben zu Stimmberechtigten und Stimmrechtsausweisen dürfen nicht über Geschäftskomponenten summiert werden."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "Datum der Abstimmung im Format YYYY-MM-DD. Zusammen mit `geschaeft_id` und `gemeinde_bfs_nr` identifiziert es eine Resultatzeile."
+      },
+      {
+        "field": "description",
+        "value": "Identifikator der einzelnen Geschäftskomponente aus voteIdentification der Lieferung. Hauptvorlage, Gegenvorschlag und Stichfrage haben jeweils eine eigene ID. Die ID wiederholt sich über die beteiligten Gemeinden; eine zeitübergreifende Eindeutigkeit wird nicht vorausgesetzt."
+      },
+      {
+        "field": "description",
+        "value": "Verweis auf die `geschaeft_id` des zugehörigen Hauptgeschäfts aus mainVoteIdentification. Verknüpft insbesondere Gegenvorschlag und Stichfrage mit der Hauptvorlage. Leer, wenn die Lieferung keinen Hauptgeschäft-Verweis enthält."
+      },
+      {
+        "field": "description",
+        "value": "Gemeinsamer Identifikator zusammengehöriger Geschäftskomponenten: `hauptgeschaeft_id`, sofern vorhanden, andernfalls `geschaeft_id`. Für die Gruppierung über mehrere Abstimmungstage zusätzlich `abstimmungstag` verwenden."
+      },
+      {
+        "field": "description",
+        "value": "Zusätzlicher Bundesidentifikator aus otherIdentification mit idName=idBund. Kann fehlen und bei mehreren Geschäftskomponenten vorkommen; deshalb kein eindeutiger Zeilenschlüssel. Wird unverändert als Text übernommen."
+      },
+      {
+        "field": "description",
+        "value": "Föderale Ebene des Geschäfts: bund für CH (eidgenössische Abstimmung) oder kanton für CT (kantonale Abstimmung). Kommunale Geschäfte (MU) sind ausgeschlossen; gemeinde kommt als Wert nicht vor. Die Resultate beider zugelassenen Ebenen werden nach Gemeinden ausgewiesen."
+      },
+      {
+        "field": "description",
+        "value": "Identifikator des politischen Einflussbereichs des Geschäfts aus domainOfInfluenceIdentification. Bezeichnet das Gebiet, für das die Vorlage gilt; nicht mit der Gemeinde des ausgezählten Resultats gleichzusetzen. Wird als Text übernommen."
+      },
+      {
+        "field": "description",
+        "value": "Vollständiger deutscher Titel der Geschäftskomponente aus voteTitleInformation mit language=de."
+      },
+      {
+        "field": "description",
+        "value": "Deutscher Kurztitel der Geschäftskomponente aus voteTitleShort. Bleibt leer, wenn kein Kurztitel geliefert wurde."
+      },
+      {
+        "field": "description",
+        "value": "Art der Geschäftskomponente: vorlage für voteSubType=1, gegenvorschlag für 2 oder stichfrage für 3. Bestimmt, ob die Ja/Nein-Spalten oder die beiden Stichfrage-Spalten belegt sind."
+      },
+      {
+        "field": "description",
+        "value": "BFS-Nummer der Gemeinde des Auszählkreises, übernommen aus countingCircleId eines Gemeinde-Auszählkreises (MU). Als Textidentifikator geführt; allfällige führende Nullen bleiben erhalten."
+      },
+      {
+        "field": "description",
+        "value": "Name der Gemeinde des Auszählkreises gemäss countingCircleName in der Lieferung."
+      },
+      {
+        "field": "description",
+        "value": "Gesamtzahl der Stimmberechtigten für diese Geschäftskomponente und Gemeinde aus countOfVotersTotal. Kann sich je nach Geschäft beziehungsweise föderaler Ebene unterscheiden. Nicht über verschiedene Geschäfte summieren."
+      },
+      {
+        "field": "description",
+        "value": "Gelieferte Anzahl Stimmberechtigter der Kategorie Schweizer (voterType=1), ohne zusätzliche Unterteilung nach Geschlecht. Nur die entsprechende Einzelklassifikation wird übernommen; Kreuzklassifikationen werden nicht addiert. Leer, wenn diese Teilzahl fehlt."
+      },
+      {
+        "field": "description",
+        "value": "Gelieferte Anzahl stimmberechtigter Auslandschweizerinnen und Auslandschweizer (voterType=2), ohne zusätzliche Unterteilung nach Geschlecht. Nur die entsprechende Einzelklassifikation wird übernommen; Kreuzklassifikationen werden nicht addiert. Leer, wenn diese Teilzahl fehlt."
+      },
+      {
+        "field": "description",
+        "value": "Gelieferte Anzahl männlicher Stimmberechtigter (sex=1), ohne zusätzliche Unterteilung nach voterType. Nicht zu den Teilzahlen nach Stimmberechtigtenkategorie addieren, da dieselben Personen nach einem anderen Merkmal gezählt werden. Leer, wenn diese Teilzahl fehlt."
+      },
+      {
+        "field": "description",
+        "value": "Gelieferte Anzahl weiblicher Stimmberechtigter (sex=2), ohne zusätzliche Unterteilung nach voterType. Nicht zu den Teilzahlen nach Stimmberechtigtenkategorie addieren, da dieselben Personen nach einem anderen Merkmal gezählt werden. Leer, wenn diese Teilzahl fehlt."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der bei der Urnenabstimmung eingegangenen Stimmrechtsausweise gemäss countOfVotingCardsReceivedInBallotbox. Zählt Ausweise, nicht Stimmzettel oder Ja/Nein-Stimmen. Leer, wenn nicht geliefert."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der brieflich eingegangenen Stimmrechtsausweise gemäss countOfVotingCardsReceivedByMail. Zählt Ausweise, nicht Stimmzettel oder Ja/Nein-Stimmen. Leer, wenn nicht geliefert."
+      },
+      {
+        "field": "description",
+        "value": "Stimmbeteiligung für die Geschäftskomponente und Gemeinde in Prozent, unverändert aus voterTurnout übernommen und nicht neu berechnet. Dezimalpunkt als Dezimaltrennzeichen; beispielsweise bedeutet 45.5 eine Beteiligung von 45,5 Prozent. Leer, wenn nicht geliefert."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl eingegangener Stimmzettel für diese Geschäftskomponente und Gemeinde aus receivedVotes. Entspricht der Summe aus `stimmzettel_ungueltig`, `stimmzettel_leer` und `stimmzettel_gueltig`."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl als ungültig ausgewiesener Stimmzettel für diese Geschäftskomponente und Gemeinde aus receivedInvalidVotes."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl als leer ausgewiesener Stimmzettel für diese Geschäftskomponente und Gemeinde aus receivedEmptyVotes. Separat von den gültigen Stimmzetteln und den `stimmen_ohne_antwort` geführt."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl gültiger Stimmzettel für diese Geschäftskomponente und Gemeinde aus receivedValidVotes. Entspricht der Summe der beiden zum Geschäftstyp passenden Stimmenfelder und der Stimmen ohne Antwort. Nur für die interne Summenprüfung behandelt die Pipeline fehlende `stimmen_ohne_antwort` als null; die CSV bleibt an dieser Stelle leer."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Ja-Stimmen aus countOfYesVotes bei `geschaeftstyp`=vorlage oder gegenvorschlag. Für diese Typen zwingend belegt; bei stichfrage bleibt das Feld leer und bedeutet nicht null Ja-Stimmen."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Nein-Stimmen aus countOfNoVotes bei `geschaeftstyp`=vorlage oder gegenvorschlag. Für diese Typen zwingend belegt; bei stichfrage bleibt das Feld leer und bedeutet nicht null Nein-Stimmen."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Stimmen zugunsten der Hauptvorlage bei der Stichfrage, übernommen aus countOfYesVotes bei `geschaeftstyp`=stichfrage. Für Stichfragen zwingend belegt; bei vorlage und gegenvorschlag leer. Diese Stimmen sind keine Ja-Stimmen zur Annahme der Hauptvorlage."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Stimmen zugunsten des Gegenvorschlags bei der Stichfrage, übernommen aus countOfNoVotes bei `geschaeftstyp`=stichfrage. Für Stichfragen zwingend belegt; bei vorlage und gegenvorschlag leer. Diese Stimmen sind keine Nein-Stimmen zum Gegenvorschlag."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Stimmen ohne Antwort auf die betreffende Geschäftskomponente aus countOfVotesWithoutAnswer. Separat von `stimmzettel_leer` geführt und bei der Prüfung der gültigen Stimmzettel berücksichtigt. Ein nicht gelieferter Wert bleibt leer; nur ein ausdrücklich gelieferter Wert 0 wird als 0 ausgegeben."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Aufbereitung der gelieferten Abstimmungsresultate aus eCH-0252 Version 1 (voteBaseDelivery) durch die Hop-Pipeline. Berücksichtigt werden ausschliesslich Geschäfte mit dem Einflussbereichstyp CH (Bund) oder CT (Kanton); kommunale Geschäfte mit dem Einflussbereichstyp MU sind ausgeschlossen. Die Resultate dieser eidgenössischen und kantonalen Geschäfte werden weiterhin je Gemeinde-Auszählkreis (MU) mit den Geschäftsangaben verbunden und als flache CSV exportiert. Die Auswahl betrifft die Ebene des Geschäfts, nicht den Typ des Auszählkreises. Die Pipeline prüft Struktur, Schlüssel, Hauptgeschäft-Verweise und Stimmensummen. Deutsche Titel und gelieferte Einzelklassifikationen der Stimmberechtigten werden übernommen; Kreuzklassifikationen werden nicht aufsummiert. Bei Stichfragen werden die beiden Stimmenzahlen als Präferenz für Hauptvorlage beziehungsweise Gegenvorschlag ausgegeben. Fehlende optionale Werte bleiben leer. Die Ausgabe erfolgt je Abstimmungstag in UTF-8 ohne BOM mit Semikolon, Kopfzeile und Dezimalpunkt. Die Pflichtangabe pro Attribut bezeichnet eine Belegung in jeder Resultatzeile; bei nur bedingt belegten Stimmenfeldern ist sie false und die Bedingung steht in der Attributbeschreibung."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.abstimmungsresultate"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.abstimmungsresultate.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.abstimmungsresultate"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.abstimmungsresultate.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.abstimmungsresultate"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.abstimmungsresultate.parquet"
+      }
+    ]
+  },
+  "ch.so.av_nachfuehrungsstatistik.personal": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.personal",
+      "identifier": "ch.so.av_nachfuehrungsstatistik.personal",
+      "title": "Personalstatistik in der amtlichen Vermessung nach Ausbildung",
+      "description": "Jährliche Anzahl Mitarbeitende in der amtlichen Vermessung nach Ausbildungs- und Qualifikationskategorie für den Zeitraum 1980 bis 2025. Die Datei wird laufend um das jeweils neueste Jahr ergänzt. Enthalten sind die Kategorien Ingenieur-Geometer, Geometerkandidat, Techniker HTL / FH / FA, Geomatiker, Lernende, Patentierter Ingenieur-Geometer und Ingenieur ETH.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Zeitreihe",
+      "landingPage": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.personal",
+      "issued": "2026-10-14",
+      "modified": "2026-10-14",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "surveyMethod": "Die Zahlen werden von den Nachführungsgeometern in den Jahresberichten geliefert.",
+      "dataAvailableFrom": "1980",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Personalstatistik in der amtlichen Vermessung nach Ausbildung"
+      },
+      {
+        "field": "description",
+        "value": "Jährliche Anzahl Mitarbeitende in der amtlichen Vermessung nach Ausbildungs- und Qualifikationskategorie für den Zeitraum 1980 bis 2025. Die Datei wird laufend um das jeweils neueste Jahr ergänzt. Enthalten sind die Kategorien Ingenieur-Geometer, Geometerkandidat, Techniker HTL / FH / FA, Geomatiker, Lernende, Patentierter Ingenieur-Geometer und Ingenieur ETH."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "description",
+        "value": "Kalenderjahr der Erhebung."
+      },
+      {
+        "field": "description",
+        "value": "Ausbildungs- oder Qualifikationskategorie der Mitarbeitenden."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Mitarbeitende in der jeweiligen Ausbildungs- oder Qualifikationskategorie und im jeweiligen Jahr."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Die Zahlen werden von den Nachführungsgeometern in den Jahresberichten geliefert."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.personal"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.personal.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.personal"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.personal.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.personal"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.personal.parquet"
+      }
+    ]
+  },
+  "ch.so.av_nachfuehrungsstatistik.umsatz": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.umsatz",
+      "identifier": "ch.so.av_nachfuehrungsstatistik.umsatz",
+      "title": "Umsatz der Nachführung der amtlichen Vermessung",
+      "description": "Jährlicher Umsatz der Nachführung der amtlichen Vermessung im Kanton Solothurn für die Jahre 1983 bis 2025. Die Zeitreihe enthält die im jeweiligen Jahresbericht ausgewiesenen nominalen Beträge und wird mit neuen Jahreswerten weitergeführt. Es handelt sich um unveränderte Originalwerte; eine Bereinigung um Teuerung oder Inflation, eine Deflationierung oder eine sonstige Anpassung an ein konstantes Preisniveau wurde nicht vorgenommen. Die Werte eignen sich daher für die Darstellung der historischen Jahresberichtswerte, jedoch nicht ohne Weiteres für inflationsbereinigte Zeitvergleiche.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Kanton Solothurn",
+      "landingPage": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.umsatz",
+      "issued": "2026-10-14",
+      "modified": "2026-10-14",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "surveyMethod": "Zusammenstellung der im jeweiligen Jahresbericht ausgewiesenen Umsätze der Nachführung der amtlichen Vermessung.",
+      "dataAvailableFrom": "1983",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Umsatz der Nachführung der amtlichen Vermessung"
+      },
+      {
+        "field": "description",
+        "value": "Jährlicher Umsatz der Nachführung der amtlichen Vermessung im Kanton Solothurn für die Jahre 1983 bis 2025. Die Zeitreihe enthält die im jeweiligen Jahresbericht ausgewiesenen nominalen Beträge und wird mit neuen Jahreswerten weitergeführt. Es handelt sich um unveränderte Originalwerte; eine Bereinigung um Teuerung oder Inflation, eine Deflationierung oder eine sonstige Anpassung an ein konstantes Preisniveau wurde nicht vorgenommen. Die Werte eignen sich daher für die Darstellung der historischen Jahresberichtswerte, jedoch nicht ohne Weiteres für inflationsbereinigte Zeitvergleiche."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "description",
+        "value": "Kalenderjahr, für das der Umsatz ausgewiesen wird."
+      },
+      {
+        "field": "description",
+        "value": "Im jeweiligen Jahresbericht ausgewiesener nominaler Umsatz der Nachführung der amtlichen Vermessung. Die Werte werden unverändert übernommen; insbesondere erfolgt keine Bereinigung um Teuerung oder Inflation und keine Umrechnung auf ein konstantes Preisniveau."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Zusammenstellung der im jeweiligen Jahresbericht ausgewiesenen Umsätze der Nachführung der amtlichen Vermessung."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.umsatz"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.umsatz.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.umsatz"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.umsatz.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.umsatz"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.umsatz.parquet"
+      }
+    ]
+  },
+  "ch.so.bevoelkerungsprognose": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.bevoelkerungsprognose",
+      "identifier": "ch.so.bevoelkerungsprognose",
+      "title": "Bevölkerungsprognose 2022–2050 der Gemeinden des Kantons Solothurn nach Szenario",
+      "description": "Modellbasierte Bevölkerungsprognose von Wüest und Partner (Prognoserechnung 2023) für die 107 Gemeinden der verwendeten Prognosebasis. Die Daten umfassen die Jahre 2022 bis 2050 und die drei Szenarien tief, mittel und hoch. Eine Zeile beschreibt eine Gemeinde, ein Prognosejahr und ein Szenario; dazu sind die untere und die obere Grenze des Prognosebands in Einwohnerzahlen angegeben. Ein separater Prognosewert ist in dieser CSV-Ausgabe nicht vorhanden. Die Daten dienen der räumlichen Planung, Infrastruktur- und Schulraumplanung sowie weiteren kantonalen und kommunalen Analysen. Es handelt sich um Prognosen, nicht um gemessene Bevölkerungsbestände. Die Werte sind gerundet; die Summe der Gemeindeergebnisse muss nicht einem separat berechneten Kantonswert entsprechen.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Demografie",
+      "landingPage": "https://data.so.ch/datasets/ch.so.bevoelkerungsprognose",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "draft",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Bevoelkerungsprognose_20261016",
+      "surveyMethod": "Modellbasierte Bevölkerungsprognose für die Gemeinden des Kantons Solothurn, berechnet durch Wüest und Partner im Auftrag des Kantons (Prognoserechnung 2023). Drei Szenarien mit unterschiedlichen Entwicklungsannahmen: tief, mittel und hoch. Der Statistikdienst bereitete die ursprünglichen, nach Szenario und Variante gelieferten Tabellen auf. Die vorliegende CSV enthält eine Zeile je Gemeinde, Jahr und Szenario und zwei Wertspalten für die untere und obere Grenze des Prognosebands. Ein eigenständiger Prognosewert ist hier nicht enthalten. Die CSV verwendet Semikolon als Spaltentrennzeichen.",
+      "dataAvailableFrom": "Ab Prognosejahr 2022 (Prognosehorizont bis 2050)",
+      "furtherUses": "Grundlage für kantonale und kommunale Planungen, insbesondere Richtplanung, Infrastrukturplanung und Schulraumplanung. Auswertungen für Gemeinden, Regionen und Öffentlichkeit. Für Vergleiche nach Jahr und Szenario filtern; gerundete Gemeindeergebnisse nicht als exakte Kantonsprognose interpretieren.",
+      "auxiliaryData": "Gemäss Metadatenformular: Raumgliederungen (Bezirke, MS-Regionen, Handlungsräume gemäss kantonalem Richtplan sowie Agglomerationen) aus der Lieferung von Wüest und Partner. Der Gemeindestand entspricht der Prognosebasis mit 107 Gemeinden.",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Bevölkerungsprognose 2022–2050 der Gemeinden des Kantons Solothurn nach Szenario"
+      },
+      {
+        "field": "description",
+        "value": "Modellbasierte Bevölkerungsprognose von Wüest und Partner (Prognoserechnung 2023) für die 107 Gemeinden der verwendeten Prognosebasis. Die Daten umfassen die Jahre 2022 bis 2050 und die drei Szenarien tief, mittel und hoch. Eine Zeile beschreibt eine Gemeinde, ein Prognosejahr und ein Szenario; dazu sind die untere und die obere Grenze des Prognosebands in Einwohnerzahlen angegeben. Ein separater Prognosewert ist in dieser CSV-Ausgabe nicht vorhanden. Die Daten dienen der räumlichen Planung, Infrastruktur- und Schulraumplanung sowie weiteren kantonalen und kommunalen Analysen. Es handelt sich um Prognosen, nicht um gemessene Bevölkerungsbestände. Die Werte sind gerundet; die Summe der Gemeindeergebnisse muss nicht einem separat berechneten Kantonswert entsprechen."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer gemäss Gemeindestand der Prognosebasis (107 Gemeinden). Kennziffer ohne rechnerische Bedeutung. Zusammen mit `jahr` und `szenario` identifiziert sie eine Datenzeile."
+      },
+      {
+        "field": "description",
+        "value": "Name der Gemeinde, die durch `gemeindecode` identifiziert wird; Bezeichnung gemäss Prognosebasis."
+      },
+      {
+        "field": "description",
+        "value": "Code des Solothurner Bezirks, dem die Gemeinde gemäss der verwendeten Gebietsgliederung zugeordnet ist."
+      },
+      {
+        "field": "description",
+        "value": "Name des Solothurner Bezirks passend zu `bezirkcode`."
+      },
+      {
+        "field": "description",
+        "value": "Code der MS-Region (mobilité spatiale / räumliche Mobilität), der die Gemeinde zugeordnet ist; Kennziffer ohne rechnerische Bedeutung."
+      },
+      {
+        "field": "description",
+        "value": "Bezeichnung der MS-Region gemäss `ms_regioncode`."
+      },
+      {
+        "field": "description",
+        "value": "Raumkategorie gemäss kantonalem Richtplan und Datengrundlage: `urban`, `agglomerationsgeprägt` oder `ländlich`."
+      },
+      {
+        "field": "description",
+        "value": "Zuordnung der Gemeinde zu einer Agglomeration in der Datengrundlage. Der Wert `keine agglo` bezeichnet explizit Gemeinden ohne Zuordnung."
+      },
+      {
+        "field": "description",
+        "value": "Prognosejahr (2022 bis 2050). Werte sind Ergebnisse der Prognoserechnung 2023 und nicht mit tatsächlich gemessenen Einwohnerzahlen gleichzusetzen."
+      },
+      {
+        "field": "description",
+        "value": "Szenario der Bevölkerungsentwicklung: `tief`, `mittel` oder `hoch`. Für Auswertungen ein Szenario auswählen; verschiedene Szenarien nicht addieren."
+      },
+      {
+        "field": "description",
+        "value": "Untere Grenze des gerundeten Prognosebands der Einwohnerzahl für die Kombination aus `gemeindecode`, `jahr` und `szenario`. Kein separat ausgewiesener zentraler Prognosewert."
+      },
+      {
+        "field": "description",
+        "value": "Obere Grenze des gerundeten Prognosebands der Einwohnerzahl für die Kombination aus `gemeindecode`, `jahr` und `szenario`. Liegt in der vorliegenden CSV nicht unter `bevoelkerung_untergrenze`."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Modellbasierte Bevölkerungsprognose für die Gemeinden des Kantons Solothurn, berechnet durch Wüest und Partner im Auftrag des Kantons (Prognoserechnung 2023). Drei Szenarien mit unterschiedlichen Entwicklungsannahmen: tief, mittel und hoch. Der Statistikdienst bereitete die ursprünglichen, nach Szenario und Variante gelieferten Tabellen auf. Die vorliegende CSV enthält eine Zeile je Gemeinde, Jahr und Szenario und zwei Wertspalten für die untere und obere Grenze des Prognosebands. Ein eigenständiger Prognosewert ist hier nicht enthalten. Die CSV verwendet Semikolon als Spaltentrennzeichen."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.bevoelkerungsprognose"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerungsprognose.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.bevoelkerungsprognose"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerungsprognose.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.bevoelkerungsprognose"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerungsprognose.parquet"
+      }
+    ]
+  },
+  "ch.so.ebau_statistik_dossiers": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.ebau_statistik_dossiers",
+      "identifier": "ch.so.ebau_statistik_dossiers",
+      "title": "Dossiers in eBau pro Monat",
+      "description": "Monatliche Statistik zur Nutzung von eBau im Kanton Solothurn. Eine Zeile enthält für einen Berichtsmonat die Anzahl Gemeinden in eBau sowie die Anzahl der über eBau eingereichten Dossiers (Voranfragen, Baugesuche, Reklamegesuche, Erdwärmesonden sowie Meldungen). berichtsmonat ist als ISO-Datum mit dem ersten Kalendertag gespeichert und bezeichnet den gesamten Monat, nicht einen Erhebungsstichtag. Die Gemeindezahlen beschreiben den jeweiligen Monatsstand und dürfen nicht über mehrere Monate aufsummiert werden. Die Dossierzahlen beziehen sich auf die Einreichungen im jeweiligen Monat und sind keine kumulierten Werte. Der Datensatz wird als fortlaufende Monatsreihe geführt.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Digitalisierung",
+      "landingPage": "https://data.so.ch/datasets/ch.so.ebau_statistik_dossiers",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Ebau_Statistik_Dossiers_20261016",
+      "surveyMethod": "Monatlich aggregierte Angaben zur Anzahl Gemeinden in eBau und zu den über eBau eingereichten Dossiers im Kanton Solothurn. Grundlage ist die gelieferte CSV-Monatsstatistik. Für die Bereitstellung werden die Spaltennamen vereinheitlicht und die ursprünglichen Angaben Monat und Jahr zur Datumsspalte berichtsmonat im Format YYYY-MM-01 zusammengeführt. Der erste Kalendertag bezeichnet den gesamten Berichtsmonat. Die beiden Zählwerte und die Reihenfolge der Monatszeilen bleiben unverändert. Die Ausgabe erfolgt in UTF-8 ohne BOM mit Semikolon als Trennzeichen und einer Kopfzeile. berichtsmonat bildet den eindeutigen Schlüssel einer Beobachtung.",
+      "dataAvailableFrom": "November 2024",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Dossiers in eBau pro Monat"
+      },
+      {
+        "field": "description",
+        "value": "Monatliche Statistik zur Nutzung von eBau im Kanton Solothurn. Eine Zeile enthält für einen Berichtsmonat die Anzahl Gemeinden in eBau sowie die Anzahl der über eBau eingereichten Dossiers (Voranfragen, Baugesuche, Reklamegesuche, Erdwärmesonden sowie Meldungen). berichtsmonat ist als ISO-Datum mit dem ersten Kalendertag gespeichert und bezeichnet den gesamten Monat, nicht einen Erhebungsstichtag. Die Gemeindezahlen beschreiben den jeweiligen Monatsstand und dürfen nicht über mehrere Monate aufsummiert werden. Die Dossierzahlen beziehen sich auf die Einreichungen im jeweiligen Monat und sind keine kumulierten Werte. Der Datensatz wird als fortlaufende Monatsreihe geführt."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Berichtsmonat im ISO-8601-Format YYYY-MM-DD, beispielsweise 2024-11-01 für November 2024. Der Tag ist immer 01 und bezeichnet stellvertretend den gesamten Kalendermonat; er ist kein Erhebungsstichtag. berichtsmonat identifiziert eine Monatszeile eindeutig. Kalenderjahr und Monatsnummer können aus dem Datum abgeleitet werden."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der Gemeinden im Kanton Solothurn, die im angegebenen Monat in eBau geführt werden, gemäss der gelieferten Monatsstatistik. Die Werte beschreiben den Stand pro Monat und dürfen nicht über mehrere Monate aufsummiert werden."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der im angegebenen Monat über eBau eingereichten Dossiers, gemäss der gelieferten Monatsstatistik. Die Angabe ist eine Monatszahl und keine kumulierte Anzahl. Dossiers sind nicht mit erteilten Baubewilligungen gleichzusetzen."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Monatlich aggregierte Angaben zur Anzahl Gemeinden in eBau und zu den über eBau eingereichten Dossiers im Kanton Solothurn. Grundlage ist die gelieferte CSV-Monatsstatistik. Für die Bereitstellung werden die Spaltennamen vereinheitlicht und die ursprünglichen Angaben Monat und Jahr zur Datumsspalte berichtsmonat im Format YYYY-MM-01 zusammengeführt. Der erste Kalendertag bezeichnet den gesamten Berichtsmonat. Die beiden Zählwerte und die Reihenfolge der Monatszeilen bleiben unverändert. Die Ausgabe erfolgt in UTF-8 ohne BOM mit Semikolon als Trennzeichen und einer Kopfzeile. berichtsmonat bildet den eindeutigen Schlüssel einer Beobachtung."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.ebau_statistik_dossiers"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.ebau_statistik_dossiers.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.ebau_statistik_dossiers"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.ebau_statistik_dossiers.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.ebau_statistik_dossiers"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.ebau_statistik_dossiers.parquet"
+      }
+    ]
+  },
+  "ch.so.exportmonitor_branchen": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.exportmonitor_branchen",
+      "identifier": "ch.so.exportmonitor_branchen",
+      "title": "Exportmonitor: Monatliche Exporte nach Branchen Kanton Solothurn",
+      "description": "Monatliche Exporte des Kantons Solothurn für ausgewählte Branchen im Vergleich zum Vorjahresmonat. Branchenabgrenzung nach NOGA 2008: MEM-Industrie (Maschinen-, Elektro- und Metallindustrie) = NOGA 24–28 (ohne Uhren 2652 und Medizinaltechnik 2660); Uhrenindustrie = 2652; Medizinaltechnik = 2660 + 3250. Die drei Branchen ergeben zusammen nicht das Exporttotal. Datengrundlage: Aussenhandelsstatistik des Bundesamts für Zoll und Grenzsicherheit (BAZG), Exporte des Kantons Solothurn, Total 2 (Gesamttotal, inkl. Edelmetalle, Edel- und Schmucksteine sowie Kunstgegenstände und Antiquitäten), nominal in Mio. CHF. Berichtsmonate Januar 2025 bis Juni 2026, jeweils im Vergleich zum gleichen Monat des Vorjahres. Die Werte für 2026 beruhen auf provisorischen BAZG-Daten und können revidiert werden. Exportwerte auf 0.1 Mio. CHF gerundet; die Veränderung in % ist aus den ungerundeten Werten berechnet. Zweck: Monitoring der Exportentwicklung im Kanton Solothurn (Exportmonitor).",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "landingPage": "https://data.so.ch/datasets/ch.so.exportmonitor_branchen",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "attributes": null,
+      "model": "SO_Exportmonitor_Branchen_20261016",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Exportmonitor: Monatliche Exporte nach Branchen Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Monatliche Exporte des Kantons Solothurn für ausgewählte Branchen im Vergleich zum Vorjahresmonat. Branchenabgrenzung nach NOGA 2008: MEM-Industrie (Maschinen-, Elektro- und Metallindustrie) = NOGA 24–28 (ohne Uhren 2652 und Medizinaltechnik 2660); Uhrenindustrie = 2652; Medizinaltechnik = 2660 + 3250. Die drei Branchen ergeben zusammen nicht das Exporttotal. Datengrundlage: Aussenhandelsstatistik des Bundesamts für Zoll und Grenzsicherheit (BAZG), Exporte des Kantons Solothurn, Total 2 (Gesamttotal, inkl. Edelmetalle, Edel- und Schmucksteine sowie Kunstgegenstände und Antiquitäten), nominal in Mio. CHF. Berichtsmonate Januar 2025 bis Juni 2026, jeweils im Vergleich zum gleichen Monat des Vorjahres. Die Werte für 2026 beruhen auf provisorischen BAZG-Daten und können revidiert werden. Exportwerte auf 0.1 Mio. CHF gerundet; die Veränderung in % ist aus den ungerundeten Werten berechnet. Zweck: Monitoring der Exportentwicklung im Kanton Solothurn (Exportmonitor)."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Berichtsjahr"
+      },
+      {
+        "field": "description",
+        "value": "Berichtsmonat (1–12)"
+      },
+      {
+        "field": "description",
+        "value": "Monatsname"
+      },
+      {
+        "field": "description",
+        "value": "Branche (MEM-Industrie, Medizinaltechnik, Uhren)"
+      },
+      {
+        "field": "description",
+        "value": "Exporte im gleichen Monat des Vorjahres, Mio. CHF"
+      },
+      {
+        "field": "description",
+        "value": "Exporte im Berichtsmonat, Mio. CHF"
+      },
+      {
+        "field": "description",
+        "value": "Veränderung gegenüber dem Vorjahresmonat, %"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.exportmonitor_branchen"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_branchen.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.exportmonitor_branchen"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_branchen.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.exportmonitor_branchen"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_branchen.parquet"
+      }
+    ]
+  },
+  "ch.so.exportmonitor_gesamt": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.exportmonitor_gesamt",
+      "identifier": "ch.so.exportmonitor_gesamt",
+      "title": "Exportmonitor: Monatliche Exporte Kanton Solothurn",
+      "description": "Monatliche Gesamtexporte des Kantons Solothurn im Vergleich zum Vorjahresmonat. Datengrundlage: Aussenhandelsstatistik des Bundesamts für Zoll und Grenzsicherheit (BAZG), Exporte des Kantons Solothurn, Total 2 (Gesamttotal, inkl. Edelmetalle, Edel- und Schmucksteine sowie Kunstgegenstände und Antiquitäten), nominal in Mio. CHF. Abgedeckt sind die Berichtsmonate Januar 2025 bis Juni 2026, jeweils im Vergleich zum gleichen Monat des Vorjahres (Vorjahreswerte ab Januar 2024). Die Werte für 2026 beruhen auf provisorischen BAZG-Daten und können revidiert werden. Exportwerte auf 0.1 Mio. CHF gerundet; die Veränderung in % ist aus den ungerundeten Werten berechnet und kann daher geringfügig von einer Berechnung aus den gerundeten Werten abweichen. Zweck: Monitoring der Exportentwicklung im Kanton Solothurn (Exportmonitor).",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "landingPage": "https://data.so.ch/datasets/ch.so.exportmonitor_gesamt",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "attributes": null,
+      "model": "SO_Exportmonitor_Gesamt_20261016",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Exportmonitor: Monatliche Exporte Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Monatliche Gesamtexporte des Kantons Solothurn im Vergleich zum Vorjahresmonat. Datengrundlage: Aussenhandelsstatistik des Bundesamts für Zoll und Grenzsicherheit (BAZG), Exporte des Kantons Solothurn, Total 2 (Gesamttotal, inkl. Edelmetalle, Edel- und Schmucksteine sowie Kunstgegenstände und Antiquitäten), nominal in Mio. CHF. Abgedeckt sind die Berichtsmonate Januar 2025 bis Juni 2026, jeweils im Vergleich zum gleichen Monat des Vorjahres (Vorjahreswerte ab Januar 2024). Die Werte für 2026 beruhen auf provisorischen BAZG-Daten und können revidiert werden. Exportwerte auf 0.1 Mio. CHF gerundet; die Veränderung in % ist aus den ungerundeten Werten berechnet und kann daher geringfügig von einer Berechnung aus den gerundeten Werten abweichen. Zweck: Monitoring der Exportentwicklung im Kanton Solothurn (Exportmonitor)."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Berichtsjahr"
+      },
+      {
+        "field": "description",
+        "value": "Berichtsmonat (1–12)"
+      },
+      {
+        "field": "description",
+        "value": "Monatsname"
+      },
+      {
+        "field": "description",
+        "value": "Exporte im gleichen Monat des Vorjahres"
+      },
+      {
+        "field": "description",
+        "value": "Exporte im Berichtsmonat"
+      },
+      {
+        "field": "description",
+        "value": "Veränderung gegenüber dem Vorjahresmonat"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.exportmonitor_gesamt"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_gesamt.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.exportmonitor_gesamt"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_gesamt.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.exportmonitor_gesamt"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_gesamt.parquet"
+      }
+    ]
+  },
+  "ch.so.exportmonitor_regionen": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.exportmonitor_regionen",
+      "identifier": "ch.so.exportmonitor_regionen",
+      "title": "Exportmonitor: Monatliche Exporte nach Zielregionen Kanton Solothurn",
+      "description": "Monatliche Exporte des Kantons Solothurn nach Zielregion im Vergleich zum Vorjahresmonat. Regionen: EU/EFTA (inkl. Vereinigtes Königreich), USA, Rest der Welt (alle übrigen Bestimmungsländer). Die drei Regionen ergeben zusammen das Exporttotal. Datengrundlage: Aussenhandelsstatistik des Bundesamts für Zoll und Grenzsicherheit (BAZG), Exporte des Kantons Solothurn, Total 2 (Gesamttotal, inkl. Edelmetalle, Edel- und Schmucksteine sowie Kunstgegenstände und Antiquitäten), nominal in Mio. CHF. Abgedeckt sind die Berichtsmonate Januar 2025 bis Juni 2026, jeweils im Vergleich zum gleichen Monat des Vorjahres (Vorjahreswerte ab Januar 2024). Die Werte für 2026 beruhen auf provisorischen BAZG-Daten und können revidiert werden. Exportwerte auf 0.1 Mio. CHF gerundet; die Veränderung in % ist aus den ungerundeten Werten berechnet und kann daher geringfügig von einer Berechnung aus den gerundeten Werten abweichen. Zweck: Monitoring der Exportentwicklung im Kanton Solothurn (Exportmonitor).",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "landingPage": "https://data.so.ch/datasets/ch.so.exportmonitor_regionen",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "attributes": null,
+      "model": "SO_Exportmonitor_Regionen_20261016",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Exportmonitor: Monatliche Exporte nach Zielregionen Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Monatliche Exporte des Kantons Solothurn nach Zielregion im Vergleich zum Vorjahresmonat. Regionen: EU/EFTA (inkl. Vereinigtes Königreich), USA, Rest der Welt (alle übrigen Bestimmungsländer). Die drei Regionen ergeben zusammen das Exporttotal. Datengrundlage: Aussenhandelsstatistik des Bundesamts für Zoll und Grenzsicherheit (BAZG), Exporte des Kantons Solothurn, Total 2 (Gesamttotal, inkl. Edelmetalle, Edel- und Schmucksteine sowie Kunstgegenstände und Antiquitäten), nominal in Mio. CHF. Abgedeckt sind die Berichtsmonate Januar 2025 bis Juni 2026, jeweils im Vergleich zum gleichen Monat des Vorjahres (Vorjahreswerte ab Januar 2024). Die Werte für 2026 beruhen auf provisorischen BAZG-Daten und können revidiert werden. Exportwerte auf 0.1 Mio. CHF gerundet; die Veränderung in % ist aus den ungerundeten Werten berechnet und kann daher geringfügig von einer Berechnung aus den gerundeten Werten abweichen. Zweck: Monitoring der Exportentwicklung im Kanton Solothurn (Exportmonitor)."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Berichtsjahr"
+      },
+      {
+        "field": "description",
+        "value": "Berichtsmonat, 1–12"
+      },
+      {
+        "field": "description",
+        "value": "Monatsname"
+      },
+      {
+        "field": "description",
+        "value": "Zielregion (EU/EFTA, USA, Rest der Welt)"
+      },
+      {
+        "field": "description",
+        "value": "Exporte im gleichen Monat des Vorjahres"
+      },
+      {
+        "field": "description",
+        "value": "Exporte im Berichtsmonat"
+      },
+      {
+        "field": "description",
+        "value": "Veränderung gegenüber dem Vorjahresmonat"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.exportmonitor_regionen"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_regionen.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.exportmonitor_regionen"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_regionen.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.exportmonitor_regionen"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_regionen.parquet"
+      }
+    ]
+  },
+  "ch.so.finanzkennzahlen": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.finanzkennzahlen",
+      "identifier": "ch.so.finanzkennzahlen",
+      "title": "Finanzkennzahlen Kanton Solothurn",
+      "description": "Zentrale Finanzkennzahlen des Kantons Solothurn aus der Staatsrechnung: Ergebnisse der Erfolgsrechnung, Cash-Flow, Nettoinvestitionen, Finanzierungsergebnis und Selbstfinanzierungsgrad. Der Datensatz macht die Entwicklung der kantonalen Finanzlage über mehrere Jahre nachvollziehbar und entspricht den im Geschäftsbericht publizierten Werten.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "HRM2",
+      "landingPage": "https://data.so.ch/datasets/ch.so.finanzkennzahlen",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Finanzkennzahlen_20261016",
+      "surveyMethod": "Werte aus der Finanzbuchhaltung des Kantons Solothurn, auf ganze Franken gerundet. Der Datensatz enthält nur Werte der Staatsrechnung (Rechnung). Die Staatsrechnung wird seit 2012 nach HRM2 erstellt, von der Kantonalen Finanzkontrolle geprüft und vom Kantonsrat genehmigt.\n\nBerechnung der einzelnen Kennzahlen:\nK1 Betriebsergebnis + Finanzergebnis.\nK2 Wertberichtigungen auf dem Finanzvermögen sowie ausserordentlicher Aufwand und Ertrag.\nK3 K1 + K2.\nK4 K3 – Abschreibung Bilanzfehlbetrag PKSO (konstant 27'290'829 Franken pro Jahr).\nK5 K1 + Abschreibungen auf dem Verwaltungsvermögen (ohne PKSO-Abschreibung).\nK6 Investitionsausgaben (Kontengruppe 5) – Investitionseinnahmen (Kontengruppe 6).\nK7 K5 – K6.\nK8 K5 ÷ K6 × 100.\n\nGeschäftsbericht: Kap. III 1 «Das Rechnungsergebnis in Kürze» und Kap. III 1.3 «Finanzkennzahlen».",
+      "dataAvailableFrom": "ab 2018",
+      "auxiliaryData": "Keine.",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Finanzkennzahlen Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Zentrale Finanzkennzahlen des Kantons Solothurn aus der Staatsrechnung: Ergebnisse der Erfolgsrechnung, Cash-Flow, Nettoinvestitionen, Finanzierungsergebnis und Selbstfinanzierungsgrad. Der Datensatz macht die Entwicklung der kantonalen Finanzlage über mehrere Jahre nachvollziehbar und entspricht den im Geschäftsbericht publizierten Werten."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Erfassungsjahr der Staatsrechnung (2018–2025)"
+      },
+      {
+        "field": "description",
+        "value": "Schlüssel der Kennzahl (K1–K8)"
+      },
+      {
+        "field": "description",
+        "value": "Bezeichnung der Kennzahl"
+      },
+      {
+        "field": "description",
+        "value": "Art der Werte, konstant «RE» = Rechnung (Staatsrechnung)"
+      },
+      {
+        "field": "description",
+        "value": "Wert der Kennzahl in ganzen Franken oder ganzen Prozent"
+      },
+      {
+        "field": "description",
+        "value": "Einheit des Werts («CHF» oder «Prozent»)"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Werte aus der Finanzbuchhaltung des Kantons Solothurn, auf ganze Franken gerundet. Der Datensatz enthält nur Werte der Staatsrechnung (Rechnung). Die Staatsrechnung wird seit 2012 nach HRM2 erstellt, von der Kantonalen Finanzkontrolle geprüft und vom Kantonsrat genehmigt.\n\nBerechnung der einzelnen Kennzahlen:\nK1 Betriebsergebnis + Finanzergebnis.\nK2 Wertberichtigungen auf dem Finanzvermögen sowie ausserordentlicher Aufwand und Ertrag.\nK3 K1 + K2.\nK4 K3 – Abschreibung Bilanzfehlbetrag PKSO (konstant 27'290'829 Franken pro Jahr).\nK5 K1 + Abschreibungen auf dem Verwaltungsvermögen (ohne PKSO-Abschreibung).\nK6 Investitionsausgaben (Kontengruppe 5) – Investitionseinnahmen (Kontengruppe 6).\nK7 K5 – K6.\nK8 K5 ÷ K6 × 100.\n\nGeschäftsbericht: Kap. III 1 «Das Rechnungsergebnis in Kürze» und Kap. III 1.3 «Finanzkennzahlen»."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.finanzkennzahlen"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.finanzkennzahlen.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.finanzkennzahlen"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.finanzkennzahlen.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.finanzkennzahlen"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.finanzkennzahlen.parquet"
+      }
+    ]
+  },
+  "ch.so.gws.gebaeude_bauperiode": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.gws.gebaeude_bauperiode",
+      "identifier": "ch.so.gws.gebaeude_bauperiode",
+      "title": "Gebäude mit Wohnnutzung nach Bauperiode Gemeinden Kanton Solothurn",
+      "description": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Bauperiode, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für Raum- und Energieplanung (Alter des Gebäudeparks, Sanierungspotenzial) sowie Vergleiche zwischen Gemeinden und Bezirken.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Bezirke",
+      "landingPage": "https://data.so.ch/datasets/ch.so.gws.gebaeude_bauperiode",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_GWS_Gebaeude_Bauperiode_20261016",
+      "surveyMethod": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde.\nBauperiode: Periode der Erstellung des Gebäudes gemäss GWR.",
+      "dataAvailableFrom": "Erhebungsjahr 2025 (erster publizierter Jahrgang dieses Datensatzes)",
+      "furtherUses": "Grundlage u. a. für Wohnraum-, Orts- und Energieplanung sowie Wohnungsmarktbeobachtung.",
+      "auxiliaryData": "Bezirkszuordnung gemäss Amtlichem Gemeindeverzeichnis der Schweiz (BFS).",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Gebäude mit Wohnnutzung nach Bauperiode Gemeinden Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Bauperiode, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für Raum- und Energieplanung (Alter des Gebäudeparks, Sanierungspotenzial) sowie Vergleiche zwischen Gemeinden und Bezirken."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Erhebungsjahr (Stichtag 31.12.)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksnummer"
+      },
+      {
+        "field": "description",
+        "value": "Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Gebäude mit Wohnnutzung total"
+      },
+      {
+        "field": "description",
+        "value": "erbaut vor 1919"
+      },
+      {
+        "field": "description",
+        "value": "erbaut 1919–1945"
+      },
+      {
+        "field": "description",
+        "value": "erbaut 1946–1960"
+      },
+      {
+        "field": "description",
+        "value": "erbaut 1961–1980"
+      },
+      {
+        "field": "description",
+        "value": "erbaut 1981–2000"
+      },
+      {
+        "field": "description",
+        "value": "erbaut 2001–2010"
+      },
+      {
+        "field": "description",
+        "value": "erbaut 2011–2025"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde.\nBauperiode: Periode der Erstellung des Gebäudes gemäss GWR."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.gebaeude_bauperiode"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_bauperiode.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.gebaeude_bauperiode"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_bauperiode.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.gebaeude_bauperiode"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_bauperiode.parquet"
+      }
+    ]
+  },
+  "ch.so.gws.gebaeude_heizung": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.gws.gebaeude_heizung",
+      "identifier": "ch.so.gws.gebaeude_heizung",
+      "title": "Gebäude mit Wohnnutzung nach Heizsystem und Energieträger der Hauptheizung Gemeinden Kanton Solothurn",
+      "description": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Heizsystem und Energieträger der Hauptheizung, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für die Energieplanung, das Monitoring des Heizungsersatzes sowie Vergleiche zwischen Gemeinden und Bezirken.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Bezirke",
+      "landingPage": "https://data.so.ch/datasets/ch.so.gws.gebaeude_heizung",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_GWS_Gebaeude_Heizung_20261016",
+      "surveyMethod": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde.\nHeizung: massgebend ist die Hauptheizung gemäss GWR (Wärmeerzeuger und Energie-/Wärmequelle).",
+      "dataAvailableFrom": "Erhebungsjahr 2025 (erster publizierter Jahrgang dieses Datensatzes)",
+      "furtherUses": "Weitere Verwendungen:\nGrundlage u. a. für Wohnraum-, Orts- und Energieplanung sowie Wohnungsmarktbeobachtung.",
+      "auxiliaryData": "Verwendete Hilfsdaten / Herkunft:\nBezirkszuordnung gemäss Amtlichem Gemeindeverzeichnis der Schweiz (BFS).\n\nInterpretationshinweise:\n– Gebäude mit Wärmepumpe werden unabhängig von der Energiequelle als «Wärmepumpe» gezählt (die Energiequelle ist bei Wärmepumpen im GWR oft unbestimmt). Die übrigen Gebäude sind nach Energieträger eingeteilt; «andere, keine oder unbekannt» umfasst u. a. thermische Solaranlagen.\n– Heizungsangaben beruhen auf Meldungen ans GWR und können bei älteren Gebäuden veraltet sein.\n– Eine Zeile pro Gemeinde; Bezirks- und Kantonswerte ergeben sich durch Summieren.\n– Abweichungen zu aktuellen GWR-Abfragen sind durch Nachführungen nach dem Stichtag möglich.\n– Gemeindefusion per 01.01.2026: Halten und Oekingen mit Kriegstetten (Bezirk Wasseramt).",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Gebäude mit Wohnnutzung nach Heizsystem und Energieträger der Hauptheizung Gemeinden Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Heizsystem und Energieträger der Hauptheizung, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für die Energieplanung, das Monitoring des Heizungsersatzes sowie Vergleiche zwischen Gemeinden und Bezirken."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Erhebungsjahr (Stichtag 31.12.)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksnummer"
+      },
+      {
+        "field": "description",
+        "value": "Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Gebäude mit Wohnnutzung total"
+      },
+      {
+        "field": "description",
+        "value": "Wärmepumpe"
+      },
+      {
+        "field": "description",
+        "value": "Heizöl"
+      },
+      {
+        "field": "description",
+        "value": "Gas"
+      },
+      {
+        "field": "description",
+        "value": "Holz"
+      },
+      {
+        "field": "description",
+        "value": "Elektrizität"
+      },
+      {
+        "field": "description",
+        "value": "Fernwärme"
+      },
+      {
+        "field": "description",
+        "value": "andere, keine oder unbekannt"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde.\nHeizung: massgebend ist die Hauptheizung gemäss GWR (Wärmeerzeuger und Energie-/Wärmequelle)."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.gebaeude_heizung"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_heizung.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.gebaeude_heizung"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_heizung.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.gebaeude_heizung"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_heizung.parquet"
+      }
+    ]
+  },
+  "ch.so.gws.gebaeude_kategorie": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.gws.gebaeude_kategorie",
+      "identifier": "ch.so.gws.gebaeude_kategorie",
+      "title": "Gebäude mit Wohnnutzung nach Gebäudekategorie Gemeinden Kanton Solothurn",
+      "description": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Gebäudekategorie, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für Wohnraum- und Ortsplanung sowie Vergleiche zwischen Gemeinden und Bezirken.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Bezirke",
+      "landingPage": "https://data.so.ch/datasets/ch.so.gws.gebaeude_kategorie",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_GWS_GebaeudeKategorie_20261016",
+      "surveyMethod": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde.",
+      "dataAvailableFrom": "Erhebungsjahr 2025 (erster publizierter Jahrgang dieses Datensatzes)",
+      "furtherUses": "Grundlage u. a. für Wohnraum-, Orts- und Energieplanung sowie Wohnungsmarktbeobachtung.",
+      "auxiliaryData": "Verwendete Hilfsdaten / Herkunft: Bezirkszuordnung gemäss Amtlichem Gemeindeverzeichnis der Schweiz (BFS).\n\nBemerkungen (inkl. Interpretationshinweise):\n– Einfamilienhaus = Gebäude mit ausschliesslicher Wohnnutzung und genau einer Wohnung; Mehrfamilienhaus = dasselbe mit zwei und mehr Wohnungen.\n– Wohngebäude mit Nebennutzung: Wohngebäude mit zusätzlicher anderer Nutzung (z. B. Bauernhaus, Wohnhaus mit Werkstatt). Gebäude mit teilweiser Wohnnutzung: überwiegend andere Nutzung (z. B. Geschäftshaus mit Wohnungen).\n– Eine Zeile pro Gemeinde; Bezirks- und Kantonswerte ergeben sich durch Summieren.\n– Abweichungen zu aktuellen GWR-Abfragen sind durch Nachführungen nach dem Stichtag möglich.\n– Gemeindefusion per 01.01.2026: Halten und Oekingen mit Kriegstetten (Bezirk Wasseramt).",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Gebäude mit Wohnnutzung nach Gebäudekategorie Gemeinden Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Gebäudekategorie, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für Wohnraum- und Ortsplanung sowie Vergleiche zwischen Gemeinden und Bezirken."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Erhebungsjahr (Stichtag 31.12.)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksnummer"
+      },
+      {
+        "field": "description",
+        "value": "Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Gebäude mit Wohnnutzung total"
+      },
+      {
+        "field": "description",
+        "value": "Einfamilienhäuser"
+      },
+      {
+        "field": "description",
+        "value": "Mehrfamilienhäuser"
+      },
+      {
+        "field": "description",
+        "value": "Wohngebäude mit Nebennutzung"
+      },
+      {
+        "field": "description",
+        "value": "Gebäude mit teilweiser Wohnnutzung"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.gebaeude_kategorie"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_kategorie.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.gebaeude_kategorie"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_kategorie.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.gebaeude_kategorie"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_kategorie.parquet"
+      }
+    ]
+  },
+  "ch.so.gws.wohnungen_zimmer": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.gws.wohnungen_zimmer",
+      "identifier": "ch.so.gws.wohnungen_zimmer",
+      "title": "Wohnungen nach Zimmerzahl Gemeinden Kanton Solothurn",
+      "description": "Bestand der Wohnungen in den Gemeinden des Kantons Solothurn nach Anzahl Zimmer (1, 2, 3, 4, 5 und mehr) sowie Anzahl Wohnungen in Einfamilienhäusern, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für Wohnraum- und Ortsplanung, Wohnungsmarktbeobachtung und Vergleiche zwischen Gemeinden und Bezirken. Interpretationshinweise: – Einfamilienhaus = Gebäude mit ausschliesslicher Wohnnutzung und genau einer Wohnung. Wohngebäude mit Nebennutzung (z. B. Bauernhaus) mit einer Wohnung zählen nicht als Einfamilienhaus. – Erfasst sind bewohnte und unbewohnte Wohnungen. – Eine Zeile pro Gemeinde; Bezirks- und Kantonswerte ergeben sich durch Summieren. – Abweichungen zu aktuellen GWR-Abfragen sind durch Nachführungen nach dem Stichtag möglich. – Gemeindefusion per 01.01.2026: Halten und Oekingen mit Kriegstetten (Bezirk Wasseramt).",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Bezirke",
+      "landingPage": "https://data.so.ch/datasets/ch.so.gws.wohnungen_zimmer",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_GWS_Wohnungen_Zimmer_20261016",
+      "surveyMethod": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde.\nZimmerzahl: Anzahl Zimmer der Wohnung gemäss GWR (ohne Küche, Bad, WC, Korridore); 5+ = 5 und mehr Zimmer.",
+      "dataAvailableFrom": "Erhebungsjahr 2025 (erster publizierter Jahrgang dieses Datensatzes)",
+      "furtherUses": "Grundlage u. a. für Wohnraum-, Orts- und Energieplanung sowie Wohnungsmarktbeobachtung.",
+      "auxiliaryData": "Bezirkszuordnung gemäss Amtlichem Gemeindeverzeichnis der Schweiz (BFS).",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Wohnungen nach Zimmerzahl Gemeinden Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Bestand der Wohnungen in den Gemeinden des Kantons Solothurn nach Anzahl Zimmer (1, 2, 3, 4, 5 und mehr) sowie Anzahl Wohnungen in Einfamilienhäusern, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für Wohnraum- und Ortsplanung, Wohnungsmarktbeobachtung und Vergleiche zwischen Gemeinden und Bezirken. Interpretationshinweise: – Einfamilienhaus = Gebäude mit ausschliesslicher Wohnnutzung und genau einer Wohnung. Wohngebäude mit Nebennutzung (z. B. Bauernhaus) mit einer Wohnung zählen nicht als Einfamilienhaus. – Erfasst sind bewohnte und unbewohnte Wohnungen. – Eine Zeile pro Gemeinde; Bezirks- und Kantonswerte ergeben sich durch Summieren. – Abweichungen zu aktuellen GWR-Abfragen sind durch Nachführungen nach dem Stichtag möglich. – Gemeindefusion per 01.01.2026: Halten und Oekingen mit Kriegstetten (Bezirk Wasseramt)."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Erhebungsjahr (Stichtag 31.12.)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksnummer"
+      },
+      {
+        "field": "description",
+        "value": "Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Wohnungen total"
+      },
+      {
+        "field": "description",
+        "value": "davon Wohnungen in Einfamilienhäusern"
+      },
+      {
+        "field": "description",
+        "value": "Wohnungen mit 1 Zimmer"
+      },
+      {
+        "field": "description",
+        "value": "Wohnungen mit 2 Zimmern"
+      },
+      {
+        "field": "description",
+        "value": "Wohnungen mit 3 Zimmern"
+      },
+      {
+        "field": "description",
+        "value": "Wohnungen mit 4 Zimmern"
+      },
+      {
+        "field": "description",
+        "value": "Wohnungen mit 5 und mehr Zimmern"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde.\nZimmerzahl: Anzahl Zimmer der Wohnung gemäss GWR (ohne Küche, Bad, WC, Korridore); 5+ = 5 und mehr Zimmer."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.wohnungen_zimmer"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.wohnungen_zimmer.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.wohnungen_zimmer"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.wohnungen_zimmer.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.gws.wohnungen_zimmer"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.wohnungen_zimmer.parquet"
+      }
+    ]
+  },
+  "ch.so.leerwohnungen_gemeinden": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.leerwohnungen_gemeinden",
+      "identifier": "ch.so.leerwohnungen_gemeinden",
+      "title": "Leer stehende Wohnungen Gemeinden und Bezirke Kanton Solothurn",
+      "description": "Jährliche Zeitreihe der leer stehenden Wohnungen am Stichtag 1. Juni für alle Gemeinden und Bezirke des Kantons Solothurn sowie für den Kanton und die Schweiz als Vergleich, gegliedert nach Zimmerzahl, Gebäudetyp (Einfamilien-/Mehrfamilienhaus), Alter (Neubau/Altbau) und Angebotsform (zu vermieten / zu verkaufen). Zweck: kleinräumige Beobachtung des Wohnungsleerstands; Grundlage für Gemeinden, Raumplanung und Wohnungsmarktanalysen. Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "BFS",
+      "landingPage": "https://data.so.ch/datasets/ch.so.leerwohnungen_gemeinden",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Leerwohnungen_Gemeinden_20261016",
+      "surveyMethod": "Quelle: BFS, Leerwohnungsstatistik, Swiss Stats Explorer, Datenfluss CH1.LWZ:DF_LWZ_1 «Leer stehende Wohnungen nach Grossregion, Kanton, Bezirk, Gemeinde, Anzahl Wohnräumen und Typ» (CSV-Export). Erhebung: jährlich, Stichtag 1. Juni; ab 2023 registerbasiert (Spalte «registerbasiert»). Gemeindestand gemäss BFS: 2025-04-06 (alle Jahre auf diesen Gebietsstand bezogen).",
+      "dataAvailableFrom": "ab 2021 im Datensatz (Umfang des verwendeten Exports). Gemeindewerte früherer Jahre sind beim BFS ggf. verfügbar – bei der nächsten Aktualisierung prüfen.",
+      "furtherUses": "Ergänzt den kantonalen Datensatz «Leer stehende Wohnungen und Leerwohnungsziffer Kanton Solothurn und Schweiz»; Grundlage für Gemeindeauswertungen.",
+      "auxiliaryData": "Keine. Eine Leerwohnungsziffer auf Gemeindeebene wird nicht berechnet, da kein Wohnungsbestand je Gemeinde im Export enthalten ist.",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Leer stehende Wohnungen Gemeinden und Bezirke Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Jährliche Zeitreihe der leer stehenden Wohnungen am Stichtag 1. Juni für alle Gemeinden und Bezirke des Kantons Solothurn sowie für den Kanton und die Schweiz als Vergleich, gegliedert nach Zimmerzahl, Gebäudetyp (Einfamilien-/Mehrfamilienhaus), Alter (Neubau/Altbau) und Angebotsform (zu vermieten / zu verkaufen). Zweck: kleinräumige Beobachtung des Wohnungsleerstands; Grundlage für Gemeinden, Raumplanung und Wohnungsmarktanalysen. Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Erhebungsjahr, Stichtag 1. Juni"
+      },
+      {
+        "field": "description",
+        "value": "Schweiz, Kanton, Bezirk oder Gemeinde"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeinde- bzw. Bezirksnummer; Kanton = 11; Schweiz leer"
+      },
+      {
+        "field": "description",
+        "value": "Originalcode BFS"
+      },
+      {
+        "field": "description",
+        "value": "Name des Raums gemäss BFS"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen total (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen mit 1 Zimmer (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen mit 2 Zimmern (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen mit 3 Zimmern (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen mit 4 Zimmern (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen mit 5 Zimmern (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen mit 6 und mehr Zimmern (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen in Einfamilienhäusern (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen in Mehrfamilienhäusern (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen in Neubauten bis 2-jährig (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen in Altbauten älter als 2 Jahre (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen, zu vermieten (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen, zu verkaufen (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "1 = registerbasierte Erhebung ab 2023 (0/1)"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Quelle: BFS, Leerwohnungsstatistik, Swiss Stats Explorer, Datenfluss CH1.LWZ:DF_LWZ_1 «Leer stehende Wohnungen nach Grossregion, Kanton, Bezirk, Gemeinde, Anzahl Wohnräumen und Typ» (CSV-Export). Erhebung: jährlich, Stichtag 1. Juni; ab 2023 registerbasiert (Spalte «registerbasiert»). Gemeindestand gemäss BFS: 2025-04-06 (alle Jahre auf diesen Gebietsstand bezogen)."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.leerwohnungen_gemeinden"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_gemeinden.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.leerwohnungen_gemeinden"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_gemeinden.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.leerwohnungen_gemeinden"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_gemeinden.parquet"
+      }
+    ]
+  },
+  "ch.so.leerwohnungen_kanton": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.leerwohnungen_kanton",
+      "identifier": "ch.so.leerwohnungen_kanton",
+      "title": "Leer stehende Wohnungen und Leerwohnungsziffer Kanton Solothurn und Schweiz",
+      "description": "Jährliche Zeitreihe der leer stehenden Wohnungen am Stichtag 1. Juni im Kanton Solothurn und in der Schweiz, gegliedert nach Zimmerzahl, Wohnungstyp (Einfamilienhaus, Neubau) und Angebotsform (zu vermieten / zu verkaufen), sowie der Wohnungsbestand und die Leerwohnungsziffer (Anteil leer stehender Wohnungen am Gesamtwohnungsbestand). Zweck: Beobachtung der Wohnungsmarktlage im Kanton im Vergleich zur Schweiz; Grundlage für Wohnungsmarkt- und Raumplanungsfragen sowie für die Publikation «Solothurn in Zahlen». Beispiel: 2025 standen im Kanton Solothurn 3’003 Wohnungen leer (Leerwohnungsziffer 2,05 %; Schweiz 1,00 %). Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "BFS",
+      "landingPage": "https://data.so.ch/datasets/ch.so.leerwohnungen_kanton",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Leerwohnungen_Kanton_20261016",
+      "surveyMethod": "Quelle: BFS, Leerwohnungsstatistik (Leerwohnungszählung), Tabelle je-d-09.03.04.03 «Leer stehende Wohnungen nach Kantonen» (ein Tabellenblatt pro Jahr). Erhebung: jährlich, Stichtag 1. Juni; gezählt werden leer stehende Wohnungen, die zur Miete oder zum Kauf angeboten werden. Leerwohnungsziffer: leer stehende Wohnungen in % des Gesamtwohnungsbestands am 31.12. des Vorjahres. Änderungen im Erhebungsdesign: bis 2010 Ziffer auf Basis eines approximativen Gesamtwohnungsbestands (Wohnungsbestand erst ab 2008 in der Tabelle); ab 2010 Wohnungsbestand aus der Gebäude- und Wohnungsstatistik (GWS), für 2010 wird die neue Basis GWS2009 verwendet; ab 2023 registerbasierte Erhebung, Anzahl nur bedingt mit Vorjahren vergleichbar (Spalte «registerbasiert»).",
+      "dataAvailableFrom": "ab 1999 im Datensatz (BFS-Tabelle je-d-09.03.04.03 mit Jahresblättern ab 1999); die Leerwohnungsziffer wird gemäss BFS seit 1985 berechnet.",
+      "furtherUses": "Publikation «Solothurn in Zahlen» (Rubrik Wohnen und Haushalte, Entwicklung der Leerwohnungen).",
+      "auxiliaryData": "Keine zusätzlichen Hilfsdaten. Wohnungsbestand und Leerwohnungsziffer stammen unverändert aus der BFS-Tabelle (Basis GWS bzw. StatBL des Vorjahres).",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Leer stehende Wohnungen und Leerwohnungsziffer Kanton Solothurn und Schweiz"
+      },
+      {
+        "field": "description",
+        "value": "Jährliche Zeitreihe der leer stehenden Wohnungen am Stichtag 1. Juni im Kanton Solothurn und in der Schweiz, gegliedert nach Zimmerzahl, Wohnungstyp (Einfamilienhaus, Neubau) und Angebotsform (zu vermieten / zu verkaufen), sowie der Wohnungsbestand und die Leerwohnungsziffer (Anteil leer stehender Wohnungen am Gesamtwohnungsbestand). Zweck: Beobachtung der Wohnungsmarktlage im Kanton im Vergleich zur Schweiz; Grundlage für Wohnungsmarkt- und Raumplanungsfragen sowie für die Publikation «Solothurn in Zahlen». Beispiel: 2025 standen im Kanton Solothurn 3’003 Wohnungen leer (Leerwohnungsziffer 2,05 %; Schweiz 1,00 %). Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Erhebungsjahr, Stichtag 1. Juni (Ganzzahl)"
+      },
+      {
+        "field": "description",
+        "value": "SO = Kanton Solothurn, CH = Schweiz (Text)"
+      },
+      {
+        "field": "description",
+        "value": "Bezeichnung des Raums (Text)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen total (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende 1-Zimmer-Wohnungen (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende 2-Zimmer-Wohnungen (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende 3-Zimmer-Wohnungen (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende 4-Zimmer-Wohnungen (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende 5-Zimmer-Wohnungen (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leer stehende Wohnungen mit 6 und mehr Zimmern (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "davon in Einfamilienhäusern (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "davon Neubauwohnungen bis 2-jährig (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "davon zu vermieten (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "davon zu verkaufen (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Wohnungsbestand am 31.12. des Vorjahres, ab 2008 (Anzahl)"
+      },
+      {
+        "field": "description",
+        "value": "Leerwohnungsziffer (Prozent)"
+      },
+      {
+        "field": "description",
+        "value": "Grundlage des Wohnungsbestands, z.B. GWS2022, StatBL2024, approx. Bestand Vorjahr (Text)"
+      },
+      {
+        "field": "description",
+        "value": "1 = registerbasierte Erhebung ab 2023 (0/1)"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Quelle: BFS, Leerwohnungsstatistik (Leerwohnungszählung), Tabelle je-d-09.03.04.03 «Leer stehende Wohnungen nach Kantonen» (ein Tabellenblatt pro Jahr). Erhebung: jährlich, Stichtag 1. Juni; gezählt werden leer stehende Wohnungen, die zur Miete oder zum Kauf angeboten werden. Leerwohnungsziffer: leer stehende Wohnungen in % des Gesamtwohnungsbestands am 31.12. des Vorjahres. Änderungen im Erhebungsdesign: bis 2010 Ziffer auf Basis eines approximativen Gesamtwohnungsbestands (Wohnungsbestand erst ab 2008 in der Tabelle); ab 2010 Wohnungsbestand aus der Gebäude- und Wohnungsstatistik (GWS), für 2010 wird die neue Basis GWS2009 verwendet; ab 2023 registerbasierte Erhebung, Anzahl nur bedingt mit Vorjahren vergleichbar (Spalte «registerbasiert»)."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.leerwohnungen_kanton"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_kanton.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.leerwohnungen_kanton"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_kanton.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.leerwohnungen_kanton"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_kanton.parquet"
+      }
+    ]
+  },
+  "ch.so.sozialhilfe_kanton": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.sozialhilfe_kanton",
+      "identifier": "ch.so.sozialhilfe_kanton",
+      "title": "Sozialhilfequote und Sozialhilfebeziehende Kanton Solothurn und Schweiz",
+      "description": "Jährliche Zeitreihe der wirtschaftlichen Sozialhilfe im Kanton Solothurn und in der Schweiz: Sozialhilfequote, Anzahl Sozialhilfebeziehende, Unterstützungseinheiten (Dossiers) und Personen pro Unterstützungseinheit. Zweck: Beobachtung der Entwicklung der Sozialhilfe im Kanton im Vergleich zur Schweiz; Grundlage für Sozialberichterstattung und die Publikation «Solothurn in Zahlen». Beispiel: 2024 lag die Sozialhilfequote im Kanton Solothurn bei 3,4 % (9’740 Personen), in der Schweiz bei 2,9 %. Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "BFS",
+      "landingPage": "https://data.so.ch/datasets/ch.so.sozialhilfe_kanton",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Sozialhilfe_Kanton_20261016",
+      "surveyMethod": "Quelle: BFS, Sozialhilfeempfängerstatistik (SHS), Tabelle je-d-13.05.01.01.01 «WSH: Unterstützungseinheiten, Sozialhilfebeziehende und Sozialhilfequote nach Kanton» (ein Tabellenblatt pro Jahr). Erhebung: jährliche Statistik der wirtschaftlichen Sozialhilfe; berücksichtigt sind Dossiers mit Leistungsbezug in der Erhebungsperiode, ohne Doppelzählungen. Sozialhilfequote: Anteil der Sozialhilfebeziehenden (alle Personen in der Unterstützungseinheit) mit Leistungsbezug im Erhebungsjahr an der ständigen Wohnbevölkerung (STATPOP) des Vorjahres. Änderungen im Erhebungsdesign: 2024–2025 Modernisierung der SHS (neue Datenformate, Gewichtungen); Ergebnisse dieser Jahre gemäss BFS vorsichtig interpretieren (Spalte «hinweis»).",
+      "dataAvailableFrom": "ab 2005",
+      "furtherUses": "Publikation «Solothurn in Zahlen» (Rubrik Soziale Sicherheit, Entwicklung der Sozialhilfequote).",
+      "auxiliaryData": "Die Sozialhilfequote wird vom BFS mit der ständigen Wohnbevölkerung (STATPOP) des Vorjahres berechnet und unverändert übernommen; keine eigenen Hilfsdaten.",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Sozialhilfequote und Sozialhilfebeziehende Kanton Solothurn und Schweiz"
+      },
+      {
+        "field": "description",
+        "value": "Jährliche Zeitreihe der wirtschaftlichen Sozialhilfe im Kanton Solothurn und in der Schweiz: Sozialhilfequote, Anzahl Sozialhilfebeziehende, Unterstützungseinheiten (Dossiers) und Personen pro Unterstützungseinheit. Zweck: Beobachtung der Entwicklung der Sozialhilfe im Kanton im Vergleich zur Schweiz; Grundlage für Sozialberichterstattung und die Publikation «Solothurn in Zahlen». Beispiel: 2024 lag die Sozialhilfequote im Kanton Solothurn bei 3,4 % (9’740 Personen), in der Schweiz bei 2,9 %. Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Erhebungsjahr (Ganzzahl)."
+      },
+      {
+        "field": "description",
+        "value": "Gebietscode (Text): SO = Kanton Solothurn, CH = Schweiz."
+      },
+      {
+        "field": "description",
+        "value": "Bezeichnung des Raums (Text): «Kanton Solothurn» oder «Schweiz»."
+      },
+      {
+        "field": "description",
+        "value": "Sozialhilfequote in Prozent. Anteil der Sozialhilfebeziehenden an der ständigen Wohnbevölkerung. NICHT ADDITIVE KENNZAHL: Prozent-/Anteilswert, Werte dürfen nicht über Jahre oder Räume summiert werden."
+      },
+      {
+        "field": "description",
+        "value": "Personen mit Leistungsbezug im Erhebungsjahr (Anzahl)."
+      },
+      {
+        "field": "description",
+        "value": "Unterstützungseinheiten / Dossiers (Anzahl)."
+      },
+      {
+        "field": "description",
+        "value": "Personen pro Unterstützungseinheit (durchschnittliche Personenzahl je Dossier). NICHT ADDITIVE KENNZAHL: Verhältnis-/Durchschnittswert, Werte dürfen nicht über Jahre oder Räume summiert werden."
+      },
+      {
+        "field": "description",
+        "value": "Methodischer Hinweis des BFS zum Jahrgang (Text); nur für betroffene Jahre belegt."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Quelle: BFS, Sozialhilfeempfängerstatistik (SHS), Tabelle je-d-13.05.01.01.01 «WSH: Unterstützungseinheiten, Sozialhilfebeziehende und Sozialhilfequote nach Kanton» (ein Tabellenblatt pro Jahr). Erhebung: jährliche Statistik der wirtschaftlichen Sozialhilfe; berücksichtigt sind Dossiers mit Leistungsbezug in der Erhebungsperiode, ohne Doppelzählungen. Sozialhilfequote: Anteil der Sozialhilfebeziehenden (alle Personen in der Unterstützungseinheit) mit Leistungsbezug im Erhebungsjahr an der ständigen Wohnbevölkerung (STATPOP) des Vorjahres. Änderungen im Erhebungsdesign: 2024–2025 Modernisierung der SHS (neue Datenformate, Gewichtungen); Ergebnisse dieser Jahre gemäss BFS vorsichtig interpretieren (Spalte «hinweis»)."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.sozialhilfe_kanton"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_kanton.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.sozialhilfe_kanton"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_kanton.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.sozialhilfe_kanton"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_kanton.parquet"
+      }
+    ]
+  },
+  "ch.so.sozialhilfe_merkmale": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.sozialhilfe_merkmale",
+      "identifier": "ch.so.sozialhilfe_merkmale",
+      "title": "Sozialhilfebeziehende nach Geschlecht, Alter, Zivilstand und Staatsangehörigkeit Kanton Solothurn",
+      "description": "Jährliche Zeitreihe der Sozialhilfebeziehenden und der Sozialhilfequote im Kanton Solothurn, gegliedert nach Geschlecht, Altersklasse, Zivilstand und Staatsangehörigkeit (Schweiz / Ausland), inkl. aller Kombinationen und Totale. Zweck: Analyse, welche Bevölkerungsgruppen besonders häufig Sozialhilfe beziehen (z. B. Kinder und Jugendliche, ausländische Personen, Geschiedene) und wie sich dies über die Zeit entwickelt. Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "BFS",
+      "landingPage": "https://data.so.ch/datasets/ch.so.sozialhilfe_merkmale",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Sozialhilfe_Merkmale_20261016",
+      "surveyMethod": "Quelle: BFS, Sozialhilfeempfängerstatistik (SHS), STAT-TAB px-x-1304030000_121 «WSH: Sozialhilfebeziehende der wirtschaftlichen Sozialhilfe nach Kanton, Geschlecht, Altersklasse, Zivilstand, Staatsangehörigkeit (Kategorie)» (Excel-Export, Kanton Solothurn).\nErhebung und Quotendefinition wie Datensatz «Sozialhilfequote und Sozialhilfebeziehende Kanton Solothurn und Schweiz».",
+      "dataAvailableFrom": "ab 2005; Quoten nach Zivilstand erst ab 2011",
+      "furtherUses": "Weitere Verwendungen:\nPublikation «Solothurn in Zahlen» (Rubrik Soziale Sicherheit, Sozialhilfebeziehende nach Alter und Staatsangehörigkeit).",
+      "auxiliaryData": "Verwendete Hilfsdaten / Herkunft:\nQuoten vom BFS mit der ständigen Wohnbevölkerung (STATPOP) der jeweiligen Gruppe berechnet und unverändert übernommen.",
+      "structureSummary": null,
+      "distributions": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Sozialhilfebeziehende nach Geschlecht, Alter, Zivilstand und Staatsangehörigkeit Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Jährliche Zeitreihe der Sozialhilfebeziehenden und der Sozialhilfequote im Kanton Solothurn, gegliedert nach Geschlecht, Altersklasse, Zivilstand und Staatsangehörigkeit (Schweiz / Ausland), inkl. aller Kombinationen und Totale. Zweck: Analyse, welche Bevölkerungsgruppen besonders häufig Sozialhilfe beziehen (z. B. Kinder und Jugendliche, ausländische Personen, Geschiedene) und wie sich dies über die Zeit entwickelt. Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Erhebungsjahr (Ganzzahl)"
+      },
+      {
+        "field": "description",
+        "value": "SO = Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Bezeichnung des Raums (Kanton Solothurn)"
+      },
+      {
+        "field": "description",
+        "value": "Total, Mann, Frau, Ohne Angabe des Geschlechts"
+      },
+      {
+        "field": "description",
+        "value": "Total, 0-17, 18-25, 26-35, 36-45, 46-55, 56-64, 65 und mehr Jahre, Ohne Angabe"
+      },
+      {
+        "field": "description",
+        "value": "Total, Ledig, Verheiratet, Verwitwet, Geschieden, Ohne Angabe"
+      },
+      {
+        "field": "description",
+        "value": "Total, Schweiz, Ausland, Ohne Angabe"
+      },
+      {
+        "field": "description",
+        "value": "Personen mit Sozialhilfebezug (Anzahl; leer = unterdrückt)"
+      },
+      {
+        "field": "description",
+        "value": "Quote der jeweiligen Bevölkerungsgruppe (Prozent; leer = nicht berechnet oder unterdrückt)"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Quelle: BFS, Sozialhilfeempfängerstatistik (SHS), STAT-TAB px-x-1304030000_121 «WSH: Sozialhilfebeziehende der wirtschaftlichen Sozialhilfe nach Kanton, Geschlecht, Altersklasse, Zivilstand, Staatsangehörigkeit (Kategorie)» (Excel-Export, Kanton Solothurn).\nErhebung und Quotendefinition wie Datensatz «Sozialhilfequote und Sozialhilfebeziehende Kanton Solothurn und Schweiz»."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.sozialhilfe_merkmale"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_merkmale.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.sozialhilfe_merkmale"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_merkmale.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/datasets/ch.so.sozialhilfe_merkmale"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_merkmale.parquet"
+      }
+    ]
+  },
+  "ch.so.bevoelkerung.altersstruktur": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.bevoelkerung.altersstruktur",
+      "identifier": "ch.so.bevoelkerung.altersstruktur",
+      "title": "Altersstruktur der Wohnbevölkerung nach Geschlecht (Schweizer/Ausländer)",
+      "description": "Ständige Wohnbevölkerung des Gesamtkantons Solothurn nach Jahrgang (Einzeljahre), gegliedert nach Geschlecht und Staatsangehörigkeit (Schweizer/Schweizerinnen, Ausländer/Ausländerinnen) sowie Total je Jahrgang. Grundlage u. a. für die Alterspyramide. Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Solothurn",
+      "landingPage": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur",
+      "issued": "2026-09-30",
+      "modified": "2026-10-15",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Bevoelkerung_Altersstruktur_20261015",
+      "surveyMethod": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Jahrgang.",
+      "dataAvailableFrom": "2024",
+      "structureSummary": null,
+      "issues": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Altersstruktur der Wohnbevölkerung nach Geschlecht (Schweizer/Ausländer)"
+      },
+      {
+        "field": "description",
+        "value": "Ständige Wohnbevölkerung des Gesamtkantons Solothurn nach Jahrgang (Einzeljahre), gegliedert nach Geschlecht und Staatsangehörigkeit (Schweizer/Schweizerinnen, Ausländer/Ausländerinnen) sowie Total je Jahrgang. Grundlage u. a. für die Alterspyramide. Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide."
+      },
+      {
+        "field": "issued",
+        "value": "2026-09-30"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "Geburtsjahr"
+      },
+      {
+        "field": "description",
+        "value": "Männer ausländische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Frauen ausländische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Männer schweizerische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Frauen schweizerische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Gesamtbevölkerung je Jahrgang"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Jahrgang."
+      },
+      {
+        "field": "title",
+        "value": "Altersstruktur der Wohnbevölkerung nach Geschlecht (Schweizer/Ausländer) 2025"
+      },
+      {
+        "field": "description",
+        "value": "Ständige Wohnbevölkerung des Gesamtkantons Solothurn nach Jahrgang (Einzeljahre), gegliedert nach Geschlecht und Staatsangehörigkeit (Schweizer/Schweizerinnen, Ausländer/Ausländerinnen) sowie Total je Jahrgang. Grundlage u. a. für die Alterspyramide. Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide."
+      },
+      {
+        "field": "issued",
+        "value": "2026-09-30"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "Geburtsjahr"
+      },
+      {
+        "field": "description",
+        "value": "Männer ausländische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Frauen ausländische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Männer schweizerische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Frauen schweizerische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Gesamtbevölkerung je Jahrgang"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Jahrgang."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.altersstruktur_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.altersstruktur_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.altersstruktur_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.bevoelkerung.altersstruktur_2025": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.bevoelkerung.altersstruktur_2025",
+      "identifier": "ch.so.bevoelkerung.altersstruktur_2025",
+      "title": "Altersstruktur der Wohnbevölkerung nach Geschlecht (Schweizer/Ausländer) 2025",
+      "description": "Ständige Wohnbevölkerung des Gesamtkantons Solothurn nach Jahrgang (Einzeljahre), gegliedert nach Geschlecht und Staatsangehörigkeit (Schweizer/Schweizerinnen, Ausländer/Ausländerinnen) sowie Total je Jahrgang. Grundlage u. a. für die Alterspyramide. Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Solothurn",
+      "landingPage": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025",
+      "issued": "2026-09-30",
+      "modified": "2026-10-15",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Bevoelkerung_Altersstruktur_20261015",
+      "surveyMethod": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Jahrgang.",
+      "dataAvailableFrom": "2024",
+      "structureSummary": null,
+      "distributions": null,
+      "issueLabel": "2025",
+      "isCurrentIssue": "true"
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Altersstruktur der Wohnbevölkerung nach Geschlecht (Schweizer/Ausländer) 2025"
+      },
+      {
+        "field": "description",
+        "value": "Ständige Wohnbevölkerung des Gesamtkantons Solothurn nach Jahrgang (Einzeljahre), gegliedert nach Geschlecht und Staatsangehörigkeit (Schweizer/Schweizerinnen, Ausländer/Ausländerinnen) sowie Total je Jahrgang. Grundlage u. a. für die Alterspyramide. Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide."
+      },
+      {
+        "field": "issued",
+        "value": "2026-09-30"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "Geburtsjahr"
+      },
+      {
+        "field": "description",
+        "value": "Männer ausländische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Frauen ausländische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Männer schweizerische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Frauen schweizerische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Gesamtbevölkerung je Jahrgang"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Jahrgang."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.altersstruktur_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.altersstruktur_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.altersstruktur_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.bevoelkerung.gemeinde_alter": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_alter",
+      "identifier": "ch.so.bevoelkerung.gemeinde_alter",
+      "title": "Wohnbevölkerung nach Gemeinde, Geschlecht und Altersgruppen (inkl. Total Schweizer/Ausländer), Kanton Solothurn",
+      "description": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde, mit Totalen nach Geschlecht (Männer/Frauen) und Staatsangehörigkeit (Schweizer/Ausländer) sowie nach Altersgruppen (0–19, 20–39, 40–64, 65–79, 80+). Ehemals «Eckdaten zur Wohnbevölkerung». Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Solothurn",
+      "landingPage": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter",
+      "issued": "2026-10-15",
+      "modified": "2026-10-15",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Bevoelkerung_Gemeinde_Alter_20261015",
+      "surveyMethod": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde.",
+      "dataAvailableFrom": "2024",
+      "structureSummary": null,
+      "issues": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Wohnbevölkerung nach Gemeinde, Geschlecht und Altersgruppen (inkl. Total Schweizer/Ausländer), Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde, mit Totalen nach Geschlecht (Männer/Frauen) und Staatsangehörigkeit (Schweizer/Ausländer) sowie nach Altersgruppen (0–19, 20–39, 40–64, 65–79, 80+). Ehemals «Eckdaten zur Wohnbevölkerung». Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Gesamtbevölkerung"
+      },
+      {
+        "field": "description",
+        "value": "Männer total"
+      },
+      {
+        "field": "description",
+        "value": "Frauen total"
+      },
+      {
+        "field": "description",
+        "value": "Schweizerische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Ausländische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 0–19"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 20–39"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 40–64"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 65–79"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 80+"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde."
+      },
+      {
+        "field": "title",
+        "value": "Wohnbevölkerung nach Gemeinde, Geschlecht und Altersgruppen (inkl. Total Schweizer/Ausländer), Kanton Solothurn 2025"
+      },
+      {
+        "field": "description",
+        "value": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde, mit Totalen nach Geschlecht (Männer/Frauen) und Staatsangehörigkeit (Schweizer/Ausländer) sowie nach Altersgruppen (0–19, 20–39, 40–64, 65–79, 80+). Ehemals «Eckdaten zur Wohnbevölkerung». Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Gesamtbevölkerung"
+      },
+      {
+        "field": "description",
+        "value": "Männer total"
+      },
+      {
+        "field": "description",
+        "value": "Frauen total"
+      },
+      {
+        "field": "description",
+        "value": "Schweizerische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Ausländische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 0–19"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 20–39"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 40–64"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 65–79"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 80+"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.bevoelkerung.gemeinde_alter_2025": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_alter_2025",
+      "identifier": "ch.so.bevoelkerung.gemeinde_alter_2025",
+      "title": "Wohnbevölkerung nach Gemeinde, Geschlecht und Altersgruppen (inkl. Total Schweizer/Ausländer), Kanton Solothurn 2025",
+      "description": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde, mit Totalen nach Geschlecht (Männer/Frauen) und Staatsangehörigkeit (Schweizer/Ausländer) sowie nach Altersgruppen (0–19, 20–39, 40–64, 65–79, 80+). Ehemals «Eckdaten zur Wohnbevölkerung». Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Solothurn",
+      "landingPage": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025",
+      "issued": "2026-10-15",
+      "modified": "2026-10-15",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Bevoelkerung_Gemeinde_Alter_20261015",
+      "surveyMethod": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde.",
+      "dataAvailableFrom": "2024",
+      "structureSummary": null,
+      "distributions": null,
+      "issueLabel": "2025",
+      "isCurrentIssue": "true"
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Wohnbevölkerung nach Gemeinde, Geschlecht und Altersgruppen (inkl. Total Schweizer/Ausländer), Kanton Solothurn 2025"
+      },
+      {
+        "field": "description",
+        "value": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde, mit Totalen nach Geschlecht (Männer/Frauen) und Staatsangehörigkeit (Schweizer/Ausländer) sowie nach Altersgruppen (0–19, 20–39, 40–64, 65–79, 80+). Ehemals «Eckdaten zur Wohnbevölkerung». Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Gesamtbevölkerung"
+      },
+      {
+        "field": "description",
+        "value": "Männer total"
+      },
+      {
+        "field": "description",
+        "value": "Frauen total"
+      },
+      {
+        "field": "description",
+        "value": "Schweizerische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Ausländische Staatsangehörigkeit"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 0–19"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 20–39"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 40–64"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 65–79"
+      },
+      {
+        "field": "description",
+        "value": "Anzahl Personen in der Altersgruppe 80+"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.bevoelkerung.gemeinde_geschlecht": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_geschlecht",
+      "identifier": "ch.so.bevoelkerung.gemeinde_geschlecht",
+      "title": "Wohnbevölkerung nach Gemeinde und Geschlecht (Schweizer/Ausländer)",
+      "description": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde und Geschlecht, differenziert nach schweizerischer und ausländischer Staatsangehörigkeit (Männer/Frauen je Gruppe sowie Totale). Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Solothurn",
+      "landingPage": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht",
+      "issued": "2026-10-15",
+      "modified": "2026-10-15",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "surveyMethod": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde.",
+      "dataAvailableFrom": "2024",
+      "structureSummary": null,
+      "issues": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Wohnbevölkerung nach Gemeinde und Geschlecht (Schweizer/Ausländer)"
+      },
+      {
+        "field": "description",
+        "value": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde und Geschlecht, differenziert nach schweizerischer und ausländischer Staatsangehörigkeit (Männer/Frauen je Gruppe sowie Totale). Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "Bezirk"
+      },
+      {
+        "field": "description",
+        "value": "Frauen Schweizer"
+      },
+      {
+        "field": "description",
+        "value": "Frauen Ausländer"
+      },
+      {
+        "field": "description",
+        "value": "Männer Schweizer"
+      },
+      {
+        "field": "description",
+        "value": "Männer Ausländer"
+      },
+      {
+        "field": "description",
+        "value": "Total Schweizer"
+      },
+      {
+        "field": "description",
+        "value": "Total Ausländer"
+      },
+      {
+        "field": "description",
+        "value": "Total Männer"
+      },
+      {
+        "field": "description",
+        "value": "Total Frauen"
+      },
+      {
+        "field": "description",
+        "value": "Total Bevölkerung"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde."
+      },
+      {
+        "field": "title",
+        "value": "Wohnbevölkerung nach Gemeinde und Geschlecht (Schweizer/Ausländer) 2025"
+      },
+      {
+        "field": "description",
+        "value": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde und Geschlecht, differenziert nach schweizerischer und ausländischer Staatsangehörigkeit (Männer/Frauen je Gruppe sowie Totale). Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "Bezirk"
+      },
+      {
+        "field": "description",
+        "value": "Frauen Schweizer"
+      },
+      {
+        "field": "description",
+        "value": "Frauen Ausländer"
+      },
+      {
+        "field": "description",
+        "value": "Männer Schweizer"
+      },
+      {
+        "field": "description",
+        "value": "Männer Ausländer"
+      },
+      {
+        "field": "description",
+        "value": "Total Schweizer"
+      },
+      {
+        "field": "description",
+        "value": "Total Ausländer"
+      },
+      {
+        "field": "description",
+        "value": "Total Männer"
+      },
+      {
+        "field": "description",
+        "value": "Total Frauen"
+      },
+      {
+        "field": "description",
+        "value": "Total Bevölkerung"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.bevoelkerung.gemeinde_geschlecht_2025": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+      "identifier": "ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+      "title": "Wohnbevölkerung nach Gemeinde und Geschlecht (Schweizer/Ausländer) 2025",
+      "description": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde und Geschlecht, differenziert nach schweizerischer und ausländischer Staatsangehörigkeit (Männer/Frauen je Gruppe sowie Totale). Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Solothurn",
+      "landingPage": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+      "issued": "2026-10-15",
+      "modified": "2026-10-15",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "surveyMethod": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde.",
+      "dataAvailableFrom": "2024",
+      "structureSummary": null,
+      "distributions": null,
+      "issueLabel": "2025",
+      "isCurrentIssue": "true"
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Wohnbevölkerung nach Gemeinde und Geschlecht (Schweizer/Ausländer) 2025"
+      },
+      {
+        "field": "description",
+        "value": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde und Geschlecht, differenziert nach schweizerischer und ausländischer Staatsangehörigkeit (Männer/Frauen je Gruppe sowie Totale). Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "Bezirk"
+      },
+      {
+        "field": "description",
+        "value": "Frauen Schweizer"
+      },
+      {
+        "field": "description",
+        "value": "Frauen Ausländer"
+      },
+      {
+        "field": "description",
+        "value": "Männer Schweizer"
+      },
+      {
+        "field": "description",
+        "value": "Männer Ausländer"
+      },
+      {
+        "field": "description",
+        "value": "Total Schweizer"
+      },
+      {
+        "field": "description",
+        "value": "Total Ausländer"
+      },
+      {
+        "field": "description",
+        "value": "Total Männer"
+      },
+      {
+        "field": "description",
+        "value": "Total Frauen"
+      },
+      {
+        "field": "description",
+        "value": "Total Bevölkerung"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.fahrzeugbestand": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.fahrzeugbestand",
+      "identifier": "ch.so.fahrzeugbestand",
+      "title": "Fahrzeugbestand nach Fahrzeugkategorie und Gemeinde",
+      "description": "Bestand der im Kanton Solothurn zugelassenen Fahrzeuge nach Fahrzeuggruppe (Leichte Motorwagen, Schwere Motorwagen, Anhänger, Landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Klein-Motorräder, Gewerbefahrzeuge) und Fahrzeugart auf Gemeindeebene per Stichtag. Ausgewiesen werden pro Gemeinde und Fahrzeugkategorie zwei Grössen: `anzahl_fahrzeuge` (Anzahl der immatrikulierten Fahrzeuge; jedes Fahrzeug wird einzeln gezählt, auch wenn mehrere Fahrzeuge unter demselben Wechselschild eingelöst sind) und `anzahl_ws` (Anzahl der Zulassungen unter Berücksichtigung der Wechselschilder; Fahrzeuge, die sich ein Wechselschild teilen, werden nur einmal gezählt, d. h. die Zahl entspricht der Anzahl eingelöster Kontrollschilder). Bezirks- und Kantonswerte lassen sich durch Aggregation der Gemeindewerte herleiten. Zweck: Grundlage für Verkehrs-, Raum- und Umweltplanung, Statistik sowie öffentliche Information.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Verkehr",
+      "landingPage": "https://data.so.ch/series/ch.so.fahrzeugbestand",
+      "issued": "2026-10-14",
+      "modified": "2026-10-14",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Fahrzeugbestand_20261014",
+      "surveyMethod": "Vollerhebung aus dem Fahrzeugzulassungsregister der MFK Kanton Solothurn (administrative Registerdaten, Auszug per Stichtag). Zuordnung der Fahrzeuge zur Gemeinde über den Halterstandort (BFS-Gemeindenummer). Keine Stichprobe, keine Schätzwerte.",
+      "dataAvailableFrom": "2025 (frühere Jahrgänge durch MFK zu prüfen/ergänzen)",
+      "furtherUses": "Weitere Verwendungen: Kantonale Statistik, Verkehrs- und Umweltplanung; Vergleichbarkeit mit BFS-Fahrzeugstatistik (MOFIS/ASTRA). Verwendete Hilfsdaten: BFS-Gemeindenummern und Bezirkszuordnung (Gemeindestand 2025). so-ogd:weitereVerwendungen",
+      "structureSummary": null,
+      "issues": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Fahrzeugbestand nach Fahrzeugkategorie und Gemeinde"
+      },
+      {
+        "field": "description",
+        "value": "Bestand der im Kanton Solothurn zugelassenen Fahrzeuge nach Fahrzeuggruppe (Leichte Motorwagen, Schwere Motorwagen, Anhänger, Landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Klein-Motorräder, Gewerbefahrzeuge) und Fahrzeugart auf Gemeindeebene per Stichtag. Ausgewiesen werden pro Gemeinde und Fahrzeugkategorie zwei Grössen: `anzahl_fahrzeuge` (Anzahl der immatrikulierten Fahrzeuge; jedes Fahrzeug wird einzeln gezählt, auch wenn mehrere Fahrzeuge unter demselben Wechselschild eingelöst sind) und `anzahl_ws` (Anzahl der Zulassungen unter Berücksichtigung der Wechselschilder; Fahrzeuge, die sich ein Wechselschild teilen, werden nur einmal gezählt, d. h. die Zahl entspricht der Anzahl eingelöster Kontrollschilder). Bezirks- und Kantonswerte lassen sich durch Aggregation der Gemeindewerte herleiten. Zweck: Grundlage für Verkehrs-, Raum- und Umweltplanung, Statistik sowie öffentliche Information."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer; massgeblich für die Zuordnung zur Gemeinde."
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksnummer"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Kanton, im Datensatz SO."
+      },
+      {
+        "field": "description",
+        "value": "Gruppierung der Fahrzeuge in sieben Gruppen: leichte Motorwagen, schwere Motorwagen, Anhänger, landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Kleinmotorräder und Gewerbefahrzeuge."
+      },
+      {
+        "field": "description",
+        "value": "Name der Fahrzeuggruppe."
+      },
+      {
+        "field": "description",
+        "value": "Code der Fahrzeugart nach Einteilung gemäss VTS."
+      },
+      {
+        "field": "description",
+        "value": "Name der Fahrzeugart gemäss VTS."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der per Stichtag in der Gemeinde immatrikulierten Fahrzeuge je Fahrzeugkategorie. Jedes Fahrzeug wird einzeln gezählt, auch bei gemeinsam genutztem Wechselschild."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der Zulassungen unter Berücksichtigung der Wechselschilder. Fahrzeuge mit gemeinsamem Wechselschild werden nur einmal gezählt; die Zahl entspricht damit der Anzahl eingelöster Kontrollschilder."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung aus dem Fahrzeugzulassungsregister der MFK Kanton Solothurn (administrative Registerdaten, Auszug per Stichtag). Zuordnung der Fahrzeuge zur Gemeinde über den Halterstandort (BFS-Gemeindenummer). Keine Stichprobe, keine Schätzwerte."
+      },
+      {
+        "field": "title",
+        "value": "Fahrzeugbestand nach Fahrzeugkategorie und Gemeinde (2025)"
+      },
+      {
+        "field": "description",
+        "value": "Bestand der im Kanton Solothurn zugelassenen Fahrzeuge nach Fahrzeuggruppe (Leichte Motorwagen, Schwere Motorwagen, Anhänger, Landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Klein-Motorräder, Gewerbefahrzeuge) und Fahrzeugart auf Gemeindeebene per Stichtag. Ausgewiesen werden pro Gemeinde und Fahrzeugkategorie zwei Grössen: anzahl_fahrzeuge (Anzahl der immatrikulierten Fahrzeuge; jedes Fahrzeug wird einzeln gezählt, auch wenn mehrere Fahrzeuge unter demselben Wechselschild eingelöst sind) und anzahl_ws (Anzahl der Zulassungen unter Berücksichtigung der Wechselschilder; Fahrzeuge, die sich ein Wechselschild teilen, werden nur einmal gezählt, d. h. die Zahl entspricht der Anzahl eingelöster Kontrollschilder). Bezirks- und Kantonswerte lassen sich durch Aggregation der Gemeindewerte herleiten. Zweck: Grundlage für Verkehrs-, Raum- und Umweltplanung, Statistik sowie öffentliche Information."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer; massgeblich für die Zuordnung zur Gemeinde."
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksnummer"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Kanton, im Datensatz SO."
+      },
+      {
+        "field": "description",
+        "value": "Gruppierung der Fahrzeuge in sieben Gruppen: leichte Motorwagen, schwere Motorwagen, Anhänger, landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Kleinmotorräder und Gewerbefahrzeuge."
+      },
+      {
+        "field": "description",
+        "value": "Name der Fahrzeuggruppe."
+      },
+      {
+        "field": "description",
+        "value": "Code der Fahrzeugart nach Einteilung gemäss VTS."
+      },
+      {
+        "field": "description",
+        "value": "Name der Fahrzeugart gemäss VTS."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der per Stichtag in der Gemeinde immatrikulierten Fahrzeuge je Fahrzeugkategorie. Jedes Fahrzeug wird einzeln gezählt, auch bei gemeinsam genutztem Wechselschild."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der Zulassungen unter Berücksichtigung der Wechselschilder. Fahrzeuge mit gemeinsamem Wechselschild werden nur einmal gezählt; die Zahl entspricht damit der Anzahl eingelöster Kontrollschilder."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung aus dem Fahrzeugzulassungsregister der MFK Kanton Solothurn (administrative Registerdaten, Auszug per Stichtag). Zuordnung der Fahrzeuge zur Gemeinde über den Halterstandort (BFS-Gemeindenummer). Keine Stichprobe, keine Schätzwerte."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.fahrzeugbestand_2025": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.fahrzeugbestand_2025",
+      "identifier": "ch.so.fahrzeugbestand_2025",
+      "title": "Fahrzeugbestand nach Fahrzeugkategorie und Gemeinde (2025)",
+      "description": "Bestand der im Kanton Solothurn zugelassenen Fahrzeuge nach Fahrzeuggruppe (Leichte Motorwagen, Schwere Motorwagen, Anhänger, Landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Klein-Motorräder, Gewerbefahrzeuge) und Fahrzeugart auf Gemeindeebene per Stichtag. Ausgewiesen werden pro Gemeinde und Fahrzeugkategorie zwei Grössen: anzahl_fahrzeuge (Anzahl der immatrikulierten Fahrzeuge; jedes Fahrzeug wird einzeln gezählt, auch wenn mehrere Fahrzeuge unter demselben Wechselschild eingelöst sind) und anzahl_ws (Anzahl der Zulassungen unter Berücksichtigung der Wechselschilder; Fahrzeuge, die sich ein Wechselschild teilen, werden nur einmal gezählt, d. h. die Zahl entspricht der Anzahl eingelöster Kontrollschilder). Bezirks- und Kantonswerte lassen sich durch Aggregation der Gemeindewerte herleiten. Zweck: Grundlage für Verkehrs-, Raum- und Umweltplanung, Statistik sowie öffentliche Information.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "Verkehr",
+      "landingPage": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025",
+      "issued": "2026-10-14",
+      "modified": "2026-10-14",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Fahrzeugbestand_20261014",
+      "surveyMethod": "Vollerhebung aus dem Fahrzeugzulassungsregister der MFK Kanton Solothurn (administrative Registerdaten, Auszug per Stichtag). Zuordnung der Fahrzeuge zur Gemeinde über den Halterstandort (BFS-Gemeindenummer). Keine Stichprobe, keine Schätzwerte.",
+      "dataAvailableFrom": "2025 (frühere Jahrgänge durch MFK zu prüfen/ergänzen)",
+      "furtherUses": "Weitere Verwendungen: Kantonale Statistik, Verkehrs- und Umweltplanung; Vergleichbarkeit mit BFS-Fahrzeugstatistik (MOFIS/ASTRA). Verwendete Hilfsdaten: BFS-Gemeindenummern und Bezirkszuordnung (Gemeindestand 2025). so-ogd:weitereVerwendungen",
+      "structureSummary": null,
+      "distributions": null,
+      "issueLabel": "2025",
+      "isCurrentIssue": "true"
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Fahrzeugbestand nach Fahrzeugkategorie und Gemeinde (2025)"
+      },
+      {
+        "field": "description",
+        "value": "Bestand der im Kanton Solothurn zugelassenen Fahrzeuge nach Fahrzeuggruppe (Leichte Motorwagen, Schwere Motorwagen, Anhänger, Landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Klein-Motorräder, Gewerbefahrzeuge) und Fahrzeugart auf Gemeindeebene per Stichtag. Ausgewiesen werden pro Gemeinde und Fahrzeugkategorie zwei Grössen: anzahl_fahrzeuge (Anzahl der immatrikulierten Fahrzeuge; jedes Fahrzeug wird einzeln gezählt, auch wenn mehrere Fahrzeuge unter demselben Wechselschild eingelöst sind) und anzahl_ws (Anzahl der Zulassungen unter Berücksichtigung der Wechselschilder; Fahrzeuge, die sich ein Wechselschild teilen, werden nur einmal gezählt, d. h. die Zahl entspricht der Anzahl eingelöster Kontrollschilder). Bezirks- und Kantonswerte lassen sich durch Aggregation der Gemeindewerte herleiten. Zweck: Grundlage für Verkehrs-, Raum- und Umweltplanung, Statistik sowie öffentliche Information."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-14"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer; massgeblich für die Zuordnung zur Gemeinde."
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindename"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksnummer"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Bezirksname"
+      },
+      {
+        "field": "description",
+        "value": "Kanton, im Datensatz SO."
+      },
+      {
+        "field": "description",
+        "value": "Gruppierung der Fahrzeuge in sieben Gruppen: leichte Motorwagen, schwere Motorwagen, Anhänger, landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Kleinmotorräder und Gewerbefahrzeuge."
+      },
+      {
+        "field": "description",
+        "value": "Name der Fahrzeuggruppe."
+      },
+      {
+        "field": "description",
+        "value": "Code der Fahrzeugart nach Einteilung gemäss VTS."
+      },
+      {
+        "field": "description",
+        "value": "Name der Fahrzeugart gemäss VTS."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der per Stichtag in der Gemeinde immatrikulierten Fahrzeuge je Fahrzeugkategorie. Jedes Fahrzeug wird einzeln gezählt, auch bei gemeinsam genutztem Wechselschild."
+      },
+      {
+        "field": "description",
+        "value": "Anzahl der Zulassungen unter Berücksichtigung der Wechselschilder. Fahrzeuge mit gemeinsamem Wechselschild werden nur einmal gezählt; die Zahl entspricht damit der Anzahl eingelöster Kontrollschilder."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Vollerhebung aus dem Fahrzeugzulassungsregister der MFK Kanton Solothurn (administrative Registerdaten, Auszug per Stichtag). Zuordnung der Fahrzeuge zur Gemeinde über den Halterstandort (BFS-Gemeindenummer). Keine Stichprobe, keine Schätzwerte."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.hotellerie_herkunft": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.hotellerie_herkunft",
+      "identifier": "ch.so.hotellerie_herkunft",
+      "title": "Hotellerie: Ankünfte und Logiernächte nach Herkunftsland Kanton Solothurn",
+      "description": "Ankünfte und Logiernächte in den geöffneten Hotel- und Kurbetrieben des Kantons Solothurn nach Herkunftsland der Gäste (Schweiz, Ausland total und rund 70 Länder bzw. Ländergruppen), ergänzt mit dem Anteil an allen Logiernächten und der durchschnittlichen Aufenthaltsdauer. Zweck: Beobachtung der touristischen Nachfrage und der wichtigsten Herkunftsmärkte; Grundlage für Tourismus- und Standortförderung sowie die Publikation «Solothurn in Zahlen». Beispiel: 2025 wurden 426’680 Logiernächte gezählt, davon 59,5 % von Gästen aus der Schweiz; wichtigstes ausländisches Herkunftsland ist Deutschland (58’661 Logiernächte). Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "BFS",
+      "landingPage": "https://data.so.ch/series/ch.so.hotellerie_herkunft",
+      "issued": "2026-10-15",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "model": "SO_Hotellerie_Herkunft_20261015",
+      "surveyMethod": "Quelle: BFS, Beherbergungsstatistik (HESTA), STAT-TAB px-x-1003020000_102 «Hotellerie: Ankünfte und Logiernächte der geöffneten Betriebe nach Jahr, Monat, Kanton, Herkunftsland und Indikator» (Excel-Export). Erhebung: monatliche Erhebung bei den Hotel- und Kurbetrieben; geöffnete Betriebe = im Erhebungsmonat während mindestens einem Tag geöffnet. Herkunftsland = ständiger Wohnsitz der Gäste. Raumbezug: Kantone per 1.1.2026.",
+      "dataAvailableFrom": "ab 2005 beim BFS verfügbar (HESTA in der heutigen Form); im aktuellen Datensatz nur 2025 – Neuexport aller Jahre vorgesehen.",
+      "furtherUses": "Publikation «Solothurn in Zahlen» (Rubrik Tourismus, Logiernächte nach Herkunftsland).",
+      "auxiliaryData": "Keine zusätzlichen Datenquellen.",
+      "structureSummary": null,
+      "issues": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Hotellerie: Ankünfte und Logiernächte nach Herkunftsland Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Ankünfte und Logiernächte in den geöffneten Hotel- und Kurbetrieben des Kantons Solothurn nach Herkunftsland der Gäste (Schweiz, Ausland total und rund 70 Länder bzw. Ländergruppen), ergänzt mit dem Anteil an allen Logiernächten und der durchschnittlichen Aufenthaltsdauer. Zweck: Beobachtung der touristischen Nachfrage und der wichtigsten Herkunftsmärkte; Grundlage für Tourismus- und Standortförderung sowie die Publikation «Solothurn in Zahlen». Beispiel: 2025 wurden 426’680 Logiernächte gezählt, davon 59,5 % von Gästen aus der Schweiz; wichtigstes ausländisches Herkunftsland ist Deutschland (58’661 Logiernächte). Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Quelle: BFS, Beherbergungsstatistik (HESTA), STAT-TAB px-x-1003020000_102 «Hotellerie: Ankünfte und Logiernächte der geöffneten Betriebe nach Jahr, Monat, Kanton, Herkunftsland und Indikator» (Excel-Export). Erhebung: monatliche Erhebung bei den Hotel- und Kurbetrieben; geöffnete Betriebe = im Erhebungsmonat während mindestens einem Tag geöffnet. Herkunftsland = ständiger Wohnsitz der Gäste. Raumbezug: Kantone per 1.1.2026."
+      },
+      {
+        "field": "title",
+        "value": "Hotellerie: Ankünfte und Logiernächte nach Herkunftsland Kanton Solothurn 2025"
+      },
+      {
+        "field": "description",
+        "value": "Ankünfte und Logiernächte in den geöffneten Hotel- und Kurbetrieben des Kantons Solothurn nach Herkunftsland der Gäste (Schweiz, Ausland total und rund 70 Länder bzw. Ländergruppen), ergänzt mit dem Anteil an allen Logiernächten und der durchschnittlichen Aufenthaltsdauer. Zweck: Beobachtung der touristischen Nachfrage und der wichtigsten Herkunftsmärkte; Grundlage für Tourismus- und Standortförderung sowie die Publikation «Solothurn in Zahlen». Beispiel: 2025 wurden 426’680 Logiernächte gezählt, davon 59,5 % von Gästen aus der Schweiz; wichtigstes ausländisches Herkunftsland ist Deutschland (58’661 Logiernächte). Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Kalenderjahr, nur vollständige Jahre."
+      },
+      {
+        "field": "description",
+        "value": "Standort der Betriebe: SO = Kanton Solothurn."
+      },
+      {
+        "field": "description",
+        "value": "Bezeichnung des Raums."
+      },
+      {
+        "field": "description",
+        "value": "Herkunftsland bzw. Ländergruppe der Gäste."
+      },
+      {
+        "field": "description",
+        "value": "Typ der Herkunftsangabe: inland, land."
+      },
+      {
+        "field": "description",
+        "value": "Ankünfte (Anzahl)."
+      },
+      {
+        "field": "description",
+        "value": "Logiernächte (Anzahl)."
+      },
+      {
+        "field": "description",
+        "value": "Anteil an allen Logiernächten desselben Raums und Jahres (Prozent)."
+      },
+      {
+        "field": "description",
+        "value": "Logiernächte je Ankunft (Nächte; leer bei 0 Ankünften)."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Quelle: BFS, Beherbergungsstatistik (HESTA), STAT-TAB px-x-1003020000_102 «Hotellerie: Ankünfte und Logiernächte der geöffneten Betriebe nach Jahr, Monat, Kanton, Herkunftsland und Indikator» (Excel-Export). Erhebung: monatliche Erhebung bei den Hotel- und Kurbetrieben; geöffnete Betriebe = im Erhebungsmonat während mindestens einem Tag geöffnet. Herkunftsland = ständiger Wohnsitz der Gäste. Raumbezug: Kantone per 1.1.2026."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.hotellerie_herkunft_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.hotellerie_herkunft_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.hotellerie_herkunft_2025.parquet"
+      }
+    ]
+  },
+  "so_hotellerie_herkunft_2025": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/so_hotellerie_herkunft_2025",
+      "identifier": "so_hotellerie_herkunft_2025",
+      "title": "Hotellerie: Ankünfte und Logiernächte nach Herkunftsland Kanton Solothurn 2025",
+      "description": "Ankünfte und Logiernächte in den geöffneten Hotel- und Kurbetrieben des Kantons Solothurn nach Herkunftsland der Gäste (Schweiz, Ausland total und rund 70 Länder bzw. Ländergruppen), ergänzt mit dem Anteil an allen Logiernächten und der durchschnittlichen Aufenthaltsdauer. Zweck: Beobachtung der touristischen Nachfrage und der wichtigsten Herkunftsmärkte; Grundlage für Tourismus- und Standortförderung sowie die Publikation «Solothurn in Zahlen». Beispiel: 2025 wurden 426’680 Logiernächte gezählt, davon 59,5 % von Gästen aus der Schweiz; wichtigstes ausländisches Herkunftsland ist Deutschland (58’661 Logiernächte). Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet.",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "keywords": "BFS",
+      "landingPage": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025",
+      "issued": "2026-10-15",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "temporalCoverage": null,
+      "attributes": null,
+      "model": "SO_Hotellerie_Herkunft_20261015",
+      "surveyMethod": "Quelle: BFS, Beherbergungsstatistik (HESTA), STAT-TAB px-x-1003020000_102 «Hotellerie: Ankünfte und Logiernächte der geöffneten Betriebe nach Jahr, Monat, Kanton, Herkunftsland und Indikator» (Excel-Export). Erhebung: monatliche Erhebung bei den Hotel- und Kurbetrieben; geöffnete Betriebe = im Erhebungsmonat während mindestens einem Tag geöffnet. Herkunftsland = ständiger Wohnsitz der Gäste. Raumbezug: Kantone per 1.1.2026.",
+      "dataAvailableFrom": "ab 2005 beim BFS verfügbar (HESTA in der heutigen Form); im aktuellen Datensatz nur 2025 – Neuexport aller Jahre vorgesehen.",
+      "furtherUses": "Publikation «Solothurn in Zahlen» (Rubrik Tourismus, Logiernächte nach Herkunftsland).",
+      "auxiliaryData": "Keine zusätzlichen Datenquellen.",
+      "structureSummary": null,
+      "distributions": null,
+      "issueLabel": "2025",
+      "isCurrentIssue": "true"
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Hotellerie: Ankünfte und Logiernächte nach Herkunftsland Kanton Solothurn 2025"
+      },
+      {
+        "field": "description",
+        "value": "Ankünfte und Logiernächte in den geöffneten Hotel- und Kurbetrieben des Kantons Solothurn nach Herkunftsland der Gäste (Schweiz, Ausland total und rund 70 Länder bzw. Ländergruppen), ergänzt mit dem Anteil an allen Logiernächten und der durchschnittlichen Aufenthaltsdauer. Zweck: Beobachtung der touristischen Nachfrage und der wichtigsten Herkunftsmärkte; Grundlage für Tourismus- und Standortförderung sowie die Publikation «Solothurn in Zahlen». Beispiel: 2025 wurden 426’680 Logiernächte gezählt, davon 59,5 % von Gästen aus der Schweiz; wichtigstes ausländisches Herkunftsland ist Deutschland (58’661 Logiernächte). Die Daten stammen vom Bundesamt für Statistik (BFS) und wurden vom Statistikdienst, Amt für Finanzen Kanton Solothurn für den Kanton Solothurn aufbereitet."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-15"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Kalenderjahr, nur vollständige Jahre."
+      },
+      {
+        "field": "description",
+        "value": "Standort der Betriebe: SO = Kanton Solothurn."
+      },
+      {
+        "field": "description",
+        "value": "Bezeichnung des Raums."
+      },
+      {
+        "field": "description",
+        "value": "Herkunftsland bzw. Ländergruppe der Gäste."
+      },
+      {
+        "field": "description",
+        "value": "Typ der Herkunftsangabe: inland, land."
+      },
+      {
+        "field": "description",
+        "value": "Ankünfte (Anzahl)."
+      },
+      {
+        "field": "description",
+        "value": "Logiernächte (Anzahl)."
+      },
+      {
+        "field": "description",
+        "value": "Anteil an allen Logiernächten desselben Raums und Jahres (Prozent)."
+      },
+      {
+        "field": "description",
+        "value": "Logiernächte je Ankunft (Nächte; leer bei 0 Ankünften)."
+      },
+      {
+        "field": "surveyMethod",
+        "value": "Quelle: BFS, Beherbergungsstatistik (HESTA), STAT-TAB px-x-1003020000_102 «Hotellerie: Ankünfte und Logiernächte der geöffneten Betriebe nach Jahr, Monat, Kanton, Herkunftsland und Indikator» (Excel-Export). Erhebung: monatliche Erhebung bei den Hotel- und Kurbetrieben; geöffnete Betriebe = im Erhebungsmonat während mindestens einem Tag geöffnet. Herkunftsland = ständiger Wohnsitz der Gäste. Raumbezug: Kantone per 1.1.2026."
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.hotellerie_herkunft_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.hotellerie_herkunft_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.hotellerie_herkunft_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.staatssteuerertraege_gemeinden": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.staatssteuerertraege_gemeinden",
+      "identifier": "ch.so.staatssteuerertraege_gemeinden",
+      "title": "Staatssteuererträge (Kalenderjahr) natürliche und juristische Personen nach Gemeinde Kanton Solothurn",
+      "description": "Erträge der Staatssteuer (Kantonssteuer) für das Kalenderjahr (KJ) 2025, aufgeteilt nach natürlichen Personen (NP) und juristischen Personen (JP) sowie Total, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden) und für den Kanton Solothurn gesamthaft. Werte in Tausend Franken (TCHF), gerundet",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "landingPage": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "attributes": null,
+      "model": "SO_Staatssteuerertraege_Gemeinden_20261016",
+      "structureSummary": null,
+      "issues": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Staatssteuererträge (Kalenderjahr) natürliche und juristische Personen nach Gemeinde Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Erträge der Staatssteuer (Kantonssteuer) für das Kalenderjahr (KJ) 2025, aufgeteilt nach natürlichen Personen (NP) und juristischen Personen (JP) sowie Total, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden) und für den Kanton Solothurn gesamthaft. Werte in Tausend Franken (TCHF), gerundet"
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename, Gemeindestand 2026 (104 Gemeinden)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer der Gemeinde (amtliches Gemeindeverzeichnis)"
+      },
+      {
+        "field": "description",
+        "value": "Staatssteuer KJ 2025 natürliche Personen in Tausend Franken"
+      },
+      {
+        "field": "description",
+        "value": "Staatssteuer KJ 2025 juristische Personen in Tausend Franken"
+      },
+      {
+        "field": "description",
+        "value": "Staatssteuer KJ 2025 Total (NP + JP) in Tausend Franken"
+      },
+      {
+        "field": "title",
+        "value": "Staatssteuererträge (Kalenderjahr) natürliche und juristische Personen nach Gemeinde Kanton Solothurn 2025"
+      },
+      {
+        "field": "description",
+        "value": "Erträge der Staatssteuer (Kantonssteuer) für das Kalenderjahr (KJ) 2025, aufgeteilt nach natürlichen Personen (NP) und juristischen Personen (JP) sowie Total, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden) und für den Kanton Solothurn gesamthaft. Werte in Tausend Franken (TCHF), gerundet"
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename, Gemeindestand 2026 (104 Gemeinden)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer der Gemeinde (amtliches Gemeindeverzeichnis)"
+      },
+      {
+        "field": "description",
+        "value": "Staatssteuer KJ 2025 natürliche Personen in Tausend Franken"
+      },
+      {
+        "field": "description",
+        "value": "Staatssteuer KJ 2025 juristische Personen in Tausend Franken"
+      },
+      {
+        "field": "description",
+        "value": "Staatssteuer KJ 2025 Total (NP + JP) in Tausend Franken"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.staatssteuerertraege_gemeinden-2025": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.staatssteuerertraege_gemeinden-2025",
+      "identifier": "ch.so.staatssteuerertraege_gemeinden-2025",
+      "title": "Staatssteuererträge (Kalenderjahr) natürliche und juristische Personen nach Gemeinde Kanton Solothurn 2025",
+      "description": "Erträge der Staatssteuer (Kantonssteuer) für das Kalenderjahr (KJ) 2025, aufgeteilt nach natürlichen Personen (NP) und juristischen Personen (JP) sowie Total, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden) und für den Kanton Solothurn gesamthaft. Werte in Tausend Franken (TCHF), gerundet",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "landingPage": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "attributes": null,
+      "model": "SO_Staatssteuerertraege_Gemeinden_20261016",
+      "structureSummary": null,
+      "distributions": null,
+      "issueLabel": "2025",
+      "isCurrentIssue": "true"
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Staatssteuererträge (Kalenderjahr) natürliche und juristische Personen nach Gemeinde Kanton Solothurn 2025"
+      },
+      {
+        "field": "description",
+        "value": "Erträge der Staatssteuer (Kantonssteuer) für das Kalenderjahr (KJ) 2025, aufgeteilt nach natürlichen Personen (NP) und juristischen Personen (JP) sowie Total, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden) und für den Kanton Solothurn gesamthaft. Werte in Tausend Franken (TCHF), gerundet"
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename, Gemeindestand 2026 (104 Gemeinden)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer der Gemeinde (amtliches Gemeindeverzeichnis)"
+      },
+      {
+        "field": "description",
+        "value": "Staatssteuer KJ 2025 natürliche Personen in Tausend Franken"
+      },
+      {
+        "field": "description",
+        "value": "Staatssteuer KJ 2025 juristische Personen in Tausend Franken"
+      },
+      {
+        "field": "description",
+        "value": "Staatssteuer KJ 2025 Total (NP + JP) in Tausend Franken"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.parquet"
+      }
+    ]
+  },
+  "ch.so.steuerfuss_gemeinden": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.steuerfuss_gemeinden",
+      "identifier": "ch.so.steuerfuss_gemeinden",
+      "title": "Steuerfüsse natürliche und juristische Personen nach Gemeinde Kanton Solothurn",
+      "description": "Steuerfüsse der Einwohnergemeinden des Kantons Solothurn für das Jahr 2026, getrennt nach natürlichen Personen (NP) und juristischen Personen (JP), in Prozent der einfachen Staatssteuer, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden).",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "landingPage": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "attributes": null,
+      "model": "SO_Steuerfuss_Gemeinden_20261016",
+      "structureSummary": null,
+      "issues": null
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Steuerfüsse natürliche und juristische Personen nach Gemeinde Kanton Solothurn"
+      },
+      {
+        "field": "description",
+        "value": "Steuerfüsse der Einwohnergemeinden des Kantons Solothurn für das Jahr 2026, getrennt nach natürlichen Personen (NP) und juristischen Personen (JP), in Prozent der einfachen Staatssteuer, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden)."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename, Gemeindestand 2026 (104 Gemeinden)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer der Gemeinde (amtliches Gemeindeverzeichnis)"
+      },
+      {
+        "field": "description",
+        "value": "Steuerfuss 2026 natürliche Personen in Prozent der einfachen Staatssteuer"
+      },
+      {
+        "field": "description",
+        "value": "Steuerfuss 2026 juristische Personen in Prozent der einfachen Staatssteuer"
+      },
+      {
+        "field": "title",
+        "value": "Steuerfüsse natürliche und juristische Personen nach Gemeinde Kanton Solothurn 2026"
+      },
+      {
+        "field": "description",
+        "value": "Steuerfüsse der Einwohnergemeinden des Kantons Solothurn für das Jahr 2026, getrennt nach natürlichen Personen (NP) und juristischen Personen (JP), in Prozent der einfachen Staatssteuer, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden)."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename, Gemeindestand 2026 (104 Gemeinden)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer der Gemeinde (amtliches Gemeindeverzeichnis)"
+      },
+      {
+        "field": "description",
+        "value": "Steuerfuss 2026 natürliche Personen in Prozent der einfachen Staatssteuer"
+      },
+      {
+        "field": "description",
+        "value": "Steuerfuss 2026 juristische Personen in Prozent der einfachen Staatssteuer"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.steuerfuss_gemeinden_2026.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.steuerfuss_gemeinden_2026.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.steuerfuss_gemeinden_2026.parquet"
+      }
+    ]
+  },
+  "ch.so.steuerfuss_gemeinden-2026": {
+    "fields": {
+      "resourceUri": "https://data.so.ch/dataset/ch.so.steuerfuss_gemeinden-2026",
+      "identifier": "ch.so.steuerfuss_gemeinden-2026",
+      "title": "Steuerfüsse natürliche und juristische Personen nach Gemeinde Kanton Solothurn 2026",
+      "description": "Steuerfüsse der Einwohnergemeinden des Kantons Solothurn für das Jahr 2026, getrennt nach natürlichen Personen (NP) und juristischen Personen (JP), in Prozent der einfachen Staatssteuer, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden).",
+      "publisher": null,
+      "creator": null,
+      "contactPoint": null,
+      "themes": null,
+      "landingPage": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026",
+      "issued": "2026-10-16",
+      "modified": "2026-10-16",
+      "accessRights": null,
+      "publicationStatus": "published",
+      "accrualPeriodicity": null,
+      "attributes": null,
+      "model": "SO_Steuerfuss_Gemeinden_20261016",
+      "structureSummary": null,
+      "distributions": null,
+      "issueLabel": "2026",
+      "isCurrentIssue": "true"
+    },
+    "details": [
+      {
+        "field": "title",
+        "value": "Steuerfüsse natürliche und juristische Personen nach Gemeinde Kanton Solothurn 2026"
+      },
+      {
+        "field": "description",
+        "value": "Steuerfüsse der Einwohnergemeinden des Kantons Solothurn für das Jahr 2026, getrennt nach natürlichen Personen (NP) und juristischen Personen (JP), in Prozent der einfachen Staatssteuer, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden)."
+      },
+      {
+        "field": "issued",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "modified",
+        "value": "2026-10-16"
+      },
+      {
+        "field": "description",
+        "value": "Gemeindename, Gemeindestand 2026 (104 Gemeinden)"
+      },
+      {
+        "field": "description",
+        "value": "BFS-Gemeindenummer der Gemeinde (amtliches Gemeindeverzeichnis)"
+      },
+      {
+        "field": "description",
+        "value": "Steuerfuss 2026 natürliche Personen in Prozent der einfachen Staatssteuer"
+      },
+      {
+        "field": "description",
+        "value": "Steuerfuss 2026 juristische Personen in Prozent der einfachen Staatssteuer"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.steuerfuss_gemeinden_2026.csv"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.steuerfuss_gemeinden_2026.xlsx"
+      },
+      {
+        "field": "accessURL",
+        "value": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026"
+      },
+      {
+        "field": "downloadURL",
+        "value": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.steuerfuss_gemeinden_2026.parquet"
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "tested_at_utc": "2026-10-23T12:32:56.632592+00:00",
+  "python": "3.12.14",
+  "packages": {
+    "motley-slayer": "1.4.1",
+    "duckdb": "2.0.0",
+    "duckdb-engine": "0.17.0",
+    "sqlalchemy": "2.0.55",
+    "sqlglot": "30.24.0",
+    "pydantic": "2.14.1",
+    "mcp": "1.30.0",
+    "starlette": "1.9.0",
+    "uvicorn": "0.54.0",
+    "anyio": "4.15.1",
+    "pyyaml": "6.0.3",
+    "pytest": "9.1.1",
+    "pytest-asyncio": "1.4.0",
+    "httpx": "0.28.1"
+  },
+  "slayer_origin": {
+    "url": "https://github.com/MotleyAI/slayer.git",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "516539dfec2979180695efa4351e0adccd6b2816",
+      "requested_revision": "516539dfec2979180695efa4351e0adccd6b2816"
+    }
+  },
+  "tests": {
+    "tests": "132",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "time": "63.501"
+  },
+  "acceptance_ids": {
+    "passed": [
+      "F01-F16",
+      "N01-N17",
+      "M01-M09",
+      "B01-B15"
+    ],
+    "failed": [],
+    "not_checked": []
+  },
+  "mcp_wire_properties": {
+    "B12_actual_F04_mcp_wire_bytes": "2752"
+  },
+  "container": {
+    "uid": 12345,
+    "capabilities": "0000000000000000",
+    "ready": true,
+    "quarantine": true,
+    "ratio": 649.6804637625776,
+    "readiness_seconds": 3.2287630430000007,
+    "query_seconds": 1.8913015420000008,
+    "memory_peak_bytes": 354496512,
+    "image_id": "sha256:0a85b19273660dae086944945519dcd6e156f205c1f32ebc6cef29ba5a352e91",
+    "elapsed_seconds": 8.642909667047206,
+    "base_image": "python:3.12.14-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f",
+    "network": "none",
+    "read_only": true,
+    "cpu_limit": 1,
+    "memory_limit_bytes": 1073741824,
+    "work_limit_bytes": 268435456,
+    "exit_code": 0
+  },
+  "catalog_version": "sha256:97e1b9312013c478f42df45e67f4661d0a37f4441245b0b3ab419d6dde4bbbd4",
+  "source_sha256": {
+    "building_category": "9af9b8b2cb73f57730fcc1c4b4ae77eb68f3c05ca3f584da916da4ffd340245b",
+    "ebau": "6fe91a3cde375356d08f15f8cfde363ddbe7436f5b8614da6c157bf6a029a132",
+    "heating": "2df4fbe698b798639773865025736917e76984041bb83dc2e1ee8c43e501c3b6",
+    "population_age": "72647f0811e9db892f1571275bc7adf6201aee30f18cac4fe64228175546c750",
+    "population_sex_nationality": "26bb6a4452a0626a211a82b47a516ad45f894430204d37b01b0e80eb794da583",
+    "revenue": "61039f6321eff0e0888157e2acba6eefc05bef6a941ee5822fd66c2b9d3e2328",
+    "staff": "149d720c99993c838d8e02ecbb09f3986a144562fe7f836ee78361c53f8955aa",
+    "taxes": "2434371697f848bccd55eecb1a7c037242a2a9ec77ef733b3d07be01d5b2d9bf",
+    "vehicles": "0e09e311cb5e089f5533e52c3d27724a421f385f3c4b31a5f57129bbcba7fd08"
+  },
+  "implementation_sha256": "cf9e8fa914b99a11cbb70b97e595159485f1b9dcef386e5d98652fb9a24d6949",
+  "implementation_files": [
+    "Dockerfile",
+    "models/building_category.yaml",
+    "models/ebau.yaml",
+    "models/heating.yaml",
+    "models/municipalities.yaml",
+    "models/population.yaml",
+    "models/population_sex_nationality.yaml",
+    "models/revenue.yaml",
+    "models/staff.yaml",
+    "models/taxes.yaml",
+    "models/vehicles.yaml",
+    "models/years.yaml",
+    "pyproject.toml",
+    "src/slayer_app/__init__.py",
+    "src/slayer_app/author.py",
+    "src/slayer_app/catalog.py",
+    "src/slayer_app/config.py",
+    "src/slayer_app/contracts.py",
+    "src/slayer_app/runtime.py",
+    "src/slayer_app/semantics.py",
+    "src/slayer_app/server.py",
+    "src/slayer_app/worker.py",
+    "tests/conftest.py",
+    "tests/test_authoring.py",
+    "tests/test_container.py",
+    "tests/test_mcp.py",
+    "tests/test_real_queries.py",
+    "tests/test_runtime.py",
+    "tests/test_semantics.py",
+    "uv.lock"
+  ]
+}

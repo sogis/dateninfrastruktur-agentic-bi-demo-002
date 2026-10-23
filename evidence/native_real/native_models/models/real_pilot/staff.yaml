@@ -1,0 +1,40 @@
+version: 15
+name: staff
+sql_table: staff
+query_variables: {}
+data_source: real_pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: period_start
+  type: DATE
+  primary_key: false
+  unique: false
+  hidden: false
+  granularity: year
+- name: education
+  type: TEXT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: staff
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+measures: []
+aggregations: []
+joins:
+- target_model: years
+  join_pairs:
+  - - report_year
+    - report_year
+  join_type: left
+  cardinality: many_to_one
+filters: []
+default_time_dimension: period_start
+hidden: false
+access_tags: []

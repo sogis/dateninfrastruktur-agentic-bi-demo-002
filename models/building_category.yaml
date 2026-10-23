@@ -1,0 +1,146 @@
+version: 15
+name: building_category
+description: Gebäude Gebäudekategorie Einfamilienhaus Mehrfamilienhaus. Gebäude mit
+  Wohnnutzung nach Gebäudekategorie; keine gemeinsame Verteilung mit Heizsystemen.
+sql_table: building_category
+data_source: pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+- name: period_start
+  type: DATE
+  primary_key: false
+  granularity: year
+- name: reference_date
+  type: DATE
+  primary_key: false
+- name: geo_version
+  type: INT
+  primary_key: true
+- name: municipality_id
+  type: INT
+  primary_key: true
+- name: cell_id
+  type: TEXT
+  primary_key: false
+- name: buildings
+  type: INT
+  primary_key: false
+- name: single_family
+  type: INT
+  primary_key: false
+  label: Einfamilienhäuser
+  description: Gebäude Gebäudekategorie Einfamilienhaus Mehrfamilienhaus. Einfamilienhäuser;
+    Gebäude mit Wohnnutzung nach Gebäudekategorie; keine gemeinsame Verteilung mit
+    Heizsystemen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: building_category.single_family
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: multi_family
+  type: INT
+  primary_key: false
+  label: Mehrfamilienhäuser
+  description: Gebäude Gebäudekategorie Einfamilienhaus Mehrfamilienhaus. Mehrfamilienhäuser;
+    Gebäude mit Wohnnutzung nach Gebäudekategorie; keine gemeinsame Verteilung mit
+    Heizsystemen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: building_category.multi_family
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: residential_secondary_use
+  type: INT
+  primary_key: false
+  label: Wohngebäude mit Nebennutzung
+  description: Gebäude Gebäudekategorie Einfamilienhaus Mehrfamilienhaus. Wohngebäude
+    mit Nebennutzung; Gebäude mit Wohnnutzung nach Gebäudekategorie; keine gemeinsame
+    Verteilung mit Heizsystemen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: building_category.residential_secondary_use
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: partially_residential
+  type: INT
+  primary_key: false
+  label: Gebäude mit teilweiser Wohnnutzung
+  description: Gebäude Gebäudekategorie Einfamilienhaus Mehrfamilienhaus. Gebäude
+    mit teilweiser Wohnnutzung; Gebäude mit Wohnnutzung nach Gebäudekategorie; keine
+    gemeinsame Verteilung mit Heizsystemen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: building_category.partially_residential
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+joins:
+- target_model: population
+  join_pairs:
+  - - report_year
+    - report_year
+  - - geo_version
+    - geo_version
+  - - municipality_id
+    - municipality_id
+  cardinality: many_to_one
+default_time_dimension: period_start
+meta:
+  analytics:
+    source_id: building_category
+    domain: municipal_annual
+    root_model: population
+    population: so_municipalities_v2025
+    period_kind: year
+    cell_key: cell_id
+    temporal_kind: stock
+    reference_dates:
+      '2025': '2025-12-31'
+    coverage: unknown
+    required: false
+    label: Gebäudekategorien

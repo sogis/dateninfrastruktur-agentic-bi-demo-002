@@ -1,0 +1,107 @@
+version: 15
+name: population
+sql_table: population
+query_variables: {}
+data_source: real_pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: period_start
+  type: DATE
+  primary_key: false
+  unique: false
+  hidden: false
+  granularity: year
+- name: reference_date
+  type: DATE
+  primary_key: false
+  unique: false
+  hidden: false
+- name: geo_version
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: municipality_id
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: cell_id
+  type: TEXT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: people
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: women
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: men
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: swiss_people
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: foreign_people
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: age_0_19
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: age_20_39
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: age_40_64
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: age_65_79
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: age_80_plus
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+- name: age_65_plus
+  type: INT
+  primary_key: false
+  unique: false
+  hidden: false
+measures: []
+aggregations: []
+joins:
+- target_model: municipalities
+  join_pairs:
+  - - geo_version
+    - geo_version
+  - - municipality_id
+    - municipality_id
+  join_type: left
+  cardinality: many_to_one
+filters: []
+default_time_dimension: period_start
+hidden: false
+access_tags: []

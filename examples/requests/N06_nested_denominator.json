@@ -1,0 +1,32 @@
+{
+  "period": {
+    "from_year": 2025,
+    "to_year": 2025
+  },
+  "group_by": [],
+  "outputs": [
+    {
+      "id": "derived",
+      "expr": {
+        "kind": "binary",
+        "op": "divide",
+        "left": {
+          "kind": "aggregate",
+          "metric": "population.women"
+        },
+        "right": {
+          "kind": "binary",
+          "op": "divide",
+          "left": {
+            "kind": "aggregate",
+            "metric": "population.count"
+          },
+          "right": {
+            "kind": "aggregate",
+            "metric": "population.age_65_plus"
+          }
+        }
+      }
+    }
+  ]
+}

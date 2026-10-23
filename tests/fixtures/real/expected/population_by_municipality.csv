@@ -1,0 +1,107 @@
+municipality_id,municipality,district,people
+2401,Egerkingen,Bezirk Gäu,4362
+2402,Härkingen,Bezirk Gäu,1774
+2403,Kestenholz,Bezirk Gäu,1891
+2404,Neuendorf,Bezirk Gäu,2422
+2405,Niederbuchsiten,Bezirk Gäu,1376
+2406,Oberbuchsiten,Bezirk Gäu,2408
+2407,Oensingen,Bezirk Gäu,6839
+2408,Wolfwil,Bezirk Gäu,2489
+2421,Aedermannsdorf,Bezirk Thal,609
+2422,Balsthal,Bezirk Thal,6669
+2424,Herbetswil,Bezirk Thal,611
+2425,Holderbank (SO),Bezirk Thal,828
+2426,Laupersdorf,Bezirk Thal,1927
+2427,Matzendorf,Bezirk Thal,1440
+2428,Mümliswil-Ramiswil,Bezirk Thal,2486
+2430,Welschenrohr-Gänsbrunnen,Bezirk Thal,1201
+2445,Biezwil,Bezirk Bucheggberg,348
+2455,Lüterkofen-Ichertswil,Bezirk Bucheggberg,925
+2457,Messen,Bezirk Bucheggberg,1505
+2461,Schnottwil,Bezirk Bucheggberg,1164
+2463,Unterramsern,Bezirk Bucheggberg,230
+2464,Lüsslingen-Nennigkofen,Bezirk Bucheggberg,1131
+2465,Buchegg,Bezirk Bucheggberg,2982
+2471,Bättwil,Bezirk Dorneck,1194
+2472,Büren (SO),Bezirk Dorneck,1062
+2473,Dornach,Bezirk Dorneck,6947
+2474,Gempen,Bezirk Dorneck,920
+2475,Hochwald,Bezirk Dorneck,1280
+2476,Hofstetten-Flüh,Bezirk Dorneck,3419
+2477,Metzerlen-Mariastein,Bezirk Dorneck,980
+2478,Nuglar-St. Pantaleon,Bezirk Dorneck,1582
+2479,Rodersdorf,Bezirk Dorneck,1398
+2480,Seewen,Bezirk Dorneck,1096
+2481,Witterswil,Bezirk Dorneck,1474
+2491,Hauenstein-Ifenthal,Bezirk Gösgen,349
+2492,Kienberg,Bezirk Gösgen,528
+2493,Lostorf,Bezirk Gösgen,4119
+2495,Niedergösgen,Bezirk Gösgen,4322
+2497,Obergösgen,Bezirk Gösgen,2563
+2499,Stüsslingen,Bezirk Gösgen,1268
+2500,Trimbach,Bezirk Gösgen,7023
+2501,Winznau,Bezirk Gösgen,2066
+2502,Wisen (SO),Bezirk Gösgen,452
+2503,Erlinsbach (SO),Bezirk Gösgen,3770
+2511,Aeschi (SO),Bezirk Wasseramt,1350
+2513,Biberist,Bezirk Wasseramt,9579
+2514,Bolken,Bezirk Wasseramt,576
+2516,Deitingen,Bezirk Wasseramt,2434
+2517,Derendingen,Bezirk Wasseramt,7255
+2518,Etziken,Bezirk Wasseramt,1095
+2519,Gerlafingen,Bezirk Wasseramt,5881
+2520,Halten,Bezirk Wasseramt,832
+2523,Horriwil,Bezirk Wasseramt,940
+2524,Hüniken,Bezirk Wasseramt,160
+2525,Kriegstetten,Bezirk Wasseramt,1463
+2526,Lohn-Ammannsegg,Bezirk Wasseramt,2947
+2527,Luterbach,Bezirk Wasseramt,3762
+2528,Obergerlafingen,Bezirk Wasseramt,1218
+2529,Oekingen,Bezirk Wasseramt,888
+2530,Recherswil,Bezirk Wasseramt,2266
+2532,Subingen,Bezirk Wasseramt,3312
+2534,Zuchwil,Bezirk Wasseramt,9660
+2535,Drei Höfe,Bezirk Wasseramt,729
+2541,Balm bei Günsberg,Bezirk Lebern,207
+2542,Bellach,Bezirk Lebern,5664
+2543,Bettlach,Bezirk Lebern,4952
+2544,Feldbrunnen-St. Niklaus,Bezirk Lebern,1069
+2545,Flumenthal,Bezirk Lebern,1027
+2546,Grenchen,Bezirk Lebern,19215
+2547,Günsberg,Bezirk Lebern,1170
+2548,Hubersdorf,Bezirk Lebern,728
+2549,Kammersrohr,Bezirk Lebern,31
+2550,Langendorf,Bezirk Lebern,3996
+2551,Lommiswil,Bezirk Lebern,1616
+2553,Oberdorf (SO),Bezirk Lebern,1808
+2554,Riedholz,Bezirk Lebern,2332
+2555,Rüttenen,Bezirk Lebern,1501
+2556,Selzach,Bezirk Lebern,3766
+2571,Boningen,Bezirk Olten,812
+2572,Däniken,Bezirk Olten,3120
+2573,Dulliken,Bezirk Olten,5540
+2574,Eppenberg-Wöschnau,Bezirk Olten,344
+2575,Fulenbach,Bezirk Olten,1849
+2576,Gretzenbach,Bezirk Olten,2841
+2578,Gunzgen,Bezirk Olten,1788
+2579,Hägendorf,Bezirk Olten,5339
+2580,Kappel (SO),Bezirk Olten,3594
+2581,Olten,Bezirk Olten,19349
+2582,Rickenbach (SO),Bezirk Olten,1211
+2583,Schönenwerd,Bezirk Olten,5473
+2584,Starrkirch-Wil,Bezirk Olten,2025
+2585,Walterswil (SO),Bezirk Olten,770
+2586,Wangen bei Olten,Bezirk Olten,5645
+2601,Solothurn,Bezirk Solothurn,16881
+2611,Bärschwil,Bezirk Thierstein,810
+2612,Beinwil (SO),Bezirk Thierstein,262
+2613,Breitenbach,Bezirk Thierstein,4486
+2614,Büsserach,Bezirk Thierstein,2487
+2615,Erschwil,Bezirk Thierstein,1006
+2616,Fehren,Bezirk Thierstein,619
+2617,Grindel,Bezirk Thierstein,509
+2618,Himmelried,Bezirk Thierstein,979
+2619,Kleinlützel,Bezirk Thierstein,1198
+2620,Meltingen,Bezirk Thierstein,624
+2621,Nunningen,Bezirk Thierstein,1954
+2622,Zullwil,Bezirk Thierstein,708

@@ -1,0 +1,571 @@
+{
+  "manifest_version": 1,
+  "prepared_at_utc": "2026-10-23T09:02:22.314410Z",
+  "purpose": "Actual public source snapshots for SLayer coding-agent specification and offline regression tests",
+  "catalogue_release_id": "e4560849-cd01-4e19-ac09-11f5d3036fb1",
+  "catalogue_path": "/workspace/scratch/94a2550d6337/upload/catalog-e4560849-cd01-4e19-ac09-11f5d3036fb1.duckdb",
+  "catalogue_sha256": "c71fdf49c99846f646b1c0b06af7021c83bcaff429eadd44728e3283e37b12ae",
+  "metadata_path": "/workspace/scratch/94a2550d6337/upload/published-catalog-e4560849-cd01-4e19-ac09-11f5d3036fb1.xtf",
+  "metadata_sha256": "1b07cd8e66d3368985a550b801ec121bed9497c1ca24f47170af9f491fe24c92",
+  "sources": [
+    {
+      "alias": "building_category",
+      "catalog_view": "opendata.ch_so_gws_gebaeude_kategorie",
+      "source_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_kategorie.parquet",
+      "final_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_kategorie.parquet",
+      "retrieved_at_utc": "2026-10-23T09:02:21.929270Z",
+      "completed_at_utc": "2026-10-23T09:02:22.223026Z",
+      "path": "raw/building_category.parquet",
+      "format": "parquet",
+      "selection": "complete source file, no row selection or value changes",
+      "bytes": 5643,
+      "sha256": "9af9b8b2cb73f57730fcc1c4b4ae77eb68f3c05ca3f584da916da4ffd340245b",
+      "http_etag": "\"fdceee147eeb1163033a8dc5f01170b4\"",
+      "http_last_modified": "Fri, 16 Oct 2026 13:34:08 GMT",
+      "http_content_type": "application/octet-stream",
+      "row_count": 106,
+      "columns": [
+        {
+          "name": "jahr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "bfs_gemeinde_nr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "gemeinde",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "bfs_bezirk_nr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "bezirk",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "gebaeude_total",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_kat_efh",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_kat_mfh",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_kat_wohn_nebennutzung",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_kat_teilw_wohnnutzung",
+          "type": "BIGINT"
+        }
+      ],
+      "dataset_identifier": "ch.so.gws.gebaeude_kategorie",
+      "dataset_resource_uri": "https://data.so.ch/dataset/ch.so.gws.gebaeude_kategorie",
+      "license_uri": "http://dcat-ap.ch/vocabulary/licenses/terms_open",
+      "license_evidence": "supplied opendata.rdf, matching dcat:Distribution/downloadURL",
+      "temporal_coverage_as_published": {
+        "referenceDate": "2025-12-31"
+      },
+      "publication_status": "published",
+      "metadata_modified": "2026-10-16",
+      "metadata_excerpt": "metadata_excerpts.json#building_category"
+    },
+    {
+      "alias": "ebau",
+      "catalog_view": "opendata.ch_so_ebau_statistik_dossiers",
+      "source_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.ebau_statistik_dossiers.parquet",
+      "final_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.ebau_statistik_dossiers.parquet",
+      "retrieved_at_utc": "2026-10-23T09:02:21.663086Z",
+      "completed_at_utc": "2026-10-23T09:02:21.899975Z",
+      "path": "raw/ebau.parquet",
+      "format": "parquet",
+      "selection": "complete source file, no row selection or value changes",
+      "bytes": 827,
+      "sha256": "6fe91a3cde375356d08f15f8cfde363ddbe7436f5b8614da6c157bf6a029a132",
+      "http_etag": "\"98a64b04f8162bedb3b3cf7edd517f6d\"",
+      "http_last_modified": "Fri, 16 Oct 2026 16:20:11 GMT",
+      "http_content_type": "application/octet-stream",
+      "row_count": 23,
+      "columns": [
+        {
+          "name": "berichtsmonat",
+          "type": "DATE"
+        },
+        {
+          "name": "anzahl_gemeinden_in_ebau",
+          "type": "BIGINT"
+        },
+        {
+          "name": "anzahl_ueber_ebau_eingereichte_dossiers",
+          "type": "BIGINT"
+        }
+      ],
+      "dataset_identifier": "ch.so.ebau_statistik_dossiers",
+      "dataset_resource_uri": "https://data.so.ch/dataset/ch.so.ebau_statistik_dossiers",
+      "license_uri": "http://dcat-ap.ch/vocabulary/licenses/terms_open",
+      "license_evidence": "supplied opendata.rdf, matching dcat:Distribution/downloadURL",
+      "temporal_coverage_as_published": {
+        "startDate": "2024-11-01",
+        "endDate": "2026-09-30"
+      },
+      "publication_status": "published",
+      "metadata_modified": "2026-10-16",
+      "metadata_excerpt": "metadata_excerpts.json#ebau"
+    },
+    {
+      "alias": "heating",
+      "catalog_view": "opendata.ch_so_gws_gebaeude_heizung",
+      "source_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_heizung.parquet",
+      "final_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_heizung.parquet",
+      "retrieved_at_utc": "2026-10-23T09:02:21.900193Z",
+      "completed_at_utc": "2026-10-23T09:02:22.123541Z",
+      "path": "raw/heating.parquet",
+      "format": "parquet",
+      "selection": "complete source file, no row selection or value changes",
+      "bytes": 6783,
+      "sha256": "2df4fbe698b798639773865025736917e76984041bb83dc2e1ee8c43e501c3b6",
+      "http_etag": "\"33b7b613dc30fd38ca71940b8ef1f0df\"",
+      "http_last_modified": "Fri, 16 Oct 2026 13:33:15 GMT",
+      "http_content_type": "application/octet-stream",
+      "row_count": 106,
+      "columns": [
+        {
+          "name": "jahr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "bfs_gemeinde_nr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "gemeinde",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "bfs_bezirk_nr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "bezirk",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "gebaeude_total",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_hz_waermepumpe",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_hz_heizoel",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_hz_gas",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_hz_holz",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_hz_elektrizitaet",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_hz_fernwaerme",
+          "type": "BIGINT"
+        },
+        {
+          "name": "geb_hz_andere_unbekannt",
+          "type": "BIGINT"
+        }
+      ],
+      "dataset_identifier": "ch.so.gws.gebaeude_heizung",
+      "dataset_resource_uri": "https://data.so.ch/dataset/ch.so.gws.gebaeude_heizung",
+      "license_uri": "http://dcat-ap.ch/vocabulary/licenses/terms_open",
+      "license_evidence": "supplied opendata.rdf, matching dcat:Distribution/downloadURL",
+      "temporal_coverage_as_published": {
+        "referenceDate": "2025-12-31"
+      },
+      "publication_status": "published",
+      "metadata_modified": "2026-10-16",
+      "metadata_excerpt": "metadata_excerpts.json#heating"
+    },
+    {
+      "alias": "population_age",
+      "catalog_view": "opendata.ch_so_bevoelkerung_gemeinde_alter_2025",
+      "source_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.parquet",
+      "final_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.parquet",
+      "retrieved_at_utc": "2026-10-23T09:02:21.091201Z",
+      "completed_at_utc": "2026-10-23T09:02:22.015932Z",
+      "path": "raw/population_age.parquet",
+      "format": "parquet",
+      "selection": "complete source file, no row selection or value changes",
+      "bytes": 8360,
+      "sha256": "72647f0811e9db892f1571275bc7adf6201aee30f18cac4fe64228175546c750",
+      "http_etag": "\"62ae0f5b2163c7f337eafe523078cfd1\"",
+      "http_last_modified": "Thu, 15 Oct 2026 08:08:51 GMT",
+      "http_content_type": "application/octet-stream",
+      "row_count": 106,
+      "columns": [
+        {
+          "name": "BFS_Nr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Gemeinde",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "Bezirk",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "Total",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Total_Maennlich",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Total_Weiblich",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Total_SchweizerInnen",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Total_AuslaenderInnen",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Alter_0_bis_19",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Alter_20_bis_39",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Alter_40_bis_64",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Alter_65_bis_79",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Alter_80_und_mehr",
+          "type": "BIGINT"
+        }
+      ],
+      "dataset_identifier": "ch.so.bevoelkerung.gemeinde_alter_2025",
+      "dataset_resource_uri": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_alter_2025",
+      "license_uri": "http://dcat-ap.ch/vocabulary/licenses/terms_open",
+      "license_evidence": "supplied opendata.rdf, matching dcat:Distribution/downloadURL",
+      "temporal_coverage_as_published": {
+        "referenceDate": "2025-12-31"
+      },
+      "publication_status": "published",
+      "metadata_modified": "2026-10-15",
+      "metadata_excerpt": "metadata_excerpts.json#population_age"
+    },
+    {
+      "alias": "population_sex_nationality",
+      "catalog_view": "opendata.ch_so_bevoelkerung_gemeinde_geschlecht_2025",
+      "source_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.parquet",
+      "final_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.parquet",
+      "retrieved_at_utc": "2026-10-23T09:02:21.091560Z",
+      "completed_at_utc": "2026-10-23T09:02:21.702402Z",
+      "path": "raw/population_sex_nationality.parquet",
+      "format": "parquet",
+      "selection": "complete source file, no row selection or value changes",
+      "bytes": 7804,
+      "sha256": "26bb6a4452a0626a211a82b47a516ad45f894430204d37b01b0e80eb794da583",
+      "http_etag": "\"5d0a2b62a54a73a7e97f3c61055d653b\"",
+      "http_last_modified": "Thu, 15 Oct 2026 08:50:05 GMT",
+      "http_content_type": "application/octet-stream",
+      "row_count": 106,
+      "columns": [
+        {
+          "name": "BFS_Nr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Gemeinde",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "Bezirk",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "SchweizerInnen_Weiblich",
+          "type": "BIGINT"
+        },
+        {
+          "name": "AuslaenderInnen_Weiblich",
+          "type": "BIGINT"
+        },
+        {
+          "name": "SchweizerInnen_Maennlich",
+          "type": "BIGINT"
+        },
+        {
+          "name": "AuslaenderInnen_Maennlich",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Total_SchweizerInnen",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Total_AuslaenderInnen",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Total_Maennlich",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Total_Weiblich",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Total",
+          "type": "BIGINT"
+        }
+      ],
+      "dataset_identifier": "ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+      "dataset_resource_uri": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+      "license_uri": "http://dcat-ap.ch/vocabulary/licenses/terms_open",
+      "license_evidence": "supplied opendata.rdf, matching dcat:Distribution/downloadURL",
+      "temporal_coverage_as_published": {
+        "referenceDate": "2025-12-31"
+      },
+      "publication_status": "published",
+      "metadata_modified": "2026-10-15",
+      "metadata_excerpt": "metadata_excerpts.json#population_sex_nationality"
+    },
+    {
+      "alias": "revenue",
+      "catalog_view": "opendata.ch_so_av_nachfuehrungsstatistik_umsatz",
+      "source_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.umsatz.parquet",
+      "final_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.umsatz.parquet",
+      "retrieved_at_utc": "2026-10-23T09:02:21.090746Z",
+      "completed_at_utc": "2026-10-23T09:02:21.662855Z",
+      "path": "raw/revenue.parquet",
+      "format": "parquet",
+      "selection": "complete source file, no row selection or value changes",
+      "bytes": 781,
+      "sha256": "61039f6321eff0e0888157e2acba6eefc05bef6a941ee5822fd66c2b9d3e2328",
+      "http_etag": "\"e15e1dbfd5aa42f9bf09e1a7e6020f9f\"",
+      "http_last_modified": "Wed, 14 Oct 2026 14:46:23 GMT",
+      "http_content_type": "application/octet-stream",
+      "row_count": 43,
+      "columns": [
+        {
+          "name": "jahr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "umsatz",
+          "type": "DOUBLE"
+        }
+      ],
+      "dataset_identifier": "ch.so.av_nachfuehrungsstatistik.umsatz",
+      "dataset_resource_uri": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.umsatz",
+      "license_uri": "http://dcat-ap.ch/vocabulary/licenses/terms_open",
+      "license_evidence": "supplied opendata.rdf, matching dcat:Distribution/downloadURL",
+      "temporal_coverage_as_published": {
+        "startDate": "1983-01-01",
+        "endDate": "2025-12-31"
+      },
+      "publication_status": "published",
+      "metadata_modified": "2026-10-14",
+      "metadata_excerpt": "metadata_excerpts.json#revenue"
+    },
+    {
+      "alias": "staff",
+      "catalog_view": "opendata.ch_so_av_nachfuehrungsstatistik_personal",
+      "source_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.personal.parquet",
+      "final_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.personal.parquet",
+      "retrieved_at_utc": "2026-10-23T09:02:21.090047Z",
+      "completed_at_utc": "2026-10-23T09:02:21.929049Z",
+      "path": "raw/staff.parquet",
+      "format": "parquet",
+      "selection": "complete source file, no row selection or value changes",
+      "bytes": 1521,
+      "sha256": "149d720c99993c838d8e02ecbb09f3986a144562fe7f836ee78361c53f8955aa",
+      "http_etag": "\"9d99df1475aed583ce19a11ae0ad805d\"",
+      "http_last_modified": "Wed, 14 Oct 2026 14:45:36 GMT",
+      "http_content_type": "application/octet-stream",
+      "row_count": 224,
+      "columns": [
+        {
+          "name": "jahr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "ausbildung",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "anzahl_mitarbeitende",
+          "type": "BIGINT"
+        }
+      ],
+      "dataset_identifier": "ch.so.av_nachfuehrungsstatistik.personal",
+      "dataset_resource_uri": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.personal",
+      "license_uri": "http://dcat-ap.ch/vocabulary/licenses/terms_open",
+      "license_evidence": "supplied opendata.rdf, matching dcat:Distribution/downloadURL",
+      "temporal_coverage_as_published": {
+        "startDate": "1980-01-01",
+        "endDate": "2025-12-31"
+      },
+      "publication_status": "published",
+      "metadata_modified": "2026-10-14",
+      "metadata_excerpt": "metadata_excerpts.json#staff"
+    },
+    {
+      "alias": "taxes",
+      "catalog_view": "opendata.ch_so_staatssteuerertraege_gemeinden_2025",
+      "source_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.parquet",
+      "final_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.parquet",
+      "retrieved_at_utc": "2026-10-23T09:02:22.016178Z",
+      "completed_at_utc": "2026-10-23T09:02:22.313294Z",
+      "path": "raw/taxes.parquet",
+      "format": "parquet",
+      "selection": "complete source file, no row selection or value changes",
+      "bytes": 3848,
+      "sha256": "2434371697f848bccd55eecb1a7c037242a2a9ec77ef733b3d07be01d5b2d9bf",
+      "http_etag": "\"314f592cef3edd3f3cfd890a0ce8a466\"",
+      "http_last_modified": "Fri, 16 Oct 2026 14:19:24 GMT",
+      "http_content_type": "application/octet-stream",
+      "row_count": 104,
+      "columns": [
+        {
+          "name": "gemeinde",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "gemeinde_bfs_nr",
+          "type": "BIGINT"
+        },
+        {
+          "name": "staatssteuer_np_tchf",
+          "type": "BIGINT"
+        },
+        {
+          "name": "staatssteuer_jp_tchf",
+          "type": "BIGINT"
+        },
+        {
+          "name": "staatssteuer_total_tchf",
+          "type": "BIGINT"
+        }
+      ],
+      "dataset_identifier": "ch.so.staatssteuerertraege_gemeinden-2025",
+      "dataset_resource_uri": "https://data.so.ch/dataset/ch.so.staatssteuerertraege_gemeinden-2025",
+      "license_uri": "http://dcat-ap.ch/vocabulary/licenses/terms_open",
+      "license_evidence": "supplied opendata.rdf, matching dcat:Distribution/downloadURL",
+      "temporal_coverage_as_published": {},
+      "publication_status": "published",
+      "metadata_modified": "2026-10-16",
+      "metadata_excerpt": "metadata_excerpts.json#taxes"
+    },
+    {
+      "alias": "vehicles",
+      "catalog_view": "opendata.ch_so_fahrzeugbestand_2025",
+      "source_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.parquet",
+      "final_url": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.parquet",
+      "retrieved_at_utc": "2026-10-23T09:02:21.702569Z",
+      "completed_at_utc": "2026-10-23T09:02:22.152417Z",
+      "path": "raw/vehicles.parquet",
+      "format": "parquet",
+      "selection": "complete source file, no row selection or value changes",
+      "bytes": 19552,
+      "sha256": "0e09e311cb5e089f5533e52c3d27724a421f385f3c4b31a5f57129bbcba7fd08",
+      "http_etag": "\"edfb3c598e715d076d2de89cee0ba1d9\"",
+      "http_last_modified": "Wed, 14 Oct 2026 11:42:05 GMT",
+      "http_content_type": "application/octet-stream",
+      "row_count": 2623,
+      "columns": [
+        {
+          "name": "GDENR",
+          "type": "BIGINT"
+        },
+        {
+          "name": "GDENAME",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "GDEBZNR",
+          "type": "BIGINT"
+        },
+        {
+          "name": "GDEBZNA",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "GDEKT",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "FZ_GROUP",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "FZ_GROUP_NA",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "FZART_CD",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "FZART_NA",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "Anzahl",
+          "type": "BIGINT"
+        },
+        {
+          "name": "Anzahl_ohne_WS",
+          "type": "BIGINT"
+        }
+      ],
+      "dataset_identifier": "ch.so.fahrzeugbestand_2025",
+      "dataset_resource_uri": "https://data.so.ch/dataset/ch.so.fahrzeugbestand_2025",
+      "license_uri": "http://dcat-ap.ch/vocabulary/licenses/terms_open",
+      "license_evidence": "supplied opendata.rdf, matching dcat:Distribution/downloadURL",
+      "temporal_coverage_as_published": {
+        "startDate": "2025-01-01",
+        "endDate": "2025-12-31"
+      },
+      "publication_status": "published",
+      "metadata_modified": "2026-10-14",
+      "metadata_excerpt": "metadata_excerpts.json#vehicles"
+    }
+  ],
+  "failures": [],
+  "rdf_metadata_sha256": "64ffc3fa91f3152c8e45458301e8db333b67cdee0ffba9a9cf9524744c4a4622",
+  "important_limitations": [
+    "Public mutable source URLs are pinned only by included bytes and SHA256, not by a guaranteed immutable upstream version.",
+    "vehicles metadata specifies report year 2025 and a stock at an unspecified reference date; it does not prove a snapshot on 2025-12-31.",
+    "population_sex_nationality has 106 rows but only 104 distinct BFS_Nr; Halten and Oekingen incorrectly reuse Kriegstetten's 2525 identifier. Preserve and quarantine, do not silently repair.",
+    "taxes uses the geographic structure of 2026; population_age, vehicles and GWS contain the three separate pre-fusion municipalities."
+  ]
+}

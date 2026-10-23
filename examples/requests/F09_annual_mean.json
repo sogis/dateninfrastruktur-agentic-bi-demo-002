@@ -1,0 +1,17 @@
+{
+  "period": {
+    "from_year": 2024,
+    "to_year": 2025
+  },
+  "group_by": [],
+  "outputs": [
+    {
+      "id": "mean_staff",
+      "expr": {
+        "kind": "aggregate",
+        "metric": "staff.count",
+        "temporal_reduce": "mean_annual_totals"
+      }
+    }
+  ]
+}

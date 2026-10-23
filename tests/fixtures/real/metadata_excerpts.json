@@ -1,0 +1,174 @@
+{
+  "building_category": {
+    "identifier": "ch.so.gws.gebaeude_kategorie",
+    "title": "Gebäude mit Wohnnutzung nach Gebäudekategorie Gemeinden Kanton Solothurn",
+    "resourceUri": "https://data.so.ch/dataset/ch.so.gws.gebaeude_kategorie",
+    "issued": "2026-10-16",
+    "modified": "2026-10-16",
+    "description": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Gebäudekategorie, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für Wohnraum- und Ortsplanung sowie Vergleiche zwischen Gemeinden und Bezirken.",
+    "surveyMethod": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde.",
+    "furtherUses": "Grundlage u. a. für Wohnraum-, Orts- und Energieplanung sowie Wohnungsmarktbeobachtung.",
+    "auxiliaryData": "Verwendete Hilfsdaten / Herkunft: Bezirkszuordnung gemäss Amtlichem Gemeindeverzeichnis der Schweiz (BFS).\n\nBemerkungen (inkl. Interpretationshinweise):\n– Einfamilienhaus = Gebäude mit ausschliesslicher Wohnnutzung und genau einer Wohnung; Mehrfamilienhaus = dasselbe mit zwei und mehr Wohnungen.\n– Wohngebäude mit Nebennutzung: Wohngebäude mit zusätzlicher anderer Nutzung (z. B. Bauernhaus, Wohnhaus mit Werkstatt). Gebäude mit teilweiser Wohnnutzung: überwiegend andere Nutzung (z. B. Geschäftshaus mit Wohnungen).\n– Eine Zeile pro Gemeinde; Bezirks- und Kantonswerte ergeben sich durch Summieren.\n– Abweichungen zu aktuellen GWR-Abfragen sind durch Nachführungen nach dem Stichtag möglich.\n– Gemeindefusion per 01.01.2026: Halten und Oekingen mit Kriegstetten (Bezirk Wasseramt).",
+    "publicationStatus": "published",
+    "xml_type": "Dataset",
+    "temporalCoverage": {
+      "referenceDate": "2025-12-31"
+    },
+    "accessRights": {
+      "localAccessLevel": "open",
+      "accessRightsUri": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    }
+  },
+  "ebau": {
+    "identifier": "ch.so.ebau_statistik_dossiers",
+    "title": "Dossiers in eBau pro Monat",
+    "resourceUri": "https://data.so.ch/dataset/ch.so.ebau_statistik_dossiers",
+    "issued": "2026-10-16",
+    "modified": "2026-10-16",
+    "description": "Monatliche Statistik zur Nutzung von eBau im Kanton Solothurn. Eine Zeile enthält für einen Berichtsmonat die Anzahl Gemeinden in eBau sowie die Anzahl der über eBau eingereichten Dossiers (Voranfragen, Baugesuche, Reklamegesuche, Erdwärmesonden sowie Meldungen). berichtsmonat ist als ISO-Datum mit dem ersten Kalendertag gespeichert und bezeichnet den gesamten Monat, nicht einen Erhebungsstichtag. Die Gemeindezahlen beschreiben den jeweiligen Monatsstand und dürfen nicht über mehrere Monate aufsummiert werden. Die Dossierzahlen beziehen sich auf die Einreichungen im jeweiligen Monat und sind keine kumulierten Werte. Der Datensatz wird als fortlaufende Monatsreihe geführt.",
+    "surveyMethod": "Monatlich aggregierte Angaben zur Anzahl Gemeinden in eBau und zu den über eBau eingereichten Dossiers im Kanton Solothurn. Grundlage ist die gelieferte CSV-Monatsstatistik. Für die Bereitstellung werden die Spaltennamen vereinheitlicht und die ursprünglichen Angaben Monat und Jahr zur Datumsspalte berichtsmonat im Format YYYY-MM-01 zusammengeführt. Der erste Kalendertag bezeichnet den gesamten Berichtsmonat. Die beiden Zählwerte und die Reihenfolge der Monatszeilen bleiben unverändert. Die Ausgabe erfolgt in UTF-8 ohne BOM mit Semikolon als Trennzeichen und einer Kopfzeile. berichtsmonat bildet den eindeutigen Schlüssel einer Beobachtung.",
+    "publicationStatus": "published",
+    "xml_type": "Dataset",
+    "temporalCoverage": {
+      "startDate": "2024-11-01",
+      "endDate": "2026-09-30"
+    },
+    "accessRights": {
+      "localAccessLevel": "open",
+      "accessRightsUri": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    }
+  },
+  "heating": {
+    "identifier": "ch.so.gws.gebaeude_heizung",
+    "title": "Gebäude mit Wohnnutzung nach Heizsystem und Energieträger der Hauptheizung Gemeinden Kanton Solothurn",
+    "resourceUri": "https://data.so.ch/dataset/ch.so.gws.gebaeude_heizung",
+    "issued": "2026-10-16",
+    "modified": "2026-10-16",
+    "description": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Heizsystem und Energieträger der Hauptheizung, mit Bezirkszuordnung. Grundlage ist die Gebäude- und Wohnungsstatistik (GWS) des BFS. Der Datensatz dient als Grundlage für die Energieplanung, das Monitoring des Heizungsersatzes sowie Vergleiche zwischen Gemeinden und Bezirken.",
+    "surveyMethod": "Registerbasierte Vollerhebung: Die Gebäude- und Wohnungsstatistik (GWS) des Bundesamts für Statistik (BFS) beruht auf dem eidgenössischen Gebäude- und Wohnungsregister (GWR), das von den Gemeinden laufend über Baubewilligungen nachgeführt wird. Erfasst ist der Bestand per Stichtag 31.12. (bestehende Gebäude mit Wohnnutzung und deren Wohnungen). Gemeindestand per 31.12. des Erhebungsjahres; Werte je Gemeinde.\nHeizung: massgebend ist die Hauptheizung gemäss GWR (Wärmeerzeuger und Energie-/Wärmequelle).",
+    "furtherUses": "Weitere Verwendungen:\nGrundlage u. a. für Wohnraum-, Orts- und Energieplanung sowie Wohnungsmarktbeobachtung.",
+    "auxiliaryData": "Verwendete Hilfsdaten / Herkunft:\nBezirkszuordnung gemäss Amtlichem Gemeindeverzeichnis der Schweiz (BFS).\n\nInterpretationshinweise:\n– Gebäude mit Wärmepumpe werden unabhängig von der Energiequelle als «Wärmepumpe» gezählt (die Energiequelle ist bei Wärmepumpen im GWR oft unbestimmt). Die übrigen Gebäude sind nach Energieträger eingeteilt; «andere, keine oder unbekannt» umfasst u. a. thermische Solaranlagen.\n– Heizungsangaben beruhen auf Meldungen ans GWR und können bei älteren Gebäuden veraltet sein.\n– Eine Zeile pro Gemeinde; Bezirks- und Kantonswerte ergeben sich durch Summieren.\n– Abweichungen zu aktuellen GWR-Abfragen sind durch Nachführungen nach dem Stichtag möglich.\n– Gemeindefusion per 01.01.2026: Halten und Oekingen mit Kriegstetten (Bezirk Wasseramt).",
+    "publicationStatus": "published",
+    "xml_type": "Dataset",
+    "temporalCoverage": {
+      "referenceDate": "2025-12-31"
+    },
+    "accessRights": {
+      "localAccessLevel": "open",
+      "accessRightsUri": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    }
+  },
+  "population_age": {
+    "identifier": "ch.so.bevoelkerung.gemeinde_alter_2025",
+    "title": "Wohnbevölkerung nach Gemeinde, Geschlecht und Altersgruppen (inkl. Total Schweizer/Ausländer), Kanton Solothurn 2025",
+    "resourceUri": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_alter_2025",
+    "issued": "2026-10-15",
+    "modified": "2026-10-15",
+    "description": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde, mit Totalen nach Geschlecht (Männer/Frauen) und Staatsangehörigkeit (Schweizer/Ausländer) sowie nach Altersgruppen (0–19, 20–39, 40–64, 65–79, 80+). Ehemals «Eckdaten zur Wohnbevölkerung». Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide.",
+    "surveyMethod": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde.",
+    "publicationStatus": "published",
+    "issueLabel": "2025",
+    "xml_type": "DatasetIssue",
+    "temporalCoverage": {
+      "referenceDate": "2025-12-31"
+    },
+    "accessRights": {
+      "localAccessLevel": "open",
+      "accessRightsUri": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    }
+  },
+  "population_sex_nationality": {
+    "identifier": "ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+    "title": "Wohnbevölkerung nach Gemeinde und Geschlecht (Schweizer/Ausländer) 2025",
+    "resourceUri": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+    "issued": "2026-10-15",
+    "modified": "2026-10-15",
+    "description": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde und Geschlecht, differenziert nach schweizerischer und ausländischer Staatsangehörigkeit (Männer/Frauen je Gruppe sowie Totale). Projektzweck: Kantonale Bevölkerungsstatistik als Grundlage für Planung, Berichterstattung und Verteilentscheide.",
+    "surveyMethod": "Vollerhebung (Registerauswertung) aus dem harmonisierten Einwohnerregister des Kantons Solothurn (Abbild der Gemeinderegister). Stichtagsbestand. Beobachtungseinheit: Person (AHV-Nr.), aggregiert auf Gemeinde.",
+    "publicationStatus": "published",
+    "issueLabel": "2025",
+    "xml_type": "DatasetIssue",
+    "temporalCoverage": {
+      "referenceDate": "2025-12-31"
+    },
+    "accessRights": {
+      "localAccessLevel": "open",
+      "accessRightsUri": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    }
+  },
+  "revenue": {
+    "identifier": "ch.so.av_nachfuehrungsstatistik.umsatz",
+    "title": "Umsatz der Nachführung der amtlichen Vermessung",
+    "resourceUri": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.umsatz",
+    "issued": "2026-10-14",
+    "modified": "2026-10-14",
+    "description": "Jährlicher Umsatz der Nachführung der amtlichen Vermessung im Kanton Solothurn für die Jahre 1983 bis 2025. Die Zeitreihe enthält die im jeweiligen Jahresbericht ausgewiesenen nominalen Beträge und wird mit neuen Jahreswerten weitergeführt. Es handelt sich um unveränderte Originalwerte; eine Bereinigung um Teuerung oder Inflation, eine Deflationierung oder eine sonstige Anpassung an ein konstantes Preisniveau wurde nicht vorgenommen. Die Werte eignen sich daher für die Darstellung der historischen Jahresberichtswerte, jedoch nicht ohne Weiteres für inflationsbereinigte Zeitvergleiche.",
+    "surveyMethod": "Zusammenstellung der im jeweiligen Jahresbericht ausgewiesenen Umsätze der Nachführung der amtlichen Vermessung.",
+    "publicationStatus": "published",
+    "xml_type": "Dataset",
+    "temporalCoverage": {
+      "startDate": "1983-01-01",
+      "endDate": "2025-12-31"
+    },
+    "accessRights": {
+      "localAccessLevel": "open",
+      "accessRightsUri": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    }
+  },
+  "staff": {
+    "identifier": "ch.so.av_nachfuehrungsstatistik.personal",
+    "title": "Personalstatistik in der amtlichen Vermessung nach Ausbildung",
+    "resourceUri": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.personal",
+    "issued": "2026-10-14",
+    "modified": "2026-10-14",
+    "description": "Jährliche Anzahl Mitarbeitende in der amtlichen Vermessung nach Ausbildungs- und Qualifikationskategorie für den Zeitraum 1980 bis 2025. Die Datei wird laufend um das jeweils neueste Jahr ergänzt. Enthalten sind die Kategorien Ingenieur-Geometer, Geometerkandidat, Techniker HTL / FH / FA, Geomatiker, Lernende, Patentierter Ingenieur-Geometer und Ingenieur ETH.",
+    "surveyMethod": "Die Zahlen werden von den Nachführungsgeometern in den Jahresberichten geliefert.",
+    "publicationStatus": "published",
+    "xml_type": "Dataset",
+    "temporalCoverage": {
+      "startDate": "1980-01-01",
+      "endDate": "2025-12-31"
+    },
+    "accessRights": {
+      "localAccessLevel": "open",
+      "accessRightsUri": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    }
+  },
+  "taxes": {
+    "identifier": "ch.so.staatssteuerertraege_gemeinden-2025",
+    "title": "Staatssteuererträge (Kalenderjahr) natürliche und juristische Personen nach Gemeinde Kanton Solothurn 2025",
+    "resourceUri": "https://data.so.ch/dataset/ch.so.staatssteuerertraege_gemeinden-2025",
+    "issued": "2026-10-16",
+    "modified": "2026-10-16",
+    "description": "Erträge der Staatssteuer (Kantonssteuer) für das Kalenderjahr (KJ) 2025, aufgeteilt nach natürlichen Personen (NP) und juristischen Personen (JP) sowie Total, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden) und für den Kanton Solothurn gesamthaft. Werte in Tausend Franken (TCHF), gerundet",
+    "publicationStatus": "published",
+    "issueLabel": "2025",
+    "xml_type": "DatasetIssue",
+    "temporalCoverage": {},
+    "accessRights": {
+      "localAccessLevel": "open",
+      "accessRightsUri": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    }
+  },
+  "vehicles": {
+    "identifier": "ch.so.fahrzeugbestand_2025",
+    "title": "Fahrzeugbestand nach Fahrzeugkategorie und Gemeinde (2025)",
+    "resourceUri": "https://data.so.ch/dataset/ch.so.fahrzeugbestand_2025",
+    "issued": "2026-10-14",
+    "modified": "2026-10-14",
+    "description": "Bestand der im Kanton Solothurn zugelassenen Fahrzeuge nach Fahrzeuggruppe (Leichte Motorwagen, Schwere Motorwagen, Anhänger, Landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Klein-Motorräder, Gewerbefahrzeuge) und Fahrzeugart auf Gemeindeebene per Stichtag. Ausgewiesen werden pro Gemeinde und Fahrzeugkategorie zwei Grössen: anzahl_fahrzeuge (Anzahl der immatrikulierten Fahrzeuge; jedes Fahrzeug wird einzeln gezählt, auch wenn mehrere Fahrzeuge unter demselben Wechselschild eingelöst sind) und anzahl_ws (Anzahl der Zulassungen unter Berücksichtigung der Wechselschilder; Fahrzeuge, die sich ein Wechselschild teilen, werden nur einmal gezählt, d. h. die Zahl entspricht der Anzahl eingelöster Kontrollschilder). Bezirks- und Kantonswerte lassen sich durch Aggregation der Gemeindewerte herleiten. Zweck: Grundlage für Verkehrs-, Raum- und Umweltplanung, Statistik sowie öffentliche Information.",
+    "surveyMethod": "Vollerhebung aus dem Fahrzeugzulassungsregister der MFK Kanton Solothurn (administrative Registerdaten, Auszug per Stichtag). Zuordnung der Fahrzeuge zur Gemeinde über den Halterstandort (BFS-Gemeindenummer). Keine Stichprobe, keine Schätzwerte.",
+    "furtherUses": "Weitere Verwendungen: Kantonale Statistik, Verkehrs- und Umweltplanung; Vergleichbarkeit mit BFS-Fahrzeugstatistik (MOFIS/ASTRA). Verwendete Hilfsdaten: BFS-Gemeindenummern und Bezirkszuordnung (Gemeindestand 2025). so-ogd:weitereVerwendungen",
+    "publicationStatus": "published",
+    "issueLabel": "2025",
+    "xml_type": "DatasetIssue",
+    "temporalCoverage": {
+      "startDate": "2025-01-01",
+      "endDate": "2025-12-31"
+    },
+    "accessRights": {
+      "localAccessLevel": "open",
+      "accessRightsUri": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    }
+  }
+}

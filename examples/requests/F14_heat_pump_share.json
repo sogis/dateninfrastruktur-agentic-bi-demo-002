@@ -1,0 +1,25 @@
+{
+  "period": {
+    "from_year": 2025,
+    "to_year": 2025
+  },
+  "group_by": [],
+  "outputs": [
+    {
+      "id": "heat_pump_share",
+      "expr": {
+        "kind": "binary",
+        "op": "divide",
+        "left": {
+          "kind": "aggregate",
+          "metric": "heating.heat_pump"
+        },
+        "right": {
+          "kind": "aggregate",
+          "metric": "heating.buildings"
+        },
+        "scale": 100
+      }
+    }
+  ]
+}

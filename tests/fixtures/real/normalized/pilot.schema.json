@@ -1,0 +1,458 @@
+{
+  "database": "pilot.duckdb",
+  "sha256": "dd8147f862c5092d1d0780a297b8e5c7ba4c9a515c123c2ba2abf047a45fd795",
+  "duckdb_version": "2.0.0",
+  "physical_tables_only": true,
+  "period_start_meaning": "Technical period key (annual rows: January 1); never infer observation date from it.",
+  "vehicle_reference_date": null,
+  "vehicle_report_year_evidence": "2025-01-01..2025-12-31 temporalCoverage in supplied DatasetIssue metadata",
+  "population_reference_date_evidence": "2025-12-31 referenceDate in supplied DatasetIssue metadata",
+  "geography_2025_binding": "Authored fixture binding to the complete 106-municipality key set matching the declared 2025 vehicle/GWS geography; does not infer geography from filename.",
+  "excluded_from_runtime_tables": {
+    "population_sex_nationality": "Real duplicate municipality key 2525; raw source retained as quarantine test."
+  },
+  "source_sha256": {
+    "building_category": "9af9b8b2cb73f57730fcc1c4b4ae77eb68f3c05ca3f584da916da4ffd340245b",
+    "ebau": "6fe91a3cde375356d08f15f8cfde363ddbe7436f5b8614da6c157bf6a029a132",
+    "heating": "2df4fbe698b798639773865025736917e76984041bb83dc2e1ee8c43e501c3b6",
+    "population_age": "72647f0811e9db892f1571275bc7adf6201aee30f18cac4fe64228175546c750",
+    "population_sex_nationality": "26bb6a4452a0626a211a82b47a516ad45f894430204d37b01b0e80eb794da583",
+    "revenue": "61039f6321eff0e0888157e2acba6eefc05bef6a941ee5822fd66c2b9d3e2328",
+    "staff": "149d720c99993c838d8e02ecbb09f3986a144562fe7f836ee78361c53f8955aa",
+    "taxes": "2434371697f848bccd55eecb1a7c037242a2a9ec77ef733b3d07be01d5b2d9bf",
+    "vehicles": "0e09e311cb5e089f5533e52c3d27724a421f385f3c4b31a5f57129bbcba7fd08"
+  },
+  "tables": {
+    "municipalities": {
+      "row_count": 106,
+      "primary_key": [
+        "geo_version",
+        "municipality_id"
+      ],
+      "columns": [
+        {
+          "name": "geo_version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "municipality_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "municipality_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "district_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "district_id",
+          "type": "INTEGER"
+        }
+      ],
+      "derivation_sql": "SELECT 2025::INTEGER AS geo_version,p.BFS_Nr::INTEGER AS municipality_id,\n               p.Gemeinde AS municipality_name,p.Bezirk AS district_name,\n               v.GDEBZNR::INTEGER AS district_id\n        FROM raw_population_age p\n        JOIN (SELECT DISTINCT GDENR,GDEBZNR FROM raw_vehicles) v ON p.BFS_Nr=v.GDENR\n        ORDER BY municipality_id"
+    },
+    "population": {
+      "row_count": 106,
+      "primary_key": [
+        "report_year",
+        "geo_version",
+        "municipality_id"
+      ],
+      "columns": [
+        {
+          "name": "report_year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period_start",
+          "type": "DATE"
+        },
+        {
+          "name": "reference_date",
+          "type": "DATE"
+        },
+        {
+          "name": "geo_version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "municipality_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cell_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "people",
+          "type": "BIGINT"
+        },
+        {
+          "name": "women",
+          "type": "BIGINT"
+        },
+        {
+          "name": "men",
+          "type": "BIGINT"
+        },
+        {
+          "name": "swiss_people",
+          "type": "BIGINT"
+        },
+        {
+          "name": "foreign_people",
+          "type": "BIGINT"
+        },
+        {
+          "name": "age_0_19",
+          "type": "BIGINT"
+        },
+        {
+          "name": "age_20_39",
+          "type": "BIGINT"
+        },
+        {
+          "name": "age_40_64",
+          "type": "BIGINT"
+        },
+        {
+          "name": "age_65_79",
+          "type": "BIGINT"
+        },
+        {
+          "name": "age_80_plus",
+          "type": "BIGINT"
+        },
+        {
+          "name": "age_65_plus",
+          "type": "BIGINT"
+        }
+      ],
+      "derivation_sql": "SELECT 2025::INTEGER AS report_year,DATE '2025-01-01' AS period_start,\n               DATE '2025-12-31' AS reference_date,2025::INTEGER AS geo_version,\n               BFS_Nr::INTEGER AS municipality_id,concat(2025,'|',2025,'|',BFS_Nr) AS cell_id,Total AS people,\n               Total_Weiblich AS women,Total_Maennlich AS men,\n               Total_SchweizerInnen AS swiss_people,Total_AuslaenderInnen AS foreign_people,\n               Alter_0_bis_19 AS age_0_19,Alter_20_bis_39 AS age_20_39,\n               Alter_40_bis_64 AS age_40_64,Alter_65_bis_79 AS age_65_79,\n               Alter_80_und_mehr AS age_80_plus,\n               Alter_65_bis_79+Alter_80_und_mehr AS age_65_plus\n        FROM raw_population_age ORDER BY municipality_id"
+    },
+    "vehicles": {
+      "row_count": 2623,
+      "primary_key": [
+        "report_year",
+        "geo_version",
+        "municipality_id",
+        "vehicle_category_code"
+      ],
+      "columns": [
+        {
+          "name": "report_year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period_start",
+          "type": "DATE"
+        },
+        {
+          "name": "reference_date",
+          "type": "DATE"
+        },
+        {
+          "name": "geo_version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "municipality_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cell_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_category_code",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_category_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_group_code",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicle_group_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "vehicles",
+          "type": "BIGINT"
+        },
+        {
+          "name": "registrations",
+          "type": "BIGINT"
+        }
+      ],
+      "derivation_sql": "SELECT 2025::INTEGER AS report_year,DATE '2025-01-01' AS period_start,\n               NULL::DATE AS reference_date,2025::INTEGER AS geo_version,\n               GDENR::INTEGER AS municipality_id,concat(2025,'|',2025,'|',GDENR) AS cell_id,FZART_CD AS vehicle_category_code,\n               FZART_NA AS vehicle_category_name,FZ_GROUP AS vehicle_group_code,\n               FZ_GROUP_NA AS vehicle_group_name,Anzahl AS vehicles,\n               Anzahl_ohne_WS AS registrations\n        FROM raw_vehicles ORDER BY municipality_id,vehicle_category_code"
+    },
+    "staff": {
+      "row_count": 224,
+      "primary_key": [
+        "report_year",
+        "education"
+      ],
+      "columns": [
+        {
+          "name": "report_year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period_start",
+          "type": "DATE"
+        },
+        {
+          "name": "education",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "staff",
+          "type": "BIGINT"
+        }
+      ],
+      "derivation_sql": "SELECT jahr::INTEGER AS report_year,make_date(jahr::INTEGER,1,1) AS period_start,\n               ausbildung AS education,anzahl_mitarbeitende AS staff\n        FROM raw_staff ORDER BY report_year,education"
+    },
+    "revenue": {
+      "row_count": 43,
+      "primary_key": [
+        "report_year"
+      ],
+      "columns": [
+        {
+          "name": "report_year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period_start",
+          "type": "DATE"
+        },
+        {
+          "name": "nominal_chf",
+          "type": "DECIMAL(18,2)"
+        }
+      ],
+      "derivation_sql": "SELECT jahr::INTEGER AS report_year,make_date(jahr::INTEGER,1,1) AS period_start,\n               CAST(umsatz AS DECIMAL(18,2)) AS nominal_chf\n        FROM raw_revenue ORDER BY report_year"
+    },
+    "heating": {
+      "row_count": 106,
+      "primary_key": [
+        "report_year",
+        "geo_version",
+        "municipality_id"
+      ],
+      "columns": [
+        {
+          "name": "report_year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period_start",
+          "type": "DATE"
+        },
+        {
+          "name": "reference_date",
+          "type": "DATE"
+        },
+        {
+          "name": "geo_version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "municipality_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cell_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buildings",
+          "type": "BIGINT"
+        },
+        {
+          "name": "heat_pump",
+          "type": "BIGINT"
+        },
+        {
+          "name": "heating_oil",
+          "type": "BIGINT"
+        },
+        {
+          "name": "gas",
+          "type": "BIGINT"
+        },
+        {
+          "name": "wood",
+          "type": "BIGINT"
+        },
+        {
+          "name": "electricity",
+          "type": "BIGINT"
+        },
+        {
+          "name": "district_heating",
+          "type": "BIGINT"
+        },
+        {
+          "name": "other_or_unknown",
+          "type": "BIGINT"
+        }
+      ],
+      "derivation_sql": "SELECT jahr::INTEGER AS report_year,make_date(jahr::INTEGER,1,1) AS period_start,\n               make_date(jahr::INTEGER,12,31) AS reference_date,jahr::INTEGER AS geo_version,\n               bfs_gemeinde_nr::INTEGER AS municipality_id,concat(jahr,'|',jahr,'|',bfs_gemeinde_nr) AS cell_id,gebaeude_total AS buildings,\n               geb_hz_waermepumpe AS heat_pump,geb_hz_heizoel AS heating_oil,\n               geb_hz_gas AS gas,geb_hz_holz AS wood,geb_hz_elektrizitaet AS electricity,\n               geb_hz_fernwaerme AS district_heating,geb_hz_andere_unbekannt AS other_or_unknown\n        FROM raw_heating ORDER BY report_year,municipality_id"
+    },
+    "building_category": {
+      "row_count": 106,
+      "primary_key": [
+        "report_year",
+        "geo_version",
+        "municipality_id"
+      ],
+      "columns": [
+        {
+          "name": "report_year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period_start",
+          "type": "DATE"
+        },
+        {
+          "name": "reference_date",
+          "type": "DATE"
+        },
+        {
+          "name": "geo_version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "municipality_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cell_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "buildings",
+          "type": "BIGINT"
+        },
+        {
+          "name": "single_family",
+          "type": "BIGINT"
+        },
+        {
+          "name": "multi_family",
+          "type": "BIGINT"
+        },
+        {
+          "name": "residential_secondary_use",
+          "type": "BIGINT"
+        },
+        {
+          "name": "partially_residential",
+          "type": "BIGINT"
+        }
+      ],
+      "derivation_sql": "SELECT jahr::INTEGER AS report_year,make_date(jahr::INTEGER,1,1) AS period_start,\n               make_date(jahr::INTEGER,12,31) AS reference_date,jahr::INTEGER AS geo_version,\n               bfs_gemeinde_nr::INTEGER AS municipality_id,concat(jahr,'|',jahr,'|',bfs_gemeinde_nr) AS cell_id,gebaeude_total AS buildings,\n               geb_kat_efh AS single_family,geb_kat_mfh AS multi_family,\n               geb_kat_wohn_nebennutzung AS residential_secondary_use,\n               geb_kat_teilw_wohnnutzung AS partially_residential\n        FROM raw_building_category ORDER BY report_year,municipality_id"
+    },
+    "ebau": {
+      "row_count": 23,
+      "primary_key": [
+        "period_start"
+      ],
+      "columns": [
+        {
+          "name": "report_year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period_start",
+          "type": "DATE"
+        },
+        {
+          "name": "municipalities_stock",
+          "type": "BIGINT"
+        },
+        {
+          "name": "submitted_dossiers",
+          "type": "BIGINT"
+        }
+      ],
+      "derivation_sql": "SELECT year(berichtsmonat)::INTEGER AS report_year,berichtsmonat AS period_start,\n               anzahl_gemeinden_in_ebau AS municipalities_stock,\n               anzahl_ueber_ebau_eingereichte_dossiers AS submitted_dossiers\n        FROM raw_ebau ORDER BY period_start"
+    },
+    "taxes": {
+      "row_count": 104,
+      "primary_key": [
+        "report_year",
+        "geo_version",
+        "municipality_id"
+      ],
+      "columns": [
+        {
+          "name": "report_year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period_start",
+          "type": "DATE"
+        },
+        {
+          "name": "geo_version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "municipality_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cell_id",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "municipality_name",
+          "type": "VARCHAR"
+        },
+        {
+          "name": "natural_person_tax_tchf",
+          "type": "BIGINT"
+        },
+        {
+          "name": "legal_person_tax_tchf",
+          "type": "BIGINT"
+        },
+        {
+          "name": "tax_total_tchf",
+          "type": "BIGINT"
+        },
+        {
+          "name": "tax_total_chf",
+          "type": "DECIMAL(18,2)"
+        }
+      ],
+      "derivation_sql": "SELECT 2025::INTEGER AS report_year,DATE '2025-01-01' AS period_start,\n               2026::INTEGER AS geo_version,gemeinde_bfs_nr::INTEGER AS municipality_id,\n               concat(2026,'|',2025,'|',gemeinde_bfs_nr) AS cell_id,\n               gemeinde AS municipality_name,staatssteuer_np_tchf AS natural_person_tax_tchf,\n               staatssteuer_jp_tchf AS legal_person_tax_tchf,\n               staatssteuer_total_tchf AS tax_total_tchf,\n               CAST(staatssteuer_total_tchf * 1000 AS DECIMAL(18,2)) AS tax_total_chf\n        FROM raw_taxes ORDER BY municipality_id"
+    },
+    "years": {
+      "row_count": 46,
+      "primary_key": [
+        "report_year"
+      ],
+      "columns": [
+        {
+          "name": "report_year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "period_start",
+          "type": "DATE"
+        }
+      ],
+      "derivation_sql": "SELECT DISTINCT report_year,make_date(report_year,1,1) AS period_start\n        FROM (SELECT report_year FROM staff UNION SELECT report_year FROM revenue)\n        ORDER BY report_year"
+    }
+  }
+}

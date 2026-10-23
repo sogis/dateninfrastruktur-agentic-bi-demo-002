@@ -1,0 +1,898 @@
+{
+  "pop_total": {
+    "sql": "select count(*) rows, count(distinct BFS_Nr) municipalities, min(BFS_Nr) min_key,max(BFS_Nr) max_key,sum(Total) population from population_age",
+    "columns": [
+      "rows",
+      "municipalities",
+      "min_key",
+      "max_key",
+      "population"
+    ],
+    "rows": [
+      [
+        106,
+        106,
+        2401,
+        2622,
+        293081
+      ]
+    ]
+  },
+  "pop_sample": {
+    "sql": "select BFS_Nr,Gemeinde,Bezirk,Total from population_age order by Total desc limit 8",
+    "columns": [
+      "BFS_Nr",
+      "Gemeinde",
+      "Bezirk",
+      "Total"
+    ],
+    "rows": [
+      [
+        2581,
+        "Olten",
+        "Bezirk Olten",
+        19349
+      ],
+      [
+        2546,
+        "Grenchen",
+        "Bezirk Lebern",
+        19215
+      ],
+      [
+        2601,
+        "Solothurn",
+        "Bezirk Solothurn",
+        16881
+      ],
+      [
+        2534,
+        "Zuchwil",
+        "Bezirk Wasseramt",
+        9660
+      ],
+      [
+        2513,
+        "Biberist",
+        "Bezirk Wasseramt",
+        9579
+      ],
+      [
+        2517,
+        "Derendingen",
+        "Bezirk Wasseramt",
+        7255
+      ],
+      [
+        2500,
+        "Trimbach",
+        "Bezirk Gösgen",
+        7023
+      ],
+      [
+        2473,
+        "Dornach",
+        "Bezirk Dorneck",
+        6947
+      ]
+    ]
+  },
+  "pop_sex_consistency": {
+    "sql": "select count(*) from population_age a join population_sex_nationality s using(BFS_Nr) where a.Total<>s.Total or a.Total_Weiblich<>s.Total_Weiblich",
+    "columns": [
+      "count_star()"
+    ],
+    "rows": [
+      [
+        2
+      ]
+    ]
+  },
+  "vehicles_summary": {
+    "sql": "select count(*) rows,count(distinct GDENR) municipalities,sum(Anzahl) vehicles,sum(Anzahl_ohne_WS) registrations from vehicles",
+    "columns": [
+      "rows",
+      "municipalities",
+      "vehicles",
+      "registrations"
+    ],
+    "rows": [
+      [
+        2623,
+        106,
+        239579,
+        222836
+      ]
+    ]
+  },
+  "vehicle_categories": {
+    "sql": "select FZART_CD,FZART_NA,FZ_GROUP,FZ_GROUP_NA,count(*) rows,sum(Anzahl) vehicles from vehicles group by all order by FZART_CD",
+    "columns": [
+      "FZART_CD",
+      "FZART_NA",
+      "FZ_GROUP",
+      "FZ_GROUP_NA",
+      "rows",
+      "vehicles"
+    ],
+    "rows": [
+      [
+        "01",
+        "Personenwagen",
+        "1",
+        "Leichte Motorwagen",
+        106,
+        168245
+      ],
+      [
+        "02",
+        "Schwerer Personenwagen",
+        "1",
+        "Leichte Motorwagen",
+        6,
+        21
+      ],
+      [
+        "10",
+        "Leichter Motorwagen",
+        "1",
+        "Leichte Motorwagen",
+        105,
+        3565
+      ],
+      [
+        "11",
+        "Schwerer Motorwagen",
+        "2",
+        "Schwere Motorwagen",
+        76,
+        262
+      ],
+      [
+        "20",
+        "Gesellschaftswagen",
+        "2",
+        "Schwere Motorwagen",
+        23,
+        159
+      ],
+      [
+        "21",
+        "Kleinbus",
+        "2",
+        "Schwere Motorwagen",
+        45,
+        95
+      ],
+      [
+        "22",
+        "Gelenkbus",
+        "2",
+        "Schwere Motorwagen",
+        5,
+        60
+      ],
+      [
+        "30",
+        "Lieferwagen",
+        "1",
+        "Leichte Motorwagen",
+        106,
+        15214
+      ],
+      [
+        "35",
+        "Lastwagen",
+        "2",
+        "Schwere Motorwagen",
+        87,
+        1707
+      ],
+      [
+        "37",
+        "Schweres Sattelmotorfahrzeug",
+        "2",
+        "Schwere Motorwagen",
+        1,
+        1
+      ],
+      [
+        "38",
+        "Sattelschlepper",
+        "2",
+        "Schwere Motorwagen",
+        67,
+        989
+      ],
+      [
+        "42",
+        "Traktor",
+        "7",
+        "Gewerbe FZ",
+        82,
+        272
+      ],
+      [
+        "43",
+        "Landw. Traktor",
+        "4",
+        "Landwirtschaftsfz",
+        106,
+        4552
+      ],
+      [
+        "50",
+        "Arbeitsmaschine",
+        "7",
+        "Gewerbe FZ",
+        90,
+        686
+      ],
+      [
+        "51",
+        "Arbeitskarren",
+        "7",
+        "Gewerbe FZ",
+        94,
+        992
+      ],
+      [
+        "52",
+        "Landw. Arbeitskarren",
+        "4",
+        "Landwirtschaftsfz",
+        98,
+        501
+      ],
+      [
+        "60",
+        "Motorrad",
+        "5",
+        "Motorräder",
+        106,
+        22164
+      ],
+      [
+        "61",
+        "Kleinmotorrad",
+        "6",
+        "Kleinmotorräder",
+        97,
+        732
+      ],
+      [
+        "62",
+        "Motorrad-Dreirad",
+        "5",
+        "Motorräder",
+        15,
+        20
+      ],
+      [
+        "63",
+        "Motorrad-Seitenwagen",
+        "5",
+        "Motorräder",
+        55,
+        93
+      ],
+      [
+        "64",
+        "Kleinmotorrad-Dreirad",
+        "6",
+        "Kleinmotorräder",
+        45,
+        288
+      ],
+      [
+        "65",
+        "Leichtmotorfahrzeug",
+        "1",
+        "Leichte Motorwagen",
+        22,
+        27
+      ],
+      [
+        "66",
+        "Kleinmotorfahrzeug",
+        "1",
+        "Leichte Motorwagen",
+        103,
+        488
+      ],
+      [
+        "67",
+        "Dreiradriges Motorfahrzeug",
+        "1",
+        "Leichte Motorwagen",
+        73,
+        154
+      ],
+      [
+        "68",
+        "Motorschlitten",
+        "5",
+        "Motorräder",
+        4,
+        5
+      ],
+      [
+        "80",
+        "Motorkarren",
+        "7",
+        "Gewerbe FZ",
+        90,
+        737
+      ],
+      [
+        "81",
+        "Landw. Motorkarren",
+        "4",
+        "Landwirtschaftsfz",
+        87,
+        459
+      ],
+      [
+        "82",
+        "Motoreinachser",
+        "7",
+        "Gewerbe FZ",
+        9,
+        9
+      ],
+      [
+        "83",
+        "Landw. Motoreinachser",
+        "4",
+        "Landwirtschaftsfz",
+        76,
+        256
+      ],
+      [
+        "85",
+        "Landw. Anhänger",
+        "3",
+        "Anhänger",
+        91,
+        528
+      ],
+      [
+        "86",
+        "Motorrad-Anhänger",
+        "3",
+        "Anhänger",
+        25,
+        229
+      ],
+      [
+        "87",
+        "Landw. Arbeitsanhänger",
+        "4",
+        "Landwirtschaftsfz",
+        89,
+        386
+      ],
+      [
+        "88",
+        "Sattel-Wohnanhänger",
+        "3",
+        "Anhänger",
+        8,
+        9
+      ],
+      [
+        "89",
+        "Sattel-Anhänger",
+        "3",
+        "Anhänger",
+        3,
+        3
+      ],
+      [
+        "90",
+        "Sachentransportanhänger",
+        "3",
+        "Anhänger",
+        106,
+        10981
+      ],
+      [
+        "92",
+        "Wohnanhänger",
+        "3",
+        "Anhänger",
+        103,
+        1822
+      ],
+      [
+        "93",
+        "Sportgerateanhänger",
+        "3",
+        "Anhänger",
+        97,
+        647
+      ],
+      [
+        "94",
+        "Arbeitsanhänger",
+        "3",
+        "Anhänger",
+        93,
+        1316
+      ],
+      [
+        "95",
+        "Sattel-Sachentransportanh",
+        "3",
+        "Anhänger",
+        59,
+        622
+      ],
+      [
+        "97",
+        "Sattel-Sportgerateanhänger",
+        "3",
+        "Anhänger",
+        1,
+        1
+      ],
+      [
+        "98",
+        "Sattel-Arbeitsanhänger",
+        "3",
+        "Anhänger",
+        3,
+        18
+      ],
+      [
+        "99",
+        "Anhänger",
+        "3",
+        "Anhänger",
+        66,
+        264
+      ]
+    ]
+  },
+  "vehicle_duplicate_keys": {
+    "sql": "select GDENR,FZART_CD,count(*) n from vehicles group by all having n>1",
+    "columns": [
+      "GDENR",
+      "FZART_CD",
+      "n"
+    ],
+    "rows": []
+  },
+  "vehicle_geo_mismatch": {
+    "sql": "select coalesce(p.BFS_Nr,v.GDENR) bfs,p.Gemeinde,v.GDENAME from population_age p full outer join (select distinct GDENR,GDENAME from vehicles) v on p.BFS_Nr=v.GDENR where p.BFS_Nr is null or v.GDENR is null or p.Gemeinde<>v.GDENAME",
+    "columns": [
+      "bfs",
+      "Gemeinde",
+      "GDENAME"
+    ],
+    "rows": []
+  },
+  "staff_years": {
+    "sql": "select min(jahr),max(jahr),count(distinct jahr),sum(anzahl_mitarbeitende) from staff",
+    "columns": [
+      "min(jahr)",
+      "max(jahr)",
+      "count(DISTINCT jahr)",
+      "sum(anzahl_mitarbeitende)"
+    ],
+    "rows": [
+      [
+        1980,
+        2025,
+        46,
+        3233
+      ]
+    ]
+  },
+  "staff_recent": {
+    "sql": "select jahr,ausbildung,anzahl_mitarbeitende from staff where jahr>=2023 order by jahr,ausbildung",
+    "columns": [
+      "jahr",
+      "ausbildung",
+      "anzahl_mitarbeitende"
+    ],
+    "rows": [
+      [
+        2023,
+        "Geomatiker",
+        24
+      ],
+      [
+        2023,
+        "Ingenieur ETH",
+        1
+      ],
+      [
+        2023,
+        "Lernende",
+        14
+      ],
+      [
+        2023,
+        "Patentierter Ingenieur-Geometer",
+        9
+      ],
+      [
+        2023,
+        "Techniker HTL / FH / FA",
+        18
+      ],
+      [
+        2024,
+        "Geomatiker",
+        27
+      ],
+      [
+        2024,
+        "Ingenieur ETH",
+        1
+      ],
+      [
+        2024,
+        "Lernende",
+        13
+      ],
+      [
+        2024,
+        "Patentierter Ingenieur-Geometer",
+        8
+      ],
+      [
+        2024,
+        "Techniker HTL / FH / FA",
+        17
+      ],
+      [
+        2025,
+        "Geomatiker",
+        25
+      ],
+      [
+        2025,
+        "Ingenieur ETH",
+        1
+      ],
+      [
+        2025,
+        "Lernende",
+        13
+      ],
+      [
+        2025,
+        "Patentierter Ingenieur-Geometer",
+        9
+      ],
+      [
+        2025,
+        "Techniker HTL / FH / FA",
+        17
+      ]
+    ]
+  },
+  "staff_education": {
+    "sql": "select ausbildung,min(jahr),max(jahr),count(*) from staff group by ausbildung order by ausbildung",
+    "columns": [
+      "ausbildung",
+      "min(jahr)",
+      "max(jahr)",
+      "count_star()"
+    ],
+    "rows": [
+      [
+        "Geomatiker",
+        1980,
+        2025,
+        46
+      ],
+      [
+        "Geometerkandidat",
+        1980,
+        1988,
+        9
+      ],
+      [
+        "Ingenieur ETH",
+        1995,
+        2025,
+        31
+      ],
+      [
+        "Ingenieur-Geometer",
+        1980,
+        1990,
+        11
+      ],
+      [
+        "Lernende",
+        1980,
+        2025,
+        46
+      ],
+      [
+        "Patentierter Ingenieur-Geometer",
+        1991,
+        2025,
+        35
+      ],
+      [
+        "Techniker HTL / FH / FA",
+        1980,
+        2025,
+        46
+      ]
+    ]
+  },
+  "revenue_recent": {
+    "sql": "select * from revenue where jahr>=2020 order by jahr",
+    "columns": [
+      "jahr",
+      "umsatz"
+    ],
+    "rows": [
+      [
+        2020,
+        3211410.0
+      ],
+      [
+        2021,
+        3127819.0
+      ],
+      [
+        2022,
+        3028039.0
+      ],
+      [
+        2023,
+        2762610.0
+      ],
+      [
+        2024,
+        2566066.0
+      ],
+      [
+        2025,
+        2762610.0
+      ]
+    ]
+  },
+  "revenue_precision": {
+    "sql": "select min(jahr),max(jahr),count(*),count(*) filter(where umsatz<>round(umsatz,2)),sum(umsatz) from revenue",
+    "columns": [
+      "min(jahr)",
+      "max(jahr)",
+      "count_star()",
+      "count_star() FILTER (WHERE (umsatz != round(umsatz, 2)))",
+      "sum(umsatz)"
+    ],
+    "rows": [
+      [
+        1983,
+        2025,
+        43,
+        0,
+        142477449.25
+      ]
+    ]
+  },
+  "heating_years": {
+    "sql": "select jahr,count(*),sum(gebaeude_total),sum(geb_hz_waermepumpe) from heating group by jahr",
+    "columns": [
+      "jahr",
+      "count_star()",
+      "sum(gebaeude_total)",
+      "sum(geb_hz_waermepumpe)"
+    ],
+    "rows": [
+      [
+        2025,
+        106,
+        71248,
+        19530
+      ]
+    ]
+  },
+  "heat_sum_check": {
+    "sql": "select count(*) from heating where geb_hz_waermepumpe+geb_hz_heizoel+geb_hz_gas+geb_hz_holz+geb_hz_elektrizitaet+geb_hz_fernwaerme+geb_hz_andere_unbekannt<>gebaeude_total",
+    "columns": [
+      "count_star()"
+    ],
+    "rows": [
+      [
+        0
+      ]
+    ]
+  },
+  "building_total_compare": {
+    "sql": "select count(*) from heating h join building_category b using(jahr,bfs_gemeinde_nr) where h.gebaeude_total<>b.gebaeude_total",
+    "columns": [
+      "count_star()"
+    ],
+    "rows": [
+      [
+        0
+      ]
+    ]
+  },
+  "geo_tax_mismatch": {
+    "sql": "select coalesce(p.BFS_Nr,t.gemeinde_bfs_nr) bfs,p.Gemeinde,t.gemeinde from population_age p full outer join taxes t on p.BFS_Nr=t.gemeinde_bfs_nr where p.BFS_Nr is null or t.gemeinde_bfs_nr is null or p.Gemeinde<>t.gemeinde",
+    "columns": [
+      "bfs",
+      "Gemeinde",
+      "gemeinde"
+    ],
+    "rows": [
+      [
+        2520,
+        "Halten",
+        null
+      ],
+      [
+        2529,
+        "Oekingen",
+        null
+      ]
+    ]
+  },
+  "geo_tax_fusion": {
+    "sql": "select * from taxes where lower(gemeinde) like '%kriegstetten%' or lower(gemeinde) like '%halten%' or lower(gemeinde) like '%oekingen%'",
+    "columns": [
+      "gemeinde",
+      "gemeinde_bfs_nr",
+      "staatssteuer_np_tchf",
+      "staatssteuer_jp_tchf",
+      "staatssteuer_total_tchf"
+    ],
+    "rows": [
+      [
+        "Kriegstetten",
+        2525,
+        8836,
+        163,
+        8999
+      ]
+    ]
+  },
+  "ebau": {
+    "sql": "select * from ebau order by berichtsmonat",
+    "columns": [
+      "berichtsmonat",
+      "anzahl_gemeinden_in_ebau",
+      "anzahl_ueber_ebau_eingereichte_dossiers"
+    ],
+    "rows": [
+      [
+        "2024-11-01",
+        6,
+        12
+      ],
+      [
+        "2024-12-01",
+        6,
+        36
+      ],
+      [
+        "2025-01-01",
+        6,
+        55
+      ],
+      [
+        "2025-02-01",
+        6,
+        54
+      ],
+      [
+        "2025-03-01",
+        6,
+        61
+      ],
+      [
+        "2025-04-01",
+        6,
+        80
+      ],
+      [
+        "2025-05-01",
+        6,
+        81
+      ],
+      [
+        "2025-06-01",
+        6,
+        71
+      ],
+      [
+        "2025-07-01",
+        9,
+        72
+      ],
+      [
+        "2025-08-01",
+        9,
+        69
+      ],
+      [
+        "2025-09-01",
+        10,
+        85
+      ],
+      [
+        "2025-10-01",
+        10,
+        76
+      ],
+      [
+        "2025-11-01",
+        10,
+        71
+      ],
+      [
+        "2025-12-01",
+        10,
+        53
+      ],
+      [
+        "2026-01-01",
+        19,
+        130
+      ],
+      [
+        "2026-02-01",
+        29,
+        198
+      ],
+      [
+        "2026-03-01",
+        34,
+        290
+      ],
+      [
+        "2026-04-01",
+        39,
+        282
+      ],
+      [
+        "2026-05-01",
+        47,
+        336
+      ],
+      [
+        "2026-06-01",
+        51,
+        391
+      ],
+      [
+        "2026-07-01",
+        52,
+        343
+      ],
+      [
+        "2026-08-01",
+        53,
+        345
+      ],
+      [
+        "2026-09-01",
+        64,
+        447
+      ]
+    ]
+  },
+  "nulls": {
+    "sql": "select sum((Anzahl is null)::int),sum((Anzahl_ohne_WS is null)::int) from vehicles",
+    "columns": [
+      "sum(CAST((Anzahl IS NULL) AS INTEGER))",
+      "sum(CAST((Anzahl_ohne_WS IS NULL) AS INTEGER))"
+    ],
+    "rows": [
+      [
+        0,
+        0
+      ]
+    ]
+  }
+}

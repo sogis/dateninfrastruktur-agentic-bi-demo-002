@@ -1,0 +1,43 @@
+vehicle_category_code,vehicle_category,observed_municipalities,vehicles,registrations_with_shared_plates_counted_once
+01,Personenwagen,106,168245,156331
+02,Schwerer Personenwagen,6,21,21
+10,Leichter Motorwagen,105,3565,3540
+11,Schwerer Motorwagen,76,262,262
+20,Gesellschaftswagen,23,159,159
+21,Kleinbus,45,95,95
+22,Gelenkbus,5,60,60
+30,Lieferwagen,106,15214,14962
+35,Lastwagen,87,1707,1679
+37,Schweres Sattelmotorfahrzeug,1,1,1
+38,Sattelschlepper,67,989,985
+42,Traktor,82,272,269
+43,Landw. Traktor,106,4552,4181
+50,Arbeitsmaschine,90,686,682
+51,Arbeitskarren,94,992,985
+52,Landw. Arbeitskarren,98,501,495
+60,Motorrad,106,22164,19011
+61,Kleinmotorrad,97,732,712
+62,Motorrad-Dreirad,15,20,20
+63,Motorrad-Seitenwagen,55,93,91
+64,Kleinmotorrad-Dreirad,45,288,287
+65,Leichtmotorfahrzeug,22,27,27
+66,Kleinmotorfahrzeug,103,488,483
+67,Dreiradriges Motorfahrzeug,73,154,154
+68,Motorschlitten,4,5,4
+80,Motorkarren,90,737,732
+81,Landw. Motorkarren,87,459,450
+82,Motoreinachser,9,9,9
+83,Landw. Motoreinachser,76,256,252
+85,Landw. Anhänger,91,528,528
+86,Motorrad-Anhänger,25,229,229
+87,Landw. Arbeitsanhänger,89,386,384
+88,Sattel-Wohnanhänger,8,9,9
+89,Sattel-Anhänger,3,3,3
+90,Sachentransportanhänger,106,10981,10116
+92,Wohnanhänger,103,1822,1804
+93,Sportgerateanhänger,97,647,622
+94,Arbeitsanhänger,93,1316,1309
+95,Sattel-Sachentransportanh,59,622,613
+97,Sattel-Sportgerateanhänger,1,1,1
+98,Sattel-Arbeitsanhänger,3,18,18
+99,Anhänger,66,264,261

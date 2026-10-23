@@ -1,0 +1,311 @@
+version: 15
+name: population
+description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+  Männer Altersgruppen Staatsangehörigkeit. Ständige Wohnbevölkerung nach Gemeinde
+  sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+sql_table: population
+data_source: pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+  label: Berichtsjahr
+  meta:
+    analytics:
+      dimension_id: year
+      scope: shared
+      owner: null
+      value_type: integer
+      label_column: null
+- name: period_start
+  type: DATE
+  primary_key: false
+  granularity: year
+- name: reference_date
+  type: DATE
+  primary_key: false
+- name: geo_version
+  type: INT
+  primary_key: true
+- name: municipality_id
+  type: INT
+  primary_key: true
+- name: cell_id
+  type: TEXT
+  primary_key: false
+- name: people
+  type: INT
+  primary_key: false
+  label: Wohnbevölkerung
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Wohnbevölkerung; Ständige Wohnbevölkerung
+    nach Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.count
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: women
+  type: INT
+  primary_key: false
+  label: Frauen
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Frauen; Ständige Wohnbevölkerung nach
+    Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.women
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: men
+  type: INT
+  primary_key: false
+  label: Männer
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Männer; Ständige Wohnbevölkerung nach
+    Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.men
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: swiss_people
+  type: INT
+  primary_key: false
+  label: Schweizerinnen und Schweizer
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Schweizerinnen und Schweizer; Ständige
+    Wohnbevölkerung nach Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.swiss
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: foreign_people
+  type: INT
+  primary_key: false
+  label: Ausländerinnen und Ausländer
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Ausländerinnen und Ausländer; Ständige
+    Wohnbevölkerung nach Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.foreign
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: age_0_19
+  type: INT
+  primary_key: false
+  label: Personen 0–19 Jahre
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Personen 0–19 Jahre; Ständige Wohnbevölkerung
+    nach Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.age_0_19
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: age_20_39
+  type: INT
+  primary_key: false
+  label: Personen 20–39 Jahre
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Personen 20–39 Jahre; Ständige Wohnbevölkerung
+    nach Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.age_20_39
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: age_40_64
+  type: INT
+  primary_key: false
+  label: Personen 40–64 Jahre
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Personen 40–64 Jahre; Ständige Wohnbevölkerung
+    nach Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.age_40_64
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: age_65_79
+  type: INT
+  primary_key: false
+  label: Personen 65–79 Jahre
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Personen 65–79 Jahre; Ständige Wohnbevölkerung
+    nach Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.age_65_79
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: age_80_plus
+  type: INT
+  primary_key: false
+  label: Personen ab 80 Jahren
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Personen ab 80 Jahren; Ständige Wohnbevölkerung
+    nach Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.age_80_plus
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: age_65_plus
+  type: INT
+  primary_key: false
+  label: Personen ab 65 Jahren
+  description: Bevölkerung Wohnbevölkerung Einwohner Einwohnerinnen Personen Frauen
+    Männer Altersgruppen Staatsangehörigkeit. Personen ab 65 Jahren; Ständige Wohnbevölkerung
+    nach Gemeinde sowie getrennten Alters-, Geschlechts- und Staatsangehörigkeitsmarginalen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population.age_65_plus
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+joins:
+- target_model: municipalities
+  join_pairs:
+  - - geo_version
+    - geo_version
+  - - municipality_id
+    - municipality_id
+  cardinality: many_to_one
+default_time_dimension: period_start
+meta:
+  analytics:
+    source_id: population_age
+    domain: municipal_annual
+    root_model: population
+    population: so_municipalities_v2025
+    period_kind: year
+    cell_key: cell_id
+    temporal_kind: stock
+    reference_dates:
+      '2025': '2025-12-31'
+    coverage: unknown
+    required: true
+    label: Wohnbevölkerung

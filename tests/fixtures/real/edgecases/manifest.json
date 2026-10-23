@@ -1,0 +1,69 @@
+{
+  "created_at_utc": "2026-10-23T09:11:21.224820Z",
+  "purpose": "Deterministic test-only mutations derived from real source snapshots; not observations, corrections, or alternative published datasets.",
+  "application": "For each case, override exactly the named raw source for a candidate preparation/validation test. All other inputs remain the original manifest-pinned files. The default fixture_build.py deliberately accepts only the unmodified manifest and does not load these variants.",
+  "originals_unchanged": true,
+  "cases": [
+    {
+      "case_id": "missing_vehicle_municipality",
+      "source_override": "vehicles",
+      "mutation": "Remove every vehicle category row for BFS 2401 Egerkingen; other rows are byte-value identical.",
+      "sql": "SELECT * FROM vehicles WHERE GDENR<>2401 ORDER BY GDENR,FZART_CD",
+      "expected_gate": "Vehicle municipality coverage fails: BFS 2401 is missing. Do not substitute zero and issue an apparently complete canton ratio.",
+      "derived_test_data": true,
+      "source_path": "raw/vehicles.parquet",
+      "source_sha256": "0e09e311cb5e089f5533e52c3d27724a421f385f3c4b31a5f57129bbcba7fd08",
+      "path": "edgecases/missing_vehicle_municipality.parquet",
+      "sha256": "18352d0d7ad878b216809d921565f83f5e3ab48aac088bc50aac30bcf23583c3",
+      "bytes": 16171,
+      "original_row_count": 2623,
+      "derived_row_count": 2597,
+      "observed_removed_rows": 26,
+      "removed_vehicles": 3869,
+      "removed_passenger_cars": 2706,
+      "missing_municipality_ids": [
+        2401
+      ]
+    },
+    {
+      "case_id": "zero_population_denominator",
+      "source_override": "population_age",
+      "mutation": "Set all demographic counts in the one BFS 2401 Egerkingen row to zero, preserving its labels and every other row. This keeps row-level additive identities consistent.",
+      "sql": "SELECT BFS_Nr,Gemeinde,Bezirk,CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Total END AS Total, CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Total_Maennlich END AS Total_Maennlich, CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Total_Weiblich END AS Total_Weiblich, CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Total_SchweizerInnen END AS Total_SchweizerInnen, CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Total_AuslaenderInnen END AS Total_AuslaenderInnen, CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Alter_0_bis_19 END AS Alter_0_bis_19, CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Alter_20_bis_39 END AS Alter_20_bis_39, CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Alter_40_bis_64 END AS Alter_40_bis_64, CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Alter_65_bis_79 END AS Alter_65_bis_79, CASE WHEN BFS_Nr=2401 THEN 0::BIGINT ELSE Alter_80_und_mehr END AS Alter_80_und_mehr FROM population_age ORDER BY BFS_Nr",
+      "expected_gate": "A vehicle/population ratio for BFS 2401 is undefined because the denominator is zero; report a distinct reason, never infinity or an invented zero ratio.",
+      "derived_test_data": true,
+      "source_path": "raw/population_age.parquet",
+      "source_sha256": "72647f0811e9db892f1571275bc7adf6201aee30f18cac4fe64228175546c750",
+      "path": "edgecases/zero_population_denominator.parquet",
+      "sha256": "f178e2d159fb0bee8e2456020d3566f0059908eb5b34d8b2142d6a08d54c2b13",
+      "bytes": 5729,
+      "original_row_count": 106,
+      "derived_row_count": 106,
+      "zero_denominator_municipality_ids": [
+        2401
+      ],
+      "sql_reference_ratio": null
+    },
+    {
+      "case_id": "duplicate_population_key",
+      "source_override": "population_age",
+      "mutation": "Append an exact second copy of the actual BFS 2401 Egerkingen row.",
+      "sql": "SELECT * FROM population_age UNION ALL SELECT * FROM population_age WHERE BFS_Nr=2401 ORDER BY BFS_Nr",
+      "expected_gate": "Population key uniqueness fails before model activation. A source with duplicate report_year/geo_version/municipality_id may not be used as a denominator.",
+      "derived_test_data": true,
+      "source_path": "raw/population_age.parquet",
+      "source_sha256": "72647f0811e9db892f1571275bc7adf6201aee30f18cac4fe64228175546c750",
+      "path": "edgecases/duplicate_population_key.parquet",
+      "sha256": "b0e4a197eed9132e8d0664e96efb1a91832793648f443764f722def9a1290c77",
+      "bytes": 5744,
+      "original_row_count": 106,
+      "derived_row_count": 107,
+      "duplicate_keys": [
+        {
+          "municipality_id": 2401,
+          "row_count": 2
+        }
+      ]
+    }
+  ]
+}

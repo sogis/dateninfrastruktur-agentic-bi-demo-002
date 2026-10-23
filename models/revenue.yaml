@@ -1,0 +1,56 @@
+version: 15
+name: revenue
+description: Umsatz Ertrag Franken CHF nominal amtliche Vermessung. Nominaler Jahresumsatz
+  der amtlichen Vermessung in Franken CHF; keine Inflationsbereinigung.
+sql_table: revenue
+data_source: pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+- name: period_start
+  type: DATE
+  primary_key: false
+  granularity: year
+- name: nominal_chf
+  type: DOUBLE
+  primary_key: false
+  db_type: DECIMAL(18,2)
+  label: Nominaler Umsatz in CHF
+  description: Umsatz Ertrag Franken CHF nominal amtliche Vermessung. Nominaler Umsatz
+    in CHF; Nominaler Jahresumsatz der amtlichen Vermessung in Franken CHF; keine
+    Inflationsbereinigung.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: revenue.nominal_chf
+      unit: CHF
+      temporal_kind: flow
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - year
+      additive_over:
+      - year
+joins:
+- target_model: years
+  join_pairs:
+  - - report_year
+    - report_year
+  cardinality: many_to_one
+default_time_dimension: period_start
+meta:
+  analytics:
+    source_id: revenue
+    domain: av_annual
+    root_model: years
+    population: so_av_canton
+    period_kind: year
+    cell_key: report_year
+    temporal_kind: flow
+    reference_dates:
+      '2025': null
+    coverage: unknown
+    required: true
+    label: Nominaler AV-Umsatz

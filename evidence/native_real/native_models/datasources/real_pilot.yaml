@@ -1,0 +1,6 @@
+version: 2
+name: real_pilot
+type: duckdb
+database: /workspace/scratch/94a2550d6337/deliverables/SLAYER_CODING_SPEC_v1.0/tests/fixtures/real/normalized/pilot.duckdb
+connection_string: duckdb:////workspace/scratch/94a2550d6337/deliverables/SLAYER_CODING_SPEC_v1.0/tests/fixtures/real/normalized/pilot.duckdb?access_mode=READ_ONLY
+granularities: []

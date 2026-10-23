@@ -1,0 +1,24 @@
+version: 15
+name: years
+sql_table: years
+query_variables: {}
+data_source: real_pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+  unique: false
+  hidden: false
+- name: period_start
+  type: DATE
+  primary_key: false
+  unique: false
+  hidden: false
+  granularity: year
+measures: []
+aggregations: []
+joins: []
+filters: []
+default_time_dimension: period_start
+hidden: false
+access_tags: []

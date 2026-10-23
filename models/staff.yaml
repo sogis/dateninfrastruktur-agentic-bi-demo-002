@@ -1,0 +1,68 @@
+version: 15
+name: staff
+description: Personal Personalbestand Mitarbeitende Mitarbeiter Ausbildung amtliche
+  Vermessung. Jährlicher Personalbestand der amtlichen Vermessung nach Ausbildung.
+  Mitarbeitende und Beschäftigte.
+sql_table: staff
+data_source: pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+- name: period_start
+  type: DATE
+  primary_key: false
+  granularity: year
+- name: education
+  type: TEXT
+  primary_key: true
+  label: Ausbildung
+  meta:
+    analytics:
+      dimension_id: staff.education
+      scope: fact
+      owner: staff
+      value_type: string
+      label_column: null
+- name: staff
+  type: INT
+  primary_key: false
+  label: AV-Mitarbeitende
+  description: Personal Personalbestand Mitarbeitende Mitarbeiter Ausbildung amtliche
+    Vermessung. AV-Mitarbeitende; Jährlicher Personalbestand der amtlichen Vermessung
+    nach Ausbildung. Mitarbeitende und Beschäftigte.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: staff.count
+      unit: staff_persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - year
+      - staff.education
+      additive_over:
+      - staff.education
+joins:
+- target_model: years
+  join_pairs:
+  - - report_year
+    - report_year
+  cardinality: many_to_one
+default_time_dimension: period_start
+meta:
+  analytics:
+    source_id: staff
+    domain: av_annual
+    root_model: years
+    population: so_av_canton
+    period_kind: year
+    cell_key: report_year
+    temporal_kind: stock
+    reference_dates:
+      '2025': null
+    coverage: unknown
+    required: true
+    label: AV-Personal

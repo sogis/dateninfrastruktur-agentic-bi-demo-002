@@ -1,0 +1,135 @@
+version: 15
+name: vehicles
+description: Fahrzeugbestand Fahrzeuge Fahrzeugarten Personenwagen Motorräder Zulassungen
+  Wechselschilder. Einzelne Fahrzeuge und Zulassungen mit Wechselschildern nach Gemeinde
+  und Fahrzeugart. Konkreter Beobachtungsstichtag nicht dokumentiert.
+sql_table: vehicles
+data_source: pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+- name: period_start
+  type: DATE
+  primary_key: false
+  granularity: year
+- name: reference_date
+  type: DATE
+  primary_key: false
+- name: geo_version
+  type: INT
+  primary_key: true
+- name: municipality_id
+  type: INT
+  primary_key: true
+- name: cell_id
+  type: TEXT
+  primary_key: false
+- name: vehicle_category_code
+  type: TEXT
+  primary_key: true
+  label: Fahrzeugart
+  meta:
+    analytics:
+      dimension_id: vehicles.category
+      scope: fact
+      owner: vehicles
+      value_type: string
+      label_column: vehicle_category_name
+- name: vehicle_category_name
+  type: TEXT
+  primary_key: false
+- name: vehicle_group_code
+  type: TEXT
+  primary_key: false
+  label: Fahrzeuggruppe
+  meta:
+    analytics:
+      dimension_id: vehicles.group
+      scope: fact
+      owner: vehicles
+      value_type: string
+      label_column: vehicle_group_name
+- name: vehicle_group_name
+  type: TEXT
+  primary_key: false
+- name: vehicles
+  type: INT
+  primary_key: false
+  label: Einzelne Fahrzeuge
+  description: Fahrzeugbestand Fahrzeuge Fahrzeugarten Personenwagen Motorräder Zulassungen
+    Wechselschilder. Einzelne Fahrzeuge; Einzelne Fahrzeuge und Zulassungen mit Wechselschildern
+    nach Gemeinde und Fahrzeugart. Konkreter Beobachtungsstichtag nicht dokumentiert.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: vehicles.count
+      unit: vehicles
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      - vehicles.category
+      - vehicles.group
+      additive_over:
+      - municipality
+      - district
+      - vehicles.category
+      - vehicles.group
+- name: registrations
+  type: INT
+  primary_key: false
+  label: Zulassungen mit Berücksichtigung von Wechselschildern
+  description: Fahrzeugbestand Fahrzeuge Fahrzeugarten Personenwagen Motorräder Zulassungen
+    Wechselschilder. Zulassungen mit Berücksichtigung von Wechselschildern; Einzelne
+    Fahrzeuge und Zulassungen mit Wechselschildern nach Gemeinde und Fahrzeugart.
+    Konkreter Beobachtungsstichtag nicht dokumentiert.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: vehicles.registrations
+      unit: registrations
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      - vehicles.category
+      - vehicles.group
+      additive_over:
+      - municipality
+      - district
+      - vehicles.category
+      - vehicles.group
+joins:
+- target_model: population
+  join_pairs:
+  - - report_year
+    - report_year
+  - - geo_version
+    - geo_version
+  - - municipality_id
+    - municipality_id
+  cardinality: many_to_one
+default_time_dimension: period_start
+meta:
+  analytics:
+    source_id: vehicles
+    domain: municipal_annual
+    root_model: population
+    population: so_municipalities_v2025
+    period_kind: year
+    cell_key: cell_id
+    temporal_kind: stock
+    reference_dates:
+      '2025': null
+    coverage: unknown
+    required: true
+    label: Fahrzeugbestand

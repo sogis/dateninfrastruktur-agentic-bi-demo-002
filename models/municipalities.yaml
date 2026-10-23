@@ -1,0 +1,53 @@
+version: 15
+name: municipalities
+description: Gemeinden und Bezirke des Kantons Solothurn im Gebietsstand 2025.
+sql_table: municipalities
+data_source: pilot
+columns:
+- name: geo_version
+  type: INT
+  primary_key: true
+- name: municipality_id
+  type: INT
+  primary_key: true
+  label: Gemeinde
+  meta:
+    analytics:
+      dimension_id: municipality
+      scope: shared
+      owner: null
+      value_type: integer
+      label_column: municipality_name
+- name: municipality_name
+  type: TEXT
+  primary_key: false
+- name: district_name
+  type: TEXT
+  primary_key: false
+- name: district_id
+  type: INT
+  primary_key: false
+  label: Bezirk
+  meta:
+    analytics:
+      dimension_id: district
+      scope: shared
+      owner: null
+      value_type: integer
+      label_column: district_name
+joins: []
+default_time_dimension: null
+meta:
+  analytics:
+    source_id: population_age
+    domain: municipal_annual
+    root_model: population
+    population: so_municipalities_v2025
+    period_kind: year
+    cell_key: municipality_id
+    temporal_kind: stock
+    reference_dates:
+      '2025': '2025-12-31'
+    coverage: unknown
+    required: true
+    label: Gemeinden

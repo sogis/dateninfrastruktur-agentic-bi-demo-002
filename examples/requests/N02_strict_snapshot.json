@@ -1,0 +1,36 @@
+{
+  "period": {
+    "from_year": 2025,
+    "to_year": 2025,
+    "require_same_reference_date": true
+  },
+  "group_by": [],
+  "outputs": [
+    {
+      "id": "per_1000",
+      "expr": {
+        "kind": "binary",
+        "op": "divide",
+        "left": {
+          "kind": "aggregate",
+          "metric": "vehicles.count",
+          "where": [
+            {
+              "field": "vehicles.category",
+              "op": "in",
+              "values": [
+                "01",
+                "60"
+              ]
+            }
+          ]
+        },
+        "right": {
+          "kind": "aggregate",
+          "metric": "population.count"
+        },
+        "scale": 1000
+      }
+    }
+  ]
+}

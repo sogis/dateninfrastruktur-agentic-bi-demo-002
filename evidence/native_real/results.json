@@ -1,0 +1,5246 @@
+{
+  "purpose": "Native integration evidence only; generated YAML is illustrative and not a second production registry.",
+  "database_relative_to_data_dir": "normalized/pilot.duckdb",
+  "database_sha256": "dd8147f862c5092d1d0780a297b8e5c7ba4c9a515c123c2ba2abf047a45fd795",
+  "raw_sources": {
+    "building_category": "9af9b8b2cb73f57730fcc1c4b4ae77eb68f3c05ca3f584da916da4ffd340245b",
+    "ebau": "6fe91a3cde375356d08f15f8cfde363ddbe7436f5b8614da6c157bf6a029a132",
+    "heating": "2df4fbe698b798639773865025736917e76984041bb83dc2e1ee8c43e501c3b6",
+    "population_age": "72647f0811e9db892f1571275bc7adf6201aee30f18cac4fe64228175546c750",
+    "population_sex_nationality": "26bb6a4452a0626a211a82b47a516ad45f894430204d37b01b0e80eb794da583",
+    "revenue": "61039f6321eff0e0888157e2acba6eefc05bef6a941ee5822fd66c2b9d3e2328",
+    "staff": "149d720c99993c838d8e02ecbb09f3986a144562fe7f836ee78361c53f8955aa",
+    "taxes": "2434371697f848bccd55eecb1a7c037242a2a9ec77ef733b3d07be01d5b2d9bf",
+    "vehicles": "0e09e311cb5e089f5533e52c3d27724a421f385f3c4b31a5f57129bbcba7fd08"
+  },
+  "packages": {
+    "motley-slayer": "1.4.1",
+    "duckdb": "2.0.0",
+    "duckdb-engine": "0.17.0",
+    "sqlglot": "30.24.0",
+    "sqlalchemy": "2.0.55",
+    "pydantic": "2.14.1"
+  },
+  "connection_access_mode": "READ_ONLY",
+  "unchanged_fixture_verified": true,
+  "money_mapping": "SLayer DataType.DOUBLE is its numeric category; Column.db_type='DECIMAL(18,2)' preserves native exact aggregate values. JSON money amounts are tested as decimal strings; ratios remain floating point.",
+  "local_filter_lowering": "ast.unparse of literal tuple; iif(predicate, value, None); no variables and no global fact/category predicates",
+  "time_alignment_caveat": "Population/vehicle ratios are arithmetic period-alignment probes; vehicle observation date is still unspecified. No strict same-snapshot claim.",
+  "execution_note": "Unmodified native SlayerQueryEngine.execute, with a 50ms event-loop wakeup callback in this probe harness only.",
+  "probes": [
+    {
+      "id": "R01",
+      "title": "Population root: canton population and inverse vehicles",
+      "query": {
+        "source_model": "population",
+        "measures": [
+          {
+            "name": "probe_people",
+            "formula": "sum(people)"
+          },
+          {
+            "name": "probe_vehicles",
+            "formula": "sum(vehicles.vehicles)"
+          }
+        ],
+        "to_many_handling": "error",
+        "filters": [
+          "report_year == 2025"
+        ]
+      },
+      "expected": [
+        [
+          293081,
+          239579
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "population.probe_people": 293081,
+            "population.probe_vehicles": 239579
+          }
+        ],
+        "columns": [
+          "population.probe_people",
+          "population.probe_vehicles"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    SUM(population.people) AS \"population.probe_people\"\n  FROM population AS population\n  WHERE\n    population.report_year = 2025\n), _cm_population__vehicles__vehicles_sum AS (\n  SELECT\n    SUM(vehicles.vehicles) AS \"vehicles.vehicles_sum\"\n  FROM vehicles AS vehicles\n  LEFT JOIN population AS population\n    ON vehicles.report_year = population.report_year\n    AND vehicles.geo_version = population.geo_version\n    AND vehicles.municipality_id = population.municipality_id\n  WHERE\n    population.report_year = 2025\n)\nSELECT\n  _base.\"population.probe_people\",\n  _cm_population__vehicles__vehicles_sum.\"vehicles.vehicles_sum\" AS \"population.probe_vehicles\"\nFROM _base\nCROSS JOIN _cm_population__vehicles__vehicles_sum",
+        "attributes": {
+          "dimensions": {},
+          "measures": {}
+        },
+        "warnings": [],
+        "population": "population",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          293081,
+          239579
+        ]
+      ],
+      "first_row_python_types": {
+        "population.probe_people": "int",
+        "population.probe_vehicles": "int"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R02",
+      "title": "All 106 municipalities without fan-out",
+      "query": {
+        "source_model": "population",
+        "measures": [
+          {
+            "name": "probe_people",
+            "formula": "sum(people)"
+          },
+          {
+            "name": "probe_vehicles",
+            "formula": "sum(vehicles.vehicles)"
+          }
+        ],
+        "to_many_handling": "error",
+        "dimensions": [
+          "municipality_id"
+        ],
+        "order": [
+          {
+            "column": "municipality_id"
+          }
+        ],
+        "filters": [
+          "report_year == 2025"
+        ]
+      },
+      "expected": [
+        [
+          2401,
+          4362,
+          3869
+        ],
+        [
+          2402,
+          1774,
+          3070
+        ],
+        [
+          2403,
+          1891,
+          1797
+        ],
+        [
+          2404,
+          2422,
+          2231
+        ],
+        [
+          2405,
+          1376,
+          1396
+        ],
+        [
+          2406,
+          2408,
+          2163
+        ],
+        [
+          2407,
+          6839,
+          6223
+        ],
+        [
+          2408,
+          2489,
+          2676
+        ],
+        [
+          2421,
+          609,
+          650
+        ],
+        [
+          2422,
+          6669,
+          5450
+        ],
+        [
+          2424,
+          611,
+          648
+        ],
+        [
+          2425,
+          828,
+          797
+        ],
+        [
+          2426,
+          1927,
+          1827
+        ],
+        [
+          2427,
+          1440,
+          1488
+        ],
+        [
+          2428,
+          2486,
+          2661
+        ],
+        [
+          2430,
+          1201,
+          1265
+        ],
+        [
+          2445,
+          348,
+          401
+        ],
+        [
+          2455,
+          925,
+          868
+        ],
+        [
+          2457,
+          1505,
+          1635
+        ],
+        [
+          2461,
+          1164,
+          1380
+        ],
+        [
+          2463,
+          230,
+          259
+        ],
+        [
+          2464,
+          1131,
+          1092
+        ],
+        [
+          2465,
+          2982,
+          3454
+        ],
+        [
+          2471,
+          1194,
+          1114
+        ],
+        [
+          2472,
+          1062,
+          1030
+        ],
+        [
+          2473,
+          6947,
+          4582
+        ],
+        [
+          2474,
+          920,
+          990
+        ],
+        [
+          2475,
+          1280,
+          1372
+        ],
+        [
+          2476,
+          3419,
+          2772
+        ],
+        [
+          2477,
+          980,
+          1063
+        ],
+        [
+          2478,
+          1582,
+          1430
+        ],
+        [
+          2479,
+          1398,
+          1069
+        ],
+        [
+          2480,
+          1096,
+          1374
+        ],
+        [
+          2481,
+          1474,
+          1187
+        ],
+        [
+          2491,
+          349,
+          360
+        ],
+        [
+          2492,
+          528,
+          644
+        ],
+        [
+          2493,
+          4119,
+          3691
+        ],
+        [
+          2495,
+          4322,
+          3404
+        ],
+        [
+          2497,
+          2563,
+          2063
+        ],
+        [
+          2499,
+          1268,
+          1219
+        ],
+        [
+          2500,
+          7023,
+          4020
+        ],
+        [
+          2501,
+          2066,
+          1658
+        ],
+        [
+          2502,
+          452,
+          464
+        ],
+        [
+          2503,
+          3770,
+          2661
+        ],
+        [
+          2511,
+          1350,
+          1289
+        ],
+        [
+          2513,
+          9579,
+          6522
+        ],
+        [
+          2514,
+          576,
+          542
+        ],
+        [
+          2516,
+          2434,
+          2382
+        ],
+        [
+          2517,
+          7255,
+          5120
+        ],
+        [
+          2518,
+          1095,
+          959
+        ],
+        [
+          2519,
+          5881,
+          4333
+        ],
+        [
+          2520,
+          832,
+          785
+        ],
+        [
+          2523,
+          940,
+          872
+        ],
+        [
+          2524,
+          160,
+          172
+        ],
+        [
+          2525,
+          1463,
+          1198
+        ],
+        [
+          2526,
+          2947,
+          2615
+        ],
+        [
+          2527,
+          3762,
+          3163
+        ],
+        [
+          2528,
+          1218,
+          1211
+        ],
+        [
+          2529,
+          888,
+          789
+        ],
+        [
+          2530,
+          2266,
+          2146
+        ],
+        [
+          2532,
+          3312,
+          3223
+        ],
+        [
+          2534,
+          9660,
+          6598
+        ],
+        [
+          2535,
+          729,
+          790
+        ],
+        [
+          2541,
+          207,
+          269
+        ],
+        [
+          2542,
+          5664,
+          4472
+        ],
+        [
+          2543,
+          4952,
+          4305
+        ],
+        [
+          2544,
+          1069,
+          1060
+        ],
+        [
+          2545,
+          1027,
+          1059
+        ],
+        [
+          2546,
+          19215,
+          13313
+        ],
+        [
+          2547,
+          1170,
+          1158
+        ],
+        [
+          2548,
+          728,
+          632
+        ],
+        [
+          2549,
+          31,
+          41
+        ],
+        [
+          2550,
+          3996,
+          2577
+        ],
+        [
+          2551,
+          1616,
+          1351
+        ],
+        [
+          2553,
+          1808,
+          1398
+        ],
+        [
+          2554,
+          2332,
+          2072
+        ],
+        [
+          2555,
+          1501,
+          1110
+        ],
+        [
+          2556,
+          3766,
+          3282
+        ],
+        [
+          2571,
+          812,
+          815
+        ],
+        [
+          2572,
+          3120,
+          3153
+        ],
+        [
+          2573,
+          5540,
+          3779
+        ],
+        [
+          2574,
+          344,
+          453
+        ],
+        [
+          2575,
+          1849,
+          1835
+        ],
+        [
+          2576,
+          2841,
+          2629
+        ],
+        [
+          2578,
+          1788,
+          1819
+        ],
+        [
+          2579,
+          5339,
+          4700
+        ],
+        [
+          2580,
+          3594,
+          2753
+        ],
+        [
+          2581,
+          19349,
+          10751
+        ],
+        [
+          2582,
+          1211,
+          1269
+        ],
+        [
+          2583,
+          5473,
+          3803
+        ],
+        [
+          2584,
+          2025,
+          1269
+        ],
+        [
+          2585,
+          770,
+          895
+        ],
+        [
+          2586,
+          5645,
+          3907
+        ],
+        [
+          2601,
+          16881,
+          12154
+        ],
+        [
+          2611,
+          810,
+          879
+        ],
+        [
+          2612,
+          262,
+          433
+        ],
+        [
+          2613,
+          4486,
+          3496
+        ],
+        [
+          2614,
+          2487,
+          2534
+        ],
+        [
+          2615,
+          1006,
+          1189
+        ],
+        [
+          2616,
+          619,
+          602
+        ],
+        [
+          2617,
+          509,
+          435
+        ],
+        [
+          2618,
+          979,
+          1033
+        ],
+        [
+          2619,
+          1198,
+          1236
+        ],
+        [
+          2620,
+          624,
+          678
+        ],
+        [
+          2621,
+          1954,
+          2121
+        ],
+        [
+          2622,
+          708,
+          684
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "population.municipality_id": 2401,
+            "population.probe_people": 4362,
+            "population.probe_vehicles": 3869
+          },
+          {
+            "population.municipality_id": 2402,
+            "population.probe_people": 1774,
+            "population.probe_vehicles": 3070
+          },
+          {
+            "population.municipality_id": 2403,
+            "population.probe_people": 1891,
+            "population.probe_vehicles": 1797
+          },
+          {
+            "population.municipality_id": 2404,
+            "population.probe_people": 2422,
+            "population.probe_vehicles": 2231
+          },
+          {
+            "population.municipality_id": 2405,
+            "population.probe_people": 1376,
+            "population.probe_vehicles": 1396
+          },
+          {
+            "population.municipality_id": 2406,
+            "population.probe_people": 2408,
+            "population.probe_vehicles": 2163
+          },
+          {
+            "population.municipality_id": 2407,
+            "population.probe_people": 6839,
+            "population.probe_vehicles": 6223
+          },
+          {
+            "population.municipality_id": 2408,
+            "population.probe_people": 2489,
+            "population.probe_vehicles": 2676
+          },
+          {
+            "population.municipality_id": 2421,
+            "population.probe_people": 609,
+            "population.probe_vehicles": 650
+          },
+          {
+            "population.municipality_id": 2422,
+            "population.probe_people": 6669,
+            "population.probe_vehicles": 5450
+          },
+          {
+            "population.municipality_id": 2424,
+            "population.probe_people": 611,
+            "population.probe_vehicles": 648
+          },
+          {
+            "population.municipality_id": 2425,
+            "population.probe_people": 828,
+            "population.probe_vehicles": 797
+          },
+          {
+            "population.municipality_id": 2426,
+            "population.probe_people": 1927,
+            "population.probe_vehicles": 1827
+          },
+          {
+            "population.municipality_id": 2427,
+            "population.probe_people": 1440,
+            "population.probe_vehicles": 1488
+          },
+          {
+            "population.municipality_id": 2428,
+            "population.probe_people": 2486,
+            "population.probe_vehicles": 2661
+          },
+          {
+            "population.municipality_id": 2430,
+            "population.probe_people": 1201,
+            "population.probe_vehicles": 1265
+          },
+          {
+            "population.municipality_id": 2445,
+            "population.probe_people": 348,
+            "population.probe_vehicles": 401
+          },
+          {
+            "population.municipality_id": 2455,
+            "population.probe_people": 925,
+            "population.probe_vehicles": 868
+          },
+          {
+            "population.municipality_id": 2457,
+            "population.probe_people": 1505,
+            "population.probe_vehicles": 1635
+          },
+          {
+            "population.municipality_id": 2461,
+            "population.probe_people": 1164,
+            "population.probe_vehicles": 1380
+          },
+          {
+            "population.municipality_id": 2463,
+            "population.probe_people": 230,
+            "population.probe_vehicles": 259
+          },
+          {
+            "population.municipality_id": 2464,
+            "population.probe_people": 1131,
+            "population.probe_vehicles": 1092
+          },
+          {
+            "population.municipality_id": 2465,
+            "population.probe_people": 2982,
+            "population.probe_vehicles": 3454
+          },
+          {
+            "population.municipality_id": 2471,
+            "population.probe_people": 1194,
+            "population.probe_vehicles": 1114
+          },
+          {
+            "population.municipality_id": 2472,
+            "population.probe_people": 1062,
+            "population.probe_vehicles": 1030
+          },
+          {
+            "population.municipality_id": 2473,
+            "population.probe_people": 6947,
+            "population.probe_vehicles": 4582
+          },
+          {
+            "population.municipality_id": 2474,
+            "population.probe_people": 920,
+            "population.probe_vehicles": 990
+          },
+          {
+            "population.municipality_id": 2475,
+            "population.probe_people": 1280,
+            "population.probe_vehicles": 1372
+          },
+          {
+            "population.municipality_id": 2476,
+            "population.probe_people": 3419,
+            "population.probe_vehicles": 2772
+          },
+          {
+            "population.municipality_id": 2477,
+            "population.probe_people": 980,
+            "population.probe_vehicles": 1063
+          },
+          {
+            "population.municipality_id": 2478,
+            "population.probe_people": 1582,
+            "population.probe_vehicles": 1430
+          },
+          {
+            "population.municipality_id": 2479,
+            "population.probe_people": 1398,
+            "population.probe_vehicles": 1069
+          },
+          {
+            "population.municipality_id": 2480,
+            "population.probe_people": 1096,
+            "population.probe_vehicles": 1374
+          },
+          {
+            "population.municipality_id": 2481,
+            "population.probe_people": 1474,
+            "population.probe_vehicles": 1187
+          },
+          {
+            "population.municipality_id": 2491,
+            "population.probe_people": 349,
+            "population.probe_vehicles": 360
+          },
+          {
+            "population.municipality_id": 2492,
+            "population.probe_people": 528,
+            "population.probe_vehicles": 644
+          },
+          {
+            "population.municipality_id": 2493,
+            "population.probe_people": 4119,
+            "population.probe_vehicles": 3691
+          },
+          {
+            "population.municipality_id": 2495,
+            "population.probe_people": 4322,
+            "population.probe_vehicles": 3404
+          },
+          {
+            "population.municipality_id": 2497,
+            "population.probe_people": 2563,
+            "population.probe_vehicles": 2063
+          },
+          {
+            "population.municipality_id": 2499,
+            "population.probe_people": 1268,
+            "population.probe_vehicles": 1219
+          },
+          {
+            "population.municipality_id": 2500,
+            "population.probe_people": 7023,
+            "population.probe_vehicles": 4020
+          },
+          {
+            "population.municipality_id": 2501,
+            "population.probe_people": 2066,
+            "population.probe_vehicles": 1658
+          },
+          {
+            "population.municipality_id": 2502,
+            "population.probe_people": 452,
+            "population.probe_vehicles": 464
+          },
+          {
+            "population.municipality_id": 2503,
+            "population.probe_people": 3770,
+            "population.probe_vehicles": 2661
+          },
+          {
+            "population.municipality_id": 2511,
+            "population.probe_people": 1350,
+            "population.probe_vehicles": 1289
+          },
+          {
+            "population.municipality_id": 2513,
+            "population.probe_people": 9579,
+            "population.probe_vehicles": 6522
+          },
+          {
+            "population.municipality_id": 2514,
+            "population.probe_people": 576,
+            "population.probe_vehicles": 542
+          },
+          {
+            "population.municipality_id": 2516,
+            "population.probe_people": 2434,
+            "population.probe_vehicles": 2382
+          },
+          {
+            "population.municipality_id": 2517,
+            "population.probe_people": 7255,
+            "population.probe_vehicles": 5120
+          },
+          {
+            "population.municipality_id": 2518,
+            "population.probe_people": 1095,
+            "population.probe_vehicles": 959
+          },
+          {
+            "population.municipality_id": 2519,
+            "population.probe_people": 5881,
+            "population.probe_vehicles": 4333
+          },
+          {
+            "population.municipality_id": 2520,
+            "population.probe_people": 832,
+            "population.probe_vehicles": 785
+          },
+          {
+            "population.municipality_id": 2523,
+            "population.probe_people": 940,
+            "population.probe_vehicles": 872
+          },
+          {
+            "population.municipality_id": 2524,
+            "population.probe_people": 160,
+            "population.probe_vehicles": 172
+          },
+          {
+            "population.municipality_id": 2525,
+            "population.probe_people": 1463,
+            "population.probe_vehicles": 1198
+          },
+          {
+            "population.municipality_id": 2526,
+            "population.probe_people": 2947,
+            "population.probe_vehicles": 2615
+          },
+          {
+            "population.municipality_id": 2527,
+            "population.probe_people": 3762,
+            "population.probe_vehicles": 3163
+          },
+          {
+            "population.municipality_id": 2528,
+            "population.probe_people": 1218,
+            "population.probe_vehicles": 1211
+          },
+          {
+            "population.municipality_id": 2529,
+            "population.probe_people": 888,
+            "population.probe_vehicles": 789
+          },
+          {
+            "population.municipality_id": 2530,
+            "population.probe_people": 2266,
+            "population.probe_vehicles": 2146
+          },
+          {
+            "population.municipality_id": 2532,
+            "population.probe_people": 3312,
+            "population.probe_vehicles": 3223
+          },
+          {
+            "population.municipality_id": 2534,
+            "population.probe_people": 9660,
+            "population.probe_vehicles": 6598
+          },
+          {
+            "population.municipality_id": 2535,
+            "population.probe_people": 729,
+            "population.probe_vehicles": 790
+          },
+          {
+            "population.municipality_id": 2541,
+            "population.probe_people": 207,
+            "population.probe_vehicles": 269
+          },
+          {
+            "population.municipality_id": 2542,
+            "population.probe_people": 5664,
+            "population.probe_vehicles": 4472
+          },
+          {
+            "population.municipality_id": 2543,
+            "population.probe_people": 4952,
+            "population.probe_vehicles": 4305
+          },
+          {
+            "population.municipality_id": 2544,
+            "population.probe_people": 1069,
+            "population.probe_vehicles": 1060
+          },
+          {
+            "population.municipality_id": 2545,
+            "population.probe_people": 1027,
+            "population.probe_vehicles": 1059
+          },
+          {
+            "population.municipality_id": 2546,
+            "population.probe_people": 19215,
+            "population.probe_vehicles": 13313
+          },
+          {
+            "population.municipality_id": 2547,
+            "population.probe_people": 1170,
+            "population.probe_vehicles": 1158
+          },
+          {
+            "population.municipality_id": 2548,
+            "population.probe_people": 728,
+            "population.probe_vehicles": 632
+          },
+          {
+            "population.municipality_id": 2549,
+            "population.probe_people": 31,
+            "population.probe_vehicles": 41
+          },
+          {
+            "population.municipality_id": 2550,
+            "population.probe_people": 3996,
+            "population.probe_vehicles": 2577
+          },
+          {
+            "population.municipality_id": 2551,
+            "population.probe_people": 1616,
+            "population.probe_vehicles": 1351
+          },
+          {
+            "population.municipality_id": 2553,
+            "population.probe_people": 1808,
+            "population.probe_vehicles": 1398
+          },
+          {
+            "population.municipality_id": 2554,
+            "population.probe_people": 2332,
+            "population.probe_vehicles": 2072
+          },
+          {
+            "population.municipality_id": 2555,
+            "population.probe_people": 1501,
+            "population.probe_vehicles": 1110
+          },
+          {
+            "population.municipality_id": 2556,
+            "population.probe_people": 3766,
+            "population.probe_vehicles": 3282
+          },
+          {
+            "population.municipality_id": 2571,
+            "population.probe_people": 812,
+            "population.probe_vehicles": 815
+          },
+          {
+            "population.municipality_id": 2572,
+            "population.probe_people": 3120,
+            "population.probe_vehicles": 3153
+          },
+          {
+            "population.municipality_id": 2573,
+            "population.probe_people": 5540,
+            "population.probe_vehicles": 3779
+          },
+          {
+            "population.municipality_id": 2574,
+            "population.probe_people": 344,
+            "population.probe_vehicles": 453
+          },
+          {
+            "population.municipality_id": 2575,
+            "population.probe_people": 1849,
+            "population.probe_vehicles": 1835
+          },
+          {
+            "population.municipality_id": 2576,
+            "population.probe_people": 2841,
+            "population.probe_vehicles": 2629
+          },
+          {
+            "population.municipality_id": 2578,
+            "population.probe_people": 1788,
+            "population.probe_vehicles": 1819
+          },
+          {
+            "population.municipality_id": 2579,
+            "population.probe_people": 5339,
+            "population.probe_vehicles": 4700
+          },
+          {
+            "population.municipality_id": 2580,
+            "population.probe_people": 3594,
+            "population.probe_vehicles": 2753
+          },
+          {
+            "population.municipality_id": 2581,
+            "population.probe_people": 19349,
+            "population.probe_vehicles": 10751
+          },
+          {
+            "population.municipality_id": 2582,
+            "population.probe_people": 1211,
+            "population.probe_vehicles": 1269
+          },
+          {
+            "population.municipality_id": 2583,
+            "population.probe_people": 5473,
+            "population.probe_vehicles": 3803
+          },
+          {
+            "population.municipality_id": 2584,
+            "population.probe_people": 2025,
+            "population.probe_vehicles": 1269
+          },
+          {
+            "population.municipality_id": 2585,
+            "population.probe_people": 770,
+            "population.probe_vehicles": 895
+          },
+          {
+            "population.municipality_id": 2586,
+            "population.probe_people": 5645,
+            "population.probe_vehicles": 3907
+          },
+          {
+            "population.municipality_id": 2601,
+            "population.probe_people": 16881,
+            "population.probe_vehicles": 12154
+          },
+          {
+            "population.municipality_id": 2611,
+            "population.probe_people": 810,
+            "population.probe_vehicles": 879
+          },
+          {
+            "population.municipality_id": 2612,
+            "population.probe_people": 262,
+            "population.probe_vehicles": 433
+          },
+          {
+            "population.municipality_id": 2613,
+            "population.probe_people": 4486,
+            "population.probe_vehicles": 3496
+          },
+          {
+            "population.municipality_id": 2614,
+            "population.probe_people": 2487,
+            "population.probe_vehicles": 2534
+          },
+          {
+            "population.municipality_id": 2615,
+            "population.probe_people": 1006,
+            "population.probe_vehicles": 1189
+          },
+          {
+            "population.municipality_id": 2616,
+            "population.probe_people": 619,
+            "population.probe_vehicles": 602
+          },
+          {
+            "population.municipality_id": 2617,
+            "population.probe_people": 509,
+            "population.probe_vehicles": 435
+          },
+          {
+            "population.municipality_id": 2618,
+            "population.probe_people": 979,
+            "population.probe_vehicles": 1033
+          },
+          {
+            "population.municipality_id": 2619,
+            "population.probe_people": 1198,
+            "population.probe_vehicles": 1236
+          },
+          {
+            "population.municipality_id": 2620,
+            "population.probe_people": 624,
+            "population.probe_vehicles": 678
+          },
+          {
+            "population.municipality_id": 2621,
+            "population.probe_people": 1954,
+            "population.probe_vehicles": 2121
+          },
+          {
+            "population.municipality_id": 2622,
+            "population.probe_people": 708,
+            "population.probe_vehicles": 684
+          }
+        ],
+        "columns": [
+          "population.municipality_id",
+          "population.probe_people",
+          "population.probe_vehicles"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    population.municipality_id AS \"population.municipality_id\",\n    SUM(population.people) AS \"population.probe_people\"\n  FROM population AS population\n  WHERE\n    population.report_year = 2025\n  GROUP BY\n    population.municipality_id\n), _cm_population__vehicles__vehicles_sum AS (\n  SELECT\n    vehicles.municipality_id AS \"vehicles.municipality_id\",\n    SUM(vehicles.vehicles) AS \"vehicles.vehicles_sum\"\n  FROM vehicles AS vehicles\n  LEFT JOIN population AS population\n    ON vehicles.report_year = population.report_year\n    AND vehicles.geo_version = population.geo_version\n    AND vehicles.municipality_id = population.municipality_id\n  WHERE\n    population.report_year = 2025\n  GROUP BY\n    vehicles.municipality_id\n)\nSELECT\n  _base.\"population.municipality_id\",\n  _base.\"population.probe_people\",\n  _cm_population__vehicles__vehicles_sum.\"vehicles.vehicles_sum\" AS \"population.probe_vehicles\"\nFROM _base\nLEFT JOIN _cm_population__vehicles__vehicles_sum\n  ON _base.\"population.municipality_id\" IS NOT DISTINCT FROM _cm_population__vehicles__vehicles_sum.\"vehicles.municipality_id\"\nORDER BY\n  _base.\"population.municipality_id\" ASC",
+        "attributes": {
+          "dimensions": {},
+          "measures": {}
+        },
+        "warnings": [],
+        "population": "population",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          2401,
+          4362,
+          3869
+        ],
+        [
+          2402,
+          1774,
+          3070
+        ],
+        [
+          2403,
+          1891,
+          1797
+        ],
+        [
+          2404,
+          2422,
+          2231
+        ],
+        [
+          2405,
+          1376,
+          1396
+        ],
+        [
+          2406,
+          2408,
+          2163
+        ],
+        [
+          2407,
+          6839,
+          6223
+        ],
+        [
+          2408,
+          2489,
+          2676
+        ],
+        [
+          2421,
+          609,
+          650
+        ],
+        [
+          2422,
+          6669,
+          5450
+        ],
+        [
+          2424,
+          611,
+          648
+        ],
+        [
+          2425,
+          828,
+          797
+        ],
+        [
+          2426,
+          1927,
+          1827
+        ],
+        [
+          2427,
+          1440,
+          1488
+        ],
+        [
+          2428,
+          2486,
+          2661
+        ],
+        [
+          2430,
+          1201,
+          1265
+        ],
+        [
+          2445,
+          348,
+          401
+        ],
+        [
+          2455,
+          925,
+          868
+        ],
+        [
+          2457,
+          1505,
+          1635
+        ],
+        [
+          2461,
+          1164,
+          1380
+        ],
+        [
+          2463,
+          230,
+          259
+        ],
+        [
+          2464,
+          1131,
+          1092
+        ],
+        [
+          2465,
+          2982,
+          3454
+        ],
+        [
+          2471,
+          1194,
+          1114
+        ],
+        [
+          2472,
+          1062,
+          1030
+        ],
+        [
+          2473,
+          6947,
+          4582
+        ],
+        [
+          2474,
+          920,
+          990
+        ],
+        [
+          2475,
+          1280,
+          1372
+        ],
+        [
+          2476,
+          3419,
+          2772
+        ],
+        [
+          2477,
+          980,
+          1063
+        ],
+        [
+          2478,
+          1582,
+          1430
+        ],
+        [
+          2479,
+          1398,
+          1069
+        ],
+        [
+          2480,
+          1096,
+          1374
+        ],
+        [
+          2481,
+          1474,
+          1187
+        ],
+        [
+          2491,
+          349,
+          360
+        ],
+        [
+          2492,
+          528,
+          644
+        ],
+        [
+          2493,
+          4119,
+          3691
+        ],
+        [
+          2495,
+          4322,
+          3404
+        ],
+        [
+          2497,
+          2563,
+          2063
+        ],
+        [
+          2499,
+          1268,
+          1219
+        ],
+        [
+          2500,
+          7023,
+          4020
+        ],
+        [
+          2501,
+          2066,
+          1658
+        ],
+        [
+          2502,
+          452,
+          464
+        ],
+        [
+          2503,
+          3770,
+          2661
+        ],
+        [
+          2511,
+          1350,
+          1289
+        ],
+        [
+          2513,
+          9579,
+          6522
+        ],
+        [
+          2514,
+          576,
+          542
+        ],
+        [
+          2516,
+          2434,
+          2382
+        ],
+        [
+          2517,
+          7255,
+          5120
+        ],
+        [
+          2518,
+          1095,
+          959
+        ],
+        [
+          2519,
+          5881,
+          4333
+        ],
+        [
+          2520,
+          832,
+          785
+        ],
+        [
+          2523,
+          940,
+          872
+        ],
+        [
+          2524,
+          160,
+          172
+        ],
+        [
+          2525,
+          1463,
+          1198
+        ],
+        [
+          2526,
+          2947,
+          2615
+        ],
+        [
+          2527,
+          3762,
+          3163
+        ],
+        [
+          2528,
+          1218,
+          1211
+        ],
+        [
+          2529,
+          888,
+          789
+        ],
+        [
+          2530,
+          2266,
+          2146
+        ],
+        [
+          2532,
+          3312,
+          3223
+        ],
+        [
+          2534,
+          9660,
+          6598
+        ],
+        [
+          2535,
+          729,
+          790
+        ],
+        [
+          2541,
+          207,
+          269
+        ],
+        [
+          2542,
+          5664,
+          4472
+        ],
+        [
+          2543,
+          4952,
+          4305
+        ],
+        [
+          2544,
+          1069,
+          1060
+        ],
+        [
+          2545,
+          1027,
+          1059
+        ],
+        [
+          2546,
+          19215,
+          13313
+        ],
+        [
+          2547,
+          1170,
+          1158
+        ],
+        [
+          2548,
+          728,
+          632
+        ],
+        [
+          2549,
+          31,
+          41
+        ],
+        [
+          2550,
+          3996,
+          2577
+        ],
+        [
+          2551,
+          1616,
+          1351
+        ],
+        [
+          2553,
+          1808,
+          1398
+        ],
+        [
+          2554,
+          2332,
+          2072
+        ],
+        [
+          2555,
+          1501,
+          1110
+        ],
+        [
+          2556,
+          3766,
+          3282
+        ],
+        [
+          2571,
+          812,
+          815
+        ],
+        [
+          2572,
+          3120,
+          3153
+        ],
+        [
+          2573,
+          5540,
+          3779
+        ],
+        [
+          2574,
+          344,
+          453
+        ],
+        [
+          2575,
+          1849,
+          1835
+        ],
+        [
+          2576,
+          2841,
+          2629
+        ],
+        [
+          2578,
+          1788,
+          1819
+        ],
+        [
+          2579,
+          5339,
+          4700
+        ],
+        [
+          2580,
+          3594,
+          2753
+        ],
+        [
+          2581,
+          19349,
+          10751
+        ],
+        [
+          2582,
+          1211,
+          1269
+        ],
+        [
+          2583,
+          5473,
+          3803
+        ],
+        [
+          2584,
+          2025,
+          1269
+        ],
+        [
+          2585,
+          770,
+          895
+        ],
+        [
+          2586,
+          5645,
+          3907
+        ],
+        [
+          2601,
+          16881,
+          12154
+        ],
+        [
+          2611,
+          810,
+          879
+        ],
+        [
+          2612,
+          262,
+          433
+        ],
+        [
+          2613,
+          4486,
+          3496
+        ],
+        [
+          2614,
+          2487,
+          2534
+        ],
+        [
+          2615,
+          1006,
+          1189
+        ],
+        [
+          2616,
+          619,
+          602
+        ],
+        [
+          2617,
+          509,
+          435
+        ],
+        [
+          2618,
+          979,
+          1033
+        ],
+        [
+          2619,
+          1198,
+          1236
+        ],
+        [
+          2620,
+          624,
+          678
+        ],
+        [
+          2621,
+          1954,
+          2121
+        ],
+        [
+          2622,
+          708,
+          684
+        ]
+      ],
+      "first_row_python_types": {
+        "population.municipality_id": "int",
+        "population.probe_people": "int",
+        "population.probe_vehicles": "int"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R03",
+      "title": "All ten districts through municipality relation",
+      "query": {
+        "source_model": "population",
+        "measures": [
+          {
+            "name": "probe_people",
+            "formula": "sum(people)"
+          },
+          {
+            "name": "probe_vehicles",
+            "formula": "sum(vehicles.vehicles)"
+          }
+        ],
+        "to_many_handling": "error",
+        "dimensions": [
+          "municipalities.district_name"
+        ],
+        "order": [
+          {
+            "column": "municipalities.district_name"
+          }
+        ],
+        "filters": [
+          "report_year == 2025"
+        ]
+      },
+      "expected": [
+        [
+          "Bezirk Bucheggberg",
+          8285,
+          9089
+        ],
+        [
+          "Bezirk Dorneck",
+          21352,
+          17983
+        ],
+        [
+          "Bezirk Gäu",
+          23561,
+          23425
+        ],
+        [
+          "Bezirk Gösgen",
+          26460,
+          20184
+        ],
+        [
+          "Bezirk Lebern",
+          49082,
+          38099
+        ],
+        [
+          "Bezirk Olten",
+          59700,
+          43830
+        ],
+        [
+          "Bezirk Solothurn",
+          16881,
+          12154
+        ],
+        [
+          "Bezirk Thal",
+          15771,
+          14786
+        ],
+        [
+          "Bezirk Thierstein",
+          15642,
+          15320
+        ],
+        [
+          "Bezirk Wasseramt",
+          56347,
+          44709
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "population.municipalities.district_name": "Bezirk Bucheggberg",
+            "population.probe_people": 8285,
+            "population.probe_vehicles": 9089
+          },
+          {
+            "population.municipalities.district_name": "Bezirk Dorneck",
+            "population.probe_people": 21352,
+            "population.probe_vehicles": 17983
+          },
+          {
+            "population.municipalities.district_name": "Bezirk Gäu",
+            "population.probe_people": 23561,
+            "population.probe_vehicles": 23425
+          },
+          {
+            "population.municipalities.district_name": "Bezirk Gösgen",
+            "population.probe_people": 26460,
+            "population.probe_vehicles": 20184
+          },
+          {
+            "population.municipalities.district_name": "Bezirk Lebern",
+            "population.probe_people": 49082,
+            "population.probe_vehicles": 38099
+          },
+          {
+            "population.municipalities.district_name": "Bezirk Olten",
+            "population.probe_people": 59700,
+            "population.probe_vehicles": 43830
+          },
+          {
+            "population.municipalities.district_name": "Bezirk Solothurn",
+            "population.probe_people": 16881,
+            "population.probe_vehicles": 12154
+          },
+          {
+            "population.municipalities.district_name": "Bezirk Thal",
+            "population.probe_people": 15771,
+            "population.probe_vehicles": 14786
+          },
+          {
+            "population.municipalities.district_name": "Bezirk Thierstein",
+            "population.probe_people": 15642,
+            "population.probe_vehicles": 15320
+          },
+          {
+            "population.municipalities.district_name": "Bezirk Wasseramt",
+            "population.probe_people": 56347,
+            "population.probe_vehicles": 44709
+          }
+        ],
+        "columns": [
+          "population.municipalities.district_name",
+          "population.probe_people",
+          "population.probe_vehicles"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    municipalities.district_name AS \"population.municipalities.district_name\",\n    SUM(population.people) AS \"population.probe_people\"\n  FROM population AS population\n  LEFT JOIN municipalities AS municipalities\n    ON population.geo_version = municipalities.geo_version\n    AND population.municipality_id = municipalities.municipality_id\n  WHERE\n    population.report_year = 2025\n  GROUP BY\n    municipalities.district_name\n), _cm_population__vehicles__vehicles_sum AS (\n  SELECT\n    population__municipalities.district_name AS \"vehicles.population.municipalities.district_name\",\n    SUM(vehicles.vehicles) AS \"vehicles.vehicles_sum\"\n  FROM vehicles AS vehicles\n  LEFT JOIN population AS population\n    ON vehicles.report_year = population.report_year\n    AND vehicles.geo_version = population.geo_version\n    AND vehicles.municipality_id = population.municipality_id\n  LEFT JOIN municipalities AS population__municipalities\n    ON population.geo_version = population__municipalities.geo_version\n    AND population.municipality_id = population__municipalities.municipality_id\n  WHERE\n    population.report_year = 2025\n  GROUP BY\n    population__municipalities.district_name\n)\nSELECT\n  _base.\"population.municipalities.district_name\",\n  _base.\"population.probe_people\",\n  _cm_population__vehicles__vehicles_sum.\"vehicles.vehicles_sum\" AS \"population.probe_vehicles\"\nFROM _base\nLEFT JOIN _cm_population__vehicles__vehicles_sum\n  ON _base.\"population.municipalities.district_name\" IS NOT DISTINCT FROM _cm_population__vehicles__vehicles_sum.\"vehicles.population.municipalities.district_name\"\nORDER BY\n  _base.\"population.municipalities.district_name\" ASC",
+        "attributes": {
+          "dimensions": {},
+          "measures": {}
+        },
+        "warnings": [],
+        "population": "population",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          "Bezirk Bucheggberg",
+          8285,
+          9089
+        ],
+        [
+          "Bezirk Dorneck",
+          21352,
+          17983
+        ],
+        [
+          "Bezirk Gäu",
+          23561,
+          23425
+        ],
+        [
+          "Bezirk Gösgen",
+          26460,
+          20184
+        ],
+        [
+          "Bezirk Lebern",
+          49082,
+          38099
+        ],
+        [
+          "Bezirk Olten",
+          59700,
+          43830
+        ],
+        [
+          "Bezirk Solothurn",
+          16881,
+          12154
+        ],
+        [
+          "Bezirk Thal",
+          15771,
+          14786
+        ],
+        [
+          "Bezirk Thierstein",
+          15642,
+          15320
+        ],
+        [
+          "Bezirk Wasseramt",
+          56347,
+          44709
+        ]
+      ],
+      "first_row_python_types": {
+        "population.municipalities.district_name": "str",
+        "population.probe_people": "int",
+        "population.probe_vehicles": "int"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R04",
+      "title": "Local 01+60 numerator, unchanged canton denominator",
+      "query": {
+        "source_model": "population",
+        "measures": [
+          {
+            "name": "probe_selected",
+            "formula": "sum(iif(vehicles.vehicle_category_code in ('01', '60'), vehicles.vehicles, None))"
+          },
+          {
+            "name": "probe_people",
+            "formula": "sum(people)"
+          },
+          {
+            "name": "probe_per_1000",
+            "formula": "1000 * sum(iif(vehicles.vehicle_category_code in ('01', '60'), vehicles.vehicles, None)) / nullif(sum(people), 0)"
+          }
+        ],
+        "to_many_handling": "error",
+        "filters": [
+          "report_year == 2025"
+        ]
+      },
+      "expected": [
+        [
+          190409,
+          293081,
+          649.6804637625776
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "population.probe_selected": 190409,
+            "population.probe_people": 293081,
+            "population.probe_per_1000": 649.6804637625776
+          }
+        ],
+        "columns": [
+          "population.probe_selected",
+          "population.probe_people",
+          "population.probe_per_1000"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    SUM(population.people) AS \"population.probe_people\"\n  FROM population AS population\n  WHERE\n    population.report_year = 2025\n), _cm_population__vehicles__iif_vehicle_category_code_in_01_60_vehicles_null_sum AS (\n  SELECT\n    SUM(\n      CASE\n        WHEN vehicles.vehicle_category_code IN ('01', '60')\n        THEN vehicles.vehicles\n        ELSE NULL\n      END\n    ) AS \"vehicles.iif_vehicle_category_code_in_01_60_vehicles_null_sum\"\n  FROM vehicles AS vehicles\n  LEFT JOIN population AS population\n    ON vehicles.report_year = population.report_year\n    AND vehicles.geo_version = population.geo_version\n    AND vehicles.municipality_id = population.municipality_id\n  WHERE\n    population.report_year = 2025\n)\nSELECT\n  _cm_population__vehicles__iif_vehicle_category_code_in_01_60_vehicles_null_sum.\"vehicles.iif_vehicle_category_code_in_01_60_vehicles_null_sum\" AS \"population.probe_selected\",\n  _base.\"population.probe_people\",\n  1000 * _cm_population__vehicles__iif_vehicle_category_code_in_01_60_vehicles_null_sum.\"vehicles.iif_vehicle_category_code_in_01_60_vehicles_null_sum\" / NULLIF(NULLIF(_base.\"population.probe_people\", 0), 0) AS \"population.probe_per_1000\"\nFROM _base\nCROSS JOIN _cm_population__vehicles__iif_vehicle_category_code_in_01_60_vehicles_null_sum",
+        "attributes": {
+          "dimensions": {},
+          "measures": {
+            "population.probe_per_1000": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "population": "population",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          190409,
+          293081,
+          649.6804637625776
+        ]
+      ],
+      "first_row_python_types": {
+        "population.probe_selected": "int",
+        "population.probe_people": "int",
+        "population.probe_per_1000": "float"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R05",
+      "title": "Local 01+60 numerator for every municipality",
+      "query": {
+        "source_model": "population",
+        "measures": [
+          {
+            "name": "probe_selected",
+            "formula": "sum(iif(vehicles.vehicle_category_code in ('01', '60'), vehicles.vehicles, None))"
+          },
+          {
+            "name": "probe_people",
+            "formula": "sum(people)"
+          },
+          {
+            "name": "probe_per_1000",
+            "formula": "1000 * sum(iif(vehicles.vehicle_category_code in ('01', '60'), vehicles.vehicles, None)) / nullif(sum(people), 0)"
+          }
+        ],
+        "to_many_handling": "error",
+        "dimensions": [
+          "municipality_id"
+        ],
+        "order": [
+          {
+            "column": "municipality_id"
+          }
+        ],
+        "filters": [
+          "report_year == 2025"
+        ]
+      },
+      "expected": [
+        [
+          2401,
+          2917,
+          4362,
+          668.7299403943146
+        ],
+        [
+          2402,
+          1713,
+          1774,
+          965.6144306651635
+        ],
+        [
+          2403,
+          1390,
+          1891,
+          735.0608143839238
+        ],
+        [
+          2404,
+          1718,
+          2422,
+          709.3311312964493
+        ],
+        [
+          2405,
+          1050,
+          1376,
+          763.0813953488372
+        ],
+        [
+          2406,
+          1719,
+          2408,
+          713.8704318936877
+        ],
+        [
+          2407,
+          4601,
+          6839,
+          672.759175318029
+        ],
+        [
+          2408,
+          1847,
+          2489,
+          742.0650863800723
+        ],
+        [
+          2421,
+          446,
+          609,
+          732.3481116584564
+        ],
+        [
+          2422,
+          4251,
+          6669,
+          637.4269005847954
+        ],
+        [
+          2424,
+          436,
+          611,
+          713.5842880523732
+        ],
+        [
+          2425,
+          608,
+          828,
+          734.2995169082126
+        ],
+        [
+          2426,
+          1350,
+          1927,
+          700.570835495589
+        ],
+        [
+          2427,
+          1013,
+          1440,
+          703.4722222222222
+        ],
+        [
+          2428,
+          1786,
+          2486,
+          718.4231697506034
+        ],
+        [
+          2430,
+          870,
+          1201,
+          724.3963363863447
+        ],
+        [
+          2445,
+          302,
+          348,
+          867.816091954023
+        ],
+        [
+          2455,
+          692,
+          925,
+          748.1081081081081
+        ],
+        [
+          2457,
+          1178,
+          1505,
+          782.7242524916943
+        ],
+        [
+          2461,
+          923,
+          1164,
+          792.955326460481
+        ],
+        [
+          2463,
+          179,
+          230,
+          778.2608695652174
+        ],
+        [
+          2464,
+          787,
+          1131,
+          695.8443854995579
+        ],
+        [
+          2465,
+          2492,
+          2982,
+          835.6807511737089
+        ],
+        [
+          2471,
+          862,
+          1194,
+          721.9430485762144
+        ],
+        [
+          2472,
+          779,
+          1062,
+          733.5216572504709
+        ],
+        [
+          2473,
+          3844,
+          6947,
+          553.3323736864834
+        ],
+        [
+          2474,
+          713,
+          920,
+          775.0
+        ],
+        [
+          2475,
+          1038,
+          1280,
+          810.9375
+        ],
+        [
+          2476,
+          2344,
+          3419,
+          685.5805791167008
+        ],
+        [
+          2477,
+          786,
+          980,
+          802.0408163265306
+        ],
+        [
+          2478,
+          1069,
+          1582,
+          675.7269279393173
+        ],
+        [
+          2479,
+          881,
+          1398,
+          630.1859799713877
+        ],
+        [
+          2480,
+          877,
+          1096,
+          800.1824817518249
+        ],
+        [
+          2481,
+          973,
+          1474,
+          660.1085481682496
+        ],
+        [
+          2491,
+          258,
+          349,
+          739.2550143266476
+        ],
+        [
+          2492,
+          399,
+          528,
+          755.6818181818181
+        ],
+        [
+          2493,
+          3071,
+          4119,
+          745.569312940034
+        ],
+        [
+          2495,
+          2747,
+          4322,
+          635.5853771402128
+        ],
+        [
+          2497,
+          1692,
+          2563,
+          660.1638704642996
+        ],
+        [
+          2499,
+          959,
+          1268,
+          756.3091482649842
+        ],
+        [
+          2500,
+          3439,
+          7023,
+          489.67677630642174
+        ],
+        [
+          2501,
+          1374,
+          2066,
+          665.053242981607
+        ],
+        [
+          2502,
+          338,
+          452,
+          747.787610619469
+        ],
+        [
+          2503,
+          2276,
+          3770,
+          603.7135278514589
+        ],
+        [
+          2511,
+          1008,
+          1350,
+          746.6666666666666
+        ],
+        [
+          2513,
+          5502,
+          9579,
+          574.3814594425305
+        ],
+        [
+          2514,
+          442,
+          576,
+          767.3611111111111
+        ],
+        [
+          2516,
+          1843,
+          2434,
+          757.189811010682
+        ],
+        [
+          2517,
+          4486,
+          7255,
+          618.3321847002068
+        ],
+        [
+          2518,
+          779,
+          1095,
+          711.4155251141552
+        ],
+        [
+          2519,
+          3689,
+          5881,
+          627.274273082809
+        ],
+        [
+          2520,
+          627,
+          832,
+          753.6057692307693
+        ],
+        [
+          2523,
+          671,
+          940,
+          713.8297872340426
+        ],
+        [
+          2524,
+          112,
+          160,
+          700.0
+        ],
+        [
+          2525,
+          1078,
+          1463,
+          736.8421052631579
+        ],
+        [
+          2526,
+          2156,
+          2947,
+          731.5914489311164
+        ],
+        [
+          2527,
+          2460,
+          3762,
+          653.9074960127592
+        ],
+        [
+          2528,
+          958,
+          1218,
+          786.5353037766831
+        ],
+        [
+          2529,
+          671,
+          888,
+          755.6306306306307
+        ],
+        [
+          2530,
+          1734,
+          2266,
+          765.22506619594
+        ],
+        [
+          2532,
+          2449,
+          3312,
+          739.4323671497584
+        ],
+        [
+          2534,
+          5467,
+          9660,
+          565.9420289855072
+        ],
+        [
+          2535,
+          633,
+          729,
+          868.312757201646
+        ],
+        [
+          2541,
+          182,
+          207,
+          879.2270531400966
+        ],
+        [
+          2542,
+          3660,
+          5664,
+          646.1864406779661
+        ],
+        [
+          2543,
+          3657,
+          4952,
+          738.4894991922456
+        ],
+        [
+          2544,
+          917,
+          1069,
+          857.8110383536015
+        ],
+        [
+          2545,
+          835,
+          1027,
+          813.047711781889
+        ],
+        [
+          2546,
+          11430,
+          19215,
+          594.8477751756441
+        ],
+        [
+          2547,
+          943,
+          1170,
+          805.982905982906
+        ],
+        [
+          2548,
+          538,
+          728,
+          739.010989010989
+        ],
+        [
+          2549,
+          24,
+          31,
+          774.1935483870968
+        ],
+        [
+          2550,
+          2244,
+          3996,
+          561.5615615615616
+        ],
+        [
+          2551,
+          1132,
+          1616,
+          700.4950495049505
+        ],
+        [
+          2553,
+          1177,
+          1808,
+          650.9955752212389
+        ],
+        [
+          2554,
+          1736,
+          2332,
+          744.4253859348199
+        ],
+        [
+          2555,
+          880,
+          1501,
+          586.275816122585
+        ],
+        [
+          2556,
+          2679,
+          3766,
+          711.3648433351036
+        ],
+        [
+          2571,
+          619,
+          812,
+          762.3152709359606
+        ],
+        [
+          2572,
+          2409,
+          3120,
+          772.1153846153846
+        ],
+        [
+          2573,
+          3222,
+          5540,
+          581.5884476534296
+        ],
+        [
+          2574,
+          220,
+          344,
+          639.5348837209302
+        ],
+        [
+          2575,
+          1370,
+          1849,
+          740.9410492157923
+        ],
+        [
+          2576,
+          2142,
+          2841,
+          753.9598732840549
+        ],
+        [
+          2578,
+          1330,
+          1788,
+          743.8478747203579
+        ],
+        [
+          2579,
+          3613,
+          5339,
+          676.718486607979
+        ],
+        [
+          2580,
+          2364,
+          3594,
+          657.762938230384
+        ],
+        [
+          2581,
+          8904,
+          19349,
+          460.17882061088426
+        ],
+        [
+          2582,
+          931,
+          1211,
+          768.7861271676301
+        ],
+        [
+          2583,
+          3157,
+          5473,
+          576.8317193495341
+        ],
+        [
+          2584,
+          1159,
+          2025,
+          572.3456790123457
+        ],
+        [
+          2585,
+          638,
+          770,
+          828.5714285714286
+        ],
+        [
+          2586,
+          3273,
+          5645,
+          579.8051372896368
+        ],
+        [
+          2601,
+          9962,
+          16881,
+          590.1309164149043
+        ],
+        [
+          2611,
+          600,
+          810,
+          740.7407407407408
+        ],
+        [
+          2612,
+          235,
+          262,
+          896.9465648854962
+        ],
+        [
+          2613,
+          2888,
+          4486,
+          643.7806509139546
+        ],
+        [
+          2614,
+          1876,
+          2487,
+          754.3224768797749
+        ],
+        [
+          2615,
+          683,
+          1006,
+          678.9264413518887
+        ],
+        [
+          2616,
+          450,
+          619,
+          726.9789983844911
+        ],
+        [
+          2617,
+          337,
+          509,
+          662.0825147347741
+        ],
+        [
+          2618,
+          788,
+          979,
+          804.902962206333
+        ],
+        [
+          2619,
+          868,
+          1198,
+          724.5409015025042
+        ],
+        [
+          2620,
+          500,
+          624,
+          801.2820512820513
+        ],
+        [
+          2621,
+          1589,
+          1954,
+          813.2036847492324
+        ],
+        [
+          2622,
+          496,
+          708,
+          700.5649717514125
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "population.municipality_id": 2401,
+            "population.probe_selected": 2917,
+            "population.probe_people": 4362,
+            "population.probe_per_1000": 668.7299403943146
+          },
+          {
+            "population.municipality_id": 2402,
+            "population.probe_selected": 1713,
+            "population.probe_people": 1774,
+            "population.probe_per_1000": 965.6144306651635
+          },
+          {
+            "population.municipality_id": 2403,
+            "population.probe_selected": 1390,
+            "population.probe_people": 1891,
+            "population.probe_per_1000": 735.0608143839238
+          },
+          {
+            "population.municipality_id": 2404,
+            "population.probe_selected": 1718,
+            "population.probe_people": 2422,
+            "population.probe_per_1000": 709.3311312964493
+          },
+          {
+            "population.municipality_id": 2405,
+            "population.probe_selected": 1050,
+            "population.probe_people": 1376,
+            "population.probe_per_1000": 763.0813953488372
+          },
+          {
+            "population.municipality_id": 2406,
+            "population.probe_selected": 1719,
+            "population.probe_people": 2408,
+            "population.probe_per_1000": 713.8704318936877
+          },
+          {
+            "population.municipality_id": 2407,
+            "population.probe_selected": 4601,
+            "population.probe_people": 6839,
+            "population.probe_per_1000": 672.759175318029
+          },
+          {
+            "population.municipality_id": 2408,
+            "population.probe_selected": 1847,
+            "population.probe_people": 2489,
+            "population.probe_per_1000": 742.0650863800723
+          },
+          {
+            "population.municipality_id": 2421,
+            "population.probe_selected": 446,
+            "population.probe_people": 609,
+            "population.probe_per_1000": 732.3481116584564
+          },
+          {
+            "population.municipality_id": 2422,
+            "population.probe_selected": 4251,
+            "population.probe_people": 6669,
+            "population.probe_per_1000": 637.4269005847954
+          },
+          {
+            "population.municipality_id": 2424,
+            "population.probe_selected": 436,
+            "population.probe_people": 611,
+            "population.probe_per_1000": 713.5842880523732
+          },
+          {
+            "population.municipality_id": 2425,
+            "population.probe_selected": 608,
+            "population.probe_people": 828,
+            "population.probe_per_1000": 734.2995169082126
+          },
+          {
+            "population.municipality_id": 2426,
+            "population.probe_selected": 1350,
+            "population.probe_people": 1927,
+            "population.probe_per_1000": 700.570835495589
+          },
+          {
+            "population.municipality_id": 2427,
+            "population.probe_selected": 1013,
+            "population.probe_people": 1440,
+            "population.probe_per_1000": 703.4722222222222
+          },
+          {
+            "population.municipality_id": 2428,
+            "population.probe_selected": 1786,
+            "population.probe_people": 2486,
+            "population.probe_per_1000": 718.4231697506034
+          },
+          {
+            "population.municipality_id": 2430,
+            "population.probe_selected": 870,
+            "population.probe_people": 1201,
+            "population.probe_per_1000": 724.3963363863447
+          },
+          {
+            "population.municipality_id": 2445,
+            "population.probe_selected": 302,
+            "population.probe_people": 348,
+            "population.probe_per_1000": 867.816091954023
+          },
+          {
+            "population.municipality_id": 2455,
+            "population.probe_selected": 692,
+            "population.probe_people": 925,
+            "population.probe_per_1000": 748.1081081081081
+          },
+          {
+            "population.municipality_id": 2457,
+            "population.probe_selected": 1178,
+            "population.probe_people": 1505,
+            "population.probe_per_1000": 782.7242524916943
+          },
+          {
+            "population.municipality_id": 2461,
+            "population.probe_selected": 923,
+            "population.probe_people": 1164,
+            "population.probe_per_1000": 792.955326460481
+          },
+          {
+            "population.municipality_id": 2463,
+            "population.probe_selected": 179,
+            "population.probe_people": 230,
+            "population.probe_per_1000": 778.2608695652174
+          },
+          {
+            "population.municipality_id": 2464,
+            "population.probe_selected": 787,
+            "population.probe_people": 1131,
+            "population.probe_per_1000": 695.8443854995579
+          },
+          {
+            "population.municipality_id": 2465,
+            "population.probe_selected": 2492,
+            "population.probe_people": 2982,
+            "population.probe_per_1000": 835.6807511737089
+          },
+          {
+            "population.municipality_id": 2471,
+            "population.probe_selected": 862,
+            "population.probe_people": 1194,
+            "population.probe_per_1000": 721.9430485762144
+          },
+          {
+            "population.municipality_id": 2472,
+            "population.probe_selected": 779,
+            "population.probe_people": 1062,
+            "population.probe_per_1000": 733.5216572504709
+          },
+          {
+            "population.municipality_id": 2473,
+            "population.probe_selected": 3844,
+            "population.probe_people": 6947,
+            "population.probe_per_1000": 553.3323736864834
+          },
+          {
+            "population.municipality_id": 2474,
+            "population.probe_selected": 713,
+            "population.probe_people": 920,
+            "population.probe_per_1000": 775.0
+          },
+          {
+            "population.municipality_id": 2475,
+            "population.probe_selected": 1038,
+            "population.probe_people": 1280,
+            "population.probe_per_1000": 810.9375
+          },
+          {
+            "population.municipality_id": 2476,
+            "population.probe_selected": 2344,
+            "population.probe_people": 3419,
+            "population.probe_per_1000": 685.5805791167008
+          },
+          {
+            "population.municipality_id": 2477,
+            "population.probe_selected": 786,
+            "population.probe_people": 980,
+            "population.probe_per_1000": 802.0408163265306
+          },
+          {
+            "population.municipality_id": 2478,
+            "population.probe_selected": 1069,
+            "population.probe_people": 1582,
+            "population.probe_per_1000": 675.7269279393173
+          },
+          {
+            "population.municipality_id": 2479,
+            "population.probe_selected": 881,
+            "population.probe_people": 1398,
+            "population.probe_per_1000": 630.1859799713877
+          },
+          {
+            "population.municipality_id": 2480,
+            "population.probe_selected": 877,
+            "population.probe_people": 1096,
+            "population.probe_per_1000": 800.1824817518249
+          },
+          {
+            "population.municipality_id": 2481,
+            "population.probe_selected": 973,
+            "population.probe_people": 1474,
+            "population.probe_per_1000": 660.1085481682496
+          },
+          {
+            "population.municipality_id": 2491,
+            "population.probe_selected": 258,
+            "population.probe_people": 349,
+            "population.probe_per_1000": 739.2550143266476
+          },
+          {
+            "population.municipality_id": 2492,
+            "population.probe_selected": 399,
+            "population.probe_people": 528,
+            "population.probe_per_1000": 755.6818181818181
+          },
+          {
+            "population.municipality_id": 2493,
+            "population.probe_selected": 3071,
+            "population.probe_people": 4119,
+            "population.probe_per_1000": 745.569312940034
+          },
+          {
+            "population.municipality_id": 2495,
+            "population.probe_selected": 2747,
+            "population.probe_people": 4322,
+            "population.probe_per_1000": 635.5853771402128
+          },
+          {
+            "population.municipality_id": 2497,
+            "population.probe_selected": 1692,
+            "population.probe_people": 2563,
+            "population.probe_per_1000": 660.1638704642996
+          },
+          {
+            "population.municipality_id": 2499,
+            "population.probe_selected": 959,
+            "population.probe_people": 1268,
+            "population.probe_per_1000": 756.3091482649842
+          },
+          {
+            "population.municipality_id": 2500,
+            "population.probe_selected": 3439,
+            "population.probe_people": 7023,
+            "population.probe_per_1000": 489.67677630642174
+          },
+          {
+            "population.municipality_id": 2501,
+            "population.probe_selected": 1374,
+            "population.probe_people": 2066,
+            "population.probe_per_1000": 665.053242981607
+          },
+          {
+            "population.municipality_id": 2502,
+            "population.probe_selected": 338,
+            "population.probe_people": 452,
+            "population.probe_per_1000": 747.787610619469
+          },
+          {
+            "population.municipality_id": 2503,
+            "population.probe_selected": 2276,
+            "population.probe_people": 3770,
+            "population.probe_per_1000": 603.7135278514589
+          },
+          {
+            "population.municipality_id": 2511,
+            "population.probe_selected": 1008,
+            "population.probe_people": 1350,
+            "population.probe_per_1000": 746.6666666666666
+          },
+          {
+            "population.municipality_id": 2513,
+            "population.probe_selected": 5502,
+            "population.probe_people": 9579,
+            "population.probe_per_1000": 574.3814594425305
+          },
+          {
+            "population.municipality_id": 2514,
+            "population.probe_selected": 442,
+            "population.probe_people": 576,
+            "population.probe_per_1000": 767.3611111111111
+          },
+          {
+            "population.municipality_id": 2516,
+            "population.probe_selected": 1843,
+            "population.probe_people": 2434,
+            "population.probe_per_1000": 757.189811010682
+          },
+          {
+            "population.municipality_id": 2517,
+            "population.probe_selected": 4486,
+            "population.probe_people": 7255,
+            "population.probe_per_1000": 618.3321847002068
+          },
+          {
+            "population.municipality_id": 2518,
+            "population.probe_selected": 779,
+            "population.probe_people": 1095,
+            "population.probe_per_1000": 711.4155251141552
+          },
+          {
+            "population.municipality_id": 2519,
+            "population.probe_selected": 3689,
+            "population.probe_people": 5881,
+            "population.probe_per_1000": 627.274273082809
+          },
+          {
+            "population.municipality_id": 2520,
+            "population.probe_selected": 627,
+            "population.probe_people": 832,
+            "population.probe_per_1000": 753.6057692307693
+          },
+          {
+            "population.municipality_id": 2523,
+            "population.probe_selected": 671,
+            "population.probe_people": 940,
+            "population.probe_per_1000": 713.8297872340426
+          },
+          {
+            "population.municipality_id": 2524,
+            "population.probe_selected": 112,
+            "population.probe_people": 160,
+            "population.probe_per_1000": 700.0
+          },
+          {
+            "population.municipality_id": 2525,
+            "population.probe_selected": 1078,
+            "population.probe_people": 1463,
+            "population.probe_per_1000": 736.8421052631579
+          },
+          {
+            "population.municipality_id": 2526,
+            "population.probe_selected": 2156,
+            "population.probe_people": 2947,
+            "population.probe_per_1000": 731.5914489311164
+          },
+          {
+            "population.municipality_id": 2527,
+            "population.probe_selected": 2460,
+            "population.probe_people": 3762,
+            "population.probe_per_1000": 653.9074960127592
+          },
+          {
+            "population.municipality_id": 2528,
+            "population.probe_selected": 958,
+            "population.probe_people": 1218,
+            "population.probe_per_1000": 786.5353037766831
+          },
+          {
+            "population.municipality_id": 2529,
+            "population.probe_selected": 671,
+            "population.probe_people": 888,
+            "population.probe_per_1000": 755.6306306306307
+          },
+          {
+            "population.municipality_id": 2530,
+            "population.probe_selected": 1734,
+            "population.probe_people": 2266,
+            "population.probe_per_1000": 765.22506619594
+          },
+          {
+            "population.municipality_id": 2532,
+            "population.probe_selected": 2449,
+            "population.probe_people": 3312,
+            "population.probe_per_1000": 739.4323671497584
+          },
+          {
+            "population.municipality_id": 2534,
+            "population.probe_selected": 5467,
+            "population.probe_people": 9660,
+            "population.probe_per_1000": 565.9420289855072
+          },
+          {
+            "population.municipality_id": 2535,
+            "population.probe_selected": 633,
+            "population.probe_people": 729,
+            "population.probe_per_1000": 868.312757201646
+          },
+          {
+            "population.municipality_id": 2541,
+            "population.probe_selected": 182,
+            "population.probe_people": 207,
+            "population.probe_per_1000": 879.2270531400966
+          },
+          {
+            "population.municipality_id": 2542,
+            "population.probe_selected": 3660,
+            "population.probe_people": 5664,
+            "population.probe_per_1000": 646.1864406779661
+          },
+          {
+            "population.municipality_id": 2543,
+            "population.probe_selected": 3657,
+            "population.probe_people": 4952,
+            "population.probe_per_1000": 738.4894991922456
+          },
+          {
+            "population.municipality_id": 2544,
+            "population.probe_selected": 917,
+            "population.probe_people": 1069,
+            "population.probe_per_1000": 857.8110383536015
+          },
+          {
+            "population.municipality_id": 2545,
+            "population.probe_selected": 835,
+            "population.probe_people": 1027,
+            "population.probe_per_1000": 813.047711781889
+          },
+          {
+            "population.municipality_id": 2546,
+            "population.probe_selected": 11430,
+            "population.probe_people": 19215,
+            "population.probe_per_1000": 594.8477751756441
+          },
+          {
+            "population.municipality_id": 2547,
+            "population.probe_selected": 943,
+            "population.probe_people": 1170,
+            "population.probe_per_1000": 805.982905982906
+          },
+          {
+            "population.municipality_id": 2548,
+            "population.probe_selected": 538,
+            "population.probe_people": 728,
+            "population.probe_per_1000": 739.010989010989
+          },
+          {
+            "population.municipality_id": 2549,
+            "population.probe_selected": 24,
+            "population.probe_people": 31,
+            "population.probe_per_1000": 774.1935483870968
+          },
+          {
+            "population.municipality_id": 2550,
+            "population.probe_selected": 2244,
+            "population.probe_people": 3996,
+            "population.probe_per_1000": 561.5615615615616
+          },
+          {
+            "population.municipality_id": 2551,
+            "population.probe_selected": 1132,
+            "population.probe_people": 1616,
+            "population.probe_per_1000": 700.4950495049505
+          },
+          {
+            "population.municipality_id": 2553,
+            "population.probe_selected": 1177,
+            "population.probe_people": 1808,
+            "population.probe_per_1000": 650.9955752212389
+          },
+          {
+            "population.municipality_id": 2554,
+            "population.probe_selected": 1736,
+            "population.probe_people": 2332,
+            "population.probe_per_1000": 744.4253859348199
+          },
+          {
+            "population.municipality_id": 2555,
+            "population.probe_selected": 880,
+            "population.probe_people": 1501,
+            "population.probe_per_1000": 586.275816122585
+          },
+          {
+            "population.municipality_id": 2556,
+            "population.probe_selected": 2679,
+            "population.probe_people": 3766,
+            "population.probe_per_1000": 711.3648433351036
+          },
+          {
+            "population.municipality_id": 2571,
+            "population.probe_selected": 619,
+            "population.probe_people": 812,
+            "population.probe_per_1000": 762.3152709359606
+          },
+          {
+            "population.municipality_id": 2572,
+            "population.probe_selected": 2409,
+            "population.probe_people": 3120,
+            "population.probe_per_1000": 772.1153846153846
+          },
+          {
+            "population.municipality_id": 2573,
+            "population.probe_selected": 3222,
+            "population.probe_people": 5540,
+            "population.probe_per_1000": 581.5884476534296
+          },
+          {
+            "population.municipality_id": 2574,
+            "population.probe_selected": 220,
+            "population.probe_people": 344,
+            "population.probe_per_1000": 639.5348837209302
+          },
+          {
+            "population.municipality_id": 2575,
+            "population.probe_selected": 1370,
+            "population.probe_people": 1849,
+            "population.probe_per_1000": 740.9410492157923
+          },
+          {
+            "population.municipality_id": 2576,
+            "population.probe_selected": 2142,
+            "population.probe_people": 2841,
+            "population.probe_per_1000": 753.9598732840549
+          },
+          {
+            "population.municipality_id": 2578,
+            "population.probe_selected": 1330,
+            "population.probe_people": 1788,
+            "population.probe_per_1000": 743.8478747203579
+          },
+          {
+            "population.municipality_id": 2579,
+            "population.probe_selected": 3613,
+            "population.probe_people": 5339,
+            "population.probe_per_1000": 676.718486607979
+          },
+          {
+            "population.municipality_id": 2580,
+            "population.probe_selected": 2364,
+            "population.probe_people": 3594,
+            "population.probe_per_1000": 657.762938230384
+          },
+          {
+            "population.municipality_id": 2581,
+            "population.probe_selected": 8904,
+            "population.probe_people": 19349,
+            "population.probe_per_1000": 460.17882061088426
+          },
+          {
+            "population.municipality_id": 2582,
+            "population.probe_selected": 931,
+            "population.probe_people": 1211,
+            "population.probe_per_1000": 768.7861271676301
+          },
+          {
+            "population.municipality_id": 2583,
+            "population.probe_selected": 3157,
+            "population.probe_people": 5473,
+            "population.probe_per_1000": 576.8317193495341
+          },
+          {
+            "population.municipality_id": 2584,
+            "population.probe_selected": 1159,
+            "population.probe_people": 2025,
+            "population.probe_per_1000": 572.3456790123457
+          },
+          {
+            "population.municipality_id": 2585,
+            "population.probe_selected": 638,
+            "population.probe_people": 770,
+            "population.probe_per_1000": 828.5714285714286
+          },
+          {
+            "population.municipality_id": 2586,
+            "population.probe_selected": 3273,
+            "population.probe_people": 5645,
+            "population.probe_per_1000": 579.8051372896368
+          },
+          {
+            "population.municipality_id": 2601,
+            "population.probe_selected": 9962,
+            "population.probe_people": 16881,
+            "population.probe_per_1000": 590.1309164149043
+          },
+          {
+            "population.municipality_id": 2611,
+            "population.probe_selected": 600,
+            "population.probe_people": 810,
+            "population.probe_per_1000": 740.7407407407408
+          },
+          {
+            "population.municipality_id": 2612,
+            "population.probe_selected": 235,
+            "population.probe_people": 262,
+            "population.probe_per_1000": 896.9465648854962
+          },
+          {
+            "population.municipality_id": 2613,
+            "population.probe_selected": 2888,
+            "population.probe_people": 4486,
+            "population.probe_per_1000": 643.7806509139546
+          },
+          {
+            "population.municipality_id": 2614,
+            "population.probe_selected": 1876,
+            "population.probe_people": 2487,
+            "population.probe_per_1000": 754.3224768797749
+          },
+          {
+            "population.municipality_id": 2615,
+            "population.probe_selected": 683,
+            "population.probe_people": 1006,
+            "population.probe_per_1000": 678.9264413518887
+          },
+          {
+            "population.municipality_id": 2616,
+            "population.probe_selected": 450,
+            "population.probe_people": 619,
+            "population.probe_per_1000": 726.9789983844911
+          },
+          {
+            "population.municipality_id": 2617,
+            "population.probe_selected": 337,
+            "population.probe_people": 509,
+            "population.probe_per_1000": 662.0825147347741
+          },
+          {
+            "population.municipality_id": 2618,
+            "population.probe_selected": 788,
+            "population.probe_people": 979,
+            "population.probe_per_1000": 804.902962206333
+          },
+          {
+            "population.municipality_id": 2619,
+            "population.probe_selected": 868,
+            "population.probe_people": 1198,
+            "population.probe_per_1000": 724.5409015025042
+          },
+          {
+            "population.municipality_id": 2620,
+            "population.probe_selected": 500,
+            "population.probe_people": 624,
+            "population.probe_per_1000": 801.2820512820513
+          },
+          {
+            "population.municipality_id": 2621,
+            "population.probe_selected": 1589,
+            "population.probe_people": 1954,
+            "population.probe_per_1000": 813.2036847492324
+          },
+          {
+            "population.municipality_id": 2622,
+            "population.probe_selected": 496,
+            "population.probe_people": 708,
+            "population.probe_per_1000": 700.5649717514125
+          }
+        ],
+        "columns": [
+          "population.municipality_id",
+          "population.probe_selected",
+          "population.probe_people",
+          "population.probe_per_1000"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    population.municipality_id AS \"population.municipality_id\",\n    SUM(population.people) AS \"population.probe_people\"\n  FROM population AS population\n  WHERE\n    population.report_year = 2025\n  GROUP BY\n    population.municipality_id\n), _cm_population__vehicles__iif_vehicle_category_code_in_01_60_vehicles_null_sum AS (\n  SELECT\n    vehicles.municipality_id AS \"vehicles.municipality_id\",\n    SUM(\n      CASE\n        WHEN vehicles.vehicle_category_code IN ('01', '60')\n        THEN vehicles.vehicles\n        ELSE NULL\n      END\n    ) AS \"vehicles.iif_vehicle_category_code_in_01_60_vehicles_null_sum\"\n  FROM vehicles AS vehicles\n  LEFT JOIN population AS population\n    ON vehicles.report_year = population.report_year\n    AND vehicles.geo_version = population.geo_version\n    AND vehicles.municipality_id = population.municipality_id\n  WHERE\n    population.report_year = 2025\n  GROUP BY\n    vehicles.municipality_id\n)\nSELECT\n  _base.\"population.municipality_id\",\n  _cm_population__vehicles__iif_vehicle_category_code_in_01_60_vehicles_null_sum.\"vehicles.iif_vehicle_category_code_in_01_60_vehicles_null_sum\" AS \"population.probe_selected\",\n  _base.\"population.probe_people\",\n  1000 * _cm_population__vehicles__iif_vehicle_category_code_in_01_60_vehicles_null_sum.\"vehicles.iif_vehicle_category_code_in_01_60_vehicles_null_sum\" / NULLIF(NULLIF(_base.\"population.probe_people\", 0), 0) AS \"population.probe_per_1000\"\nFROM _base\nLEFT JOIN _cm_population__vehicles__iif_vehicle_category_code_in_01_60_vehicles_null_sum\n  ON _base.\"population.municipality_id\" IS NOT DISTINCT FROM _cm_population__vehicles__iif_vehicle_category_code_in_01_60_vehicles_null_sum.\"vehicles.municipality_id\"\nORDER BY\n  _base.\"population.municipality_id\" ASC",
+        "attributes": {
+          "dimensions": {},
+          "measures": {
+            "population.probe_per_1000": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "population": "population",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          2401,
+          2917,
+          4362,
+          668.7299403943146
+        ],
+        [
+          2402,
+          1713,
+          1774,
+          965.6144306651635
+        ],
+        [
+          2403,
+          1390,
+          1891,
+          735.0608143839238
+        ],
+        [
+          2404,
+          1718,
+          2422,
+          709.3311312964493
+        ],
+        [
+          2405,
+          1050,
+          1376,
+          763.0813953488372
+        ],
+        [
+          2406,
+          1719,
+          2408,
+          713.8704318936877
+        ],
+        [
+          2407,
+          4601,
+          6839,
+          672.759175318029
+        ],
+        [
+          2408,
+          1847,
+          2489,
+          742.0650863800723
+        ],
+        [
+          2421,
+          446,
+          609,
+          732.3481116584564
+        ],
+        [
+          2422,
+          4251,
+          6669,
+          637.4269005847954
+        ],
+        [
+          2424,
+          436,
+          611,
+          713.5842880523732
+        ],
+        [
+          2425,
+          608,
+          828,
+          734.2995169082126
+        ],
+        [
+          2426,
+          1350,
+          1927,
+          700.570835495589
+        ],
+        [
+          2427,
+          1013,
+          1440,
+          703.4722222222222
+        ],
+        [
+          2428,
+          1786,
+          2486,
+          718.4231697506034
+        ],
+        [
+          2430,
+          870,
+          1201,
+          724.3963363863447
+        ],
+        [
+          2445,
+          302,
+          348,
+          867.816091954023
+        ],
+        [
+          2455,
+          692,
+          925,
+          748.1081081081081
+        ],
+        [
+          2457,
+          1178,
+          1505,
+          782.7242524916943
+        ],
+        [
+          2461,
+          923,
+          1164,
+          792.955326460481
+        ],
+        [
+          2463,
+          179,
+          230,
+          778.2608695652174
+        ],
+        [
+          2464,
+          787,
+          1131,
+          695.8443854995579
+        ],
+        [
+          2465,
+          2492,
+          2982,
+          835.6807511737089
+        ],
+        [
+          2471,
+          862,
+          1194,
+          721.9430485762144
+        ],
+        [
+          2472,
+          779,
+          1062,
+          733.5216572504709
+        ],
+        [
+          2473,
+          3844,
+          6947,
+          553.3323736864834
+        ],
+        [
+          2474,
+          713,
+          920,
+          775.0
+        ],
+        [
+          2475,
+          1038,
+          1280,
+          810.9375
+        ],
+        [
+          2476,
+          2344,
+          3419,
+          685.5805791167008
+        ],
+        [
+          2477,
+          786,
+          980,
+          802.0408163265306
+        ],
+        [
+          2478,
+          1069,
+          1582,
+          675.7269279393173
+        ],
+        [
+          2479,
+          881,
+          1398,
+          630.1859799713877
+        ],
+        [
+          2480,
+          877,
+          1096,
+          800.1824817518249
+        ],
+        [
+          2481,
+          973,
+          1474,
+          660.1085481682496
+        ],
+        [
+          2491,
+          258,
+          349,
+          739.2550143266476
+        ],
+        [
+          2492,
+          399,
+          528,
+          755.6818181818181
+        ],
+        [
+          2493,
+          3071,
+          4119,
+          745.569312940034
+        ],
+        [
+          2495,
+          2747,
+          4322,
+          635.5853771402128
+        ],
+        [
+          2497,
+          1692,
+          2563,
+          660.1638704642996
+        ],
+        [
+          2499,
+          959,
+          1268,
+          756.3091482649842
+        ],
+        [
+          2500,
+          3439,
+          7023,
+          489.67677630642174
+        ],
+        [
+          2501,
+          1374,
+          2066,
+          665.053242981607
+        ],
+        [
+          2502,
+          338,
+          452,
+          747.787610619469
+        ],
+        [
+          2503,
+          2276,
+          3770,
+          603.7135278514589
+        ],
+        [
+          2511,
+          1008,
+          1350,
+          746.6666666666666
+        ],
+        [
+          2513,
+          5502,
+          9579,
+          574.3814594425305
+        ],
+        [
+          2514,
+          442,
+          576,
+          767.3611111111111
+        ],
+        [
+          2516,
+          1843,
+          2434,
+          757.189811010682
+        ],
+        [
+          2517,
+          4486,
+          7255,
+          618.3321847002068
+        ],
+        [
+          2518,
+          779,
+          1095,
+          711.4155251141552
+        ],
+        [
+          2519,
+          3689,
+          5881,
+          627.274273082809
+        ],
+        [
+          2520,
+          627,
+          832,
+          753.6057692307693
+        ],
+        [
+          2523,
+          671,
+          940,
+          713.8297872340426
+        ],
+        [
+          2524,
+          112,
+          160,
+          700.0
+        ],
+        [
+          2525,
+          1078,
+          1463,
+          736.8421052631579
+        ],
+        [
+          2526,
+          2156,
+          2947,
+          731.5914489311164
+        ],
+        [
+          2527,
+          2460,
+          3762,
+          653.9074960127592
+        ],
+        [
+          2528,
+          958,
+          1218,
+          786.5353037766831
+        ],
+        [
+          2529,
+          671,
+          888,
+          755.6306306306307
+        ],
+        [
+          2530,
+          1734,
+          2266,
+          765.22506619594
+        ],
+        [
+          2532,
+          2449,
+          3312,
+          739.4323671497584
+        ],
+        [
+          2534,
+          5467,
+          9660,
+          565.9420289855072
+        ],
+        [
+          2535,
+          633,
+          729,
+          868.312757201646
+        ],
+        [
+          2541,
+          182,
+          207,
+          879.2270531400966
+        ],
+        [
+          2542,
+          3660,
+          5664,
+          646.1864406779661
+        ],
+        [
+          2543,
+          3657,
+          4952,
+          738.4894991922456
+        ],
+        [
+          2544,
+          917,
+          1069,
+          857.8110383536015
+        ],
+        [
+          2545,
+          835,
+          1027,
+          813.047711781889
+        ],
+        [
+          2546,
+          11430,
+          19215,
+          594.8477751756441
+        ],
+        [
+          2547,
+          943,
+          1170,
+          805.982905982906
+        ],
+        [
+          2548,
+          538,
+          728,
+          739.010989010989
+        ],
+        [
+          2549,
+          24,
+          31,
+          774.1935483870968
+        ],
+        [
+          2550,
+          2244,
+          3996,
+          561.5615615615616
+        ],
+        [
+          2551,
+          1132,
+          1616,
+          700.4950495049505
+        ],
+        [
+          2553,
+          1177,
+          1808,
+          650.9955752212389
+        ],
+        [
+          2554,
+          1736,
+          2332,
+          744.4253859348199
+        ],
+        [
+          2555,
+          880,
+          1501,
+          586.275816122585
+        ],
+        [
+          2556,
+          2679,
+          3766,
+          711.3648433351036
+        ],
+        [
+          2571,
+          619,
+          812,
+          762.3152709359606
+        ],
+        [
+          2572,
+          2409,
+          3120,
+          772.1153846153846
+        ],
+        [
+          2573,
+          3222,
+          5540,
+          581.5884476534296
+        ],
+        [
+          2574,
+          220,
+          344,
+          639.5348837209302
+        ],
+        [
+          2575,
+          1370,
+          1849,
+          740.9410492157923
+        ],
+        [
+          2576,
+          2142,
+          2841,
+          753.9598732840549
+        ],
+        [
+          2578,
+          1330,
+          1788,
+          743.8478747203579
+        ],
+        [
+          2579,
+          3613,
+          5339,
+          676.718486607979
+        ],
+        [
+          2580,
+          2364,
+          3594,
+          657.762938230384
+        ],
+        [
+          2581,
+          8904,
+          19349,
+          460.17882061088426
+        ],
+        [
+          2582,
+          931,
+          1211,
+          768.7861271676301
+        ],
+        [
+          2583,
+          3157,
+          5473,
+          576.8317193495341
+        ],
+        [
+          2584,
+          1159,
+          2025,
+          572.3456790123457
+        ],
+        [
+          2585,
+          638,
+          770,
+          828.5714285714286
+        ],
+        [
+          2586,
+          3273,
+          5645,
+          579.8051372896368
+        ],
+        [
+          2601,
+          9962,
+          16881,
+          590.1309164149043
+        ],
+        [
+          2611,
+          600,
+          810,
+          740.7407407407408
+        ],
+        [
+          2612,
+          235,
+          262,
+          896.9465648854962
+        ],
+        [
+          2613,
+          2888,
+          4486,
+          643.7806509139546
+        ],
+        [
+          2614,
+          1876,
+          2487,
+          754.3224768797749
+        ],
+        [
+          2615,
+          683,
+          1006,
+          678.9264413518887
+        ],
+        [
+          2616,
+          450,
+          619,
+          726.9789983844911
+        ],
+        [
+          2617,
+          337,
+          509,
+          662.0825147347741
+        ],
+        [
+          2618,
+          788,
+          979,
+          804.902962206333
+        ],
+        [
+          2619,
+          868,
+          1198,
+          724.5409015025042
+        ],
+        [
+          2620,
+          500,
+          624,
+          801.2820512820513
+        ],
+        [
+          2621,
+          1589,
+          1954,
+          813.2036847492324
+        ],
+        [
+          2622,
+          496,
+          708,
+          700.5649717514125
+        ]
+      ],
+      "first_row_python_types": {
+        "population.municipality_id": "int",
+        "population.probe_selected": "int",
+        "population.probe_people": "int",
+        "population.probe_per_1000": "float"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R06",
+      "title": "Explicit fixed canton denominator across all 42 vehicle categories",
+      "query": {
+        "source_model": "population",
+        "measures": [
+          {
+            "name": "probe_vehicles",
+            "formula": "sum(vehicles.vehicles)"
+          },
+          {
+            "name": "probe_reference_people",
+            "formula": "sum(people, partition_by=[])"
+          },
+          {
+            "name": "probe_per_1000",
+            "formula": "1000 * sum(vehicles.vehicles) / nullif(sum(people, partition_by=[]), 0)"
+          }
+        ],
+        "to_many_handling": "error",
+        "dimensions": [
+          "vehicles.vehicle_category_code"
+        ],
+        "order": [
+          {
+            "column": "vehicles.vehicle_category_code"
+          }
+        ],
+        "filters": [
+          "report_year == 2025"
+        ]
+      },
+      "expected": [
+        [
+          "01",
+          168245,
+          293081,
+          574.0563189016005
+        ],
+        [
+          "02",
+          21,
+          293081,
+          0.0716525465656252
+        ],
+        [
+          "10",
+          3565,
+          293081,
+          12.163872786021612
+        ],
+        [
+          "11",
+          262,
+          293081,
+          0.8939508190568478
+        ],
+        [
+          "20",
+          159,
+          293081,
+          0.5425121382825908
+        ],
+        [
+          "21",
+          95,
+          293081,
+          0.3241424725587807
+        ],
+        [
+          "22",
+          60,
+          293081,
+          0.204721561616072
+        ],
+        [
+          "30",
+          15214,
+          293081,
+          51.91056397378199
+        ],
+        [
+          "35",
+          1707,
+          293081,
+          5.824328427977249
+        ],
+        [
+          "37",
+          1,
+          293081,
+          0.0034120260269345335
+        ],
+        [
+          "38",
+          989,
+          293081,
+          3.3744937406382536
+        ],
+        [
+          "42",
+          272,
+          293081,
+          0.9280710793261931
+        ],
+        [
+          "43",
+          4552,
+          293081,
+          15.531542474605997
+        ],
+        [
+          "50",
+          686,
+          293081,
+          2.34064985447709
+        ],
+        [
+          "51",
+          992,
+          293081,
+          3.384729818719057
+        ],
+        [
+          "52",
+          501,
+          293081,
+          1.7094250394942012
+        ],
+        [
+          "60",
+          22164,
+          293081,
+          75.624144860977
+        ],
+        [
+          "61",
+          732,
+          293081,
+          2.4976030517160783
+        ],
+        [
+          "62",
+          20,
+          293081,
+          0.06824052053869067
+        ],
+        [
+          "63",
+          93,
+          293081,
+          0.3173184205049116
+        ],
+        [
+          "64",
+          288,
+          293081,
+          0.9826634957571456
+        ],
+        [
+          "65",
+          27,
+          293081,
+          0.0921247027272324
+        ],
+        [
+          "66",
+          488,
+          293081,
+          1.6650687011440524
+        ],
+        [
+          "67",
+          154,
+          293081,
+          0.5254520081479181
+        ],
+        [
+          "68",
+          5,
+          293081,
+          0.01706013013467267
+        ],
+        [
+          "80",
+          737,
+          293081,
+          2.514663181850751
+        ],
+        [
+          "81",
+          459,
+          293081,
+          1.566119946362951
+        ],
+        [
+          "82",
+          9,
+          293081,
+          0.0307082342424108
+        ],
+        [
+          "83",
+          256,
+          293081,
+          0.8734786628952406
+        ],
+        [
+          "85",
+          528,
+          293081,
+          1.8015497422214337
+        ],
+        [
+          "86",
+          229,
+          293081,
+          0.7813539601680082
+        ],
+        [
+          "87",
+          386,
+          293081,
+          1.3170420463967298
+        ],
+        [
+          "88",
+          9,
+          293081,
+          0.0307082342424108
+        ],
+        [
+          "89",
+          3,
+          293081,
+          0.0102360780808036
+        ],
+        [
+          "90",
+          10981,
+          293081,
+          37.46745780176811
+        ],
+        [
+          "92",
+          1822,
+          293081,
+          6.21671142107472
+        ],
+        [
+          "93",
+          647,
+          293081,
+          2.207580839426643
+        ],
+        [
+          "94",
+          1316,
+          293081,
+          4.490226251445846
+        ],
+        [
+          "95",
+          622,
+          293081,
+          2.1222801887532796
+        ],
+        [
+          "97",
+          1,
+          293081,
+          0.0034120260269345335
+        ],
+        [
+          "98",
+          18,
+          293081,
+          0.0614164684848216
+        ],
+        [
+          "99",
+          264,
+          293081,
+          0.9007748711107169
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "population.vehicles.vehicle_category_code": "01",
+            "population.probe_vehicles": 168245,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 574.0563189016005
+          },
+          {
+            "population.vehicles.vehicle_category_code": "02",
+            "population.probe_vehicles": 21,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.0716525465656252
+          },
+          {
+            "population.vehicles.vehicle_category_code": "10",
+            "population.probe_vehicles": 3565,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 12.163872786021612
+          },
+          {
+            "population.vehicles.vehicle_category_code": "11",
+            "population.probe_vehicles": 262,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.8939508190568478
+          },
+          {
+            "population.vehicles.vehicle_category_code": "20",
+            "population.probe_vehicles": 159,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.5425121382825908
+          },
+          {
+            "population.vehicles.vehicle_category_code": "21",
+            "population.probe_vehicles": 95,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.3241424725587807
+          },
+          {
+            "population.vehicles.vehicle_category_code": "22",
+            "population.probe_vehicles": 60,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.204721561616072
+          },
+          {
+            "population.vehicles.vehicle_category_code": "30",
+            "population.probe_vehicles": 15214,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 51.91056397378199
+          },
+          {
+            "population.vehicles.vehicle_category_code": "35",
+            "population.probe_vehicles": 1707,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 5.824328427977249
+          },
+          {
+            "population.vehicles.vehicle_category_code": "37",
+            "population.probe_vehicles": 1,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.0034120260269345335
+          },
+          {
+            "population.vehicles.vehicle_category_code": "38",
+            "population.probe_vehicles": 989,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 3.3744937406382536
+          },
+          {
+            "population.vehicles.vehicle_category_code": "42",
+            "population.probe_vehicles": 272,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.9280710793261931
+          },
+          {
+            "population.vehicles.vehicle_category_code": "43",
+            "population.probe_vehicles": 4552,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 15.531542474605997
+          },
+          {
+            "population.vehicles.vehicle_category_code": "50",
+            "population.probe_vehicles": 686,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 2.34064985447709
+          },
+          {
+            "population.vehicles.vehicle_category_code": "51",
+            "population.probe_vehicles": 992,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 3.384729818719057
+          },
+          {
+            "population.vehicles.vehicle_category_code": "52",
+            "population.probe_vehicles": 501,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 1.7094250394942012
+          },
+          {
+            "population.vehicles.vehicle_category_code": "60",
+            "population.probe_vehicles": 22164,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 75.624144860977
+          },
+          {
+            "population.vehicles.vehicle_category_code": "61",
+            "population.probe_vehicles": 732,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 2.4976030517160783
+          },
+          {
+            "population.vehicles.vehicle_category_code": "62",
+            "population.probe_vehicles": 20,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.06824052053869067
+          },
+          {
+            "population.vehicles.vehicle_category_code": "63",
+            "population.probe_vehicles": 93,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.3173184205049116
+          },
+          {
+            "population.vehicles.vehicle_category_code": "64",
+            "population.probe_vehicles": 288,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.9826634957571456
+          },
+          {
+            "population.vehicles.vehicle_category_code": "65",
+            "population.probe_vehicles": 27,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.0921247027272324
+          },
+          {
+            "population.vehicles.vehicle_category_code": "66",
+            "population.probe_vehicles": 488,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 1.6650687011440524
+          },
+          {
+            "population.vehicles.vehicle_category_code": "67",
+            "population.probe_vehicles": 154,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.5254520081479181
+          },
+          {
+            "population.vehicles.vehicle_category_code": "68",
+            "population.probe_vehicles": 5,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.01706013013467267
+          },
+          {
+            "population.vehicles.vehicle_category_code": "80",
+            "population.probe_vehicles": 737,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 2.514663181850751
+          },
+          {
+            "population.vehicles.vehicle_category_code": "81",
+            "population.probe_vehicles": 459,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 1.566119946362951
+          },
+          {
+            "population.vehicles.vehicle_category_code": "82",
+            "population.probe_vehicles": 9,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.0307082342424108
+          },
+          {
+            "population.vehicles.vehicle_category_code": "83",
+            "population.probe_vehicles": 256,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.8734786628952406
+          },
+          {
+            "population.vehicles.vehicle_category_code": "85",
+            "population.probe_vehicles": 528,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 1.8015497422214337
+          },
+          {
+            "population.vehicles.vehicle_category_code": "86",
+            "population.probe_vehicles": 229,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.7813539601680082
+          },
+          {
+            "population.vehicles.vehicle_category_code": "87",
+            "population.probe_vehicles": 386,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 1.3170420463967298
+          },
+          {
+            "population.vehicles.vehicle_category_code": "88",
+            "population.probe_vehicles": 9,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.0307082342424108
+          },
+          {
+            "population.vehicles.vehicle_category_code": "89",
+            "population.probe_vehicles": 3,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.0102360780808036
+          },
+          {
+            "population.vehicles.vehicle_category_code": "90",
+            "population.probe_vehicles": 10981,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 37.46745780176811
+          },
+          {
+            "population.vehicles.vehicle_category_code": "92",
+            "population.probe_vehicles": 1822,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 6.21671142107472
+          },
+          {
+            "population.vehicles.vehicle_category_code": "93",
+            "population.probe_vehicles": 647,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 2.207580839426643
+          },
+          {
+            "population.vehicles.vehicle_category_code": "94",
+            "population.probe_vehicles": 1316,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 4.490226251445846
+          },
+          {
+            "population.vehicles.vehicle_category_code": "95",
+            "population.probe_vehicles": 622,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 2.1222801887532796
+          },
+          {
+            "population.vehicles.vehicle_category_code": "97",
+            "population.probe_vehicles": 1,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.0034120260269345335
+          },
+          {
+            "population.vehicles.vehicle_category_code": "98",
+            "population.probe_vehicles": 18,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.0614164684848216
+          },
+          {
+            "population.vehicles.vehicle_category_code": "99",
+            "population.probe_vehicles": 264,
+            "population.probe_reference_people": 293081,
+            "population.probe_per_1000": 0.9007748711107169
+          }
+        ],
+        "columns": [
+          "population.vehicles.vehicle_category_code",
+          "population.probe_vehicles",
+          "population.probe_reference_people",
+          "population.probe_per_1000"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    vehicles.vehicle_category_code AS \"population.vehicles.vehicle_category_code\"\n  FROM population AS population\n  LEFT JOIN vehicles AS vehicles\n    ON population.report_year = vehicles.report_year\n    AND population.geo_version = vehicles.geo_version\n    AND population.municipality_id = vehicles.municipality_id\n  WHERE\n    population.report_year = 2025\n  GROUP BY\n    vehicles.vehicle_category_code\n), _cm_population__people_sum_partition_by AS (\n  SELECT\n    SUM(population.people) AS \"population.probe_reference_people\"\n  FROM population AS population\n  WHERE\n    population.report_year = 2025\n), _cm_population__vehicles__vehicles_sum AS (\n  SELECT\n    vehicles.vehicle_category_code AS \"vehicles.vehicle_category_code\",\n    SUM(vehicles.vehicles) AS \"vehicles.vehicles_sum\"\n  FROM vehicles AS vehicles\n  LEFT JOIN population AS population\n    ON vehicles.report_year = population.report_year\n    AND vehicles.geo_version = population.geo_version\n    AND vehicles.municipality_id = population.municipality_id\n  WHERE\n    population.report_year = 2025\n  GROUP BY\n    vehicles.vehicle_category_code\n)\nSELECT\n  _base.\"population.vehicles.vehicle_category_code\",\n  _cm_population__vehicles__vehicles_sum.\"vehicles.vehicles_sum\" AS \"population.probe_vehicles\",\n  _cm_population__people_sum_partition_by.\"population.probe_reference_people\",\n  1000 * _cm_population__vehicles__vehicles_sum.\"vehicles.vehicles_sum\" / NULLIF(\n    NULLIF(_cm_population__people_sum_partition_by.\"population.probe_reference_people\", 0),\n    0\n  ) AS \"population.probe_per_1000\"\nFROM _base\nCROSS JOIN _cm_population__people_sum_partition_by\nLEFT JOIN _cm_population__vehicles__vehicles_sum\n  ON _base.\"population.vehicles.vehicle_category_code\" IS NOT DISTINCT FROM _cm_population__vehicles__vehicles_sum.\"vehicles.vehicle_category_code\"\nORDER BY\n  _base.\"population.vehicles.vehicle_category_code\" ASC",
+        "attributes": {
+          "dimensions": {},
+          "measures": {
+            "population.probe_per_1000": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "population": "population",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          "01",
+          168245,
+          293081,
+          574.0563189016005
+        ],
+        [
+          "02",
+          21,
+          293081,
+          0.0716525465656252
+        ],
+        [
+          "10",
+          3565,
+          293081,
+          12.163872786021612
+        ],
+        [
+          "11",
+          262,
+          293081,
+          0.8939508190568478
+        ],
+        [
+          "20",
+          159,
+          293081,
+          0.5425121382825908
+        ],
+        [
+          "21",
+          95,
+          293081,
+          0.3241424725587807
+        ],
+        [
+          "22",
+          60,
+          293081,
+          0.204721561616072
+        ],
+        [
+          "30",
+          15214,
+          293081,
+          51.91056397378199
+        ],
+        [
+          "35",
+          1707,
+          293081,
+          5.824328427977249
+        ],
+        [
+          "37",
+          1,
+          293081,
+          0.0034120260269345335
+        ],
+        [
+          "38",
+          989,
+          293081,
+          3.3744937406382536
+        ],
+        [
+          "42",
+          272,
+          293081,
+          0.9280710793261931
+        ],
+        [
+          "43",
+          4552,
+          293081,
+          15.531542474605997
+        ],
+        [
+          "50",
+          686,
+          293081,
+          2.34064985447709
+        ],
+        [
+          "51",
+          992,
+          293081,
+          3.384729818719057
+        ],
+        [
+          "52",
+          501,
+          293081,
+          1.7094250394942012
+        ],
+        [
+          "60",
+          22164,
+          293081,
+          75.624144860977
+        ],
+        [
+          "61",
+          732,
+          293081,
+          2.4976030517160783
+        ],
+        [
+          "62",
+          20,
+          293081,
+          0.06824052053869067
+        ],
+        [
+          "63",
+          93,
+          293081,
+          0.3173184205049116
+        ],
+        [
+          "64",
+          288,
+          293081,
+          0.9826634957571456
+        ],
+        [
+          "65",
+          27,
+          293081,
+          0.0921247027272324
+        ],
+        [
+          "66",
+          488,
+          293081,
+          1.6650687011440524
+        ],
+        [
+          "67",
+          154,
+          293081,
+          0.5254520081479181
+        ],
+        [
+          "68",
+          5,
+          293081,
+          0.01706013013467267
+        ],
+        [
+          "80",
+          737,
+          293081,
+          2.514663181850751
+        ],
+        [
+          "81",
+          459,
+          293081,
+          1.566119946362951
+        ],
+        [
+          "82",
+          9,
+          293081,
+          0.0307082342424108
+        ],
+        [
+          "83",
+          256,
+          293081,
+          0.8734786628952406
+        ],
+        [
+          "85",
+          528,
+          293081,
+          1.8015497422214337
+        ],
+        [
+          "86",
+          229,
+          293081,
+          0.7813539601680082
+        ],
+        [
+          "87",
+          386,
+          293081,
+          1.3170420463967298
+        ],
+        [
+          "88",
+          9,
+          293081,
+          0.0307082342424108
+        ],
+        [
+          "89",
+          3,
+          293081,
+          0.0102360780808036
+        ],
+        [
+          "90",
+          10981,
+          293081,
+          37.46745780176811
+        ],
+        [
+          "92",
+          1822,
+          293081,
+          6.21671142107472
+        ],
+        [
+          "93",
+          647,
+          293081,
+          2.207580839426643
+        ],
+        [
+          "94",
+          1316,
+          293081,
+          4.490226251445846
+        ],
+        [
+          "95",
+          622,
+          293081,
+          2.1222801887532796
+        ],
+        [
+          "97",
+          1,
+          293081,
+          0.0034120260269345335
+        ],
+        [
+          "98",
+          18,
+          293081,
+          0.0614164684848216
+        ],
+        [
+          "99",
+          264,
+          293081,
+          0.9007748711107169
+        ]
+      ],
+      "first_row_python_types": {
+        "population.vehicles.vehicle_category_code": "str",
+        "population.probe_vehicles": "int",
+        "population.probe_reference_people": "int",
+        "population.probe_per_1000": "float"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R07",
+      "title": "Years root: inverse staff and revenue at annual grain",
+      "query": {
+        "source_model": "years",
+        "measures": [
+          {
+            "name": "probe_staff",
+            "formula": "sum(staff.staff)"
+          },
+          {
+            "name": "probe_revenue",
+            "formula": "sum(revenue.nominal_chf)"
+          },
+          {
+            "name": "probe_per_person",
+            "formula": "sum(revenue.nominal_chf) / nullif(sum(staff.staff), 0)"
+          }
+        ],
+        "to_many_handling": "error",
+        "dimensions": [
+          "report_year"
+        ],
+        "order": [
+          {
+            "column": "report_year"
+          }
+        ],
+        "filters": [
+          "report_year in (2024, 2025)"
+        ]
+      },
+      "expected": [
+        [
+          2024,
+          66,
+          "2566066.00",
+          38879.78787878788
+        ],
+        [
+          2025,
+          65,
+          "2762610.00",
+          42501.692307692305
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "years.report_year": 2024,
+            "years.probe_staff": 66,
+            "years.probe_revenue": "2566066.00",
+            "years.probe_per_person": 38879.78787878788
+          },
+          {
+            "years.report_year": 2025,
+            "years.probe_staff": 65,
+            "years.probe_revenue": "2762610.00",
+            "years.probe_per_person": 42501.692307692305
+          }
+        ],
+        "columns": [
+          "years.report_year",
+          "years.probe_staff",
+          "years.probe_revenue",
+          "years.probe_per_person"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    years.report_year AS \"years.report_year\"\n  FROM years AS years\n  WHERE\n    years.report_year IN (2024, 2025)\n  GROUP BY\n    years.report_year\n), _cm_years__staff__staff_sum AS (\n  SELECT\n    staff.report_year AS \"staff.report_year\",\n    SUM(staff.staff) AS \"staff.staff_sum\"\n  FROM staff AS staff\n  LEFT JOIN years AS years\n    ON staff.report_year = years.report_year\n  WHERE\n    years.report_year IN (2024, 2025)\n  GROUP BY\n    staff.report_year\n), _cm_years__revenue__nominal_chf_sum AS (\n  SELECT\n    revenue.report_year AS \"revenue.report_year\",\n    SUM(revenue.nominal_chf) AS \"revenue.nominal_chf_sum\"\n  FROM revenue AS revenue\n  LEFT JOIN years AS years\n    ON revenue.report_year = years.report_year\n  WHERE\n    years.report_year IN (2024, 2025)\n  GROUP BY\n    revenue.report_year\n)\nSELECT\n  _base.\"years.report_year\",\n  _cm_years__staff__staff_sum.\"staff.staff_sum\" AS \"years.probe_staff\",\n  _cm_years__revenue__nominal_chf_sum.\"revenue.nominal_chf_sum\" AS \"years.probe_revenue\",\n  _cm_years__revenue__nominal_chf_sum.\"revenue.nominal_chf_sum\" / NULLIF(NULLIF(_cm_years__staff__staff_sum.\"staff.staff_sum\", 0), 0) AS \"years.probe_per_person\"\nFROM _base\nLEFT JOIN _cm_years__staff__staff_sum\n  ON _base.\"years.report_year\" IS NOT DISTINCT FROM _cm_years__staff__staff_sum.\"staff.report_year\"\nLEFT JOIN _cm_years__revenue__nominal_chf_sum\n  ON _base.\"years.report_year\" IS NOT DISTINCT FROM _cm_years__revenue__nominal_chf_sum.\"revenue.report_year\"\nORDER BY\n  _base.\"years.report_year\" ASC",
+        "attributes": {
+          "dimensions": {},
+          "measures": {
+            "years.probe_per_person": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "population": "years",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          2024,
+          66,
+          "2566066.00",
+          38879.78787878788
+        ],
+        [
+          2025,
+          65,
+          "2762610.00",
+          42501.692307692305
+        ]
+      ],
+      "first_row_python_types": {
+        "years.report_year": "int",
+        "years.probe_staff": "int",
+        "years.probe_revenue": "Decimal",
+        "years.probe_per_person": "float"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R08",
+      "title": "Mean of annual staff totals",
+      "query": {
+        "source_model": "years",
+        "measures": [
+          {
+            "name": "probe_mean_annual_staff",
+            "formula": "avg(sum(staff.staff, partition_by=report_year))"
+          }
+        ],
+        "to_many_handling": "error",
+        "filters": [
+          "report_year in (2024, 2025)"
+        ]
+      },
+      "expected": [
+        [
+          65.5
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "years.probe_mean_annual_staff": 65.5
+          }
+        ],
+        "columns": [
+          "years.probe_mean_annual_staff"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    1 AS _placeholder\n  FROM years AS years\n  WHERE\n    years.report_year IN (2024, 2025)\n  LIMIT 1\n), _base_2 AS (\n  SELECT\n    years.report_year AS \"years.report_year\"\n  FROM years AS years\n  WHERE\n    years.report_year IN (2024, 2025)\n  GROUP BY\n    years.report_year\n), _cm_years__staff__staff_sum_partition_by_report_year AS (\n  SELECT\n    staff.report_year AS \"staff.report_year\",\n    SUM(staff.staff) AS \"staff.staff_sum_partition_by_years_report_year\"\n  FROM staff AS staff\n  LEFT JOIN years AS years\n    ON staff.report_year = years.report_year\n  WHERE\n    years.report_year IN (2024, 2025)\n  GROUP BY\n    staff.report_year\n), _cm_staff__staff_sum_partition_by_report_year AS (\n  SELECT\n    _stage_inner.\"years.report_year\" AS \"report_year\",\n    _stage_inner.\"years.staff.staff_sum_partition_by_report_year\" AS \"staff__staff_sum_partition_by_report_year\"\n  FROM (\n    SELECT\n      _base_2.\"years.report_year\",\n      _cm_years__staff__staff_sum_partition_by_report_year.\"staff.staff_sum_partition_by_years_report_year\" AS \"years.staff.staff_sum_partition_by_report_year\"\n    FROM _base_2\n    LEFT JOIN _cm_years__staff__staff_sum_partition_by_report_year\n      ON _base_2.\"years.report_year\" IS NOT DISTINCT FROM _cm_years__staff__staff_sum_partition_by_report_year.\"staff.report_year\"\n  ) AS _stage_inner\n), _cm_years___avg AS (\n  SELECT\n    CAST(AVG(_base._v) AS DOUBLE) AS \"years.probe_mean_annual_staff\"\n  FROM (\n    SELECT\n      years.report_year AS _ek0,\n      MAX(\n        _cm_staff__staff_sum_partition_by_report_year.\"staff__staff_sum_partition_by_report_year\"\n      ) AS _v\n    FROM years AS years\n    LEFT JOIN _cm_staff__staff_sum_partition_by_report_year\n      ON years.report_year IS NOT DISTINCT FROM _cm_staff__staff_sum_partition_by_report_year.\"report_year\"\n    WHERE\n      years.report_year IN (2024, 2025)\n    GROUP BY\n      years.report_year\n  ) AS _base\n)\nSELECT\n  _cm_years___avg.\"years.probe_mean_annual_staff\"\nFROM _base\nCROSS JOIN _cm_years___avg",
+        "attributes": {
+          "dimensions": {},
+          "measures": {
+            "years.probe_mean_annual_staff": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "population": "years",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          65.5
+        ]
+      ],
+      "first_row_python_types": {
+        "years.probe_mean_annual_staff": "float"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R09",
+      "title": "2025 revenue change with explicit 2024-2025 scan",
+      "query": {
+        "source_model": "years",
+        "measures": [
+          {
+            "name": "probe_current",
+            "formula": "sum(revenue.nominal_chf)"
+          },
+          {
+            "name": "probe_previous",
+            "formula": "time_shift(sum(revenue.nominal_chf), -1, 'year')"
+          },
+          {
+            "name": "probe_growth_pct",
+            "formula": "(sum(revenue.nominal_chf) / nullif(time_shift(sum(revenue.nominal_chf), -1, 'year'), 0) - 1) * 100"
+          }
+        ],
+        "to_many_handling": "error",
+        "time_dimensions": [
+          {
+            "dimension": "period_start",
+            "granularity": "year",
+            "date_range": [
+              "2024-01-01",
+              "2025-12-31"
+            ]
+          }
+        ],
+        "order": [
+          {
+            "column": "period_start"
+          }
+        ]
+      },
+      "expected": [
+        [
+          "2762610.00",
+          "2566066.00",
+          7.659350928619912
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "years.period_start": "2024-01-01T00:00:00",
+            "years.probe_current": "2566066.00",
+            "years.probe_previous": "2762610.00",
+            "years.probe_growth_pct": -7.11443164254093
+          },
+          {
+            "years.period_start": "2025-01-01T00:00:00",
+            "years.probe_current": "2762610.00",
+            "years.probe_previous": "2566066.00",
+            "years.probe_growth_pct": 7.659350928619912
+          }
+        ],
+        "columns": [
+          "years.period_start",
+          "years.probe_current",
+          "years.probe_previous",
+          "years.probe_growth_pct"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    DATE_TRUNC('YEAR', years.period_start) AS \"years.period_start\"\n  FROM years AS years\n  WHERE\n    (\n      years.period_start >= CAST('2024-01-01' AS DATE)\n      AND years.period_start < CAST('2026-01-01' AS DATE)\n    )\n  GROUP BY\n    DATE_TRUNC('YEAR', years.period_start)\n), _cm_years__revenue__nominal_chf_sum AS (\n  SELECT\n    DATE_TRUNC('YEAR', years.period_start) AS \"revenue.years.period_start\",\n    SUM(revenue.nominal_chf) AS \"revenue.nominal_chf_sum\"\n  FROM revenue AS revenue\n  LEFT JOIN years AS years\n    ON revenue.report_year = years.report_year\n  WHERE\n    years.period_start >= CAST('2024-01-01' AS DATE)\n    AND years.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    DATE_TRUNC('YEAR', years.period_start)\n), base AS (\n  SELECT\n    _base.\"years.period_start\",\n    _cm_years__revenue__nominal_chf_sum.\"revenue.nominal_chf_sum\" AS \"years.probe_current\"\n  FROM _base\n  LEFT JOIN _cm_years__revenue__nominal_chf_sum\n    ON _base.\"years.period_start\" IS NOT DISTINCT FROM _cm_years__revenue__nominal_chf_sum.\"revenue.years.period_start\"\n), _base_2 AS (\n  SELECT\n    DATE_TRUNC('YEAR', years.period_start) AS \"years.period_start\"\n  FROM years AS years\n  GROUP BY\n    DATE_TRUNC('YEAR', years.period_start)\n), _cm_years__revenue__nominal_chf_sum_2 AS (\n  SELECT\n    DATE_TRUNC('YEAR', years.period_start) AS \"revenue.years.period_start\",\n    SUM(revenue.nominal_chf) AS \"revenue.nominal_chf_sum\"\n  FROM revenue AS revenue\n  LEFT JOIN years AS years\n    ON revenue.report_year = years.report_year\n  GROUP BY\n    DATE_TRUNC('YEAR', years.period_start)\n), shifted_probe_previous AS (\n  SELECT\n    _base_2.\"years.period_start\",\n    _cm_years__revenue__nominal_chf_sum_2.\"revenue.nominal_chf_sum\" AS \"years.probe_current\"\n  FROM _base_2\n  LEFT JOIN _cm_years__revenue__nominal_chf_sum_2\n    ON _base_2.\"years.period_start\" IS NOT DISTINCT FROM _cm_years__revenue__nominal_chf_sum_2.\"revenue.years.period_start\"\n), sjoin_probe_previous AS (\n  SELECT\n    base.\"years.period_start\",\n    base.\"years.probe_current\",\n    shifted_probe_previous.\"years.probe_current\" AS \"years.probe_previous\"\n  FROM base\n  LEFT JOIN shifted_probe_previous\n    ON base.\"years.period_start\" - INTERVAL 1 YEAR IS NOT DISTINCT FROM shifted_probe_previous.\"years.period_start\"\n), step1 AS (\n  SELECT\n    \"years.period_start\",\n    \"years.probe_current\",\n    \"years.probe_previous\",\n    (\n      \"years.probe_current\" / NULLIF(NULLIF(\"years.probe_previous\", 0), 0) - 1\n    ) * 100 AS \"years.probe_growth_pct\"\n  FROM sjoin_probe_previous\n)\nSELECT\n  \"years.period_start\",\n  \"years.probe_current\",\n  \"years.probe_previous\",\n  \"years.probe_growth_pct\"\nFROM (\n  SELECT\n    \"years.period_start\",\n    \"years.probe_current\",\n    \"years.probe_previous\",\n    \"years.probe_growth_pct\"\n  FROM step1\n) AS _outer\nORDER BY\n  \"years.period_start\" ASC",
+        "attributes": {
+          "dimensions": {},
+          "measures": {
+            "years.probe_previous": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            },
+            "years.probe_growth_pct": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "population": "years",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          "2762610.00",
+          "2566066.00",
+          7.659350928619912
+        ]
+      ],
+      "first_row_python_types": {
+        "years.period_start": "datetime",
+        "years.probe_current": "Decimal",
+        "years.probe_previous": "Decimal",
+        "years.probe_growth_pct": "float"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R10",
+      "title": "2025 revenue/person change with explicit 2024-2025 scan",
+      "query": {
+        "source_model": "years",
+        "measures": [
+          {
+            "name": "probe_current",
+            "formula": "sum(revenue.nominal_chf) / nullif(sum(staff.staff), 0)"
+          },
+          {
+            "name": "probe_previous",
+            "formula": "time_shift(sum(revenue.nominal_chf) / nullif(sum(staff.staff), 0), -1, 'year')"
+          },
+          {
+            "name": "probe_growth_pct",
+            "formula": "((sum(revenue.nominal_chf) / nullif(sum(staff.staff), 0)) / nullif(time_shift(sum(revenue.nominal_chf) / nullif(sum(staff.staff), 0), -1, 'year'), 0) - 1) * 100"
+          }
+        ],
+        "to_many_handling": "error",
+        "time_dimensions": [
+          {
+            "dimension": "period_start",
+            "granularity": "year",
+            "date_range": [
+              "2024-01-01",
+              "2025-12-31"
+            ]
+          }
+        ],
+        "order": [
+          {
+            "column": "period_start"
+          }
+        ]
+      },
+      "expected": [
+        [
+          42501.692307692305,
+          38879.78787878788,
+          9.315648635214057
+        ]
+      ],
+      "response": {
+        "data": [
+          {
+            "years.period_start": "2024-01-01T00:00:00",
+            "years.probe_current": 38879.78787878788,
+            "years.probe_previous": null,
+            "years.probe_growth_pct": null
+          },
+          {
+            "years.period_start": "2025-01-01T00:00:00",
+            "years.probe_current": 42501.692307692305,
+            "years.probe_previous": 38879.78787878788,
+            "years.probe_growth_pct": 9.315648635214057
+          }
+        ],
+        "columns": [
+          "years.period_start",
+          "years.probe_current",
+          "years.probe_previous",
+          "years.probe_growth_pct"
+        ],
+        "sql": "WITH _base AS (\n  SELECT\n    DATE_TRUNC('YEAR', years.period_start) AS \"years.period_start\"\n  FROM years AS years\n  WHERE\n    (\n      years.period_start >= CAST('2024-01-01' AS DATE)\n      AND years.period_start < CAST('2026-01-01' AS DATE)\n    )\n  GROUP BY\n    DATE_TRUNC('YEAR', years.period_start)\n), _cm_years__revenue__nominal_chf_sum AS (\n  SELECT\n    DATE_TRUNC('YEAR', years.period_start) AS \"revenue.years.period_start\",\n    SUM(revenue.nominal_chf) AS \"revenue.nominal_chf_sum\"\n  FROM revenue AS revenue\n  LEFT JOIN years AS years\n    ON revenue.report_year = years.report_year\n  WHERE\n    years.period_start >= CAST('2024-01-01' AS DATE)\n    AND years.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    DATE_TRUNC('YEAR', years.period_start)\n), _cm_years__staff__staff_sum AS (\n  SELECT\n    DATE_TRUNC('YEAR', years.period_start) AS \"staff.years.period_start\",\n    SUM(staff.staff) AS \"staff.staff_sum\"\n  FROM staff AS staff\n  LEFT JOIN years AS years\n    ON staff.report_year = years.report_year\n  WHERE\n    years.period_start >= CAST('2024-01-01' AS DATE)\n    AND years.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    DATE_TRUNC('YEAR', years.period_start)\n), base AS (\n  SELECT\n    _base.\"years.period_start\",\n    _cm_years__revenue__nominal_chf_sum.\"revenue.nominal_chf_sum\" / NULLIF(NULLIF(_cm_years__staff__staff_sum.\"staff.staff_sum\", 0), 0) AS \"years.probe_current\",\n    _cm_years__revenue__nominal_chf_sum.\"revenue.nominal_chf_sum\" AS \"revenue.nominal_chf_sum\",\n    _cm_years__staff__staff_sum.\"staff.staff_sum\" AS \"staff.staff_sum\"\n  FROM _base\n  LEFT JOIN _cm_years__revenue__nominal_chf_sum\n    ON _base.\"years.period_start\" IS NOT DISTINCT FROM _cm_years__revenue__nominal_chf_sum.\"revenue.years.period_start\"\n  LEFT JOIN _cm_years__staff__staff_sum\n    ON _base.\"years.period_start\" IS NOT DISTINCT FROM _cm_years__staff__staff_sum.\"staff.years.period_start\"\n), shifted_probe_previous AS (\n  SELECT\n    \"years.period_start\" AS \"years.period_start\",\n    \"years.probe_current\" AS \"years.probe_current\"\n  FROM base\n), sjoin_probe_previous AS (\n  SELECT\n    base.\"years.period_start\",\n    base.\"years.probe_current\",\n    base.\"revenue.nominal_chf_sum\",\n    base.\"staff.staff_sum\",\n    shifted_probe_previous.\"years.probe_current\" AS \"years.probe_previous\"\n  FROM base\n  LEFT JOIN shifted_probe_previous\n    ON base.\"years.period_start\" - INTERVAL 1 YEAR IS NOT DISTINCT FROM shifted_probe_previous.\"years.period_start\"\n), step1 AS (\n  SELECT\n    \"years.period_start\",\n    \"years.probe_current\",\n    \"revenue.nominal_chf_sum\",\n    \"staff.staff_sum\",\n    \"years.probe_previous\",\n    (\n      \"years.probe_current\" / NULLIF(NULLIF(\"years.probe_previous\", 0), 0) - 1\n    ) * 100 AS \"years.probe_growth_pct\"\n  FROM sjoin_probe_previous\n)\nSELECT\n  \"years.period_start\",\n  \"years.probe_current\",\n  \"years.probe_previous\",\n  \"years.probe_growth_pct\"\nFROM (\n  SELECT\n    \"years.period_start\",\n    \"years.probe_current\",\n    \"revenue.nominal_chf_sum\",\n    \"staff.staff_sum\",\n    \"years.probe_previous\",\n    \"years.probe_growth_pct\"\n  FROM step1\n) AS _outer\nORDER BY\n  \"years.period_start\" ASC",
+        "attributes": {
+          "dimensions": {},
+          "measures": {
+            "years.probe_current": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            },
+            "years.probe_previous": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            },
+            "years.probe_growth_pct": {
+              "label": null,
+              "format": {
+                "type": "float",
+                "precision": null,
+                "symbol": null
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "population": "years",
+        "population_inferred": false
+      },
+      "actual_compared": [
+        [
+          42501.692307692305,
+          38879.78787878788,
+          9.315648635214057
+        ]
+      ],
+      "first_row_python_types": {
+        "years.period_start": "datetime",
+        "years.probe_current": "float",
+        "years.probe_previous": "NoneType",
+        "years.probe_growth_pct": "NoneType"
+      },
+      "python_warnings": [],
+      "status": "passed"
+    },
+    {
+      "id": "R11",
+      "title": "Implicit revenue attribution to education rejected",
+      "query": {
+        "source_model": "years",
+        "measures": [
+          {
+            "name": "probe_revenue",
+            "formula": "sum(revenue.nominal_chf)"
+          }
+        ],
+        "to_many_handling": "error",
+        "dimensions": [
+          "staff.education"
+        ],
+        "order": [
+          {
+            "column": "staff.education"
+          }
+        ],
+        "filters": [
+          "report_year == 2025"
+        ]
+      },
+      "expected": null,
+      "error_type": "SlayerError",
+      "error": "error mode: metric 'probe_revenue' would broadcast across unattributable dimension(s) staff.education (crosses a fanning or unproven join hop to staff); declare join cardinality, a covering unique key, switch to to_many_handling='associate', or remove the dimension.",
+      "status": "passed"
+    }
+  ]
+}

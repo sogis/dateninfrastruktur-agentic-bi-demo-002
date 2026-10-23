@@ -1,0 +1,101 @@
+{
+  "versions": {
+    "motley-slayer": "1.4.1",
+    "mcp": "1.30.0",
+    "starlette": "1.9.0",
+    "uvicorn": "0.54.0",
+    "duckdb": "2.0.0",
+    "duckdb-engine": "0.17.0",
+    "sqlglot": "30.24.0",
+    "SQLAlchemy": "2.0.55",
+    "pydantic": "2.14.1",
+    "anyio": "4.15.1"
+  },
+  "signatures": {
+    "FastMCP": "(name: 'str | None' = None, instructions: 'str | None' = None, website_url: 'str | None' = None, icons: 'list[Icon] | None' = None, auth_server_provider: 'OAuthAuthorizationServerProvider[Any, Any, Any] | None' = None, token_verifier: 'TokenVerifier | None' = None, event_store: 'EventStore | None' = None, retry_interval: 'int | None' = None, *, tools: 'list[Tool] | None' = None, debug: 'bool' = False, log_level: \"Literal['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']\" = 'INFO', host: 'str' = '127.0.0.1', port: 'int' = 8000, mount_path: 'str' = '/', sse_path: 'str' = '/sse', message_path: 'str' = '/messages/', streamable_http_path: 'str' = '/mcp', json_response: 'bool' = False, stateless_http: 'bool' = False, max_request_body_size: 'int' = 4194304, session_idle_timeout: 'float | None' = 1800, max_sessions: 'int | None' = 10000, warn_on_duplicate_resources: 'bool' = True, warn_on_duplicate_tools: 'bool' = True, warn_on_duplicate_prompts: 'bool' = True, dependencies: 'Collection[str]' = (), lifespan: 'Callable[[FastMCP[LifespanResultT]], AbstractAsyncContextManager[LifespanResultT]] | None' = None, auth: 'AuthSettings | None' = None, transport_security: 'TransportSecuritySettings | None' = None)",
+    "FastMCP.run": "(self, transport: \"Literal['stdio', 'sse', 'streamable-http']\" = 'stdio', mount_path: 'str | None' = None) -> 'None'",
+    "FastMCP.tool": "(self, name: 'str | None' = None, title: 'str | None' = None, description: 'str | None' = None, annotations: 'ToolAnnotations | None' = None, icons: 'list[Icon] | None' = None, meta: 'dict[str, Any] | None' = None, structured_output: 'bool | None' = None) -> 'Callable[[AnyFunction], AnyFunction]'",
+    "FastMCP.custom_route": "(self, path: 'str', methods: 'list[str]', name: 'str | None' = None, include_in_schema: 'bool' = True)",
+    "FastMCP.streamable_http_app": "(self) -> 'Starlette'",
+    "FastMCP.sse_app": "(self, mount_path: 'str | None' = None) -> 'Starlette'",
+    "Starlette": "(debug: 'bool' = False, routes: 'Sequence[BaseRoute] | None' = None, middleware: 'Sequence[Middleware] | None' = None, exception_handlers: 'Mapping[Any, ExceptionHandler] | None' = None, lifespan: 'Lifespan[AppType] | None' = None, *, max_body_size: 'int | None' = None) -> 'None'",
+    "Route": "(path: 'str', endpoint: 'Callable[..., Any]', *, methods: 'Collection[str] | None' = None, name: 'str | None' = None, include_in_schema: 'bool' = True, middleware: 'Sequence[Middleware] | None' = None, max_body_size: 'int | None' = None) -> 'None'",
+    "Mount": "(path: 'str', app: 'ASGIApp | None' = None, routes: 'Sequence[BaseRoute] | None' = None, name: 'str | None' = None, *, middleware: 'Sequence[Middleware] | None' = None, max_body_size: 'int | None' = None) -> 'None'",
+    "JSONResponse": "(content: 'Any', status_code: 'int' = 200, headers: 'Mapping[str, str] | None' = None, media_type: 'str | None' = None, background: 'BackgroundTask | None' = None) -> 'None'"
+  },
+  "health_status": 200,
+  "ready_status": 200,
+  "initialize_status": 200,
+  "initialize_result": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {
+        "experimental": {},
+        "prompts": {
+          "listChanged": false
+        },
+        "resources": {
+          "subscribe": false,
+          "listChanged": false
+        },
+        "tools": {
+          "listChanged": false
+        }
+      },
+      "serverInfo": {
+        "name": "runtime-api-probe",
+        "version": "1.30.0"
+      }
+    }
+  },
+  "tools_status": 200,
+  "tools_result": {
+    "jsonrpc": "2.0",
+    "id": 2,
+    "result": {
+      "tools": [
+        {
+          "name": "probe_tool",
+          "description": "",
+          "inputSchema": {
+            "properties": {},
+            "title": "probe_toolArguments",
+            "type": "object"
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    }
+  },
+  "tool_status": 200,
+  "tool_result": {
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"ok\": false, \"error\": {\"code\": \"BUSY\", \"retryable\": true}}"
+        }
+      ],
+      "structuredContent": {
+        "ok": false,
+        "error": {
+          "code": "BUSY",
+          "retryable": true
+        }
+      },
+      "isError": true
+    }
+  },
+  "oversize_status": 413,
+  "lifespan_starts": 1,
+  "ready_after_shutdown": false
+}

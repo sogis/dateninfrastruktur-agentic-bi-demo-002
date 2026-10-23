@@ -1,0 +1,16 @@
+{
+  "period": {
+    "from_year": 2025,
+    "to_year": 2025
+  },
+  "group_by": [],
+  "outputs": [
+    {
+      "id": "people",
+      "expr": {
+        "kind": "aggregate",
+        "metric": "population.count"
+      }
+    }
+  ]
+}

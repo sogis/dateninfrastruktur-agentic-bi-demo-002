@@ -1,0 +1,442 @@
+{
+  "$defs": {
+    "AggregateNode": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "aggregate",
+          "title": "Kind",
+          "type": "string"
+        },
+        "metric": {
+          "title": "Metric",
+          "type": "string"
+        },
+        "op": {
+          "default": "sum",
+          "enum": [
+            "sum",
+            "min",
+            "max"
+          ],
+          "title": "Op",
+          "type": "string"
+        },
+        "where": {
+          "items": {
+            "$ref": "#/$defs/Predicate"
+          },
+          "title": "Where",
+          "type": "array"
+        },
+        "grain": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Grain"
+        },
+        "temporal_reduce": {
+          "default": "none",
+          "enum": [
+            "none",
+            "mean_annual_totals"
+          ],
+          "title": "Temporal Reduce",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "metric"
+      ],
+      "title": "AggregateNode",
+      "type": "object"
+    },
+    "BinaryNode": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "binary",
+          "title": "Kind",
+          "type": "string"
+        },
+        "op": {
+          "enum": [
+            "add",
+            "subtract",
+            "multiply",
+            "divide"
+          ],
+          "title": "Op",
+          "type": "string"
+        },
+        "left": {
+          "discriminator": {
+            "mapping": {
+              "aggregate": "#/$defs/AggregateNode",
+              "binary": "#/$defs/BinaryNode",
+              "constant": "#/$defs/ConstantNode",
+              "period": "#/$defs/PeriodNode"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/AggregateNode"
+            },
+            {
+              "$ref": "#/$defs/ConstantNode"
+            },
+            {
+              "$ref": "#/$defs/BinaryNode"
+            },
+            {
+              "$ref": "#/$defs/PeriodNode"
+            }
+          ],
+          "title": "Left"
+        },
+        "right": {
+          "discriminator": {
+            "mapping": {
+              "aggregate": "#/$defs/AggregateNode",
+              "binary": "#/$defs/BinaryNode",
+              "constant": "#/$defs/ConstantNode",
+              "period": "#/$defs/PeriodNode"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/AggregateNode"
+            },
+            {
+              "$ref": "#/$defs/ConstantNode"
+            },
+            {
+              "$ref": "#/$defs/BinaryNode"
+            },
+            {
+              "$ref": "#/$defs/PeriodNode"
+            }
+          ],
+          "title": "Right"
+        },
+        "scale": {
+          "default": 1.0,
+          "title": "Scale",
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind",
+        "op",
+        "left",
+        "right"
+      ],
+      "title": "BinaryNode",
+      "type": "object"
+    },
+    "ConstantNode": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "constant",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "kind",
+        "value"
+      ],
+      "title": "ConstantNode",
+      "type": "object"
+    },
+    "OutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "expr": {
+          "discriminator": {
+            "mapping": {
+              "aggregate": "#/$defs/AggregateNode",
+              "binary": "#/$defs/BinaryNode",
+              "constant": "#/$defs/ConstantNode",
+              "period": "#/$defs/PeriodNode"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/AggregateNode"
+            },
+            {
+              "$ref": "#/$defs/ConstantNode"
+            },
+            {
+              "$ref": "#/$defs/BinaryNode"
+            },
+            {
+              "$ref": "#/$defs/PeriodNode"
+            }
+          ],
+          "title": "Expr"
+        }
+      },
+      "required": [
+        "id",
+        "expr"
+      ],
+      "title": "OutputSpec",
+      "type": "object"
+    },
+    "PeriodNode": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "period",
+          "title": "Kind",
+          "type": "string"
+        },
+        "op": {
+          "enum": [
+            "shift",
+            "fixed_year",
+            "absolute_change",
+            "relative_change"
+          ],
+          "title": "Op",
+          "type": "string"
+        },
+        "value": {
+          "discriminator": {
+            "mapping": {
+              "aggregate": "#/$defs/AggregateNode",
+              "binary": "#/$defs/BinaryNode",
+              "constant": "#/$defs/ConstantNode",
+              "period": "#/$defs/PeriodNode"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/AggregateNode"
+            },
+            {
+              "$ref": "#/$defs/ConstantNode"
+            },
+            {
+              "$ref": "#/$defs/BinaryNode"
+            },
+            {
+              "$ref": "#/$defs/PeriodNode"
+            }
+          ],
+          "title": "Value"
+        },
+        "years": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Years"
+        },
+        "year": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Year"
+        }
+      },
+      "required": [
+        "kind",
+        "op",
+        "value"
+      ],
+      "title": "PeriodNode",
+      "type": "object"
+    },
+    "Predicate": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "title": "Field",
+          "type": "string"
+        },
+        "op": {
+          "enum": [
+            "eq",
+            "ne",
+            "in",
+            "not_in",
+            "lt",
+            "le",
+            "gt",
+            "ge",
+            "between",
+            "is_null",
+            "not_null"
+          ],
+          "title": "Op",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "field",
+        "op"
+      ],
+      "title": "Predicate",
+      "type": "object"
+    },
+    "SortSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "title": "Field",
+          "type": "string"
+        },
+        "direction": {
+          "default": "asc",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "title": "Direction",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field"
+      ],
+      "title": "SortSpec",
+      "type": "object"
+    },
+    "YearWindow": {
+      "additionalProperties": false,
+      "properties": {
+        "from_year": {
+          "title": "From Year",
+          "type": "integer"
+        },
+        "to_year": {
+          "title": "To Year",
+          "type": "integer"
+        },
+        "require_same_reference_date": {
+          "default": false,
+          "title": "Require Same Reference Date",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "from_year",
+        "to_year"
+      ],
+      "title": "YearWindow",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "period": {
+      "$ref": "#/$defs/YearWindow"
+    },
+    "group_by": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Group By",
+      "type": "array"
+    },
+    "filters": {
+      "items": {
+        "$ref": "#/$defs/Predicate"
+      },
+      "title": "Filters",
+      "type": "array"
+    },
+    "outputs": {
+      "items": {
+        "$ref": "#/$defs/OutputSpec"
+      },
+      "title": "Outputs",
+      "type": "array"
+    },
+    "order_by": {
+      "items": {
+        "$ref": "#/$defs/SortSpec"
+      },
+      "title": "Order By",
+      "type": "array"
+    },
+    "limit": {
+      "default": 100,
+      "title": "Limit",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "period",
+    "outputs"
+  ],
+  "title": "AnalysisRequest",
+  "type": "object"
+}

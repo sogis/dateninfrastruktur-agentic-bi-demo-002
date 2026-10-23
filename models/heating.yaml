@@ -1,0 +1,235 @@
+version: 15
+name: heating
+description: Gebäude Heizung Heizsystem Wärmepumpe Wärmepumpenanteil. Gebäude mit
+  Wohnnutzung nach Hauptheizung und Energieträger, insbesondere Wärmepumpen.
+sql_table: heating
+data_source: pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+- name: period_start
+  type: DATE
+  primary_key: false
+  granularity: year
+- name: reference_date
+  type: DATE
+  primary_key: false
+- name: geo_version
+  type: INT
+  primary_key: true
+- name: municipality_id
+  type: INT
+  primary_key: true
+- name: cell_id
+  type: TEXT
+  primary_key: false
+- name: buildings
+  type: INT
+  primary_key: false
+  label: Gebäude mit Wohnnutzung
+  description: Gebäude Heizung Heizsystem Wärmepumpe Wärmepumpenanteil. Gebäude mit
+    Wohnnutzung; Gebäude mit Wohnnutzung nach Hauptheizung und Energieträger, insbesondere
+    Wärmepumpen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: heating.buildings
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: heat_pump
+  type: INT
+  primary_key: false
+  label: Gebäude mit Wärmepumpe
+  description: Gebäude Heizung Heizsystem Wärmepumpe Wärmepumpenanteil. Gebäude mit
+    Wärmepumpe; Gebäude mit Wohnnutzung nach Hauptheizung und Energieträger, insbesondere
+    Wärmepumpen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: heating.heat_pump
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: heating_oil
+  type: INT
+  primary_key: false
+  label: Gebäude mit Heizöl
+  description: Gebäude Heizung Heizsystem Wärmepumpe Wärmepumpenanteil. Gebäude mit
+    Heizöl; Gebäude mit Wohnnutzung nach Hauptheizung und Energieträger, insbesondere
+    Wärmepumpen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: heating.heating_oil
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: gas
+  type: INT
+  primary_key: false
+  label: Gebäude mit Gas
+  description: Gebäude Heizung Heizsystem Wärmepumpe Wärmepumpenanteil. Gebäude mit
+    Gas; Gebäude mit Wohnnutzung nach Hauptheizung und Energieträger, insbesondere
+    Wärmepumpen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: heating.gas
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: wood
+  type: INT
+  primary_key: false
+  label: Gebäude mit Holz
+  description: Gebäude Heizung Heizsystem Wärmepumpe Wärmepumpenanteil. Gebäude mit
+    Holz; Gebäude mit Wohnnutzung nach Hauptheizung und Energieträger, insbesondere
+    Wärmepumpen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: heating.wood
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: electricity
+  type: INT
+  primary_key: false
+  label: Gebäude mit Elektrizität
+  description: Gebäude Heizung Heizsystem Wärmepumpe Wärmepumpenanteil. Gebäude mit
+    Elektrizität; Gebäude mit Wohnnutzung nach Hauptheizung und Energieträger, insbesondere
+    Wärmepumpen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: heating.electricity
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: district_heating
+  type: INT
+  primary_key: false
+  label: Gebäude mit Fernwärme
+  description: Gebäude Heizung Heizsystem Wärmepumpe Wärmepumpenanteil. Gebäude mit
+    Fernwärme; Gebäude mit Wohnnutzung nach Hauptheizung und Energieträger, insbesondere
+    Wärmepumpen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: heating.district_heating
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: other_or_unknown
+  type: INT
+  primary_key: false
+  label: Andere, keine oder unbekannte Heizung
+  description: Gebäude Heizung Heizsystem Wärmepumpe Wärmepumpenanteil. Andere, keine
+    oder unbekannte Heizung; Gebäude mit Wohnnutzung nach Hauptheizung und Energieträger,
+    insbesondere Wärmepumpen.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: heating.other_or_unknown
+      unit: buildings
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+joins:
+- target_model: population
+  join_pairs:
+  - - report_year
+    - report_year
+  - - geo_version
+    - geo_version
+  - - municipality_id
+    - municipality_id
+  cardinality: many_to_one
+default_time_dimension: period_start
+meta:
+  analytics:
+    source_id: heating
+    domain: municipal_annual
+    root_model: population
+    population: so_municipalities_v2025
+    period_kind: year
+    cell_key: cell_id
+    temporal_kind: stock
+    reference_dates:
+      '2025': '2025-12-31'
+    coverage: unknown
+    required: false
+    label: Gebäude und Heizsysteme

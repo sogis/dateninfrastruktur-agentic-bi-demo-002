@@ -1,0 +1,150 @@
+version: 15
+name: population_sex_nationality
+description: Originalquelle mit realem nicht eindeutigen Gemeindeschlüssel; in Quarantäne.
+sql_table: population_sex_nationality
+data_source: pilot
+columns:
+- name: report_year
+  type: INT
+  primary_key: true
+- name: period_start
+  type: DATE
+  primary_key: false
+  granularity: year
+- name: geo_version
+  type: INT
+  primary_key: true
+- name: municipality_id
+  type: INT
+  primary_key: true
+- name: cell_id
+  type: TEXT
+  primary_key: false
+- name: people
+  type: INT
+  primary_key: false
+  label: Wohnbevölkerung
+  description: Wohnbevölkerung; Originalquelle mit realem nicht eindeutigen Gemeindeschlüssel;
+    in Quarantäne.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population_sex_nationality.count
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: women
+  type: INT
+  primary_key: false
+  label: Frauen
+  description: Frauen; Originalquelle mit realem nicht eindeutigen Gemeindeschlüssel;
+    in Quarantäne.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population_sex_nationality.women
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: men
+  type: INT
+  primary_key: false
+  label: Männer
+  description: Männer; Originalquelle mit realem nicht eindeutigen Gemeindeschlüssel;
+    in Quarantäne.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population_sex_nationality.men
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: swiss_people
+  type: INT
+  primary_key: false
+  label: Schweizerinnen und Schweizer
+  description: Schweizerinnen und Schweizer; Originalquelle mit realem nicht eindeutigen
+    Gemeindeschlüssel; in Quarantäne.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population_sex_nationality.swiss
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+- name: foreign_people
+  type: INT
+  primary_key: false
+  label: Ausländerinnen und Ausländer
+  description: Ausländerinnen und Ausländer; Originalquelle mit realem nicht eindeutigen
+    Gemeindeschlüssel; in Quarantäne.
+  allowed_aggregations:
+  - sum
+  meta:
+    analytics:
+      metric_id: population_sex_nationality.foreign
+      unit: persons
+      temporal_kind: stock
+      allowed_aggregations:
+      - sum
+      dimensions:
+      - municipality
+      - district
+      - year
+      additive_over:
+      - municipality
+      - district
+joins: []
+default_time_dimension: period_start
+meta:
+  analytics:
+    source_id: population_sex_nationality
+    domain: municipal_annual
+    root_model: population
+    population: so_municipalities_v2025
+    period_kind: year
+    cell_key: cell_id
+    temporal_kind: stock
+    reference_dates:
+      '2025': '2025-12-31'
+    coverage: unknown
+    required: false
+    label: Bevölkerung Geschlecht und Staatsangehörigkeit
+    status: quarantined
+    status_reason: DUPLICATE_KEY

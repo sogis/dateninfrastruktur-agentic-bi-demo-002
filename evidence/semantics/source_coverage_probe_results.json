@@ -1,0 +1,175 @@
+[
+  {
+    "name": "source_coverage_before_local_filter",
+    "query": {
+      "source_model": "cells",
+      "dimensions": [
+        "municipality"
+      ],
+      "filters": [
+        "report_year >= 2024",
+        "report_year <= 2025"
+      ],
+      "measures": [
+        {
+          "name": "filtered_value",
+          "formula": "sum(iif(staff.education == 'absent_category', staff.stock, None))"
+        },
+        {
+          "name": "source_cells",
+          "formula": "count_distinct(staff.cell_id, partition_by=municipality)"
+        },
+        {
+          "name": "expected_cells",
+          "formula": "count_distinct(id, partition_by=municipality)"
+        }
+      ],
+      "to_many_handling": "error"
+    },
+    "status": "ok",
+    "data": [
+      {
+        "cells.municipality": "A",
+        "cells.filtered_value": null,
+        "cells.source_cells": 2,
+        "cells.expected_cells": 2
+      },
+      {
+        "cells.municipality": "B",
+        "cells.filtered_value": null,
+        "cells.source_cells": 1,
+        "cells.expected_cells": 2
+      }
+    ],
+    "warnings": [],
+    "sql": "WITH _base AS (\n  SELECT\n    cells.municipality AS \"cells.municipality\"\n  FROM cells AS cells\n  WHERE\n    cells.report_year >= 2024 AND cells.report_year <= 2025\n  GROUP BY\n    cells.municipality\n), _cm_cells__id_count_distinct_partition_by_municipality AS (\n  SELECT\n    cells.municipality AS \"cells.municipality\",\n    COUNT(DISTINCT cells.id) AS \"cells.expected_cells\"\n  FROM cells AS cells\n  WHERE\n    cells.report_year >= 2024 AND cells.report_year <= 2025\n  GROUP BY\n    cells.municipality\n), _cm_cells__staff__cell_id_count_distinct_partition_by_municipality AS (\n  SELECT\n    cells.municipality AS \"staff.cells.municipality\",\n    COUNT(DISTINCT staff.cell_id) AS \"staff.cell_id_count_distinct_partition_by_cells_municipality\"\n  FROM staff AS staff\n  LEFT JOIN cells AS cells\n    ON staff.cell_id = cells.id\n  WHERE\n    cells.report_year >= 2024 AND cells.report_year <= 2025\n  GROUP BY\n    cells.municipality\n), _cm_cells__staff__iif_education_absent_category_stock_null_sum AS (\n  SELECT\n    cells.municipality AS \"staff.cells.municipality\",\n    SUM(CASE WHEN staff.education = 'absent_category' THEN staff.stock ELSE NULL END) AS \"staff.iif_education_absent_category_stock_null_sum\"\n  FROM staff AS staff\n  LEFT JOIN cells AS cells\n    ON staff.cell_id = cells.id\n  WHERE\n    cells.report_year >= 2024 AND cells.report_year <= 2025\n  GROUP BY\n    cells.municipality\n)\nSELECT\n  _base.\"cells.municipality\",\n  _cm_cells__staff__iif_education_absent_category_stock_null_sum.\"staff.iif_education_absent_category_stock_null_sum\" AS \"cells.filtered_value\",\n  COALESCE(\n    _cm_cells__staff__cell_id_count_distinct_partition_by_municipality.\"staff.cell_id_count_distinct_partition_by_cells_municipality\",\n    0\n  ) AS \"cells.source_cells\",\n  COALESCE(_cm_cells__id_count_distinct_partition_by_municipality.\"cells.expected_cells\", 0) AS \"cells.expected_cells\"\nFROM _base\nLEFT JOIN _cm_cells__id_count_distinct_partition_by_municipality\n  ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__id_count_distinct_partition_by_municipality.\"cells.municipality\"\nLEFT JOIN _cm_cells__staff__cell_id_count_distinct_partition_by_municipality\n  ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__staff__cell_id_count_distinct_partition_by_municipality.\"staff.cells.municipality\"\nLEFT JOIN _cm_cells__staff__iif_education_absent_category_stock_null_sum\n  ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__staff__iif_education_absent_category_stock_null_sum.\"staff.cells.municipality\""
+  },
+  {
+    "name": "source_coverage_with_category_and_coarse_denominator",
+    "query": {
+      "source_model": "cells",
+      "dimensions": [
+        "municipality",
+        "vehicles.kind"
+      ],
+      "time_dimensions": [
+        {
+          "dimension": "period_start",
+          "granularity": "year",
+          "date_range": [
+            "2024-01-01",
+            "2025-12-31"
+          ]
+        }
+      ],
+      "measures": [
+        {
+          "name": "cars_per_1000",
+          "formula": "1000 * sum(iif(vehicles.kind == 'car', vehicles.n, None)) / nullif(sum(population.n, partition_by=[municipality, year(period_start)]),0)"
+        },
+        {
+          "name": "vehicle_cells",
+          "formula": "count_distinct(vehicles.cell_id, partition_by=[municipality, year(period_start)])"
+        },
+        {
+          "name": "population_cells",
+          "formula": "count_distinct(population.cell_id, partition_by=[municipality, year(period_start)])"
+        },
+        {
+          "name": "staff_cells",
+          "formula": "count_distinct(staff.cell_id, partition_by=[municipality, year(period_start)])"
+        },
+        {
+          "name": "expected_cells",
+          "formula": "count_distinct(id, partition_by=[municipality, year(period_start)])"
+        }
+      ],
+      "to_many_handling": "error"
+    },
+    "status": "ok",
+    "data": [
+      {
+        "cells.municipality": "A",
+        "cells.vehicles.kind": "car",
+        "cells.period_start": "2025-01-01 00:00:00",
+        "cells.cars_per_1000": 300.0,
+        "cells.vehicle_cells": 1,
+        "cells.population_cells": 1,
+        "cells.staff_cells": 1,
+        "cells.expected_cells": 1
+      },
+      {
+        "cells.municipality": "B",
+        "cells.vehicles.kind": "moto",
+        "cells.period_start": "2024-01-01 00:00:00",
+        "cells.cars_per_1000": null,
+        "cells.vehicle_cells": 1,
+        "cells.population_cells": 1,
+        "cells.staff_cells": 0,
+        "cells.expected_cells": 1
+      },
+      {
+        "cells.municipality": "A",
+        "cells.vehicles.kind": "car",
+        "cells.period_start": "2024-01-01 00:00:00",
+        "cells.cars_per_1000": 300.0,
+        "cells.vehicle_cells": 1,
+        "cells.population_cells": 1,
+        "cells.staff_cells": 1,
+        "cells.expected_cells": 1
+      },
+      {
+        "cells.municipality": "B",
+        "cells.vehicles.kind": "moto",
+        "cells.period_start": "2025-01-01 00:00:00",
+        "cells.cars_per_1000": null,
+        "cells.vehicle_cells": 1,
+        "cells.population_cells": 1,
+        "cells.staff_cells": 1,
+        "cells.expected_cells": 1
+      },
+      {
+        "cells.municipality": "A",
+        "cells.vehicles.kind": "moto",
+        "cells.period_start": "2024-01-01 00:00:00",
+        "cells.cars_per_1000": null,
+        "cells.vehicle_cells": 1,
+        "cells.population_cells": 1,
+        "cells.staff_cells": 1,
+        "cells.expected_cells": 1
+      },
+      {
+        "cells.municipality": "B",
+        "cells.vehicles.kind": "car",
+        "cells.period_start": "2024-01-01 00:00:00",
+        "cells.cars_per_1000": 250.0,
+        "cells.vehicle_cells": 1,
+        "cells.population_cells": 1,
+        "cells.staff_cells": 0,
+        "cells.expected_cells": 1
+      },
+      {
+        "cells.municipality": "A",
+        "cells.vehicles.kind": "moto",
+        "cells.period_start": "2025-01-01 00:00:00",
+        "cells.cars_per_1000": null,
+        "cells.vehicle_cells": 1,
+        "cells.population_cells": 1,
+        "cells.staff_cells": 1,
+        "cells.expected_cells": 1
+      },
+      {
+        "cells.municipality": "B",
+        "cells.vehicles.kind": "car",
+        "cells.period_start": "2025-01-01 00:00:00",
+        "cells.cars_per_1000": 300.0,
+        "cells.vehicle_cells": 1,
+        "cells.population_cells": 1,
+        "cells.staff_cells": 1,
+        "cells.expected_cells": 1
+      }
+    ],
+    "warnings": [],
+    "sql": "WITH _base AS (\n  SELECT\n    cells.municipality AS \"cells.municipality\",\n    vehicles.kind AS \"cells.vehicles.kind\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"cells.period_start\"\n  FROM cells AS cells\n  LEFT JOIN vehicles AS vehicles\n    ON cells.id = vehicles.cell_id\n  WHERE\n    (\n      cells.period_start >= CAST('2024-01-01' AS DATE)\n      AND cells.period_start < CAST('2026-01-01' AS DATE)\n    )\n  GROUP BY\n    cells.municipality,\n    vehicles.kind,\n    DATE_TRUNC('YEAR', cells.period_start)\n), _cm_cells__id_count_distinct_partition_by_municipality_period_start AS (\n  SELECT\n    cells.municipality AS \"cells.municipality\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"cells.period_start\",\n    COUNT(DISTINCT cells.id) AS \"cells.expected_cells\"\n  FROM cells AS cells\n  WHERE\n    (\n      cells.period_start >= CAST('2024-01-01' AS DATE)\n      AND cells.period_start < CAST('2026-01-01' AS DATE)\n    )\n  GROUP BY\n    cells.municipality,\n    DATE_TRUNC('YEAR', cells.period_start)\n), _cm_cells__population__n_sum_partition_by_municipality_period_start AS (\n  SELECT\n    cells.municipality AS \"population.cells.municipality\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"population.cells.period_start\",\n    CAST(SUM(population.n) AS DOUBLE) AS \"population.n_sum_partition_by_cells_municipality_cells_period_start\"\n  FROM population AS population\n  LEFT JOIN cells AS cells\n    ON population.cell_id = cells.id\n  WHERE\n    cells.period_start >= CAST('2024-01-01' AS DATE)\n    AND cells.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    cells.municipality,\n    DATE_TRUNC('YEAR', cells.period_start)\n), _cm_cells__vehicles__cell_id_count_distinct_partition_by_municipality_period_start AS (\n  SELECT\n    cells.municipality AS \"vehicles.cells.municipality\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"vehicles.cells.period_start\",\n    COUNT(DISTINCT vehicles.cell_id) AS \"vehicles.cell_id_count_distinct_partition_by_cells_municipality_cells_period_start\"\n  FROM vehicles AS vehicles\n  LEFT JOIN cells AS cells\n    ON vehicles.cell_id = cells.id\n  WHERE\n    cells.period_start >= CAST('2024-01-01' AS DATE)\n    AND cells.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    cells.municipality,\n    DATE_TRUNC('YEAR', cells.period_start)\n), _cm_cells__population__cell_id_count_distinct_partition_by_municipality_period_start AS (\n  SELECT\n    cells.municipality AS \"population.cells.municipality\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"population.cells.period_start\",\n    COUNT(DISTINCT population.cell_id) AS \"population.cell_id_count_distinct_partition_by_cells_municipality_cells_period_start\"\n  FROM population AS population\n  LEFT JOIN cells AS cells\n    ON population.cell_id = cells.id\n  WHERE\n    cells.period_start >= CAST('2024-01-01' AS DATE)\n    AND cells.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    cells.municipality,\n    DATE_TRUNC('YEAR', cells.period_start)\n), _cm_cells__staff__cell_id_count_distinct_partition_by_municipality_period_start AS (\n  SELECT\n    cells.municipality AS \"staff.cells.municipality\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"staff.cells.period_start\",\n    COUNT(DISTINCT staff.cell_id) AS \"staff.cell_id_count_distinct_partition_by_cells_municipality_cells_period_start\"\n  FROM staff AS staff\n  LEFT JOIN cells AS cells\n    ON staff.cell_id = cells.id\n  WHERE\n    cells.period_start >= CAST('2024-01-01' AS DATE)\n    AND cells.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    cells.municipality,\n    DATE_TRUNC('YEAR', cells.period_start)\n), _cm_cells__vehicles__iif_kind_car_n_null_sum AS (\n  SELECT\n    cells.municipality AS \"vehicles.cells.municipality\",\n    vehicles.kind AS \"vehicles.kind\",\n    DATE_TRUNC('YEAR', cells.period_start) AS \"vehicles.cells.period_start\",\n    SUM(CASE WHEN vehicles.kind = 'car' THEN vehicles.n ELSE NULL END) AS \"vehicles.iif_kind_car_n_null_sum\"\n  FROM vehicles AS vehicles\n  LEFT JOIN cells AS cells\n    ON vehicles.cell_id = cells.id\n  WHERE\n    cells.period_start >= CAST('2024-01-01' AS DATE)\n    AND cells.period_start < CAST('2026-01-01' AS DATE)\n  GROUP BY\n    cells.municipality,\n    vehicles.kind,\n    DATE_TRUNC('YEAR', cells.period_start)\n)\nSELECT\n  _base.\"cells.municipality\",\n  _base.\"cells.vehicles.kind\",\n  _base.\"cells.period_start\",\n  1000 * _cm_cells__vehicles__iif_kind_car_n_null_sum.\"vehicles.iif_kind_car_n_null_sum\" / NULLIF(\n    NULLIF(\n      _cm_cells__population__n_sum_partition_by_municipality_period_start.\"population.n_sum_partition_by_cells_municipality_cells_period_start\",\n      0\n    ),\n    0\n  ) AS \"cells.cars_per_1000\",\n  COALESCE(\n    _cm_cells__vehicles__cell_id_count_distinct_partition_by_municipality_period_start.\"vehicles.cell_id_count_distinct_partition_by_cells_municipality_cells_period_start\",\n    0\n  ) AS \"cells.vehicle_cells\",\n  COALESCE(\n    _cm_cells__population__cell_id_count_distinct_partition_by_municipality_period_start.\"population.cell_id_count_distinct_partition_by_cells_municipality_cells_period_start\",\n    0\n  ) AS \"cells.population_cells\",\n  COALESCE(\n    _cm_cells__staff__cell_id_count_distinct_partition_by_municipality_period_start.\"staff.cell_id_count_distinct_partition_by_cells_municipality_cells_period_start\",\n    0\n  ) AS \"cells.staff_cells\",\n  COALESCE(\n    _cm_cells__id_count_distinct_partition_by_municipality_period_start.\"cells.expected_cells\",\n    0\n  ) AS \"cells.expected_cells\"\nFROM _base\nLEFT JOIN _cm_cells__id_count_distinct_partition_by_municipality_period_start\n  ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__id_count_distinct_partition_by_municipality_period_start.\"cells.municipality\"\n  AND _base.\"cells.period_start\" IS NOT DISTINCT FROM _cm_cells__id_count_distinct_partition_by_municipality_period_start.\"cells.period_start\"\nLEFT JOIN _cm_cells__population__n_sum_partition_by_municipality_period_start\n  ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__population__n_sum_partition_by_municipality_period_start.\"population.cells.municipality\"\n  AND _base.\"cells.period_start\" IS NOT DISTINCT FROM _cm_cells__population__n_sum_partition_by_municipality_period_start.\"population.cells.period_start\"\nLEFT JOIN _cm_cells__vehicles__cell_id_count_distinct_partition_by_municipality_period_start\n  ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__vehicles__cell_id_count_distinct_partition_by_municipality_period_start.\"vehicles.cells.municipality\"\n  AND _base.\"cells.period_start\" IS NOT DISTINCT FROM _cm_cells__vehicles__cell_id_count_distinct_partition_by_municipality_period_start.\"vehicles.cells.period_start\"\nLEFT JOIN _cm_cells__population__cell_id_count_distinct_partition_by_municipality_period_start\n  ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__population__cell_id_count_distinct_partition_by_municipality_period_start.\"population.cells.municipality\"\n  AND _base.\"cells.period_start\" IS NOT DISTINCT FROM _cm_cells__population__cell_id_count_distinct_partition_by_municipality_period_start.\"population.cells.period_start\"\nLEFT JOIN _cm_cells__staff__cell_id_count_distinct_partition_by_municipality_period_start\n  ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__staff__cell_id_count_distinct_partition_by_municipality_period_start.\"staff.cells.municipality\"\n  AND _base.\"cells.period_start\" IS NOT DISTINCT FROM _cm_cells__staff__cell_id_count_distinct_partition_by_municipality_period_start.\"staff.cells.period_start\"\nLEFT JOIN _cm_cells__vehicles__iif_kind_car_n_null_sum\n  ON _base.\"cells.municipality\" IS NOT DISTINCT FROM _cm_cells__vehicles__iif_kind_car_n_null_sum.\"vehicles.cells.municipality\"\n  AND _base.\"cells.vehicles.kind\" IS NOT DISTINCT FROM _cm_cells__vehicles__iif_kind_car_n_null_sum.\"vehicles.kind\"\n  AND _base.\"cells.period_start\" IS NOT DISTINCT FROM _cm_cells__vehicles__iif_kind_car_n_null_sum.\"vehicles.cells.period_start\""
+  }
+]

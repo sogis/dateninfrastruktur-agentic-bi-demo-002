@@ -1,0 +1,134 @@
+{
+  "fresh": [
+    {
+      "mode": "fresh",
+      "import_ms": 613.58,
+      "prepare_ms": 5.92,
+      "total_ms": 792.25,
+      "queries": [
+        {
+          "query_ms": 172.21,
+          "data": [
+            {
+              "population.report_year": 2024,
+              "population.people_sum": 600
+            },
+            {
+              "population.report_year": 2025,
+              "population.people_sum": 720
+            }
+          ]
+        }
+      ],
+      "process_wall_ms": 1004.27,
+      "returncode": 0
+    },
+    {
+      "mode": "fresh",
+      "import_ms": 638.4,
+      "prepare_ms": 6.28,
+      "total_ms": 912.56,
+      "queries": [
+        {
+          "query_ms": 267.39,
+          "data": [
+            {
+              "population.report_year": 2024,
+              "population.people_sum": 600
+            },
+            {
+              "population.report_year": 2025,
+              "population.people_sum": 720
+            }
+          ]
+        }
+      ],
+      "process_wall_ms": 1208.09,
+      "returncode": 0
+    },
+    {
+      "mode": "fresh",
+      "import_ms": 757.42,
+      "prepare_ms": 7.3,
+      "total_ms": 1037.71,
+      "queries": [
+        {
+          "query_ms": 272.46,
+          "data": [
+            {
+              "population.report_year": 2024,
+              "population.people_sum": 600
+            },
+            {
+              "population.report_year": 2025,
+              "population.people_sum": 720
+            }
+          ]
+        }
+      ],
+      "process_wall_ms": 1284.24,
+      "returncode": 0
+    }
+  ],
+  "warm": {
+    "mode": "warm",
+    "import_ms": 641.18,
+    "prepare_ms": 6.9,
+    "total_ms": 1005.7,
+    "queries": [
+      {
+        "query_ms": 255.26,
+        "data": [
+          {
+            "population.report_year": 2024,
+            "population.people_sum": 600
+          },
+          {
+            "population.report_year": 2025,
+            "population.people_sum": 720
+          }
+        ]
+      },
+      {
+        "query_ms": 50.73,
+        "data": [
+          {
+            "population.report_year": 2024,
+            "population.people_sum": 600
+          },
+          {
+            "population.report_year": 2025,
+            "population.people_sum": 720
+          }
+        ]
+      },
+      {
+        "query_ms": 51.1,
+        "data": [
+          {
+            "population.report_year": 2024,
+            "population.people_sum": 600
+          },
+          {
+            "population.report_year": 2025,
+            "population.people_sum": 720
+          }
+        ]
+      }
+    ],
+    "process_wall_ms": 1228.38
+  },
+  "hard_kill": {
+    "timeout_seconds": 2,
+    "child_phase": "{\"phase\": \"busy_started\", \"pid\": 611}",
+    "kill_and_reap_ms": 17.16,
+    "total_wall_ms": 2020.13,
+    "returncode": -9
+  },
+  "self_timeout": {
+    "alarm_seconds_after_import": 2,
+    "process_wall_ms": 2617.29,
+    "returncode": -14,
+    "child_phase": "{\"phase\": \"busy_started\", \"pid\": 6}"
+  }
+}
