@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "model_id": "agentic-bi-solothurn-slayer",
+  "base_model_id": "Qwen/Qwen3.8-27B-FP8",
+  "tool_names": [
+    "analyse",
+    "inspect",
+    "search"
+  ],
+  "tools_verified_by_openwebui": true,
+  "provider_configured": true,
+  "native_function_calling": true,
+  "login_required": true,
+  "signup_enabled": false,
+  "ollama_enabled": false,
+  "follow_up_generation_enabled": false
+}

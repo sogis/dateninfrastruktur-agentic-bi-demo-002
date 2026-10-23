@@ -1,0 +1,56 @@
+name: dateninfrastruktur-agentic-bi-demo-002
+
+services:
+  agentic-bi-mcp:
+    image: dateninfrastruktur-agentic-bi-demo-002-mcp:local
+    build: .
+    ports:
+      - "127.0.0.1:${AGENTIC_BI_HOST_PORT:-8003}:8000"
+    environment:
+      SLAYER_APP_ALLOWED_HOSTS: "agentic-bi-mcp:8000,localhost:8000,127.0.0.1:8000,localhost:${AGENTIC_BI_HOST_PORT:-8003},127.0.0.1:${AGENTIC_BI_HOST_PORT:-8003}"
+      SLAYER_APP_ALLOWED_ORIGINS: "http://localhost:${OPEN_WEBUI_HOST_PORT:-3003},http://127.0.0.1:${OPEN_WEBUI_HOST_PORT:-3003},http://open-webui:8080"
+    read_only: true
+    tmpfs:
+      - /work:rw,size=268435456,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 1
+    mem_limit: 1g
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/readyz', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 6
+    restart: unless-stopped
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:v0.12.3@sha256:a537bbe1e6b428820f52ed4a029d7fff97062e24d5cf32c365fba36fd0542def
+    ports:
+      - "127.0.0.1:${OPEN_WEBUI_HOST_PORT:-3003}:8080"
+    environment:
+      ENABLE_FOLLOW_UP_GENERATION: "False"
+      ENABLE_OLLAMA_API: "False"
+      ENABLE_SIGNUP: "False"
+      CHAT_RESPONSE_MAX_TOOL_CALL_ITERATIONS: "8"
+      OPENAI_API_BASE_URLS: "${INFOMANIAK_API_BASE_URL:-https://api.infomaniak.com/2/ai/103965/openai/v1}"
+      OPENAI_API_KEYS: "${INFOMANIAK_API_KEY:?INFOMANIAK_API_KEY fehlt in .env}"
+      WEBUI_AUTH: "True"
+      WEBUI_SECRET_KEY: "${WEBUI_SECRET_KEY:?WEBUI_SECRET_KEY fehlt in .env}"
+      DEFAULT_MODELS: agentic-bi-solothurn-slayer
+    volumes:
+      - open-webui-data:/app/backend/data
+      - ./openwebui/custom.css:/app/build/static/custom.css:ro
+    depends_on:
+      agentic-bi-mcp:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=5)"]
+      interval: 15s
+      timeout: 8s
+      start_period: 90s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  open-webui-data:

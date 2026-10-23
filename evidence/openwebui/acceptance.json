@@ -1,0 +1,61 @@
+{
+  "tested_at_utc": "2026-10-23T18:04:25.539981+00:00",
+  "regression": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "144",
+    "time": "55.562",
+    "timestamp": "2026-10-23T19:57:27.881885+02:00",
+    "hostname": "Monterrico.local"
+  },
+  "final_setup_tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "12",
+    "time": "0.646",
+    "timestamp": "2026-10-23T20:03:39.238765+02:00",
+    "hostname": "Monterrico.local"
+  },
+  "source_sha256": {
+    "building_category": "9af9b8b2cb73f57730fcc1c4b4ae77eb68f3c05ca3f584da916da4ffd340245b",
+    "ebau": "6fe91a3cde375356d08f15f8cfde363ddbe7436f5b8614da6c157bf6a029a132",
+    "heating": "2df4fbe698b798639773865025736917e76984041bb83dc2e1ee8c43e501c3b6",
+    "population_age": "72647f0811e9db892f1571275bc7adf6201aee30f18cac4fe64228175546c750",
+    "population_sex_nationality": "26bb6a4452a0626a211a82b47a516ad45f894430204d37b01b0e80eb794da583",
+    "revenue": "61039f6321eff0e0888157e2acba6eefc05bef6a941ee5822fd66c2b9d3e2328",
+    "staff": "149d720c99993c838d8e02ecbb09f3986a144562fe7f836ee78361c53f8955aa",
+    "taxes": "2434371697f848bccd55eecb1a7c037242a2a9ec77ef733b3d07be01d5b2d9bf",
+    "vehicles": "0e09e311cb5e089f5533e52c3d27724a421f385f3c4b31a5f57129bbcba7fd08"
+  },
+  "source_contract_models_and_oracles_unchanged": true,
+  "base_model_id": "Qwen/Qwen3.8-27B-FP8",
+  "openwebui_version": "0.12.3",
+  "openwebui_image": "ghcr.io/open-webui/open-webui:v0.12.3@sha256:a537bbe1e6b428820f52ed4a029d7fff97062e24d5cf32c365fba36fd0542def",
+  "native_tool_iteration_limit": 8,
+  "browser": {
+    "login_passed": true,
+    "default_model": "Agentic BI – SLayer",
+    "css_loaded": "/static/custom.css",
+    "css_text_scale": "1.07",
+    "final_chat_display": "649.68",
+    "vehicle_reference_date_notice_visible": true
+  },
+  "live_requests_correlated_with_mcp_logs": true,
+  "implementation_sha256": {
+    ".dockerignore": "e27aac002309465200fc4d3bff59da06d4d091d7c4806ebc9325cdac8e9aa38f",
+    ".env.example": "f10cc59b3baecf665aea34f3bac395fede17c9db05d85a85d65b230a94d1b243",
+    "Dockerfile": "4fe8660ce3acb51cf93d26272ce7c37df1dc1808e5136a1cc20295b7c49798a6",
+    "docker-compose.yml": "a2d632f7b3af30cf8694392a2f5d2e9acb0eacecfcf5bd62f84ff41145eaa796",
+    "openwebui/custom.css": "c4c67f49736628f597d990147bd087e1623729cdca162642fda0b3c7e0f2f739",
+    "openwebui/system-prompt.md": "16b1f81c35be9830205f424908d9572543832c200959597c987607593a53172d",
+    "scripts/openwebui.py": "a0a253fde32869f57da868ca8f5f819d349e53bbefd10f20050d652a5a72cd82",
+    "start.sh": "9b93c3c6ddf97a3a6dc78027d5f8737bae479401561e7748969bf301bb803a25",
+    "tests/test_container.py": "97a7576dfc426e825871b90b6f220b78fa762f7f4931f8fc82dc9e410564f04f",
+    "tests/test_openwebui.py": "0765cde3ed6af4b8bff4a16325455f337405ae1db80bc8c25260497fd032138e"
+  },
+  "query_workers_after_live_checks": 0
+}

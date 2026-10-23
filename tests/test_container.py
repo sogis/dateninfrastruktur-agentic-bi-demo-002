@@ -29,7 +29,12 @@ def docker(*args, input=None, timeout=60):
 @pytest.mark.skipif(
     shutil.which("docker") is None, reason="B15 benötigt eine lokale Docker-Laufzeit"
 )
-def test_B15_nonprivileged_offline_container_readonly_real_mcp(bundle_dir):
+@pytest.mark.parametrize(
+    "bundle_mount", [True, False], ids=["mounted-bundle", "embedded-bundle"]
+)
+def test_B15_nonprivileged_offline_container_readonly_real_mcp(
+    bundle_dir, bundle_mount
+):
     # Build uses the immutable base digest and frozen dependency lock. Runtime
     # itself is subsequently run with no network interface except loopback.
     docker("build", "--pull=false", "-t", "slayer-bi:acceptance", ".", timeout=120)
@@ -58,8 +63,11 @@ def test_B15_nonprivileged_offline_container_readonly_real_mcp(bundle_dir):
             "/work:rw,size=268435456,mode=1777",
             "--env",
             "HOME=/nonexistent",
-            "--mount",
-            f"type=bind,src={bundle_dir},dst=/bundle,readonly",
+            *(
+                ["--mount", f"type=bind,src={bundle_dir},dst=/bundle,readonly"]
+                if bundle_mount
+                else []
+            ),
             "slayer-bi:acceptance",
         )
         script = r"""
@@ -101,6 +109,8 @@ async def main():
     assert int(caps,16)==0
     assert not os.access('/bundle/pilot.duckdb',os.W_OK)
     assert not Path('/nonexistent').exists()
+    assert not Path('/app/.env').exists()
+    assert not Path('/build-input').exists()
     assert not list(Path('/work').glob('query-*'))
     peak=int(Path('/sys/fs/cgroup/memory.peak').read_text())
     print(json.dumps(dict(uid=os.getuid(),capabilities=caps,ready=True,quarantine=True,ratio=envelope['data']['rows'][0]['ratio'],readiness_seconds=readiness_seconds,query_seconds=query_seconds,memory_peak_bytes=peak)))
@@ -121,6 +131,7 @@ asyncio.run(main())
         ]
         assert any(e["event"] == "analysis_complete" and e["ok"] for e in events)
         result.update(
+            bundle_mode="mounted" if bundle_mount else "embedded",
             image_id=configuration["Image"],
             elapsed_seconds=time.monotonic() - started,
             base_image="python:3.12.14-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f",

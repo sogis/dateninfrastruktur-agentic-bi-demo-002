@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "env_mode": "0600",
+  "env_git_ignored": true,
+  "nonignored_files_secret_free": true,
+  "docker_context_copy_env_rejected": true,
+  "services": [
+    {
+      "service": "agentic-bi-mcp",
+      "image": "dateninfrastruktur-agentic-bi-demo-002-mcp:local",
+      "image_id": "sha256:2935d627fcd0d861459c8afa367b3e0354fc04ebd79c2381951ad426c0c778cb",
+      "health": "healthy",
+      "ports": {
+        "8000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8003"
+          }
+        ]
+      },
+      "read_only_root": true,
+      "user": "10001:0",
+      "memory_limit": 1073741824,
+      "cpus": 1,
+      "work_tmpfs": "rw,size=268435456,mode=1777",
+      "bundle_embedded": true,
+      "provider_credentials_absent": true
+    },
+    {
+      "service": "open-webui",
+      "image": "ghcr.io/open-webui/open-webui:v0.12.3@sha256:a537bbe1e6b428820f52ed4a029d7fff97062e24d5cf32c365fba36fd0542def",
+      "image_id": "sha256:a537bbe1e6b428820f52ed4a029d7fff97062e24d5cf32c365fba36fd0542def",
+      "health": "healthy",
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3003"
+          }
+        ]
+      }
+    }
+  ]
+}

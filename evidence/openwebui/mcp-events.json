@@ -1,0 +1,116 @@
+[
+  {
+    "event": "startup",
+    "time_utc": "2026-10-23T13:08:07.518002+00:00",
+    "catalog_version": "sha256:97e1b9312013c478f42df45e67f4661d0a37f4441245b0b3ab419d6dde4bbbd4",
+    "ok": true,
+    "available_sources": 6,
+    "quarantined_sources": 1,
+    "unavailable_sources": 2,
+    "quality_codes": [
+      "DUPLICATE_KEY",
+      "INCOMPATIBLE_GEOGRAPHY",
+      "UNSUPPORTED_PERIOD"
+    ]
+  },
+  {
+    "event": "analysis_complete",
+    "time_utc": "2026-10-23T13:11:33.974563+00:00",
+    "request_id": "fcc513f6-63ae-4ce2-b96f-0a22776439fd",
+    "catalog_version": "sha256:97e1b9312013c478f42df45e67f4661d0a37f4441245b0b3ab419d6dde4bbbd4",
+    "model_ids": [
+      "population",
+      "vehicles"
+    ],
+    "metric_ids": [
+      "population.count",
+      "vehicles.count"
+    ],
+    "duration_ms": 2041.156,
+    "internal_rows": 1,
+    "returned_rows": 1,
+    "truncated": false,
+    "ok": true,
+    "error_code": null
+  },
+  {
+    "event": "analysis_complete",
+    "time_utc": "2026-10-23T17:48:27.414614+00:00",
+    "request_id": "0af18675-ad2c-4ac1-bead-00092c6438f8",
+    "catalog_version": "sha256:97e1b9312013c478f42df45e67f4661d0a37f4441245b0b3ab419d6dde4bbbd4",
+    "model_ids": [
+      "population",
+      "vehicles"
+    ],
+    "metric_ids": [
+      "population.count",
+      "vehicles.count"
+    ],
+    "duration_ms": 2030.266,
+    "internal_rows": 1,
+    "returned_rows": 1,
+    "truncated": false,
+    "ok": true,
+    "error_code": null
+  },
+  {
+    "event": "analysis_complete",
+    "time_utc": "2026-10-23T17:57:22.628544+00:00",
+    "request_id": "e6bb766d-2ee1-4d09-bba6-acbf2ad3ab70",
+    "catalog_version": "sha256:97e1b9312013c478f42df45e67f4661d0a37f4441245b0b3ab419d6dde4bbbd4",
+    "model_ids": [
+      "population",
+      "vehicles"
+    ],
+    "metric_ids": [
+      "population.count",
+      "vehicles.count"
+    ],
+    "duration_ms": 1903.541,
+    "internal_rows": 0,
+    "returned_rows": 0,
+    "truncated": false,
+    "ok": false,
+    "error_code": "E_REFERENCE_DATE_UNKNOWN"
+  },
+  {
+    "event": "analysis_complete",
+    "time_utc": "2026-10-23T17:59:43.729634+00:00",
+    "request_id": "fa00fe12-3ebd-4110-9598-83589fd84704",
+    "catalog_version": "sha256:97e1b9312013c478f42df45e67f4661d0a37f4441245b0b3ab419d6dde4bbbd4",
+    "model_ids": [
+      "population",
+      "vehicles"
+    ],
+    "metric_ids": [
+      "population.count",
+      "vehicles.count"
+    ],
+    "duration_ms": 1531.663,
+    "internal_rows": 1,
+    "returned_rows": 1,
+    "truncated": false,
+    "ok": true,
+    "error_code": null
+  },
+  {
+    "event": "analysis_complete",
+    "time_utc": "2026-10-23T18:01:19.833482+00:00",
+    "request_id": "2e6a08b1-0521-4f49-b4f4-e4e0e096a97d",
+    "catalog_version": "sha256:97e1b9312013c478f42df45e67f4661d0a37f4441245b0b3ab419d6dde4bbbd4",
+    "model_ids": [
+      "population",
+      "vehicles"
+    ],
+    "metric_ids": [
+      "population.count",
+      "vehicles.count"
+    ],
+    "duration_ms": 1620.564,
+    "internal_rows": 1,
+    "returned_rows": 1,
+    "truncated": false,
+    "ok": true,
+    "error_code": null
+  }
+]

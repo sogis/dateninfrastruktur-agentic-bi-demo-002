@@ -1,0 +1,20 @@
+{
+  "uid": 12345,
+  "capabilities": "0000000000000000",
+  "ready": true,
+  "quarantine": true,
+  "ratio": 649.6804637625776,
+  "readiness_seconds": 2.318227375999413,
+  "query_seconds": 1.4350038340016908,
+  "memory_peak_bytes": 311599104,
+  "bundle_mode": "embedded",
+  "image_id": "sha256:9c3839f9ec7fdf2c47f759a20a0285ced1fcfab54efe7f76b89a3ee57425f119",
+  "elapsed_seconds": 6.523010917007923,
+  "base_image": "python:3.12.14-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f",
+  "network": "none",
+  "read_only": true,
+  "cpu_limit": 1,
+  "memory_limit_bytes": 1073741824,
+  "work_limit_bytes": 268435456,
+  "exit_code": 0
+}

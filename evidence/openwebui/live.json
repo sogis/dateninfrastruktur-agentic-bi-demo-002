@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "cases": [
+    {
+      "case": "F04",
+      "ok": true,
+      "chat_id": "5587a1d7-5a7f-4bd7-a809-44f56bdaacfe",
+      "tool_calls": [
+        "agentic-bi-solothurn-slayer_search",
+        "agentic-bi-solothurn-slayer_search",
+        "agentic-bi-solothurn-slayer_inspect",
+        "agentic-bi-solothurn-slayer_inspect",
+        "agentic-bi-solothurn-slayer_analyse"
+      ],
+      "result_verified": true,
+      "answer_verified": true,
+      "request_ids": [
+        "2e6a08b1-0521-4f49-b4f4-e4e0e096a97d"
+      ],
+      "evidence": {
+        "value": 649.6804637625776,
+        "notice": "SAME_REPORTING_YEAR_REFERENCE_DATE_UNKNOWN"
+      }
+    },
+    {
+      "case": "N02",
+      "ok": true,
+      "chat_id": "392050ae-8e52-443c-a73f-4a2d5319f54e",
+      "tool_calls": [
+        "agentic-bi-solothurn-slayer_search",
+        "agentic-bi-solothurn-slayer_search",
+        "agentic-bi-solothurn-slayer_inspect",
+        "agentic-bi-solothurn-slayer_inspect",
+        "agentic-bi-solothurn-slayer_analyse"
+      ],
+      "result_verified": true,
+      "answer_verified": true,
+      "request_ids": [
+        "e6bb766d-2ee1-4d09-bba6-acbf2ad3ab70"
+      ],
+      "evidence": {
+        "error_code": "E_REFERENCE_DATE_UNKNOWN"
+      }
+    }
+  ]
+}

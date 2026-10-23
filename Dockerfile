@@ -6,10 +6,15 @@ WORKDIR /app
 COPY pyproject.toml uv.lock .python-version ./
 COPY src ./src
 RUN uv sync --frozen --no-dev --no-editable
+COPY models /build-input/models
+COPY tests/fixtures/real/manifest.json /build-input/manifest.json
+COPY tests/fixtures/real/raw /build-input/raw
+RUN .venv/bin/python -m slayer_app.author build --manifest /build-input/manifest.json --models /build-input/models --output /bundle > /dev/null
 
 FROM python:3.12.14-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
 WORKDIR /app
 COPY --from=build /app/.venv /app/.venv
+COPY --from=build /bundle /bundle
 COPY LICENSE /app/LICENSE
 COPY evidence/semantics/SLAYER_LICENSE.txt /app/SLAYER_LICENSE.txt
 ENV PATH="/app/.venv/bin:$PATH" PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 \

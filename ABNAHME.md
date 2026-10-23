@@ -1,5 +1,7 @@
 # Anwendungsabnahme vom 23. Oktober 2026
 
+Dieser Bericht dokumentiert die ursprüngliche Kernanwendung. Die anschliessende Docker-/OpenWebUI-Erweiterung samt erneuter Regression ist separat in [OPENWEBUI_ABNAHME.md](OPENWEBUI_ABNAHME.md) nachgewiesen.
+
 Die konkrete Anwendung hat **132 Tests bestanden**, ohne Fehler oder übersprungene Tests. Gesamtlauf: 63,51 Sekunden. Ausgeführt mit:
 
 ```sh
@@ -64,4 +66,4 @@ Es bleiben genau die acht vorgesehenen Python-Module und die vorgesehenen Verhal
 
 Der Nachweis gilt für das eingefrorene Jahresdatenpaket und den kleinen veröffentlichten Ausdrucksvertrag. Die Geschlechts-/Nationalitätsquelle bleibt quarantiniert; Steuern mit Geografie 2026 und eBau-Monatsdaten bleiben nicht verfügbar. Fahrzeugstichtage sind unbekannt; unvollständige Kategorieverteilungen werden nicht zu Nullbeständen ergänzt. Das System liefert keine geschätzten gemeinsamen Merkmalsverteilungen und prüft keine beliebige natürlichsprachliche Interpretation.
 
-Der Dienst verarbeitet offene Daten, unterstützt einen optionalen Diensttoken und eine Replik mit einem Worker. Rollen/RLS, vertrauliche Daten, historische Geografiebrücken, Monats-/Quartalsanalyse, Caching, Queue und freie native Queries sind nicht enthalten. Die konkrete installierte OpenWebUI-Version wurde nicht geprüft; der vorgesehene MCP-Agentenpfad ist dokumentiert und mit einem echten SDK-Client nachgewiesen. Es wurde kein Dienst extern veröffentlicht.
+Der Dienst verarbeitet offene Daten, unterstützt einen optionalen Diensttoken und eine Replik mit einem Worker. Rollen/RLS, vertrauliche Daten, historische Geografiebrücken, Monats-/Quartalsanalyse, Caching, Queue und freie native Queries sind nicht enthalten. Die ursprüngliche Kernabnahme prüfte den MCP-Agentenpfad mit einem echten SDK-Client; die spätere OpenWebUI-Abnahme ist im oben verlinkten Ergänzungsbericht dokumentiert. Es wurde kein Dienst extern veröffentlicht.

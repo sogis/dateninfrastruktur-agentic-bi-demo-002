@@ -1,0 +1,12 @@
+[
+  {
+    "case": "F04",
+    "chat_id": "5587a1d7-5a7f-4bd7-a809-44f56bdaacfe",
+    "answer": "**Ergebnis 2025, Kanton Solothurn:**\n\n| Kennzahl | Wert |\n|---|---:|\n| Personenwagen + Motorräder je 1000 Einwohner | **649.68** |\n\n**Formel/Definition:**  \n`1000 × (Einzelne Fahrzeuge, Fahrzeugarten „01“ Personenwagen und „60“ Motorrad) ÷ Wohnbevölkerung`\n\n**Zeitraum/Stichtag:**  \n- Berichtsjahr: 2025  \n- Wohnbevölkerung: Stichtag **31.12.2025**  \n- Fahrzeugbestand: konkreter Beobachtungsstichtag **nicht dokumentiert**\n\n**Quellen:** Fahrzeugbestand 2025; Wohnbevölkerung 2025."
+  },
+  {
+    "case": "N02",
+    "chat_id": "392050ae-8e52-443c-a73f-4a2d5319f54e",
+    "answer": "Die Prüfung wurde mit `require_same_reference_date=true` ausgeführt und fachlich abgelehnt.\n\n**Ergebnis:** Keine Zahl berechnet.\n\n**Ablehnung:** `E_REFERENCE_DATE_UNKNOWN` – „Ein Bestandsstichtag ist unbekannt.“  \n- `request_id`: `e6bb766d-2ee1-4d09-bba6-acbf2ad3ab70`\n- Die Fahrzeugdaten für 2025 haben laut `inspect` keinen dokumentierten Beobachtungsstichtag (`reference_dates.2025 = null`).\n- Die Bevölkerung hat den Stichtag `2025-12-31`.\n- Da ein zwingend identischer Stichtag verlangt wurde, kann das Verhältnis nicht berechnet werden. Die Bedingung wurde nicht gelockert."
+  }
+]

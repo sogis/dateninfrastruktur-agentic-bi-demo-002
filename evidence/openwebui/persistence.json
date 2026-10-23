@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "chats_before": 6,
+  "chats_after": 6,
+  "chats_preserved": true,
+  "credentials_unchanged": true,
+  "demo001_env_unchanged": true,
+  "css_matches_demo001": true
+}

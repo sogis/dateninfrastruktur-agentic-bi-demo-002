@@ -3,4 +3,14 @@
 __pycache__
 .pytest_cache
 build
-tests
+tests/**
+!tests/fixtures/
+!tests/fixtures/real/
+!tests/fixtures/real/manifest.json
+!tests/fixtures/real/raw/
+!tests/fixtures/real/raw/**
+.env
+.env.*
+**/.env
+**/.env.*
+.DS_Store

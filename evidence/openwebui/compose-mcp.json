@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "tool_names": [
+    "analyse",
+    "inspect",
+    "search"
+  ],
+  "ratio": 649.6804637625776,
+  "notices": [
+    "SAME_REPORTING_YEAR_REFERENCE_DATE_UNKNOWN"
+  ],
+  "request_id": "fcc513f6-63ae-4ce2-b96f-0a22776439fd"
+}
