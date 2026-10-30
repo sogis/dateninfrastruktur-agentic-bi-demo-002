@@ -1,0 +1,164 @@
+{
+ "systematic_number": "614.62",
+ "systematic_number_hl": "614.62",
+ "title": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+ "title_hl": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+ "abbreviation": "",
+ "abbreviation_hl": "",
+ "enactment": "1963-01-01",
+ "date_of_decision": "1962-10-01",
+ "date_of_decision_multiple": false,
+ "publication_enactment": "2016-07-15",
+ "text_of_law_type_id": 5,
+ "text_of_law_dates_str": "vom 01.10.1962, in Kraft seit: 01.01.1963",
+ "pdf_link": "https://bgs.so.ch/api/de/versions/4558/pdf_file_with_annexes",
+ "canonical_link": "https://bgs.so.ch/app/de/texts_of_law/614.62",
+ "abrogated": false,
+ "abrogated_dates_str": null,
+ "abrogated_dates_str_short": null,
+ "abrogated_scheduled": false,
+ "abrogated_scheduled_date_str": null,
+ "abrogated_scheduled_date_str_short": null,
+ "version_uid": "e8476ac1eb1196cb111f2d919c3ee4c2",
+ "snippet_msg": null,
+ "snippet": null,
+ "current_version": {
+  "id": 4558,
+  "version_dates_str": "Aktuelle Version in Kraft seit: 15.07.2016 (Beschlussdatum: 08.03.2016)",
+  "structured_document_id": null,
+  "title": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+  "abbreviation": ""
+ },
+ "selected_version": {
+  "id": 4558,
+  "version_dates_str": "Aktuelle Version in Kraft seit: 15.07.2016 (Beschlussdatum: 08.03.2016)",
+  "structured_document_id": null,
+  "title": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+  "abbreviation": "",
+  "original_dates_str": "vom 01.10.1962, in Kraft seit: 01.01.1963",
+  "pdf_link_tol": "https://bgs.so.ch/api/de/versions/4558/pdf_file",
+  "pdf_link_tol_size": 254867,
+  "pdf_link_annexes": null,
+  "pdf_link_tol_with_annexes": null,
+  "doc_link_tol": null,
+  "xhtml_tol": null,
+  "xhtml_cac_tol": null,
+  "xhtml_cac_unified_tol": null,
+  "materials": [],
+  "external_links": [],
+  "available_languages": [
+   {
+    "language": {
+     "id": 2,
+     "iso639_1_code": "de",
+     "iso639_2_code": "deu",
+     "name_native": "Deutsch",
+     "priority": 0,
+     "position": 1,
+     "name": "Deutsch"
+    }
+   }
+  ]
+ },
+ "old_versions": [
+  {
+   "id": 4228,
+   "version_dates_str": "Version in Kraft von: 01.01.2014 bis: 14.07.2016 (Beschlussdatum: 26.06.2013)",
+   "original_dates_str": "vom 01.10.1962, in Kraft seit: 01.01.1963",
+   "structured_document_id": null,
+   "title": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+   "abbreviation": ""
+  },
+  {
+   "id": 513,
+   "version_dates_str": "Version in Kraft von: 01.01.2003 bis: 31.12.2013 (Beschlussdatum: 02.06.2002)",
+   "original_dates_str": "vom 01.10.1962, in Kraft seit: 01.01.1963",
+   "structured_document_id": null,
+   "title": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+   "abbreviation": ""
+  },
+  {
+   "id": 1371,
+   "version_dates_str": "Version in Kraft von: 01.07.1998 bis: 31.12.2002 (Beschlussdatum: 03.03.1998)",
+   "original_dates_str": "vom 01.10.1962, in Kraft seit: 01.01.1963",
+   "structured_document_id": null,
+   "title": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+   "abbreviation": ""
+  },
+  {
+   "id": 1370,
+   "version_dates_str": "Version in Kraft von: 01.01.1997 bis: 30.06.1998 (Beschlussdatum: 28.08.1996)",
+   "original_dates_str": "vom 01.10.1962, in Kraft seit: 01.01.1963",
+   "structured_document_id": null,
+   "title": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+   "abbreviation": ""
+  }
+ ],
+ "future_versions": [],
+ "change_documents": [
+  {
+   "id": 1119,
+   "date_title_string": "Publikationsdatum 08.03.2016 | Beschlussdatum 08.03.2016",
+   "number": "GS 2016, 8",
+   "pdf_link": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/1119/pdf_file",
+   "pdf_link_size": 305451,
+   "for_selected_version": true,
+   "date_of_decision_string": "08.03.2016",
+   "date_of_publication_string": "08.03.2016",
+   "date_string": "08.03.2016",
+   "document_title": "Revision des Gebührentarifs (materielle Änderung)",
+   "identifier_1": "08.03.2016",
+   "identifier_2": "GS 2016, 8",
+   "external_links": [],
+   "materials": []
+  },
+  {
+   "id": 953,
+   "date_title_string": "Publikationsdatum 26.06.2013 | Beschlussdatum 26.06.2013",
+   "number": "GS 2013, 22",
+   "pdf_link": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/953/pdf_file",
+   "pdf_link_size": 144520,
+   "for_selected_version": false,
+   "date_of_decision_string": "26.06.2013",
+   "date_of_publication_string": "26.06.2013",
+   "date_string": "26.06.2013",
+   "document_title": "Änderung der Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+   "identifier_1": "26.06.2013",
+   "identifier_2": "GS 2013, 22",
+   "external_links": [],
+   "materials": []
+  },
+  {
+   "id": 55,
+   "date_title_string": "Publikationsdatum 27.08.2002 | Beschlussdatum 27.08.2002",
+   "number": "GS 97, 203",
+   "pdf_link": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/55/pdf_file",
+   "pdf_link_size": 106720,
+   "for_selected_version": false,
+   "date_of_decision_string": "27.08.2002",
+   "date_of_publication_string": "27.08.2002",
+   "date_string": "27.08.2002",
+   "document_title": "Änderung der Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe vom 1. Oktober 1962",
+   "identifier_1": "27.08.2002",
+   "identifier_2": "GS 97, 203",
+   "external_links": [],
+   "materials": []
+  },
+  {
+   "id": 32,
+   "date_title_string": "Publikationsdatum 02.06.2002 | Beschlussdatum 02.06.2002",
+   "number": "GS 97, 126",
+   "pdf_link": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/32/pdf_file",
+   "pdf_link_size": 170813,
+   "for_selected_version": false,
+   "date_of_decision_string": "02.06.2002",
+   "date_of_publication_string": "02.06.2002",
+   "date_string": "02.06.2002",
+   "document_title": "Änderung der Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe vom 1. Oktober 1962",
+   "identifier_1": "02.06.2002",
+   "identifier_2": "GS 97, 126",
+   "external_links": [],
+   "materials": []
+  }
+ ]
+}

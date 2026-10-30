@@ -1,0 +1,99 @@
+{
+ "number": "614.62",
+ "title": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+ "abbreviation": null,
+ "source": "BGS Solothurn (bgs.so.ch, LexWork)",
+ "url": "https://bgs.so.ch/app/de/texts_of_law/614.62",
+ "repealed": false,
+ "decided": "1962-10-01",
+ "in_force_since": "1963-01-01",
+ "retrieved": "2026-10-30T09:54:03+00:00",
+ "versions": [
+  {
+   "id": "1370",
+   "status": "past",
+   "structure": "pdf-heuristic",
+   "valid_from": "1997-01-01",
+   "valid_to": "1998-06-30",
+   "decided": "1996-08-28",
+   "validity_text": "Version in Kraft von: 01.01.1997 bis: 30.06.1998 (Beschlussdatum: 28.08.1996)",
+   "pdf": "https://bgs.so.ch/api/de/versions/1370/pdf_file",
+   "sections": 64
+  },
+  {
+   "id": "1371",
+   "status": "past",
+   "structure": "pdf-heuristic",
+   "valid_from": "1998-07-01",
+   "valid_to": "2002-12-31",
+   "decided": "1998-03-03",
+   "validity_text": "Version in Kraft von: 01.07.1998 bis: 31.12.2002 (Beschlussdatum: 03.03.1998)",
+   "pdf": "https://bgs.so.ch/api/de/versions/1371/pdf_file",
+   "sections": 64
+  },
+  {
+   "id": "513",
+   "status": "past",
+   "structure": "pdf-heuristic",
+   "valid_from": "2003-01-01",
+   "valid_to": "2013-12-31",
+   "decided": "2002-06-02",
+   "validity_text": "Version in Kraft von: 01.01.2003 bis: 31.12.2013 (Beschlussdatum: 02.06.2002)",
+   "pdf": "https://bgs.so.ch/api/de/versions/513/pdf_file",
+   "sections": 64
+  },
+  {
+   "id": "4228",
+   "status": "past",
+   "structure": "pdf-heuristic",
+   "valid_from": "2014-01-01",
+   "valid_to": "2016-07-14",
+   "decided": "2013-06-26",
+   "validity_text": "Version in Kraft von: 01.01.2014 bis: 14.07.2016 (Beschlussdatum: 26.06.2013)",
+   "pdf": "https://bgs.so.ch/api/de/versions/4228/pdf_file",
+   "sections": 64
+  },
+  {
+   "id": "4558",
+   "status": "current",
+   "structure": "pdf-heuristic",
+   "valid_from": "2016-07-15",
+   "valid_to": null,
+   "decided": "2016-03-08",
+   "validity_text": "Aktuelle Version in Kraft seit: 15.07.2016 (Beschlussdatum: 08.03.2016)",
+   "pdf": "https://bgs.so.ch/api/de/versions/4558/pdf_file",
+   "sections": 64
+  }
+ ],
+ "changes": [],
+ "amending_acts": [
+  {
+   "number": "GS 2016, 8",
+   "title": "Revision des Gebührentarifs (materielle Änderung)",
+   "decided": "2016-03-08",
+   "published": "2016-03-08",
+   "pdf": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/1119/pdf_file"
+  },
+  {
+   "number": "GS 2013, 22",
+   "title": "Änderung der Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+   "decided": "2013-06-26",
+   "published": "2013-06-26",
+   "pdf": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/953/pdf_file"
+  },
+  {
+   "number": "GS 97, 203",
+   "title": "Änderung der Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe vom 1. Oktober 1962",
+   "decided": "2002-08-27",
+   "published": "2002-08-27",
+   "pdf": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/55/pdf_file"
+  },
+  {
+   "number": "GS 97, 126",
+   "title": "Änderung der Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe vom 1. Oktober 1962",
+   "decided": "2002-06-02",
+   "published": "2002-06-02",
+   "pdf": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/32/pdf_file"
+  }
+ ]
+}

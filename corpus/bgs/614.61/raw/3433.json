@@ -1,0 +1,30 @@
+{
+ "id": 3433,
+ "version_dates_str": "Version in Kraft von: 01.01.1993 bis: 31.12.2020 (Beschlussdatum: 27.09.1992)",
+ "structured_document_id": 4656,
+ "title": "Gesetz über die Steuern und Gebühren für Motorfahrzeuge und Fahrräder",
+ "abbreviation": "",
+ "original_dates_str": "vom 23.07.1961, in Kraft seit: 01.01.1963",
+ "pdf_link_tol": "https://bgs.so.ch/api/de/versions/3433/pdf_file",
+ "pdf_link_tol_size": 116555,
+ "pdf_link_annexes": null,
+ "pdf_link_tol_with_annexes": null,
+ "doc_link_tol": null,
+ "history_information_map": {},
+ "materials": [],
+ "external_links": [],
+ "available_languages": [
+  {
+   "language": {
+    "id": 2,
+    "iso639_1_code": "de",
+    "iso639_2_code": "deu",
+    "name_native": "Deutsch",
+    "priority": 0,
+    "position": 1,
+    "name": "Deutsch"
+   }
+  }
+ ],
+ "annex_documents": []
+}

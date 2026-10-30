@@ -1,0 +1,30 @@
+{
+ "id": 3806,
+ "version_dates_str": "Version in Kraft von: 01.07.2011 bis: 31.03.2012 (Beschlussdatum: 05.04.2011)",
+ "structured_document_id": 6119,
+ "title": "Verordnung über den Strassenverkehr",
+ "abbreviation": "",
+ "original_dates_str": "vom 03.03.1978, in Kraft seit: 08.06.1978",
+ "pdf_link_tol": "https://bgs.so.ch/api/de/versions/3806/pdf_file",
+ "pdf_link_tol_size": 184112,
+ "pdf_link_annexes": null,
+ "pdf_link_tol_with_annexes": null,
+ "doc_link_tol": null,
+ "history_information_map": {},
+ "materials": [],
+ "external_links": [],
+ "available_languages": [
+  {
+   "language": {
+    "id": 2,
+    "iso639_1_code": "de",
+    "iso639_2_code": "deu",
+    "name_native": "Deutsch",
+    "priority": 0,
+    "position": 1,
+    "name": "Deutsch"
+   }
+  }
+ ],
+ "annex_documents": []
+}

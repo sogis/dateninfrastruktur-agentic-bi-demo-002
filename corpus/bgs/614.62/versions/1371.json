@@ -1,0 +1,2236 @@
+{
+ "version": "1371",
+ "structure": "pdf-heuristic",
+ "sections": [
+  {
+   "number": "1",
+   "title": "Steuerobjekte",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Der Besteuerung unterliegen die Motorfahrzeuge und ihre Anhänger mit Standort im Kanton Solothurn, welche auf öffentlichem Strassengebiet verkehren. Ausgenommen sind die durch das Bundesrecht den Fahrrädern gleichgestellten Motorfahrzeuge (Art. 37 der Verordnung des Bundesrates über Haftpflicht und Versicherungen im Strassenverkehr vom 20. Novem4 ber 1959 )).",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Die Motorfahrzeuge des Bundes werden für ihre ausserdienstliche Verwendung besteuert.",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Ausländische Motorfahrzeuge werden bei Erfüllung der im Bundesrecht festgelegten Voraussetzungen besteuert.",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "2",
+   "title": "Steuersubjekte",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Steuerpflichtig ist der Halter des Motorfahrzeuges. Mit ihm haftet der Eigentümer für die Steuer solidarisch.",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "3",
+   "title": "Steuerperiode",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Steuerperiode ist das Kalenderjahr.",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "4",
+   "title": "Beginn der Steuerpflicht",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Die Steuerpflicht beginnt mit der Abgabe der Kontrollschilder oder wenn das Fahrzeug früher in Verkehr gesetzt wird, mit der Inverkehrsetzung. Die Steuerpflicht endigt mit der Hinterlegung der Kontrollschilder bei der Motorfahrzeugkontrolle oder, wenn das Fahrzeug später ausser Verkehr",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "gesetzt wird, mit der Ausserverkehrsetzung )",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Als Hinterlegungsdatum gilt der tatsächliche Abgabetag. Bei Zustellung der Kontrollschilder durch die Post gilt der Poststempel. Befinden sich die Kontrollschilder bei Arbeitsbeginn im Briefkasten der Motorfahrzeugkon2 trolle, gilt dieser Tag als Hinterlegungsdatum )",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Werden die Kontrollschilder spätestens am ersten Arbeitstag eines Ka3 lenderjahres hinterlegt, wird keine Steuer erhoben. )",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "5",
+   "title": ") Beginn und Ende der Steuerpflicht",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Wird ein Fahrzeug im Verlauf der Steuerperiode in Verkehr gesetzt, ist die Steuer vom Einlösungstag bis zum Ende der Steuerperiode zu entrichten.",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "6",
+   "title": ") Ende der Steuerpflicht",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Wird ein Fahrzeug im Verlauf der Steuerperiode ausser Verkehr gesetzt, wird die bereits über den Abgabetermin hinaus bezahlte Steuer zurückerstattet.",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "7",
+   "title": ") Bemessungsgrundlagen",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Die Steuer bemisst sich für Personenwagen, leichte und schwere Wohnmotorwagen und Motorräder mit Hubkolbenmotor oder ähnlichen Systemen nach dem Hubraum.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Für leichte und schwere Motorwagen zum Gütertransport und deren Anhänger wird die Steuer nach der effektiven Nutzlast nach dem Fahrzeugausweis bemessen.",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Für alle übrigen Fahrzeugkategorien gelten feste Steueransätze.",
+     "items": []
+    },
+    {
+     "number": "7",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "8",
+   "title": "... )",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "8",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "9",
+   "title": ") Wechselschilder",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Abgabe der Wechselschilder richtet sich nach den jeweilig geltenden bundesrechtlichen Vorschriften, speziell der Verordnung des Bundesrates über Haftpflicht und Versicherungen im Strassenverkehr.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Bei Verwendung von Wechselschildern wird für das Fahrzeug mit dem höchsten Steueransatz der ganze Steuerbetrag erhoben. Für die weiteren",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "Fahrzeuge ist eine jährliche Zuschlagssteuer zu entrichten. )",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": ".... )",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Bei missbräuchlicher Verwendung der Wechselschilder ist für die weite3 ren Fahrzeuge die Normalsteuer nachzubezahlen. )",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "10",
+   "title": ") Steuerbezug",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Die Steuer wird zum voraus für die ganze Steuerperiode oder deren Rest bezogen.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Für Fahrzeuge, die am Ende der vergangenen Steuerperiode nicht ausser Verkehr gesetzt oder deren Kontrollschilder nicht hinterlegt werden, ist die Steuer innert 30 Tagen seit Zustellung der Rechnung zu bezahlen; der Verfalltag wird jeweils in der Rechnung angegeben.",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Für Fahrzeuge, die während der laufenden Steuerperiode in Verkehr gesetzt werden, wird unter Angabe einer Zahlungsfrist für die Steuern und Gebühren Rechnung gestellt. Sie können in bar bezahlt oder per Nachnahme erhoben werden.",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "... )",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Werden die Steuern und Gebühren nicht fristgemäss bezahlt, lässt die Motorfahrzeugkontrolle nach einmaliger Mahnung die Kontrollschilder und den Fahrzeugausweis auf Kosten des Steuerpflichtigen durch die Polizei einziehen.",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "... )",
+     "items": []
+    },
+    {
+     "number": "7",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "11",
+   "title": ") Standortwechsel",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Bestimmungen über den Beginn der Steuerpflicht in den §§ 4 und 5 gelten auch beim Standortwechsel von Fahrzeugen aus einem anderen Kanton in den Kanton Solothurn.",
+     "items": []
+    },
+    {
+     "number": "8",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "12",
+   "title": ") Fahrzeugwechsel",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Wechselt der Halter sein Fahrzeug während der Steuerperiode, gilt die für das neu eingelöste Fahrzeug geschuldete Steuer vom Einlösungstag an. Die Differenz gegenüber der Steuer für das bisherige Fahrzeug ist nachzuzahlen beziehungsweise zurückzuerstatten.",
+     "items": []
+    },
+    {
+     "number": "9",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "13",
+   "title": ") Halterwechsel",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Kontrollschilder dürfen nicht auf den neuen Halter übertragen werden; ausgenommen ist die Übertragung auf den Ehegatten.",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "14",
+   "title": ") Steuerrückerstattung bei Verlegung des Steuerortes",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Bestimmungen über das Ende der Steuerpflicht in den §§ 4 und 6 gelten auch beim Standortwechsel von Fahrzeugen in einen andern Kanton.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "15",
+   "title": "... )",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "16",
+   "title": ") Ersatzwagen",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Benützung eines Ersatzfahrzeuges beeinflusst die Steuer nicht.",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "17",
+   "title": "Nachzahlung und Rückerstattung",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Ergibt sich nachträglich, dass ein Steuerpflichtiger aus irgendeinem Grunde nicht oder nur unvollständig zur Steuer herangezogen worden ist, so hat er das in den letzten 5 Jahren zu wenig bezahlte Steuerbetreffnis nachzuzahlen. Die gleiche Regelung gilt für eine Rückerstattung zuviel",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "bezahlter Steuern. )",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "18",
+   "title": ") Strafsteuer",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Ausser. der Nachzahlung der Steuer hat eine Strafsteuer bis zu 2000 Franken zu entrichten: 1. der Halter eines Motorfahrzeuges, Anhängers oder Seitenwagens, der ein Fahrzeug in Verkehr setzt, ohne vorher die Anmeldung zur Steuerveranlagung vorzunehmen; 2. der Halter eines Motorfahrzeuges oder Anhängers, der ein Fahrzeug auf Fahrten verwendet, wofür eine höhere Steuer zu entrichten ist, als bezahlt wurde; 3. der Halter eines Motorfahrzeuges, der ein Fahrzeug im öffentlichen Verkehr verwendet, an dem eine Veränderung vorgenommen worden ist, die eine höhere Steuer zur Folge hat, als bezahlt wurde.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Die Höhe der Strafsteuer wird nach der Schwere des Verschuldens bemessen.",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "19",
+   "title": "... )",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "bis",
+     "items": []
+    },
+    {
+     "number": "7",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "19",
+   "title": "... )",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "ter 8",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "19",
+   "title": ") Steuerbefreiung für Solarfahrzeuge",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Elektrofahrzeuge und Solarfahrzeuge sind von der Steuerpflicht befreit.",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "20",
+   "title": ") Steuererlass",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Auf Gesuch hin kann die Steuer erlassen werden für Motorfahrzeuge von Personen, die nach vertrauensärztlichem Befund invalid und auf die Benützung eines Motorfahrzeuges angewiesen sind.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "21",
+   "title": "... )",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "22",
+   "title": "... )",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "4",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "23",
+   "title": ") Leichte Motorwagen zum Personentransport",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Steuer für Leichtmotorfahrzeuge, Kleinmotorfahrzeuge, leichte Motorwagen und dreirädrige Motorfahrzeuge zum Personentransport sowie",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "schwere Motorwagen wird wie folgt festgesetzt: ) Hubraum Franken Hubraum Franken",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "172.50 1000–1099 cm 230.00 bis 600 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "184.00 1100–1199 cm 241.50 601–699 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "195.50 1200–1299 cm 253.00 700–799 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "207.00 1300–1399 cm 264.50 800–899 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "218.50 1400–1499 cm 276.00 900–999 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Ab 1500 cm wird ein Zuschlag für je weitere volle oder angebrochene",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "100 cm Hubraum von 15 Franken erhoben.",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "24",
+   "title": ") Leichte Motorwagen zum Gütertransport,",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "schwere Motorwagen, usw.",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "Die Steuer für Leichtmotorfahrzeuge, Kleinmotorfahrzeuge und leichte Motorwagen zum Sachentransport, dreirädrige Motorfahrzeuge zum Sachentransport, schwere Motorwagen zum Sachentransport sowie Sat7 telmotorfahrzeuge und Sattelschlepper wird wie folgt festgesetzt: ) Nutzlast Franken Nutzlast Franken bis 500 kg 165.– 6501–7000 kg 1463.– 501–1000 kg 275.– 7001–7500 kg 1507.– 1001–1500 kg 385.– 7501–8000 kg 1551.– 1501–2000 kg 495.– 8001–8500 kg 1595.– 2001–2500 kg 605.– 8501–9000 kg 1639.– 2501–3000 kg 715.– 9001–9500 kg 1683.– 3001–3500 kg 825.– 9501–10’000 kg 1727.– 3501–4000 kg 935.– 10’001–10’500 kg 1771.– 4001–4500 kg 1045.– 10’501–11’000 kg 1815.– 4501–5000 kg 1155.– 11’001–11’500 kg 1859.– Nutzlast 5001–5500 kg 5501–6000 kg 6001–6500 kg Franken 1265.– 1375.– 1419.– Nutzlast 11’501–12’000 kg Für weitere 500 kg Franken 1903.– 44.– mehr",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Sattelmotorfahrzeuge: Sattelschlepper: 1/3 des zulässigen Satteldruckes wird nach den Ansätzen von Absatz 1 besteuert. Sattelanhänger: 2/3 der Nutzlast werden nach den für Anhänger an Motorwagen geltenden Ansätzen nach § 26 Ziffer 1 besteuert. bis 1",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "24",
+   "title": ") Schwere Motorwagen zum Personentransport",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Steuer für schwere Motorwagen zum Personentransport (Car) wird wie folgt festgesetzt: pro bewilligten und im Fahrzeugausweis eingetragenen Sitzplatz (inklusive Führer) wird eine Steuer von 33 Franken erhoben.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "25",
+   "title": ") Traktoren, Motorkarren usw.",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Steuer für Traktoren und Motorkarren wird wie folgt festgesetzt: Franken 1. für landwirtschaftliche Motoreinachser",
+     "items": []
+    },
+    {
+     "number": "33",
+     "text": "2. für landwirtschaftliche 2-achsige Motorfahrzeuge",
+     "items": []
+    },
+    {
+     "number": "66",
+     "text": "3. für gewerbliche Motoreinachser inkl. Anhänger 110 4. für gewerbliche Traktoren, pauschal 110 5. für Motorkarren bis 3500 kg Gesamtgewicht",
+     "items": []
+    },
+    {
+     "number": "55",
+     "text": "für Motorkarren über 3500 kg Gesamtgewicht 110 6. für Mähdrescher",
+     "items": []
+    },
+    {
+     "number": "44",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "26",
+   "title": ") Motorfahrzeuganhänger",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Steuer für Anhänger wird wie folgt festgesetzt: 1. an leichten und schweren Motorwagen sowie an gewerblichen Traktoren bis 500 kg Nutzlast bis 1000 kg Nutzlast für weitere 500 kg Nutzlast bis 5000 kg je für weitere 1000 kg Nutzlast je 2. an Motorkarren, Arbeitsmaschinen, Motorrädern und",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Kleinmotorrädern ) 3. für besondere Anhänger (Brückenwagen usw.) pro 1000 kg Nutzlast 4. für Arbeitsanhänger 5. für Einradanhänger bis 500 kg Nutzlast",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "27",
+   "title": ") Motorräder",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Steuer für Kleinmotorräder, dreirädrige Kleinmotorräder und Motor2 räder wird wie folgt festgesetzt: ) Hubraum Franken",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "33",
+     "text": "bis 50 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "44",
+     "text": "51- 99 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "55",
+     "text": "100-199 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "66",
+     "text": "200-299 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "77",
+     "text": "300-399 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "88",
+     "text": "400-499 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "99",
+     "text": "500-599 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "110 600-699 cm",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Zuschlag für je weitere volle oder angebrochene 100 cm Zuschlag für einen Seitenwagen",
+     "items": []
+    },
+    {
+     "number": "55",
+     "text": "Dreirädrige Motorräder werden wie Motorräder mit Seitenwagen besteuert.",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "28",
+   "title": ") Arbeitsmaschinen, Arbeitskarren",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Steuer für Arbeitsmaschinen und Arbeitskarren wird wie folgt festgesetzt: 1. für gewerbliche Arbeitsmaschinen bis 3500 kg Gesamtgewicht 110 2. für gewerbliche Arbeitsmaschinen über 3500 kg Gesamtgewicht 220 3. für Arbeitskarren bis 3500 kg Gesamtgewicht",
+     "items": []
+    },
+    {
+     "number": "44",
+     "text": "4. für Arbeitskarren über 3500 kg Gesamtgewicht 110",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "29",
+   "title": ") Händlerschilder",
+   "outline": [
+    "Erster Teil",
+    "1. Allgemeine Bestimmungen"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Steuer für Händlerschilder wird wie folgt festgesetzt: 1. leichte und schwere Motorwagen 4. landwirtschaftliche Traktoren, Motoreinachser,",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Arbeitsmaschinen, Arbeitskarren und Anhänger ) 600 150",
+     "items": []
+    },
+    {
+     "number": "75",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "30",
+   "title": ") Tagesbewilligung",
+   "outline": [
+    "Erster Teil",
+    "3. Kleinmotorräder"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Bei Ausstellung einer Tagesbewilligung beträgt die Steuer pro Tag für: Franken 1. leichte und schwere Motorwagen",
+     "items": []
+    },
+    {
+     "number": "10",
+     "text": "2. übrige Kategorien",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Dazu kommen Ausstellungsgebühr und Versicherungsprämie. )",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "31",
+   "title": ") Wechselschilder",
+   "outline": [
+    "Erster Teil",
+    "3. Kleinmotorräder"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Für die weiteren Fahrzeuge beträgt die jährliche Zuschlagssteuer für 1. leichte Motorwagen 2. schwere Motorwagen 4. andere Fahrzeugkategorien",
+     "items": []
+    },
+    {
+     "number": "55",
+     "text": "165",
+     "items": []
+    },
+    {
+     "number": "55",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "22",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "32",
+   "title": ") Fahrzeugausweis",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Ausstellen eines Fahrzeugausweises oder eines Duplikates a) für Motorfahrzeuge aller Kategorien b) für Motorfahrräder ,",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Ausstellen eines internationalen Fahrzeugausweises )",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Ausstellen eines Fahrzeugausweises bei Wechsel des",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "Haftpflichtversicherers )",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "7",
+     "text": "Ausstellen eines Beiblattes für bewilligte Änderung )",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "8",
+     "text": "Ausstellen einer Ausfuhrbewilligung )",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "9",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "30",
+     "text": "100",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "100-500",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "33",
+   "title": ") Lernfahrausweis",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Ausstellen eines Lernfahrausweises für alle Kategorien",
+     "items": []
+    },
+    {
+     "number": "60",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "10",
+     "text": "Ausstellen eines Duplikates )",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Gleichzeitiges Ausstellen von weiteren Lernfahrausweisen",
+     "items": []
+    },
+    {
+     "number": "11",
+     "text": "pro Ausweis zusätzlich )",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Verlängerung der Gültigkeitsdauer 40–100",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Die Verkehrsvorschriften werden zum Selbstkostenpreis abgegeben.",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "34",
+   "title": ") Führerausweis",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Ausstellen eines Führerausweises oder eines Duplikates a) für Motorfahrzeuge aller Kategorien",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "b) für Motorfahrräder )",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Ausstellen eines internationalen Führerausweises )",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Umtausch eines ausländischen Führerausweises )",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Ausstellen eines Fahrlehrerausweises oder eines Duplikates Franken",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "30",
+     "text": "100 200–500",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "35",
+   "title": ") Bewilligungen",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Bewilligung zur Ausübung des Fahrlehrerberufes oder zum Betreiben einer Fahrschule 100",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "Tagesbewilligung für alle Kategorien ) 100",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "7",
+     "text": "Bewilligung für Ersatzfahrzeug )",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Sonderbewilligungen, wie Spezialtransporte, Sonntags- und Nachtfahrbewilligungen 50–10’000",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Für die vom Bund erteilten Sonderbewilligungen werden Gebühren nach Absatz 4 erhoben.",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "Bewilligung für Versuchs- oder Wettfahrten 50–1000",
+     "items": []
+    },
+    {
+     "number": "7",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "8",
+     "text": "Bescheinigungen, schriftliche Auskünfte ) 20–1000",
+     "items": []
+    },
+    {
+     "number": "8",
+     "text": "Bewilligungen nach der Strassenverkehrsgesetzgebung,",
+     "items": []
+    },
+    {
+     "number": "9",
+     "text": "soweit keine spezielle Gebühr vorgesehen ist ) 20–200",
+     "items": []
+    },
+    {
+     "number": "9",
+     "text": "Kontrolle der durch Garagen und Händlerfirmen",
+     "items": []
+    },
+    {
+     "number": "10",
+     "text": "ausgestellten Prüfungsberichte für Neueinlösungen )",
+     "items": []
+    },
+    {
+     "number": "30",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "10",
+     "text": "Errichtung einer Sperre zur Verhinderung",
+     "items": []
+    },
+    {
+     "number": "11",
+     "text": "der Immatrikulation eines Fahrzeuges durch Unberechtigte )",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "11",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "12",
+     "text": "Fotoaufnahmen ) a) schwarzweiss",
+     "items": []
+    },
+    {
+     "number": "10",
+     "text": "b) farbig",
+     "items": []
+    },
+    {
+     "number": "15",
+     "text": "c) Sofortbilder",
+     "items": []
+    },
+    {
+     "number": "10",
+     "text": "bis 13",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "35",
+   "title": ") ARV-Kontrollen und -Instruktionen",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "ARV-Kontrollen, ARV-Instruktionen 100–5000",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "36",
+   "title": "Kontrollschilder",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "Abgabe von Kontrollschildern: ) Franken",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "a) Schilderpaar ) b) Einzelschild",
+     "items": []
+    },
+    {
+     "number": "25",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Einzug von Kontrollschildern und Ausweisen ) 300",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Deponierung der Kontrollschilder und Wiedereinlösen",
+     "items": []
+    },
+    {
+     "number": "40",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Reservation eines bestimmten Schildes und",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Wiederzuteilung nach Ablauf der Sperrfrist ) 200",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Zustellung aufgefundener Kontrollschilder )",
+     "items": []
+    },
+    {
+     "number": "30",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "Bearbeitungsgebühr für schriftliche Mitteilung an Fahrzeughalter",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "bei Aussetzen der Haftpflichtversicherung )",
+     "items": []
+    },
+    {
+     "number": "20",
+     "text": "bis 7",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "36",
+   "title": ") Abgabe von Kontrollschildern",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die Motorfahrzeugkontrolle kann bestimmte Kontrollschilder versteigern oder freihändig gegen einen bestimmten Betrag abgeben. Der Regierungsrat regelt die Einzelheiten in Weisungen. Er kann für die Rückgabe bestimmter Kontrollschilder Gebührenfreiheit gewähren.",
+     "items": []
+    },
+    {
+     "number": "8",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "37",
+   "title": ") Fahrzeugprüfungen",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Prüfung von Motorfahrzeugen und Motorfahrrädern,",
+     "items": []
+    },
+    {
+     "number": "9",
+     "text": "pro Stunde ) 150",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Der mindestverrechenbare Zeitaufwand beträgt eine Viertelstunde.",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Wird ein zur Prüfung angemeldetes oder aufgebotenes Fahrzeug ohne Abmeldung nicht vorgeführt oder nicht mindestens 10 Werktage vor der",
+     "items": []
+    },
+    {
+     "number": "10",
+     "text": "Prüfung abgemeldet, ist die ordentliche Prüfungsgebühr geschuldet. )",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Die Absätze 1-3 sind auch für Fahrzeugprüfungen ausserhalb der Amtsstelle anwendbar. Anfahrzeit und Auslagenersatz werden ebenfalls in Rechnung gestellt. Die Gebühr für die Anfahrzeit bemisst sich nach § 38 Absatz 1.",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Für die zweite und jede weitere Verschiebung des Prüfungstermins wird eine Gebühr von 50 Franken erhoben.",
+     "items": []
+    },
+    {
+     "number": "11",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "38",
+   "title": ") Sonderaufgaben der Experten",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Sonderaufgaben wie Erstellen von Expertisen, Kontrolle von",
+     "items": []
+    },
+    {
+     "number": "12",
+     "text": "Garagen und Fahrschulen, pro Stunde ) 150",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Anfahrzeit und Auslagenersatz werden ebenfalls in Rechnung gestellt. Die Gebühr für die Anfahrzeit bemisst sich nach Absatz 1.",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "39",
+   "title": ") Führerprüfung",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Theoretische Führerprüfung Franken a) in der Gruppe",
+     "items": []
+    },
+    {
+     "number": "30",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "120 b) Einzelprüfung )",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Praktische Führerprüfung, pro Stunde ) 120",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Bei unentschuldigtem Fernbleiben oder bei Nichtabmeldung mindestens",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "10 Werktage vor der Prüfung ist die ordentliche Gebühr zu entrichten. )",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Für die zweite und jede weitere Verschiebung des Prüftermins",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Die Absätze 1-4 sind auch für Führerprüfungen ausserhalb der Amtsstelle anwendbar. Anfahrzeit und Auslagenersatz werden ebenfalls in Rechnung",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "gestellt. Die Gebühr für die Anfahrzeit bemisst sich nach § 38 Absatz 1. )",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "40",
+   "title": "... )",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "7",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "41",
+   "title": ") Gebührenverfall",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Wird ein Fahrzeug während des Jahres ausser Verkehr gesetzt, erfolgt keine Rückerstattung der Gebühren.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Werden Gebühren nicht fristgemäss bezahlt, lässt die Motorfahrzeugkontrolle nach einmaliger Mahnung die entsprechenden Ausweise durch die Polizei einziehen.",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "42",
+   "title": "Gebühren für Motorfahrräder und Fahrräder",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Für das Inverkehrsetzen eines Motorfahrrades wird eine jährliche Gebühr",
+     "items": []
+    },
+    {
+     "number": "8",
+     "text": "von 20 Franken erhoben. )",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Die mit der Verteilung der Fahrradkennzeichen betrauten Stellen verlangen für die Abgabe eines Fahrradkennzeichens einen Betrag, der vom Regierungsrat festgesetzt wird und der zusammen mit der Versicherungsprämie höchstens 6 Franken betragen darf.",
+     "items": []
+    },
+    {
+     "number": "9",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "43",
+   "title": ") Gebührenrahmen",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Innerhalb eines Gebührenrahmens sind die Gebühren nach den in § 3 des",
+     "items": []
+    },
+    {
+     "number": "10",
+     "text": "Gebührentarifs vom 24. Oktober 1979 ) enthaltenen Regeln zu bemessen.",
+     "items": []
+    },
+    {
+     "number": "11",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "44",
+   "title": "... )",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "bis 1",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "44",
+   "title": ") Portospesen und Mahngebühren",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Portospesen trägt, mit Ausnahme der Taxe für die Zustellung mit B-Post, der Empfänger.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Die erste Mahnung ist kostenlos. Für die zweite Mahnung wird eine Ge2 bühr von 100 Franken erhoben. ) ter 3",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "44",
+   "title": ")",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Beträge unter 10 Franken werden nicht zurückerstattet.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Gebühren- und Steuerbeträge unter 10 Franken werden nicht eingefor4 dert. Davon ausgenommen sind Drucksachen, Plaketten etc. )",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Vorbehalten bleibt die Nachforderung von Beträgen, die der Schuldner ohne Grund vom Rechnungsbetrag abgezogen hat. In diesen Fällen werbis den mindestens 20 Franken und allenfalls eine Mahngebühr nach § 44",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Absatz 2 erhoben. )",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "quater 6",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "44",
+   "title": ". ) Abstellen oder Einstellen",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Für Fahrzeuge, die länger als sieben Tage auf dem Areal oder in den Gebäulichkeiten der MFK ab- oder eingestellt werden, sind ab dem achten Tag Standplatzgebühren pro Tag zu entrichten: Franken a) Abstellen von Fahrzeugen im Freien",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "b) Einstellen von leichten Fahrzeugen",
+     "items": []
+    },
+    {
+     "number": "10",
+     "text": "c) Einstellen von schweren Fahrzeugen",
+     "items": []
+    },
+    {
+     "number": "15",
+     "text": "d) Einstellen von Motorrädern und Motorfahrrädern",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "quinquies 7 . ) Schiffsprüfungen",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "44",
+   "title": "",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "8",
+     "text": "Prüfung von Schiffen, pro Stunde ) 150",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Der mindestverrechenbare Zeitaufwand beträgt eine Viertelstunde.",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Bei unentschuldigtem Fernbleiben oder bei Nichtabmeldung mindestens 10 Werktage vor der Prüfung ist die ordentliche Gebühr zu entrichten.",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Für die zweite und jede weitere Verschiebung des Prüftermins",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Die Absätze 1–4 sind auch für Schiffsprüfungen ausserhalb der Amtsstellen anwendbar. Anfahrzeit und Auslagenersatz werden ebenfalls in Rechnung gestellt. Die Gebühr für die Anfahrzeit bemisst sich nach § 38 Absatz 1.",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "sexies 9",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "44",
+   "title": ") Betriebsbewilligungen und Prüfungen",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Ausstellen einer Betriebsbewilligung für Schiffe (Schiffsausweis) oder eines Duplikates",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Ausstellen eines Schiffsführerausweises oder eines Duplikates",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "Theoretische Schiffsführerprüfung Franken a) in der Gruppe",
+     "items": []
+    },
+    {
+     "number": "30",
+     "text": "b) Einzelprüfung 120",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "Praktische Schiffsführerprüfung 120",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "Bei unentschuldigtem Fernbleiben oder bei Nichtabmeldung mindestens 10 Werktage vor der Prüfung ist die ordentliche Gebühr zu entrichten.",
+     "items": []
+    },
+    {
+     "number": "6",
+     "text": "Die Unterlagen für die Schiffsführerprüfung werden zum Selbstkostenpreis abgegeben.",
+     "items": []
+    },
+    {
+     "number": "7",
+     "text": "Für die zweite und jede weitere Verschiebung des Prüfungstermins",
+     "items": []
+    },
+    {
+     "number": "50",
+     "text": "",
+     "items": []
+    },
+    {
+     "number": "8",
+     "text": "Die Absätze 3-5 und 7 sind auch für Schiffsführerprüfungen ausserhalb der Amtsstelle anwendbar. Anfahrzeit und Auslagenersatz werden ebenfalls in Rechnung gestellt. Die Gebühr für die Anfahrzeit bemisst sich nach septies 1",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "44",
+   "title": ". ) Kontrollschilder",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Abgabe von Kontrollschildern, pro Paar",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Einzug von Kontrollschildern und Schiffs- oder Schiffsführerausweisen",
+     "items": []
+    },
+    {
+     "number": "40",
+     "text": "300 octies 2",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "44",
+   "title": ") Gebührenfreiheit",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Für Schiffe des Bundes, der Kantone und der Gemeinden, die militärischen oder polizeilichen Zwecken oder zur Rettung dienen, sind keine Gebühren zu entrichten.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Die Motorfahrzeugkontrolle kann auf Gesuch hin klubeigene Rennruderboote von der Gebührenpflicht befreien. nonies 3",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "44",
+   "title": ". ) Administrativverfahren",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "1",
+     "text": "Administrativverfahren nach der Strassenverkehrsgesetzgebung des Bundes",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "Administrativverfahren nach der Bundesgesetzgebung über die Binnenschifffahrt 30–600 50–500",
+     "items": []
+    },
+    {
+     "number": "4",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "45",
+   "title": ") Zuständigkeit",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Für den Vollzug dieser Verordnung ist die kantonale Motorfahrzeugkontrolle zuständig.",
+     "items": []
+    },
+    {
+     "number": "5",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "46",
+   "title": ") Beschwerde an das Polizei-Departement",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Gegen Verfügungen der Motorfahrzeugkontrolle kann der Betroffene innert 10 Tagen seit Zustellung der Verfügung beim Polizei-Departement Beschwerde erheben.",
+     "items": []
+    },
+    {
+     "number": "1",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "47",
+   "title": ") Beschwerde an das Kantonale Steuergericht",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Gegen Entscheide des Polizei-Departementes kann der Betroffene innert 10 Tagen seit Zustellung des Entscheides beim Kantonalen Steuergericht Beschwerde erheben.",
+     "items": []
+    },
+    {
+     "number": "2",
+     "text": "",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "48",
+   "title": "... )",
+   "outline": [
+    "Erster Teil",
+    "3. Anhänger"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Schlussbestimmungen",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "49",
+   "title": "Rechtsöffnungstitel",
+   "outline": [
+    "Zweiter Teil"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Die rechtskräftigen Verfügungen und Entscheide der zuständigen Instanzen über die in dieser Verordnung begründeten Steuer- und Gebührenforderungen mit Einschluss der Strafsteuer sind vollstreckbaren gerichtlichen Urteilen gleichgestellt (Art. 80 Abs. 2 SchKG).",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "50",
+   "title": "Aufhebung bisherigen Rechts",
+   "outline": [
+    "Zweiter Teil"
+   ],
+   "paragraphs": [
+    {
+     "number": "",
+     "text": "Auf den Zeitpunkt des Inkrafttretens dieser Verordnung werden alle widersprechenden Bestimmungen aufgehoben, insbesondere die Verordnung des Regierungsrates über die Steuern und Gebühren für den Verkehr",
+     "items": []
+    },
+    {
+     "number": "3",
+     "text": "bis mit Motorfahrzeugen vom 15. September 1959 ) und §§ 49 und 50 Absatz 2 letzter Satz der Verordnung über den Motorfahrzeug- und Fahr4 radverkehr vom 19. Juni 1933 ).",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  },
+  {
+   "number": "51",
+   "title": "Inkrafttreten",
+   "outline": [
+    "Zweiter Teil"
+   ],
+   "paragraphs": [
+    {
+     "number": "5",
+     "text": "Diese Verordnung tritt am 1. Januar 1963 in Kraft. )",
+     "items": []
+    }
+   ],
+   "footnotes": [],
+   "repealed": false
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "id": 1371,
+ "version_dates_str": "Version in Kraft von: 01.07.1998 bis: 31.12.2002 (Beschlussdatum: 03.03.1998)",
+ "structured_document_id": null,
+ "title": "Verordnung über Steuern und Gebühren für Motorfahrzeuge, Fahrräder und Schiffe",
+ "abbreviation": "",
+ "original_dates_str": "vom 01.10.1962, in Kraft seit: 01.01.1963",
+ "pdf_link_tol": "https://bgs.so.ch/api/de/versions/1371/pdf_file",
+ "pdf_link_tol_size": 128947,
+ "pdf_link_annexes": null,
+ "pdf_link_tol_with_annexes": null,
+ "doc_link_tol": null,
+ "materials": [],
+ "external_links": [],
+ "available_languages": [
+  {
+   "language": {
+    "id": 2,
+    "iso639_1_code": "de",
+    "iso639_2_code": "deu",
+    "name_native": "Deutsch",
+    "priority": 0,
+    "position": 1,
+    "name": "Deutsch"
+   }
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "id": 3485,
+ "version_dates_str": "Version in Kraft von: 01.01.1997 bis: 30.06.2011 (Beschlussdatum: 07.05.1996)",
+ "structured_document_id": 4786,
+ "title": "Verordnung über den Strassenverkehr",
+ "abbreviation": "",
+ "original_dates_str": "vom 03.03.1978, in Kraft seit: 08.06.1978",
+ "pdf_link_tol": "https://bgs.so.ch/api/de/versions/3485/pdf_file",
+ "pdf_link_tol_size": 178087,
+ "pdf_link_annexes": null,
+ "pdf_link_tol_with_annexes": null,
+ "doc_link_tol": null,
+ "history_information_map": {},
+ "materials": [],
+ "external_links": [],
+ "available_languages": [
+  {
+   "language": {
+    "id": 2,
+    "iso639_1_code": "de",
+    "iso639_2_code": "deu",
+    "name_native": "Deutsch",
+    "priority": 0,
+    "position": 1,
+    "name": "Deutsch"
+   }
+  }
+ ],
+ "annex_documents": []
+}

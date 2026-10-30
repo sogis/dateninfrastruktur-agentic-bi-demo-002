@@ -1,0 +1,63 @@
+{
+ "id": 4301,
+ "version_dates_str": "Aktuelle Version in Kraft seit: 01.04.2014 (Beschlussdatum: 24.03.2014)",
+ "structured_document_id": 9928,
+ "title": "Verordnung über den Strassenverkehr",
+ "abbreviation": "",
+ "original_dates_str": "vom 03.03.1978, in Kraft seit: 08.06.1978",
+ "pdf_link_tol": "https://bgs.so.ch/api/de/versions/4301/pdf_file",
+ "pdf_link_tol_size": 214309,
+ "pdf_link_annexes": null,
+ "pdf_link_tol_with_annexes": null,
+ "doc_link_tol": null,
+ "history_information_map": {
+  "309568": {
+   "change_document_id": 977,
+   "materials_count": 0
+  },
+  "309569": {
+   "change_document_id": 977,
+   "materials_count": 0
+  },
+  "309570": {
+   "change_document_id": 977,
+   "materials_count": 0
+  },
+  "309571": {
+   "change_document_id": 977,
+   "materials_count": 0
+  },
+  "309572": {
+   "change_document_id": 977,
+   "materials_count": 0
+  },
+  "309573": {
+   "change_document_id": 977,
+   "materials_count": 0
+  },
+  "309574": {
+   "change_document_id": 977,
+   "materials_count": 0
+  },
+  "309575": {
+   "change_document_id": 977,
+   "materials_count": 0
+  }
+ },
+ "materials": [],
+ "external_links": [],
+ "available_languages": [
+  {
+   "language": {
+    "id": 2,
+    "iso639_1_code": "de",
+    "iso639_2_code": "deu",
+    "name_native": "Deutsch",
+    "priority": 0,
+    "position": 1,
+    "name": "Deutsch"
+   }
+  }
+ ],
+ "annex_documents": []
+}

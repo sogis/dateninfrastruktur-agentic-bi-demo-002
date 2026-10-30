@@ -1,0 +1,4875 @@
+{
+ "@context": {
+  "dcat": "http://www.w3.org/ns/dcat#",
+  "dct": "http://purl.org/dc/terms/",
+  "foaf": "http://xmlns.com/foaf/0.1/",
+  "vcard": "http://www.w3.org/2006/vcard/ns#",
+  "dqv": "http://www.w3.org/ns/dqv#",
+  "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+  "so": "urn:x-ai-ready-data:"
+ },
+ "@type": "dcat:Catalog",
+ "dct:title": "Gemeinsamer Katalog für Daten und Dokumente (Prototyp KI-taugliche Daten)",
+ "dct:modified": "2026-10-30",
+ "dct:source": {
+  "dataportal": {
+   "release": "3e564d39-c0ec-4184-978f-f523f655cf38",
+   "modified": "2026-10-16",
+   "source": "https://data.so.ch",
+   "dcat_export": "d64ca7e6039a8f20df5712b484e49b7ce464c601f4e7e02eaef4b6ad13a4a364"
+  },
+  "datasheets": [
+   "bgs.yaml",
+   "rrb-distribution-list.yaml",
+   "rrb.yaml"
+  ],
+  "rules": "rules/"
+ },
+ "dcat:service": [
+  {
+   "@type": "dcat:DataService",
+   "@id": "so:service/metrics",
+   "dct:identifier": "metrics",
+   "dct:title": "Kennzahl-Abfrage über den Semantic Layer (Agentic-BI-Demo 002, AGI)",
+   "dcat:endpointURL": "http://localhost:8004/mcp",
+   "dcat:endpointDescription": "https://github.com/sogis/dateninfrastruktur-agentic-bi-demo-002",
+   "dcat:servesDataset": [
+    {
+     "@id": "urn:x-ai-ready-data:dataset/ch.so.av_nachfuehrungsstatistik.personal"
+    },
+    {
+     "@id": "urn:x-ai-ready-data:dataset/ch.so.av_nachfuehrungsstatistik.umsatz"
+    },
+    {
+     "@id": "urn:x-ai-ready-data:dataset/ch.so.bevoelkerung.gemeinde_alter"
+    },
+    {
+     "@id": "urn:x-ai-ready-data:dataset/ch.so.fahrzeugbestand"
+    },
+    {
+     "@id": "urn:x-ai-ready-data:dataset/ch.so.gws.gebaeude_heizung"
+    },
+    {
+     "@id": "urn:x-ai-ready-data:dataset/ch.so.gws.gebaeude_kategorie"
+    }
+   ]
+  },
+  {
+   "@type": "dcat:DataService",
+   "@id": "so:service/documents",
+   "dct:identifier": "documents",
+   "dct:title": "Dokumente-Schnittstelle: Lesen, Suchen, Zitieren (Prototyp KI-taugliche Daten)",
+   "dcat:endpointURL": "http://localhost:8005/mcp",
+   "dcat:endpointDescription": "KI-DATEN.md",
+   "dcat:servesDataset": [
+    {
+     "@id": "urn:x-ai-ready-data:dataset/bgs"
+    },
+    {
+     "@id": "urn:x-ai-ready-data:dataset/rrb-distribution-list"
+    },
+    {
+     "@id": "urn:x-ai-ready-data:dataset/rrb"
+    }
+   ]
+  }
+ ],
+ "dcat:dataset": [
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.abstimmungsresultate",
+   "dct:identifier": "ch.so.abstimmungsresultate",
+   "dct:title": "Abstimmungsresultate nach Gemeinde",
+   "dct:description": "Resultate eidgenössischer und kantonaler Abstimmungen in den Gemeinden des Kantons Solothurn.",
+   "dcat:keyword": [
+    "Abstimmungen",
+    "Abstimmungsresultate",
+    "Volksabstimmungen",
+    "Gemeinden",
+    "Kanton Solothurn",
+    "Stimmbeteiligung",
+    "Stimmberechtigte",
+    "Hauptvorlage",
+    "Gegenvorschlag",
+    "Stichfrage",
+    "eCH-0252",
+    "Politische Rechte"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/GOVE"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.sk",
+    "foaf:name": "Staatskanzlei",
+    "dct:identifier": "STK"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Staatskanzlei",
+    "vcard:hasEmail": "mailto:kanzlei@sk.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/AS_NEEDED"
+   },
+   "dct:issued": "2026-10-15",
+   "dct:modified": "2026-10-15",
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "ch_so_abstimmungsresultate_20261015"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.abstimmungsresultate",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.abstimmungsresultate/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.abstimmungsresultate",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.abstimmungsresultate.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.abstimmungsresultate/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.abstimmungsresultate",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.abstimmungsresultate.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.abstimmungsresultate/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.abstimmungsresultate",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.abstimmungsresultate.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell ch_so_abstimmungsresultate_20261015; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Stichtag oder Zeitraum im Datenblatt nicht angegeben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 29 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.personal",
+   "dct:identifier": "ch.so.av_nachfuehrungsstatistik.personal",
+   "dct:title": "Personalstatistik in der amtlichen Vermessung nach Ausbildung",
+   "dct:description": "Jährliche Anzahl Mitarbeitende in der amtlichen Vermessung nach Ausbildungs- und Qualifikationskategorie für den Zeitraum 1980 bis 2025.",
+   "dcat:keyword": [
+    "Personalstatistik",
+    "Personalbestand",
+    "Ausbildung",
+    "Qualifikation",
+    "Mitarbeitende",
+    "Beschäftigte",
+    "Geomatiker",
+    "Ingenieur-Geometer",
+    "Techniker",
+    "Lernende",
+    "Amt für Geoinformation",
+    "Kanton Solothurn",
+    "Zeitreihe"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Geoinformation",
+    "vcard:hasEmail": "mailto:agi@bd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-14",
+   "dct:modified": "2026-10-14",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "1980-01-01",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.personal",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.personal/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.personal",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.personal.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.personal/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.personal",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.personal.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.personal/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.personal",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.personal.parquet",
+     "dct:format": "parquet"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Kennzahl-Abfrage",
+     "dcat:accessURL": "http://localhost:8004/mcp",
+     "dcat:accessService": {
+      "@id": "so:service/metrics"
+     }
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Kein Datenmodell angegeben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Bestandsgrösse ohne Stichtag (Jahr 2025): Vergleich mit anderen Bestandszahlen nur mit Vorbehalt."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 3 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Semantic Layer: staff, years."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.umsatz",
+   "dct:identifier": "ch.so.av_nachfuehrungsstatistik.umsatz",
+   "dct:title": "Umsatz der Nachführung der amtlichen Vermessung",
+   "dct:description": "Jährlicher Umsatz der Nachführung der amtlichen Vermessung im Kanton Solothurn für die Jahre 1983 bis 2025.",
+   "dcat:keyword": [
+    "Umsatz",
+    "Nachführung",
+    "Amtliche Vermessung",
+    "Jahresbericht",
+    "Nominalwerte",
+    "Teuerung",
+    "Inflation",
+    "Zeitreihe",
+    "Amt für Geoinformation",
+    "Kanton Solothurn"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Geoinformation",
+    "vcard:hasEmail": "mailto:agi@bd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-14",
+   "dct:modified": "2026-10-14",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "1983-01-01",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.umsatz",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.umsatz/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.umsatz",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.umsatz.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.umsatz/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.umsatz",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.umsatz.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.av_nachfuehrungsstatistik.umsatz/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.av_nachfuehrungsstatistik.umsatz",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.av_nachfuehrungsstatistik.umsatz.parquet",
+     "dct:format": "parquet"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Kennzahl-Abfrage",
+     "dcat:accessURL": "http://localhost:8004/mcp",
+     "dcat:accessService": {
+      "@id": "so:service/metrics"
+     }
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Kein Datenmodell angegeben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 2 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Semantic Layer: revenue."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:DatasetSeries",
+   "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.altersstruktur",
+   "dct:identifier": "ch.so.bevoelkerung.altersstruktur",
+   "dct:title": "Altersstruktur der Wohnbevölkerung nach Geschlecht (Schweizer/Ausländer)",
+   "dct:description": "Ständige Wohnbevölkerung des Gesamtkantons Solothurn nach Jahrgang (Einzeljahre), gegliedert nach Geschlecht und Staatsangehörigkeit (Schweizer/Schweizerinnen, Ausländer/Ausländerinnen) sowie Total je Jahrgang.",
+   "dcat:keyword": [
+    "Bevölkerung",
+    "Altersstruktur",
+    "Jahrgang",
+    "Alterspyramide",
+    "Geschlecht",
+    "Nationalität",
+    "Solothurn"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/SOCI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-09-30",
+   "dct:modified": "2026-10-15",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2025-12-31",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Bevoelkerung_Altersstruktur_20261015"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur",
+   "dct:hasPart": [
+    {
+     "@type": "dcat:Dataset",
+     "dct:identifier": "ch.so.bevoelkerung.altersstruktur_2025",
+     "rdfs:label": "2025",
+     "dcat:inSeries": {
+      "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.altersstruktur"
+     },
+     "dcat:version": "current",
+     "dcat:distribution": [
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.altersstruktur_2025/distribution/csv",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.altersstruktur_2025.csv",
+       "dct:format": "csv"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.altersstruktur_2025/distribution/xlsx",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.altersstruktur_2025.xlsx",
+       "dct:format": "xlsx"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.altersstruktur_2025/distribution/parquet",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.bevoelkerung.altersstruktur/issues/ch.so.bevoelkerung.altersstruktur_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.altersstruktur_2025.parquet",
+       "dct:format": "parquet"
+      }
+     ]
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Bevoelkerung_Altersstruktur_20261015; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 12 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:DatasetSeries",
+   "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_alter",
+   "dct:identifier": "ch.so.bevoelkerung.gemeinde_alter",
+   "dct:title": "Wohnbevölkerung nach Gemeinde, Geschlecht und Altersgruppen (inkl. Total Schweizer/Ausländer), Kanton Solothurn",
+   "dct:description": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde, mit Totalen nach Geschlecht (Männer/Frauen) und Staatsangehörigkeit (Schweizer/Ausländer) sowie nach Altersgruppen (0–19, 20–39, 40–64, 65–79, 80+).",
+   "dcat:keyword": [
+    "Bevölkerung",
+    "Wohnbevölkerung",
+    "Gemeinde",
+    "Altersgruppen",
+    "Altersstruktur",
+    "Geschlecht",
+    "Nationalität",
+    "Solothurn"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/SOCI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-15",
+   "dct:modified": "2026-10-15",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2025-12-31",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Bevoelkerung_Gemeinde_Alter_20261015"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter",
+   "dct:hasPart": [
+    {
+     "@type": "dcat:Dataset",
+     "dct:identifier": "ch.so.bevoelkerung.gemeinde_alter_2025",
+     "rdfs:label": "2025",
+     "dcat:inSeries": {
+      "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_alter"
+     },
+     "dcat:version": "current",
+     "dcat:distribution": [
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_alter_2025/distribution/csv",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.csv",
+       "dct:format": "csv"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_alter_2025/distribution/xlsx",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.xlsx",
+       "dct:format": "xlsx"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_alter_2025/distribution/parquet",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_alter/issues/ch.so.bevoelkerung.gemeinde_alter_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_alter_2025.parquet",
+       "dct:format": "parquet"
+      }
+     ]
+    }
+   ],
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Kennzahl-Abfrage",
+     "dcat:accessURL": "http://localhost:8004/mcp",
+     "dcat:accessService": {
+      "@id": "so:service/metrics"
+     }
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Bevoelkerung_Gemeinde_Alter_20261015; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 26 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Semantic Layer: municipalities, population."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:DatasetSeries",
+   "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_geschlecht",
+   "dct:identifier": "ch.so.bevoelkerung.gemeinde_geschlecht",
+   "dct:title": "Wohnbevölkerung nach Gemeinde und Geschlecht (Schweizer/Ausländer)",
+   "dct:description": "Ständige Wohnbevölkerung des Kantons Solothurn nach Gemeinde und Geschlecht, differenziert nach schweizerischer und ausländischer Staatsangehörigkeit (Männer/Frauen je Gruppe sowie Totale).",
+   "dcat:keyword": [
+    "Bevölkerung",
+    "Wohnbevölkerung",
+    "Bevölkerungsbestand",
+    "Gemeinde",
+    "Geschlecht",
+    "Nationalität",
+    "Schweizer",
+    "Ausländer",
+    "Solothurn"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/SOCI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-15",
+   "dct:modified": "2026-10-15",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2025-12-31",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dcat:landingPage": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht",
+   "dct:hasPart": [
+    {
+     "@type": "dcat:Dataset",
+     "dct:identifier": "ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+     "rdfs:label": "2025",
+     "dcat:inSeries": {
+      "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_geschlecht"
+     },
+     "dcat:version": "current",
+     "dcat:distribution": [
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_geschlecht_2025/distribution/csv",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.csv",
+       "dct:format": "csv"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_geschlecht_2025/distribution/xlsx",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.xlsx",
+       "dct:format": "xlsx"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.bevoelkerung.gemeinde_geschlecht_2025/distribution/parquet",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.bevoelkerung.gemeinde_geschlecht/issues/ch.so.bevoelkerung.gemeinde_geschlecht_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerung.gemeinde_geschlecht_2025.parquet",
+       "dct:format": "parquet"
+      }
+     ]
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Kein Datenmodell angegeben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Schlüssel nicht eindeutig, z. B. eine Gemeindenummer mehrfach (im Daten-Server gesperrt)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 24 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Daten-Server in Quarantäne (bekannter Datenfehler)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.bevoelkerungsprognose",
+   "dct:identifier": "ch.so.bevoelkerungsprognose",
+   "dct:title": "Bevölkerungsprognose 2022–2050 der Gemeinden des Kantons Solothurn nach Szenario",
+   "dct:description": "Modellbasierte Bevölkerungsprognose von Wüest und Partner (Prognoserechnung 2023) für die 107 Gemeinden der verwendeten Prognosebasis.",
+   "dcat:keyword": [
+    "Bevölkerung",
+    "Bevölkerungsprognose",
+    "Bevölkerungsentwicklung",
+    "Einwohner",
+    "Szenarien",
+    "Gemeinden",
+    "Raumplanung",
+    "Demografie"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/SOCI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2022-01-01",
+    "dcat:endDate": "2050-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Bevoelkerungsprognose_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.bevoelkerungsprognose",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.bevoelkerungsprognose/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.bevoelkerungsprognose",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerungsprognose.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.bevoelkerungsprognose/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.bevoelkerungsprognose",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerungsprognose.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.bevoelkerungsprognose/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.bevoelkerungsprognose",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.bevoelkerungsprognose.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Bevoelkerungsprognose_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 12 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.ebau_statistik_dossiers",
+   "dct:identifier": "ch.so.ebau_statistik_dossiers",
+   "dct:title": "Dossiers in eBau pro Monat",
+   "dct:description": "Monatliche Statistik zur Nutzung von eBau im Kanton Solothurn.",
+   "dcat:keyword": [
+    "eBau",
+    "Baubewilligungsverfahren",
+    "Dossiers",
+    "Gemeinden",
+    "Digitalisierung"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/REGI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Geoinformation",
+    "vcard:hasEmail": "mailto:agi@bd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/MONTHLY"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2024-11-01",
+    "dcat:endDate": "2026-09-30"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Ebau_Statistik_Dossiers_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.ebau_statistik_dossiers",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.ebau_statistik_dossiers/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.ebau_statistik_dossiers",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.ebau_statistik_dossiers.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.ebau_statistik_dossiers/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.ebau_statistik_dossiers",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.ebau_statistik_dossiers.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.ebau_statistik_dossiers/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.ebau_statistik_dossiers",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.ebau_statistik_dossiers.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Ebau_Statistik_Dossiers_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Bestandsgrösse ohne Stichtag (Jahr 2025): Vergleich mit anderen Bestandszahlen nur mit Vorbehalt."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 3 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer). Zeitraster (z. B. Monate) wird vom Semantic Layer der Demo noch nicht unterstützt."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_branchen",
+   "dct:identifier": "ch.so.exportmonitor_branchen",
+   "dct:title": "Exportmonitor: Monatliche Exporte nach Branchen Kanton Solothurn",
+   "dct:description": "Monatliche Exporte des Kantons Solothurn für ausgewählte Branchen im Vergleich zum Vorjahresmonat.",
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Exportmonitor_Branchen_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.exportmonitor_branchen",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_branchen/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.exportmonitor_branchen",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_branchen.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_branchen/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.exportmonitor_branchen",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_branchen.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_branchen/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.exportmonitor_branchen",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_branchen.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Exportmonitor_Branchen_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Stichtag oder Zeitraum im Datenblatt nicht angegeben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 7 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Nachführung nicht angegeben."
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_gesamt",
+   "dct:identifier": "ch.so.exportmonitor_gesamt",
+   "dct:title": "Exportmonitor: Monatliche Exporte Kanton Solothurn",
+   "dct:description": "Monatliche Gesamtexporte des Kantons Solothurn im Vergleich zum Vorjahresmonat.",
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Exportmonitor_Gesamt_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.exportmonitor_gesamt",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_gesamt/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.exportmonitor_gesamt",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_gesamt.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_gesamt/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.exportmonitor_gesamt",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_gesamt.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_gesamt/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.exportmonitor_gesamt",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_gesamt.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Exportmonitor_Gesamt_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Stichtag oder Zeitraum im Datenblatt nicht angegeben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 6 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Nachführung nicht angegeben."
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_regionen",
+   "dct:identifier": "ch.so.exportmonitor_regionen",
+   "dct:title": "Exportmonitor: Monatliche Exporte nach Zielregionen Kanton Solothurn",
+   "dct:description": "Monatliche Exporte des Kantons Solothurn nach Zielregion im Vergleich zum Vorjahresmonat.",
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Exportmonitor_Regionen_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.exportmonitor_regionen",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_regionen/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.exportmonitor_regionen",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_regionen.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_regionen/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.exportmonitor_regionen",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_regionen.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.exportmonitor_regionen/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.exportmonitor_regionen",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.exportmonitor_regionen.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Exportmonitor_Regionen_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Stichtag oder Zeitraum im Datenblatt nicht angegeben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 7 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Nachführung nicht angegeben."
+    }
+   ]
+  },
+  {
+   "@type": "dcat:DatasetSeries",
+   "@id": "https://data.so.ch/dataset/ch.so.fahrzeugbestand",
+   "dct:identifier": "ch.so.fahrzeugbestand",
+   "dct:title": "Fahrzeugbestand nach Fahrzeugkategorie und Gemeinde",
+   "dct:description": "Bestand der im Kanton Solothurn zugelassenen Fahrzeuge nach Fahrzeuggruppe (Leichte Motorwagen, Schwere Motorwagen, Anhänger, Landwirtschaftliche Fahrzeuge/Industrietraktoren, Motorräder, Klein-Motorräder, Gewerbefahrzeuge) und …",
+   "dcat:keyword": [
+    "Fahrzeugbestand",
+    "Motorfahrzeuge",
+    "Zulassungen",
+    "Wechselschilder",
+    "MFK",
+    "Fahrzeugkategorien",
+    "Verkehr"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/TRAN"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.mfk",
+    "foaf:name": "Motorfahrzeugkontrolle",
+    "dct:identifier": "MFK"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Motorfahrzeugkontrolle",
+    "vcard:hasEmail": "mailto:mfk@mfk.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-14",
+   "dct:modified": "2026-10-14",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2025-01-01",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Fahrzeugbestand_20261014"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/series/ch.so.fahrzeugbestand",
+   "dct:hasPart": [
+    {
+     "@type": "dcat:Dataset",
+     "dct:identifier": "ch.so.fahrzeugbestand_2025",
+     "rdfs:label": "2025",
+     "dcat:inSeries": {
+      "@id": "https://data.so.ch/dataset/ch.so.fahrzeugbestand"
+     },
+     "dcat:version": "current",
+     "dcat:distribution": [
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.fahrzeugbestand_2025/distribution/csv",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.csv",
+       "dct:format": "csv"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.fahrzeugbestand_2025/distribution/xlsx",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.xlsx",
+       "dct:format": "xlsx"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.fahrzeugbestand_2025/distribution/parquet",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.fahrzeugbestand/issues/ch.so.fahrzeugbestand_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.fahrzeugbestand_2025.parquet",
+       "dct:format": "parquet"
+      }
+     ]
+    }
+   ],
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Kennzahl-Abfrage",
+     "dcat:accessURL": "http://localhost:8004/mcp",
+     "dcat:accessService": {
+      "@id": "so:service/metrics"
+     }
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Fahrzeugbestand_20261014; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Bestandsgrösse ohne Stichtag (Jahr 2025): Vergleich mit anderen Bestandszahlen nur mit Vorbehalt."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 22 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Semantic Layer: vehicles."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.finanzkennzahlen",
+   "dct:identifier": "ch.so.finanzkennzahlen",
+   "dct:title": "Finanzkennzahlen Kanton Solothurn",
+   "dct:description": "Zentrale Finanzkennzahlen des Kantons Solothurn aus der Staatsrechnung: Ergebnisse der Erfolgsrechnung, Cash-Flow, Nettoinvestitionen, Finanzierungsergebnis und Selbstfinanzierungsgrad.",
+   "dcat:keyword": [
+    "Finanzkennzahlen",
+    "Staatsrechnung",
+    "Erfolgsrechnung",
+    "Gesamtergebnis",
+    "Cash-Flow",
+    "Nettoinvestitionen",
+    "Finanzierungsergebnis",
+    "Selbstfinanzierungsgrad",
+    "Kantonsfinanzen",
+    "HRM2"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2018-01-01",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Finanzkennzahlen_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.finanzkennzahlen",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.finanzkennzahlen/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.finanzkennzahlen",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.finanzkennzahlen.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.finanzkennzahlen/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.finanzkennzahlen",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.finanzkennzahlen.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.finanzkennzahlen/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.finanzkennzahlen",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.finanzkennzahlen.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Finanzkennzahlen_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 6 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_bauperiode",
+   "dct:identifier": "ch.so.gws.gebaeude_bauperiode",
+   "dct:title": "Gebäude mit Wohnnutzung nach Bauperiode Gemeinden Kanton Solothurn",
+   "dct:description": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Bauperiode, mit Bezirkszuordnung.",
+   "dcat:keyword": [
+    "Gebäude",
+    "Gebäudebestand",
+    "Bauperiode",
+    "Baujahr",
+    "Gebäudealter",
+    "Gebäude- und Wohnungsstatistik",
+    "GWS",
+    "GWR",
+    "Gemeinden",
+    "Bezirke"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/REGI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2025-12-31",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_GWS_Gebaeude_Bauperiode_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.gws.gebaeude_bauperiode",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_bauperiode/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.gebaeude_bauperiode",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_bauperiode.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_bauperiode/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.gebaeude_bauperiode",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_bauperiode.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_bauperiode/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.gebaeude_bauperiode",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_bauperiode.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_GWS_Gebaeude_Bauperiode_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 13 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_heizung",
+   "dct:identifier": "ch.so.gws.gebaeude_heizung",
+   "dct:title": "Gebäude mit Wohnnutzung nach Heizsystem und Energieträger der Hauptheizung Gemeinden Kanton Solothurn",
+   "dct:description": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Heizsystem und Energieträger der Hauptheizung, mit Bezirkszuordnung.",
+   "dcat:keyword": [
+    "Gebäude",
+    "Gebäudebestand",
+    "Heizung",
+    "Energieträger",
+    "Wärmepumpe",
+    "Heizöl",
+    "Gas",
+    "Holz",
+    "Fernwärme",
+    "Elektrizität",
+    "Gebäude- und Wohnungsstatistik",
+    "GWS",
+    "GWR",
+    "Gemeinden",
+    "Bezirke"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/REGI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2025-12-31",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_GWS_Gebaeude_Heizung_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.gws.gebaeude_heizung",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_heizung/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.gebaeude_heizung",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_heizung.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_heizung/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.gebaeude_heizung",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_heizung.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_heizung/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.gebaeude_heizung",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_heizung.parquet",
+     "dct:format": "parquet"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Kennzahl-Abfrage",
+     "dcat:accessURL": "http://localhost:8004/mcp",
+     "dcat:accessService": {
+      "@id": "so:service/metrics"
+     }
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_GWS_Gebaeude_Heizung_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 13 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Semantic Layer: heating."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_kategorie",
+   "dct:identifier": "ch.so.gws.gebaeude_kategorie",
+   "dct:title": "Gebäude mit Wohnnutzung nach Gebäudekategorie Gemeinden Kanton Solothurn",
+   "dct:description": "Bestand der Gebäude mit Wohnnutzung in den Gemeinden des Kantons Solothurn nach Gebäudekategorie, mit Bezirkszuordnung.",
+   "dcat:keyword": [
+    "Gebäude",
+    "Gebäudebestand",
+    "Gebäudekategorie",
+    "Einfamilienhaus",
+    "Mehrfamilienhaus",
+    "Gebäude- und Wohnungsstatistik",
+    "GWS",
+    "GWR",
+    "Gemeinden",
+    "Bezirke"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/REGI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2025-12-31",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_GWS_GebaeudeKategorie_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.gws.gebaeude_kategorie",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_kategorie/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.gebaeude_kategorie",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_kategorie.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_kategorie/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.gebaeude_kategorie",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_kategorie.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.gebaeude_kategorie/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.gebaeude_kategorie",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.gebaeude_kategorie.parquet",
+     "dct:format": "parquet"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Kennzahl-Abfrage",
+     "dcat:accessURL": "http://localhost:8004/mcp",
+     "dcat:accessService": {
+      "@id": "so:service/metrics"
+     }
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_GWS_GebaeudeKategorie_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 10 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Semantic Layer: building_category."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.gws.wohnungen_zimmer",
+   "dct:identifier": "ch.so.gws.wohnungen_zimmer",
+   "dct:title": "Wohnungen nach Zimmerzahl Gemeinden Kanton Solothurn",
+   "dct:description": "Bestand der Wohnungen in den Gemeinden des Kantons Solothurn nach Anzahl Zimmer (1, 2, 3, 4, 5 und mehr) sowie Anzahl Wohnungen in Einfamilienhäusern, mit Bezirkszuordnung.",
+   "dcat:keyword": [
+    "Wohnungen",
+    "Wohnungsbestand",
+    "Zimmerzahl",
+    "Einfamilienhaus",
+    "Gebäude- und Wohnungsstatistik",
+    "GWS",
+    "GWR",
+    "Gemeinden",
+    "Bezirke"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/REGI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.afin",
+    "foaf:name": "Amt für Finanzen",
+    "dct:identifier": "AFIN"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Finanzen",
+    "vcard:hasEmail": "mailto:afin@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2025-12-31",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_GWS_Wohnungen_Zimmer_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.gws.wohnungen_zimmer",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.wohnungen_zimmer/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.wohnungen_zimmer",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.wohnungen_zimmer.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.wohnungen_zimmer/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.wohnungen_zimmer",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.wohnungen_zimmer.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.gws.wohnungen_zimmer/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.gws.wohnungen_zimmer",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.gws.wohnungen_zimmer.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_GWS_Wohnungen_Zimmer_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 12 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:DatasetSeries",
+   "@id": "https://data.so.ch/dataset/ch.so.hotellerie_herkunft",
+   "dct:identifier": "ch.so.hotellerie_herkunft",
+   "dct:title": "Hotellerie: Ankünfte und Logiernächte nach Herkunftsland Kanton Solothurn",
+   "dct:description": "Ankünfte und Logiernächte in den geöffneten Hotel- und Kurbetrieben des Kantons Solothurn nach Herkunftsland der Gäste (Schweiz, Ausland total und rund 70 Länder bzw. Ländergruppen), ergänzt mit dem Anteil an allen Logiernächten und der …",
+   "dcat:keyword": [
+    "Tourismus",
+    "Hotellerie",
+    "Logiernächte",
+    "Ankünfte",
+    "Übernachtungen",
+    "Herkunftsland",
+    "Gäste",
+    "Aufenthaltsdauer",
+    "Beherbergung",
+    "HESTA",
+    "Kanton Solothurn",
+    "BFS"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    },
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.bfs",
+    "foaf:name": "Bundesamt für Statistik",
+    "dct:identifier": "BFS"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Bundesamt für Statistik",
+    "vcard:hasEmail": "mailto:info@bfs.admin.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-15",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2025-01-01",
+    "dcat:endDate": "2025-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Hotellerie_Herkunft_20261015"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/series/ch.so.hotellerie_herkunft",
+   "dct:hasPart": [
+    {
+     "@type": "dcat:Dataset",
+     "dct:identifier": "so_hotellerie_herkunft_2025",
+     "rdfs:label": "2025",
+     "dcat:inSeries": {
+      "@id": "https://data.so.ch/dataset/ch.so.hotellerie_herkunft"
+     },
+     "dcat:version": "current",
+     "dcat:distribution": [
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/so_hotellerie_herkunft_2025/distribution/csv",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.hotellerie_herkunft_2025.csv",
+       "dct:format": "csv"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/so_hotellerie_herkunft_2025/distribution/xlsx",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.hotellerie_herkunft_2025.xlsx",
+       "dct:format": "xlsx"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/so_hotellerie_herkunft_2025/distribution/parquet",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.hotellerie_herkunft/issues/so_hotellerie_herkunft_2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.hotellerie_herkunft_2025.parquet",
+       "dct:format": "parquet"
+      }
+     ]
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Hotellerie_Herkunft_20261015; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Kennung uneinheitlich: so_hotellerie_herkunft_2025 statt Muster ch.so.hotellerie_herkunft_<Jahr>."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 9 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.leerwohnungen_gemeinden",
+   "dct:identifier": "ch.so.leerwohnungen_gemeinden",
+   "dct:title": "Leer stehende Wohnungen Gemeinden und Bezirke Kanton Solothurn",
+   "dct:description": "Jährliche Zeitreihe der leer stehenden Wohnungen am Stichtag 1.",
+   "dcat:keyword": [
+    "Leerwohnungen",
+    "Leerstand",
+    "Wohnungsmarkt",
+    "Gemeinden",
+    "Bezirke",
+    "Einfamilienhaus",
+    "Mehrfamilienhaus",
+    "Neubau",
+    "Wohnen",
+    "Kanton Solothurn",
+    "BFS"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/REGI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.bfs",
+    "foaf:name": "Bundesamt für Statistik",
+    "dct:identifier": "BFS"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Bundesamt für Statistik",
+    "vcard:hasEmail": "mailto:info@bfs.admin.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2021-06-01",
+    "dcat:endDate": "2025-06-01"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Leerwohnungen_Gemeinden_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.leerwohnungen_gemeinden",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.leerwohnungen_gemeinden/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.leerwohnungen_gemeinden",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_gemeinden.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.leerwohnungen_gemeinden/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.leerwohnungen_gemeinden",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_gemeinden.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.leerwohnungen_gemeinden/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.leerwohnungen_gemeinden",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_gemeinden.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Leerwohnungen_Gemeinden_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 19 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.leerwohnungen_kanton",
+   "dct:identifier": "ch.so.leerwohnungen_kanton",
+   "dct:title": "Leer stehende Wohnungen und Leerwohnungsziffer Kanton Solothurn und Schweiz",
+   "dct:description": "Jährliche Zeitreihe der leer stehenden Wohnungen am Stichtag 1.",
+   "dcat:keyword": [
+    "Leerwohnungen",
+    "Leerwohnungsziffer",
+    "Leerstand",
+    "Wohnungsmarkt",
+    "Wohnungsbestand",
+    "Wohnen",
+    "Mietwohnungen",
+    "Eigentumswohnungen",
+    "Kanton Solothurn",
+    "BFS"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/REGI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.bfs",
+    "foaf:name": "Bundesamt für Statistik",
+    "dct:identifier": "BFS"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Bundesamt für Statistik",
+    "vcard:hasEmail": "mailto:info@bfs.admin.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "1999-06-01",
+    "dcat:endDate": "2025-06-01"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Leerwohnungen_Kanton_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.leerwohnungen_kanton",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.leerwohnungen_kanton/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.leerwohnungen_kanton",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_kanton.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.leerwohnungen_kanton/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.leerwohnungen_kanton",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_kanton.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.leerwohnungen_kanton/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.leerwohnungen_kanton",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.leerwohnungen_kanton.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Leerwohnungen_Kanton_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 18 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.sozialhilfe_kanton",
+   "dct:identifier": "ch.so.sozialhilfe_kanton",
+   "dct:title": "Sozialhilfequote und Sozialhilfebeziehende Kanton Solothurn und Schweiz",
+   "dct:description": "Jährliche Zeitreihe der wirtschaftlichen Sozialhilfe im Kanton Solothurn und in der Schweiz: Sozialhilfequote, Anzahl Sozialhilfebeziehende, Unterstützungseinheiten (Dossiers) und Personen pro Unterstützungseinheit.",
+   "dcat:keyword": [
+    "Sozialhilfe",
+    "Sozialhilfequote",
+    "wirtschaftliche Sozialhilfe",
+    "Sozialhilfebeziehende",
+    "Unterstützungseinheiten",
+    "Armut",
+    "soziale Sicherheit",
+    "Kanton Solothurn",
+    "BFS"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/SOCI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.bfs",
+    "foaf:name": "Bundesamt für Statistik",
+    "dct:identifier": "BFS"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Bundesamt für Statistik",
+    "vcard:hasEmail": "mailto:info@bfs.admin.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2005-01-01",
+    "dcat:endDate": "2024-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Sozialhilfe_Kanton_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.sozialhilfe_kanton",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.sozialhilfe_kanton/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.sozialhilfe_kanton",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_kanton.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.sozialhilfe_kanton/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.sozialhilfe_kanton",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_kanton.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.sozialhilfe_kanton/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.sozialhilfe_kanton",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_kanton.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Sozialhilfe_Kanton_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 8 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "https://data.so.ch/dataset/ch.so.sozialhilfe_merkmale",
+   "dct:identifier": "ch.so.sozialhilfe_merkmale",
+   "dct:title": "Sozialhilfebeziehende nach Geschlecht, Alter, Zivilstand und Staatsangehörigkeit Kanton Solothurn",
+   "dct:description": "Jährliche Zeitreihe der Sozialhilfebeziehenden und der Sozialhilfequote im Kanton Solothurn, gegliedert nach Geschlecht, Altersklasse, Zivilstand und Staatsangehörigkeit (Schweiz / Ausland), inkl. aller Kombinationen und Totale.",
+   "dcat:keyword": [
+    "Sozialhilfe",
+    "Sozialhilfequote",
+    "Sozialhilfebeziehende",
+    "Alter",
+    "Geschlecht",
+    "Zivilstand",
+    "Staatsangehörigkeit",
+    "Kinder und Jugendliche",
+    "soziale Sicherheit",
+    "Kanton Solothurn",
+    "BFS"
+   ],
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/SOCI"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.bfs",
+    "foaf:name": "Bundesamt für Statistik",
+    "dct:identifier": "BFS"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Bundesamt für Statistik",
+    "vcard:hasEmail": "mailto:info@bfs.admin.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:temporal": {
+    "@type": "dct:PeriodOfTime",
+    "dcat:startDate": "2005-01-01",
+    "dcat:endDate": "2024-12-31"
+   },
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Sozialhilfe_Merkmale_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/datasets/ch.so.sozialhilfe_merkmale",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.sozialhilfe_merkmale/distribution/csv",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.sozialhilfe_merkmale",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_merkmale.csv",
+     "dct:format": "csv"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.sozialhilfe_merkmale/distribution/xlsx",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.sozialhilfe_merkmale",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_merkmale.xlsx",
+     "dct:format": "xlsx"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "@id": "https://data.so.ch/dataset/ch.so.sozialhilfe_merkmale/distribution/parquet",
+     "dcat:accessURL": "https://data.so.ch/datasets/ch.so.sozialhilfe_merkmale",
+     "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.sozialhilfe_merkmale.parquet",
+     "dct:format": "parquet"
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Sozialhilfe_Merkmale_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 9 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:DatasetSeries",
+   "@id": "https://data.so.ch/dataset/ch.so.staatssteuerertraege_gemeinden",
+   "dct:identifier": "ch.so.staatssteuerertraege_gemeinden",
+   "dct:title": "Staatssteuererträge (Kalenderjahr) natürliche und juristische Personen nach Gemeinde Kanton Solothurn",
+   "dct:description": "Erträge der Staatssteuer (Kantonssteuer) für das Kalenderjahr (KJ) 2025, aufgeteilt nach natürlichen Personen (NP) und juristischen Personen (JP) sowie Total, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden) und für den Kanton Solothurn …",
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.ksta",
+    "foaf:name": "Steueramt",
+    "dct:identifier": "KSTA"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Steueramt",
+    "vcard:hasEmail": "mailto:steueramt.so@fd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Staatssteuerertraege_Gemeinden_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden",
+   "dct:hasPart": [
+    {
+     "@type": "dcat:Dataset",
+     "dct:identifier": "ch.so.staatssteuerertraege_gemeinden-2025",
+     "rdfs:label": "2025",
+     "dcat:inSeries": {
+      "@id": "https://data.so.ch/dataset/ch.so.staatssteuerertraege_gemeinden"
+     },
+     "dcat:version": "current",
+     "dcat:distribution": [
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.staatssteuerertraege_gemeinden-2025/distribution/csv",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.csv",
+       "dct:format": "csv"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.staatssteuerertraege_gemeinden-2025/distribution/xlsx",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.xlsx",
+       "dct:format": "xlsx"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.staatssteuerertraege_gemeinden-2025/distribution/parquet",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.staatssteuerertraege_gemeinden/issues/ch.so.staatssteuerertraege_gemeinden-2025",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.staatssteuerertraege_gemeinden_2025.parquet",
+       "dct:format": "parquet"
+      }
+     ]
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Staatssteuerertraege_Gemeinden_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Kennung uneinheitlich: ch.so.staatssteuerertraege_gemeinden-2025 statt Muster ch.so.staatssteuerertraege_gemeinden_<Jahr>."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Stichtag oder Zeitraum im Datenblatt nicht angegeben. Anderer Gebietsstand als die übrigen Gemeindedaten; nicht kombinierbar."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 10 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:DatasetSeries",
+   "@id": "https://data.so.ch/dataset/ch.so.steuerfuss_gemeinden",
+   "dct:identifier": "ch.so.steuerfuss_gemeinden",
+   "dct:title": "Steuerfüsse natürliche und juristische Personen nach Gemeinde Kanton Solothurn",
+   "dct:description": "Steuerfüsse der Einwohnergemeinden des Kantons Solothurn für das Jahr 2026, getrennt nach natürlichen Personen (NP) und juristischen Personen (JP), in Prozent der einfachen Staatssteuer, pro Gemeinde (Gemeindestand 2026, 104 Gemeinden).",
+   "dcat:theme": [
+    {
+     "@id": "http://publications.europa.eu/resource/authority/data-theme/ECON"
+    }
+   ],
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agem",
+    "foaf:name": "Amt für Gemeinden",
+    "dct:identifier": "AGEM"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "@id": "https://data.so.ch/agent/ch.so.agi",
+    "foaf:name": "Amt für Geoinformation",
+    "dct:identifier": "AGI"
+   },
+   "dcat:contactPoint": {
+    "@type": "vcard:Organization",
+    "vcard:fn": "Amt für Gemeinden",
+    "vcard:hasEmail": "mailto:agem@vd.so.ch"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:license": {
+    "@id": "http://dcat-ap.ch/vocabulary/licenses/terms_open"
+   },
+   "dct:accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+   },
+   "dct:issued": "2026-10-16",
+   "dct:modified": "2026-10-16",
+   "dct:conformsTo": [
+    {
+     "rdfs:label": "SO_Steuerfuss_Gemeinden_20261016"
+    }
+   ],
+   "dcat:landingPage": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden",
+   "dct:hasPart": [
+    {
+     "@type": "dcat:Dataset",
+     "dct:identifier": "ch.so.steuerfuss_gemeinden-2026",
+     "rdfs:label": "2026",
+     "dcat:inSeries": {
+      "@id": "https://data.so.ch/dataset/ch.so.steuerfuss_gemeinden"
+     },
+     "dcat:version": "current",
+     "dcat:distribution": [
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.steuerfuss_gemeinden-2026/distribution/csv",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.steuerfuss_gemeinden_2026.csv",
+       "dct:format": "csv"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.steuerfuss_gemeinden-2026/distribution/xlsx",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.steuerfuss_gemeinden_2026.xlsx",
+       "dct:format": "xlsx"
+      },
+      {
+       "@type": "dcat:Distribution",
+       "@id": "https://data.so.ch/dataset/ch.so.steuerfuss_gemeinden-2026/distribution/parquet",
+       "dcat:accessURL": "https://data.so.ch/series/ch.so.steuerfuss_gemeinden/issues/ch.so.steuerfuss_gemeinden-2026",
+       "dcat:downloadURL": "https://s3.eu-central-1.amazonaws.com/ch.so.daten-test/ch.so.steuerfuss_gemeinden_2026.parquet",
+       "dct:format": "parquet"
+      }
+     ]
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download als csv, parquet, xlsx."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Datenmodell SO_Steuerfuss_Gemeinden_20261016; Anlieferregeln des Datenportals (BFS-Nummer, ISO-Datum)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Kennung uneinheitlich: ch.so.steuerfuss_gemeinden-2026 statt Muster ch.so.steuerfuss_gemeinden_<Jahr>."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Stichtag oder Zeitraum im Datenblatt nicht angegeben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Änderungsdatum je Datensatz im Katalog."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Titel, Beschreibung, 8 Felder beschrieben."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/metrics"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Kennzahlen definiert (nicht im Semantic Layer)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Download je Datensatz bzw. Jahrgang."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lieferung gegen das Datenmodell geprüft."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Im Datenportal nicht angegeben, ob Personendaten enthalten sind."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Lizenz terms_open (DCAT-Export des Datenportals)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "urn:x-ai-ready-data:dataset/bgs",
+   "dct:identifier": "bgs",
+   "dct:title": "Bereinigte Gesetzessammlung des Kantons Solothurn (BGS)",
+   "dct:description": "Geltendes kantonales Recht (Verfassung, Gesetze, Verordnungen) mit alten und künftigen Fassungen. Im Prototyp nur ein Ausschnitt: drei Erlasse zu Motorfahrzeugsteuer und Strassenverkehr.",
+   "dcat:keyword": [
+    "Gesetz",
+    "Verordnung",
+    "Erlass",
+    "Recht",
+    "BGS"
+   ],
+   "dct:type": {
+    "@id": "so:document-type/legal_text"
+   },
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "foaf:name": "Staatskanzlei",
+    "dct:identifier": "STK"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "foaf:name": "Staatskanzlei",
+    "dct:identifier": "STK"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:rights": {
+    "@type": "dct:RightsStatement",
+    "rdfs:label": "Amtliche Erlasse sind nach Art. 5 URG urheberrechtlich frei; keine Lizenzangabe gefunden."
+   },
+   "dct:accrualPeriodicity": {
+    "rdfs:label": "laufend, bei jeder Rechtsänderung"
+   },
+   "dct:modified": "2026-10-30",
+   "dct:conformsTo": [
+    {
+     "@id": "so:document-profile/legal_text"
+    }
+   ],
+   "dcat:landingPage": "https://bgs.so.ch",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "JSON-Schnittstelle von LexWork (ohne Dokumentation)",
+     "dcat:accessURL": "https://bgs.so.ch/api/de",
+     "dct:format": "json"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Dokumente-Schnittstelle (Prototyp)",
+     "dcat:accessURL": "http://localhost:8005/mcp",
+     "dcat:accessService": {
+      "@id": "so:service/documents"
+     }
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Bei 1 von 3 Dokumenten (614.62): Aktuelle Fassung als strukturierter Text (XML/HTML), nicht nur als PDF."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Bei 1 von 3 Dokumenten (614.62): Paragraf, Absatz, Aufzählung und Fussnote als Struktur, nicht nur im Fliesstext."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Dauerhafte Kennung je Paragraf, über Fassungen hinweg (ELI)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Gültig ab / bis je Fassung als Datumsfeld, nicht als Freitext."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Änderungen je Erlass als Liste über die Schnittstelle (nicht nur im HTML). Verzeichnis aller Erlasse mit Änderungsdatum (neue Fassungen erkennbar)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Personendaten: keine."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Lizenz-Adresse. Amtliche Erlasse sind nach Art. 5 URG urheberrechtlich frei; keine Lizenzangabe gefunden."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "laufend, bei jeder Rechtsänderung"
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "urn:x-ai-ready-data:dataset/rrb-distribution-list",
+   "dct:identifier": "rrb-distribution-list",
+   "dct:title": "Verteiler der Regierungsratsbeschlüsse",
+   "dct:description": "Empfängerinnen und Empfänger je Beschluss (Ämter, Gemeinden, Firmen, Privatpersonen mit Adresse). Die beteiligten kantonalen Ämter daraus sind im Bestand RRB öffentlich als Merkmal geführt.",
+   "dcat:keyword": [
+    "Verteiler",
+    "Empfänger",
+    "Regierungsrat",
+    "RRB"
+   ],
+   "dct:type": {
+    "@id": "so:document-type/decision"
+   },
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "foaf:name": "Staatskanzlei",
+    "dct:identifier": "STK"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "foaf:name": "Staatskanzlei",
+    "dct:identifier": "STK"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED"
+   },
+   "dct:rights": {
+    "@type": "dct:RightsStatement",
+    "rdfs:label": "Keine Lizenzangabe gefunden; amtliche Entscheide sind nach Art. 5 URG urheberrechtlich frei (zu prüfen)."
+   },
+   "dct:accrualPeriodicity": {
+    "rdfs:label": "nach jeder Regierungsratssitzung"
+   },
+   "dct:modified": "2026-10-30",
+   "dct:conformsTo": [
+    {
+     "@id": "so:document-profile/decision"
+    }
+   ],
+   "dcat:landingPage": "https://rrb.so.ch",
+   "dct:isPartOf": {
+    "@id": "urn:x-ai-ready-data:dataset/rrb"
+   },
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Dokumente-Schnittstelle (Prototyp)",
+     "dcat:accessURL": "http://localhost:8005/mcp",
+     "dcat:accessService": {
+      "@id": "so:service/documents"
+     }
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Federführendes Amt als Feld (nicht nur Departement). Beteiligte Ämter als Feld, aus der Stammliste der Ämter. Verteiler als eigenes Feld, getrennt vom Text (Personendaten abtrennbar)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Liste neuer und geänderter Beschlüsse seit einem Datum."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "PDF mit Metadaten (Titel, Nummer, Datum) statt Dateiname."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Abruf aller Beschlüsse (Export oder Schnittstelle), nicht nur Suchmaske."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Die Quelle sagt nicht, was fehlt. Im Abruf (2026-01-13 bis 2026-10-01): 565 von 1686 Beschlüssen (34 %) nicht öffentlich, nur Felder."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Personendaten: Adresszeilen von Privatpersonen, Gemeinden und Firmen (nicht unterscheidbar)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/legal_basis"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Rechtsgrundlage für die Nutzung nicht im Datenblatt."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Lizenz-Adresse. Keine Lizenzangabe gefunden; amtliche Entscheide sind nach Art. 5 URG urheberrechtlich frei (zu prüfen)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "nach jeder Regierungsratssitzung"
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "@id": "urn:x-ai-ready-data:dataset/rrb",
+   "dct:identifier": "rrb",
+   "dct:title": "Regierungsratsbeschlüsse (RRB)",
+   "dct:description": "Beschlüsse des Regierungsrats mit Nummer, Datum, Geschäftsart, federführendem Departement und Titel, dazu der Beschluss als PDF. Im Prototyp nur der Jahrgang 2026 und nur das Beschlussdokument (ohne Briefe und Beilagen).",
+   "dcat:keyword": [
+    "Regierungsrat",
+    "Beschluss",
+    "RRB",
+    "Amt",
+    "Departement"
+   ],
+   "dct:type": {
+    "@id": "so:document-type/decision"
+   },
+   "dct:creator": {
+    "@type": "foaf:Agent",
+    "foaf:name": "Staatskanzlei",
+    "dct:identifier": "STK"
+   },
+   "dct:publisher": {
+    "@type": "foaf:Agent",
+    "foaf:name": "Staatskanzlei",
+    "dct:identifier": "STK"
+   },
+   "dct:accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "dct:rights": {
+    "@type": "dct:RightsStatement",
+    "rdfs:label": "Keine Lizenzangabe gefunden; amtliche Entscheide sind nach Art. 5 URG urheberrechtlich frei (zu prüfen)."
+   },
+   "dct:accrualPeriodicity": {
+    "rdfs:label": "nach jeder Regierungsratssitzung"
+   },
+   "dct:modified": "2026-10-30",
+   "dct:conformsTo": [
+    {
+     "@id": "so:document-profile/decision"
+    }
+   ],
+   "dcat:landingPage": "https://rrb.so.ch",
+   "dcat:distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Suchmaske und PDF je Beschluss (keine Schnittstelle)",
+     "dcat:accessURL": "https://rrb.so.ch",
+     "dct:format": "pdf"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "dct:title": "Dokumente-Schnittstelle (Prototyp)",
+     "dcat:accessURL": "http://localhost:8005/mcp",
+     "dcat:accessService": {
+      "@id": "so:service/documents"
+     }
+    }
+   ],
+   "dqv:hasQualityMeasurement": [
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/machine_readable"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/fields"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Federführendes Amt als Feld (nicht nur Departement). Beteiligte Ämter als Feld, aus der Stammliste der Ämter. Verteiler als eigenes Feld, getrennt vom Text (Personendaten abtrennbar)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/identifier"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/validity"
+     },
+     "dqv:value": true
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/changes"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Liste neuer und geänderter Beschlüsse seit einem Datum."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/description"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "PDF mit Metadaten (Titel, Nummer, Datum) statt Dateiname."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/retrievable"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Abruf aller Beschlüsse (Export oder Schnittstelle), nicht nur Suchmaske."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/quality"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Die Quelle sagt nicht, was fehlt. Im Abruf (2026-01-13 bis 2026-10-01): 565 von 1686 Beschlüssen (34 %) nicht öffentlich, nur Felder."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/personal_data"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "Personendaten: in Titeln und im Verteiler (Privatpersonen mit Adresse), nicht abgetrennt."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/license"
+     },
+     "dqv:value": false,
+     "rdfs:comment": "Keine Lizenz-Adresse. Keine Lizenzangabe gefunden; amtliche Entscheide sind nach Art. 5 URG urheberrechtlich frei (zu prüfen)."
+    },
+    {
+     "@type": "dqv:QualityMeasurement",
+     "dqv:isMeasurementOf": {
+      "@id": "so:criterion/responsibility"
+     },
+     "dqv:value": true,
+     "rdfs:comment": "nach jeder Regierungsratssitzung"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1090 @@
+{
+ "number": "733.11",
+ "title": "Verordnung über den Strassenverkehr",
+ "abbreviation": null,
+ "source": "BGS Solothurn (bgs.so.ch, LexWork)",
+ "url": "https://bgs.so.ch/app/de/texts_of_law/733.11",
+ "repealed": false,
+ "decided": "1978-03-03",
+ "in_force_since": "1978-06-08",
+ "retrieved": "2026-10-30T09:54:05+00:00",
+ "versions": [
+  {
+   "id": "3485",
+   "status": "past",
+   "structure": "xhtml",
+   "valid_from": "1997-01-01",
+   "valid_to": "2011-06-30",
+   "decided": "1996-05-07",
+   "validity_text": "Version in Kraft von: 01.01.1997 bis: 30.06.2011 (Beschlussdatum: 07.05.1996)",
+   "pdf": "https://bgs.so.ch/api/de/versions/3485/pdf_file",
+   "sections": 42
+  },
+  {
+   "id": "3806",
+   "status": "past",
+   "structure": "xhtml",
+   "valid_from": "2011-07-01",
+   "valid_to": "2012-03-31",
+   "decided": "2011-04-05",
+   "validity_text": "Version in Kraft von: 01.07.2011 bis: 31.03.2012 (Beschlussdatum: 05.04.2011)",
+   "pdf": "https://bgs.so.ch/api/de/versions/3806/pdf_file",
+   "sections": 42
+  },
+  {
+   "id": "3921",
+   "status": "past",
+   "structure": "xhtml",
+   "valid_from": "2012-04-01",
+   "valid_to": "2014-03-31",
+   "decided": "2011-12-13",
+   "validity_text": "Version in Kraft von: 01.04.2012 bis: 31.03.2014 (Beschlussdatum: 13.12.2011)",
+   "pdf": "https://bgs.so.ch/api/de/versions/3921/pdf_file",
+   "sections": 42
+  },
+  {
+   "id": "4301",
+   "status": "current",
+   "structure": "xhtml",
+   "valid_from": "2014-04-01",
+   "valid_to": null,
+   "decided": "2014-03-24",
+   "validity_text": "Aktuelle Version in Kraft seit: 01.04.2014 (Beschlussdatum: 24.03.2014)",
+   "pdf": "https://bgs.so.ch/api/de/versions/4301/pdf_file",
+   "sections": 42
+  }
+ ],
+ "changes": [
+  {
+   "decided": "1978-03-03",
+   "in_force": "1978-06-08",
+   "element": "Erlass",
+   "change": "Erstfassung",
+   "reference": "GS 87, 458"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 3 Abs. 1, e)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 5 Abs. 1, a)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 5 Abs. 1, g)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 6 Abs. 1, e)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 7 Abs. 1, w)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 8 Abs. 1, c)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 10 Abs. 2",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 10 Abs. 3",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 11 Abs. 1",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 11 Abs. 2",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 21",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 23 Abs. 1",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 23 Abs. 2",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 25",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 34 Abs. 3",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1986-05-06",
+   "in_force": "1986-05-15",
+   "element": "§ 35",
+   "change": "totalrevidiert",
+   "reference": "-"
+  },
+  {
+   "decided": "1987-09-08",
+   "in_force": "1988-01-01",
+   "element": "§ 7 Abs. 1, e)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1987-10-27",
+   "in_force": "1987-11-12",
+   "element": "§ 34",
+   "change": "totalrevidiert",
+   "reference": "-"
+  },
+  {
+   "decided": "1993-09-28",
+   "in_force": "1994-01-01",
+   "element": "§ 4 Abs. 1, a)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1993-09-28",
+   "in_force": "1994-01-01",
+   "element": "§ 8 Abs. 1, k)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1993-09-28",
+   "in_force": "1994-01-01",
+   "element": "§ 9",
+   "change": "totalrevidiert",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 4 Abs. 1, c)",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 6 Abs. 1, f)",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 6 Abs. 1, l)",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 10 Abs. 1",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 10 Abs. 6",
+   "change": "eingefügt",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 10 Abs. 7",
+   "change": "eingefügt",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 11 Abs. 3",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 12 Abs. 1",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 12 Abs. 3",
+   "change": "eingefügt",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 12 Abs. 4",
+   "change": "eingefügt",
+   "reference": "-"
+  },
+  {
+   "decided": "1994-03-08",
+   "in_force": "1994-07-01",
+   "element": "§ 36",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1996-05-07",
+   "in_force": "1997-01-01",
+   "element": "§ 5 Abs. 1, b)",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1996-05-07",
+   "in_force": "1997-01-01",
+   "element": "§ 19",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1996-05-07",
+   "in_force": "1997-01-01",
+   "element": "§ 20",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1996-05-07",
+   "in_force": "1997-01-01",
+   "element": "§ 22",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "1996-07-02",
+   "in_force": "1996-09-27",
+   "element": "§ 9",
+   "change": "Sachüberschrift geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 4 Abs. 1, b)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 5 Abs. 1, g)",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 5 Abs. 1, h)",
+   "change": "eingefügt",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 5 Abs. 1, i)",
+   "change": "eingefügt",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 6 Abs. 1, d)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 10 Abs. 1",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 10 Abs. 2",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 10 Abs. 3",
+   "change": "aufgehoben",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 10 Abs. 4",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 10 Abs. 5",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 11 Abs. 1",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-04-05",
+   "in_force": "2011-07-01",
+   "element": "§ 12 Abs. 1, a)",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8",
+   "change": "Sachüberschrift geändert",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1",
+   "change": "geändert",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, a)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, b)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, c)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, d)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, e)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, f)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, g)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, h)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, i)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 8 Abs. 1, k)",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2011-12-13",
+   "in_force": "2012-04-01",
+   "element": "§ 9",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "2014-03-24",
+   "in_force": "2014-04-01",
+   "element": "§ 3 Abs. 1, a)",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "2014-03-24",
+   "in_force": "2014-04-01",
+   "element": "§ 4",
+   "change": "Sachüberschrift geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "2014-03-24",
+   "in_force": "2014-04-01",
+   "element": "§ 4 Abs. 1",
+   "change": "aufgehoben",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "2014-03-24",
+   "in_force": "2014-04-01",
+   "element": "§ 5 Abs. 1, i)",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "2014-03-24",
+   "in_force": "2014-04-01",
+   "element": "§ 5 Abs. 1, j)",
+   "change": "eingefügt",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "2014-03-24",
+   "in_force": "2014-04-01",
+   "element": "§ 7 Abs. 1, s)",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "2014-03-24",
+   "in_force": "2014-04-01",
+   "element": "§ 8 Abs. 1",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "2014-03-24",
+   "in_force": "2014-04-01",
+   "element": "§ 38 Abs. 1",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "Element",
+   "in_force": "Beschluss",
+   "element": "Inkrafttreten",
+   "change": "Änderung",
+   "reference": "GS Fundstelle"
+  },
+  {
+   "decided": "Erlass",
+   "in_force": "1978-03-03",
+   "element": "08.06.1978",
+   "change": "Erstfassung",
+   "reference": "GS 87, 458"
+  },
+  {
+   "decided": "§ 3 Abs. 1, a)",
+   "in_force": "2014-03-24",
+   "element": "01.04.2014",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "§ 3 Abs. 1, e)",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 4",
+   "in_force": "2014-03-24",
+   "element": "01.04.2014",
+   "change": "Sachüberschrift geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "§ 4 Abs. 1",
+   "in_force": "2014-03-24",
+   "element": "01.04.2014",
+   "change": "aufgehoben",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "§ 4 Abs. 1, a)",
+   "in_force": "1993-09-28",
+   "element": "01.01.1994",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 4 Abs. 1, b)",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "aufgehoben",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 4 Abs. 1, c)",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 5 Abs. 1, a)",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 5 Abs. 1, b)",
+   "in_force": "1996-05-07",
+   "element": "01.01.1997",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 5 Abs. 1, g)",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 5 Abs. 1, g)",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 5 Abs. 1, h)",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "eingefügt",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 5 Abs. 1, i)",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "eingefügt",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 5 Abs. 1, i)",
+   "in_force": "2014-03-24",
+   "element": "01.04.2014",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "§ 5 Abs. 1, j)",
+   "in_force": "2014-03-24",
+   "element": "01.04.2014",
+   "change": "eingefügt",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "§ 6 Abs. 1, d)",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "aufgehoben",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 6 Abs. 1, e)",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 6 Abs. 1, f)",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 6 Abs. 1, l)",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 7 Abs. 1, e)",
+   "in_force": "1987-09-08",
+   "element": "01.01.1988",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 7 Abs. 1, s)",
+   "in_force": "2014-03-24",
+   "element": "01.04.2014",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "§ 7 Abs. 1, w)",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 8",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "Sachüberschrift geändert",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "geändert",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1",
+   "in_force": "2014-03-24",
+   "element": "01.04.2014",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  },
+  {
+   "decided": "§ 8 Abs. 1, a)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1, b)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1, c)",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 8 Abs. 1, c)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1, d)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1, e)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1, f)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1, g)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1, h)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1, i)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 8 Abs. 1, k)",
+   "in_force": "1993-09-28",
+   "element": "01.01.1994",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 8 Abs. 1, k)",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 9",
+   "in_force": "1993-09-28",
+   "element": "01.01.1994",
+   "change": "totalrevidiert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 9",
+   "in_force": "1996-07-02",
+   "element": "27.09.1996",
+   "change": "Sachüberschrift geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 9",
+   "in_force": "2011-12-13",
+   "element": "01.04.2012",
+   "change": "aufgehoben",
+   "reference": "GS 2011,66"
+  },
+  {
+   "decided": "§ 10 Abs. 1",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 10 Abs. 1",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 10 Abs. 2",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 10 Abs. 2",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 10 Abs. 3",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 10 Abs. 3",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "aufgehoben",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 10 Abs. 4",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 10 Abs. 5",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 10 Abs. 6",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "eingefügt",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 10 Abs. 7",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "eingefügt",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 11 Abs. 1",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 11 Abs. 1",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 11 Abs. 2",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 11 Abs. 3",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 12 Abs. 1",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 12 Abs. 1, a)",
+   "in_force": "2011-04-05",
+   "element": "01.07.2011",
+   "change": "geändert",
+   "reference": "GS 2011,12"
+  },
+  {
+   "decided": "§ 12 Abs. 3",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "eingefügt",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 12 Abs. 4",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "eingefügt",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 19",
+   "in_force": "1996-05-07",
+   "element": "01.01.1997",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 20",
+   "in_force": "1996-05-07",
+   "element": "01.01.1997",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 21",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 22",
+   "in_force": "1996-05-07",
+   "element": "01.01.1997",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 23 Abs. 1",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 23 Abs. 2",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 25",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 34",
+   "in_force": "1987-10-27",
+   "element": "12.11.1987",
+   "change": "totalrevidiert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 34 Abs. 3",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 35",
+   "in_force": "1986-05-06",
+   "element": "15.05.1986",
+   "change": "totalrevidiert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 36",
+   "in_force": "1994-03-08",
+   "element": "01.07.1994",
+   "change": "aufgehoben",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 38 Abs. 1",
+   "in_force": "2014-03-24",
+   "element": "01.04.2014",
+   "change": "geändert",
+   "reference": "GS 2014, 7"
+  }
+ ],
+ "amending_acts": [
+  {
+   "number": "GS 2014, 7",
+   "title": "Änderungen von Verordnungen des Regierungsrates aufgrund der Zuordnung der Motorfahrzeugkontrolle vom Departement des Innern zum Bau- und Justizdepartement",
+   "decided": "2014-03-24",
+   "published": "2014-03-24",
+   "pdf": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/977/pdf_file"
+  },
+  {
+   "number": "GS 2011, 66",
+   "title": "Änderung der Verordnung über den Strassenverkehr und der Verordnung über die Delegation der Unterschriftsberechtigung in den Departementen",
+   "decided": "2011-12-13",
+   "published": "2011-12-13",
+   "pdf": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/808/pdf_file"
+  },
+  {
+   "number": "GS 2011, 12",
+   "title": "Änderung von Erlassen aufgrund der neuen Aufgabenzuteilung an die Departemente (Reorganisation Bau- und Justizdepartement und Departement des Innern)",
+   "decided": "2011-04-05",
+   "published": "2011-04-05",
+   "pdf": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/770/pdf_file"
+  },
+  {
+   "number": "GS 90, 954",
+   "title": "Änderung der Verordnung über den Strassenverkehr",
+   "decided": "1987-09-08",
+   "published": null,
+   "pdf": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/1679/pdf_file"
+  }
+ ]
+}

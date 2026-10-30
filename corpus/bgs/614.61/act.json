@@ -1,0 +1,120 @@
+{
+ "number": "614.61",
+ "title": "Gesetz über die Steuern und Gebühren für Motorfahrzeuge und Fahrräder",
+ "abbreviation": null,
+ "source": "BGS Solothurn (bgs.so.ch, LexWork)",
+ "url": "https://bgs.so.ch/app/de/texts_of_law/614.61",
+ "repealed": false,
+ "decided": "1961-07-23",
+ "in_force_since": "1963-01-01",
+ "retrieved": "2026-10-30T09:54:03+00:00",
+ "versions": [
+  {
+   "id": "3433",
+   "status": "past",
+   "structure": "xhtml",
+   "valid_from": "1993-01-01",
+   "valid_to": "2020-12-31",
+   "decided": "1992-09-27",
+   "validity_text": "Version in Kraft von: 01.01.1993 bis: 31.12.2020 (Beschlussdatum: 27.09.1992)",
+   "pdf": "https://bgs.so.ch/api/de/versions/3433/pdf_file",
+   "sections": 7
+  },
+  {
+   "id": "4993",
+   "status": "past",
+   "structure": "xhtml",
+   "valid_from": "2021-01-01",
+   "valid_to": "2022-12-31",
+   "decided": "2020-06-23",
+   "validity_text": "Version in Kraft von: 01.01.2021 bis: 31.12.2022 (Beschlussdatum: 23.06.2020)",
+   "pdf": "https://bgs.so.ch/api/de/versions/4993/pdf_file",
+   "sections": 7
+  },
+  {
+   "id": "5302",
+   "status": "current",
+   "structure": "xhtml",
+   "valid_from": "2023-01-01",
+   "valid_to": null,
+   "decided": "2022-06-28",
+   "validity_text": "Aktuelle Version in Kraft seit: 01.01.2023 (Beschlussdatum: 28.06.2022)",
+   "pdf": "https://bgs.so.ch/api/de/versions/5302/pdf_file",
+   "sections": 7
+  }
+ ],
+ "changes": [
+  {
+   "decided": "1961-07-23",
+   "in_force": "1963-01-01",
+   "element": "Erlass",
+   "change": "Erstfassung",
+   "reference": "GS 82, 115"
+  },
+  {
+   "decided": "1992-09-27",
+   "in_force": "1993-01-01",
+   "element": "§ 5 Abs. 2",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "2020-06-23",
+   "in_force": "2021-01-01",
+   "element": "§ 5 Abs. 3",
+   "change": "eingefügt",
+   "reference": "GS 2020, 36"
+  },
+  {
+   "decided": "2022-06-28",
+   "in_force": "2023-01-01",
+   "element": "§ 5 Abs. 2",
+   "change": "geändert",
+   "reference": "GS 2022, 21"
+  },
+  {
+   "decided": "Element",
+   "in_force": "Beschluss",
+   "element": "Inkrafttreten",
+   "change": "Änderung",
+   "reference": "GS Fundstelle"
+  },
+  {
+   "decided": "Erlass",
+   "in_force": "1961-07-23",
+   "element": "01.01.1963",
+   "change": "Erstfassung",
+   "reference": "GS 82, 115"
+  },
+  {
+   "decided": "§ 5 Abs. 2",
+   "in_force": "1992-09-27",
+   "element": "01.01.1993",
+   "change": "geändert",
+   "reference": "-"
+  },
+  {
+   "decided": "§ 5 Abs. 2",
+   "in_force": "2022-06-28",
+   "element": "01.01.2023",
+   "change": "geändert",
+   "reference": "GS 2022, 21"
+  },
+  {
+   "decided": "§ 5 Abs. 3",
+   "in_force": "2020-06-23",
+   "element": "01.01.2021",
+   "change": "eingefügt",
+   "reference": "GS 2020, 36"
+  }
+ ],
+ "amending_acts": [
+  {
+   "number": "GS 2020, 36",
+   "title": "Teilrevision Strassengesetz, Aufhebung Strassenbaufonds und Finanzierung von Velowegen von kantonaler Bedeutung",
+   "decided": "2020-06-23",
+   "published": "2020-10-23",
+   "pdf": "https://bgs.so.ch/api/de/change_documents/file_dictionaries/1359/pdf_file"
+  }
+ ]
+}
