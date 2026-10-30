@@ -1,0 +1,4 @@
+# Raw stage of the catalog build (data portal release as delivered). Contains contact addresses of persons and is
+# therefore not versioned; can be fetched again at any time by release id.
+*
+!.gitignore

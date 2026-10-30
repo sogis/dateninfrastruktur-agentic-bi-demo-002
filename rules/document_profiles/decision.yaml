@@ -1,0 +1,33 @@
+# Document profile "decision" (rule): what a corpus of decisions has to provide. Proposal, not agreed.
+# Same structure as legal_text.yaml. Unlike legal texts, text with a text layer (no scan) is enough, because a
+# decision is cited as a whole; the features as fields count instead (office, distribution list).
+# Evidence: "RRB 2026 concerning the Gesundheitsamt": 90 hits via the office feature, 41 via full text.
+
+id: decision
+name: Beschluss
+examples: [Regierungsratsbeschluss, Departementsverfügung]
+requirements:
+  text_machine_readable:      {criterion: machine_readable, check: document,
+                               text: "Beschlusstext mit Textebene, kein Scan"}
+  identifier:                 {criterion: identifier, check: document,
+                               text: "Dauerhafte Nummer je Beschluss (JJJJ/NNNN)"}
+  date_as_field:              {criterion: validity, check: source,
+                               text: "Beschlussdatum als Feld"}
+  fields:                     {criterion: fields, check: source,
+                               text: "Nummer, Datum, Geschäftsart, Federführung und Titel als Felder"}
+  pdf_metadata:               {criterion: description, check: source,
+                               text: "PDF mit Metadaten (Titel, Nummer, Datum) statt Dateiname"}
+  fixed_values:               {criterion: fields, check: source,
+                               text: "Geschäftsart und Federführung aus festen Listen"}
+  lead_office:                {criterion: fields, check: source,
+                               text: "Federführendes Amt als Feld (nicht nur Departement)"}
+  involved_offices:           {criterion: fields, check: source,
+                               text: "Beteiligte Ämter als Feld, aus der Stammliste der Ämter"}
+  distribution_list_as_field: {criterion: fields, check: source,
+                               text: "Verteiler als eigenes Feld, getrennt vom Text (Personendaten abtrennbar)"}
+  public_flag:                {criterion: personal_data, check: source,
+                               text: "Je Beschluss gekennzeichnet, ob er öffentlich ist"}
+  retrieve_all:               {criterion: retrievable, check: source,
+                               text: "Abruf aller Beschlüsse (Export oder Schnittstelle), nicht nur Suchmaske"}
+  change_list:                {criterion: changes, check: source,
+                               text: "Liste neuer und geänderter Beschlüsse seit einem Datum"}

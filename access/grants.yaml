@@ -1,0 +1,12 @@
+# Grants: who may read which dataset with access restricted (right read_data, per whole dataset).
+# open datasets are not listed here: every person may read them.
+#
+# Entry:  <dataset identifier from the catalog>: [group:<name>, person:<e-mail>]
+# Groups come from OpenWebUI (Admin → Benutzer → Gruppen), case-insensitive.
+# Applies to the next call, without restart. In the canton the owner enters this; how (request, decision) is up
+# to the canton.
+#
+# Only enter groups here: this file is versioned, e-mail addresses do not belong in the repository.
+
+rrb-distribution-list:
+  - group:staatskanzlei

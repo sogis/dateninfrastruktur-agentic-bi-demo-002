@@ -1,0 +1,17 @@
+# Datasheet of a part of a corpus: the distribution list of the government council decisions.
+#
+# A dataset of its own because it is more strictly protected than the decision: rights only apply to a whole
+# dataset (rules/access.yaml, as in the data portal). Source information (document type, source_provides,
+# owner …) comes from the parent datasheet rrb.yaml.
+#
+# "restricted" shows in the prototype how a more strictly protected part is kept as a dataset of its own.
+
+id: rrb-distribution-list
+part_of: rrb
+title: Verteiler der Regierungsratsbeschlüsse
+description: >-
+  Empfängerinnen und Empfänger je Beschluss (Ämter, Gemeinden, Firmen, Privatpersonen mit Adresse). Die beteiligten
+  kantonalen Ämter daraus sind im Bestand RRB öffentlich als Merkmal geführt.
+keywords: [Verteiler, Empfänger, Regierungsrat, RRB]
+access: restricted
+personal_data: Adresszeilen von Privatpersonen, Gemeinden und Firmen (nicht unterscheidbar)

@@ -1,0 +1,61 @@
+# Criteria the prototype checks for every source. Proposal, not agreed.
+#
+# Result per source and criterion: met or missing, with a finding in words (in the catalog as a DQV measurement).
+# If a criterion cannot be decided for a source, there is no measurement. There are no levels or scores.
+#
+# name and question are shown to users (German).
+# applies_to: all | data | documents | non_public
+
+criteria:
+  machine_readable:
+    name: Maschinenlesbar
+    applies_to: all
+    question: "Liegt der Inhalt als Text oder Daten vor, nicht nur als PDF oder Scan?"
+  fields:
+    name: Angaben als Feld
+    applies_to: all
+    question: "Stehen die wichtigen Angaben in eigenen Feldern mit festen Werten, statt nur im Fliesstext?"
+  identifier:
+    name: Feste Kennung
+    applies_to: all
+    question: "Hat jeder Eintrag bzw. jeder Abschnitt eine Kennung, die sich nie ändert?"
+  validity:
+    name: Stand und Gültigkeit
+    applies_to: all
+    question: "Ist als Datum erkennbar, für welchen Stichtag oder Zeitraum etwas gilt?"
+  changes:
+    name: Änderungen abrufbar
+    applies_to: all
+    question: "Kann man abfragen, was sich seit einem Datum geändert hat?"
+  description:
+    name: Beschreibung
+    applies_to: all
+    question: "Sind Inhalt, Felder bzw. Dokumente beschrieben?"
+  metrics:
+    name: Kennzahlen definiert
+    applies_to: data
+    question: "Ist ausführbar festgelegt, wie Kennzahlen aus den Daten gerechnet werden (Semantic Layer)?"
+  retrievable:
+    name: Automatisch abrufbar
+    applies_to: all
+    question: "Kommt man automatisch an alle Inhalte (Download, Schnittstelle), nicht nur über eine Suchmaske?"
+  quality:
+    name: Qualität bekannt
+    applies_to: all
+    question: "Ist bekannt, wie vollständig und richtig die Quelle ist (Prüfung, bekannte Fehler, Lücken)?"
+  personal_data:
+    name: Personendaten bekannt
+    applies_to: all
+    question: "Ist angegeben, ob Personendaten enthalten sind und ob sie abgetrennt sind?"
+  legal_basis:
+    name: Rechtsgrundlage
+    applies_to: non_public
+    question: "Ist für nicht öffentliche Inhalte festgehalten, wofür sie genutzt werden dürfen (InfoDG § 15/16)?"
+  license:
+    name: Lizenz
+    applies_to: all
+    question: "Ist die Lizenz geklärt und als Lizenz-Adresse angegeben?"
+  responsibility:
+    name: Eigner und Pflege
+    applies_to: all
+    question: "Gibt es einen benannten Eigner, und ist angegeben, in welchem Rhythmus nachgeführt wird?"

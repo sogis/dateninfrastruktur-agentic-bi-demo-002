@@ -1,0 +1,38 @@
+# Datasheet of a document corpus. Same structure as bgs.yaml.
+#
+# The corpus is large (about 1700 decisions per year) and contains personal data (titles, distribution lists). The
+# catalog only names the corpus, never single decisions. The distribution list is a dataset of its own with
+# stricter access (rrb-distribution-list.yaml), because rights only apply to a whole dataset (as in the data portal).
+
+id: rrb
+title: Regierungsratsbeschlüsse (RRB)
+description: >-
+  Beschlüsse des Regierungsrats mit Nummer, Datum, Geschäftsart, federführendem Departement und Titel, dazu der
+  Beschluss als PDF. Im Prototyp nur der Jahrgang 2026 und nur das Beschlussdokument (ohne Briefe und Beilagen).
+keywords: [Regierungsrat, Beschluss, RRB, Amt, Departement]
+document_type: decision
+owner: {name: Staatskanzlei, abbreviation: STK}
+access: open
+personal_data: in Titeln und im Verteiler (Privatpersonen mit Adresse), nicht abgetrennt
+license: Keine Lizenzangabe gefunden; amtliche Entscheide sind nach Art. 5 URG urheberrechtlich frei (zu prüfen).
+update_frequency: nach jeder Regierungsratssitzung
+source: https://rrb.so.ch
+provider: CMI (Geschäftsverwaltung), publiziert auf rrb.so.ch
+reachable: Am 30.10.2026 von ausserhalb des Kantonsnetzes abgerufen.
+corpus: rrb
+distributions:
+  - title: Suchmaske und PDF je Beschluss (keine Schnittstelle)
+    access_url: https://rrb.so.ch
+    format: pdf
+source_provides:
+  checked: "2026-10-30"
+  date_as_field: true                   # on the website
+  fields: true                          # number, date, business type, lead department, title
+  pdf_metadata: false                   # PDF title "Microsoft Word - <identifier>"
+  fixed_values: true                    # business type, lead department (6 values)
+  lead_office: false                    # department only
+  involved_offices: false               # offices only in the text and the distribution list
+  distribution_list_as_field: false     # distribution list only at the end of the PDF
+  public_flag: true                     # "Dokumente nicht öffentlich" on the detail page
+  retrieve_all: false                   # search form only, capped at 1001 hits
+  change_list: false

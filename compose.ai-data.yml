@@ -1,0 +1,43 @@
+# Addition to docker-compose.yml of demo 002 (unchanged): documents server with shared catalog and access control.
+# Enabled via COMPOSE_FILE=docker-compose.yml:compose.ai-data.yml in the local .env.
+name: ai-data
+
+services:
+  documents-mcp:
+    image: ai-data-documents:local
+    build:
+      context: .
+      dockerfile: documents/Dockerfile
+    ports:
+      - "127.0.0.1:${DOCUMENTS_HOST_PORT:-8005}:8000"
+    environment:
+      # Shared key with OpenWebUI: only then do the e-mail and groups sent along count.
+      DOCUMENTS_API_KEY: "${DOCUMENTS_API_KEY:-}"
+      DOCUMENTS_ALLOWED_HOSTS: "documents-mcp:8000,localhost:8000,127.0.0.1:8000,localhost:${DOCUMENTS_HOST_PORT:-8005},127.0.0.1:${DOCUMENTS_HOST_PORT:-8005}"
+      DOCUMENTS_ALLOWED_ORIGINS: "http://localhost:${OPEN_WEBUI_HOST_PORT:-3003},http://127.0.0.1:${OPEN_WEBUI_HOST_PORT:-3003},http://open-webui:8080"
+    volumes:
+      # Government council decisions: local only (personal data), read-only, not in the image.
+      - ./corpus/rrb:/app/corpus/rrb:ro
+      # Access: grants.yaml is read, the audit log is appended here (local only, e-mail addresses).
+      - ./access:/app/access
+    # Writes to access/ as the same user id as on the host (default 1000).
+    user: "${DOCUMENTS_UID:-1000}:${DOCUMENTS_GID:-1000}"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 0.5
+    mem_limit: 512m
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/readyz', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 15s
+      retries: 6
+    restart: unless-stopped
+
+  open-webui:
+    # Newer than in docker-compose.yml of demo 002 (v0.12.3): security fixes in v0.12.4 and v0.12.5.
+    image: ghcr.io/open-webui/open-webui:v0.12.5@sha256:03443b8de6b617da9d900edd09b4bf1cb0ddbfdcba6afb42c548336a0b821ded
+    depends_on:
+      documents-mcp:
+        condition: service_healthy

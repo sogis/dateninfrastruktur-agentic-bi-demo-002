@@ -1,0 +1,42 @@
+# Datasheet of a document corpus (by hand, once per corpus): the "contract" of the source.
+#
+# For data, the datasheet already exists in the data portal (datasheet editor); for documents it is missing. This
+# file shows which information a corpus has to provide once. Everything else (modified date, criteria with findings
+# per document) is computed by the catalog build from the corpus and the rules: python -m documents_mcp.catalog.
+#
+# document_type:   which document profile applies (rules/document_profiles/<document_type>.yaml)
+# access:          open | restricted (rules/access.yaml, as in the data portal)
+# personal_data:   whether and which personal data is contained (criterion "Personendaten bekannt")
+# reachable:       whether and how the source can be reached, and when this was checked (information only)
+# source_provides: per requirement of the document profile, whether the source meets it today (true/false, checked)
+# Values are shown to users and stay German.
+
+id: bgs
+title: Bereinigte Gesetzessammlung des Kantons Solothurn (BGS)
+description: >-
+  Geltendes kantonales Recht (Verfassung, Gesetze, Verordnungen) mit alten und künftigen Fassungen.
+  Im Prototyp nur ein Ausschnitt: drei Erlasse zu Motorfahrzeugsteuer und Strassenverkehr.
+keywords: [Gesetz, Verordnung, Erlass, Recht, BGS]
+document_type: legal_text
+owner: {name: Staatskanzlei, abbreviation: STK}
+access: open
+personal_data: keine
+license: Amtliche Erlasse sind nach Art. 5 URG urheberrechtlich frei; keine Lizenzangabe gefunden.
+update_frequency: laufend, bei jeder Rechtsänderung
+source: https://bgs.so.ch
+provider: LexWork (Sitrox)
+reachable: Am 30.10.2026 von ausserhalb des Kantonsnetzes über die Schnittstelle abgerufen.
+corpus: bgs
+distributions:                          # how to get to the content (DCAT: dcat:distribution)
+  - title: JSON-Schnittstelle von LexWork (ohne Dokumentation)
+    access_url: https://bgs.so.ch/api/de
+    format: json
+source_provides:
+  checked: "2026-10-30"
+  versions: true                        # past and future versions per act
+  validity_as_date: false               # only free text "in Kraft von … bis …"
+  section_identifier: false             # sections only via their number in the text
+  systematics: true                     # systematic number (e.g. 614.61)
+  api: true                             # JSON per act and version
+  change_list: false                    # change table only in the HTML
+  register: false                       # no register of all acts with change date

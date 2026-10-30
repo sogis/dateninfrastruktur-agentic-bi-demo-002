@@ -1,0 +1,35 @@
+# Document profile "legal text" (rule): what a corpus of legal texts has to provide. Proposal, not agreed.
+# Counterpart of the data model for tables. Inspired by ELI (European Legislation Identifier) and Akoma Ntoso.
+#
+# Each requirement contributes to one criterion (rules/criteria.yaml, e.g. "validity"). It is checked
+#   source:   in the datasheet, what the source provides (source_provides: true/false, with check date)
+#   document: in the prepared corpus, per document (e.g. is the current version structured?)
+# A criterion is met for the corpus if all of its requirements are met for all documents.
+# name, examples and text are shown to users (German).
+
+id: legal_text
+name: Rechtstext
+examples: [Gesetz, Verordnung, Reglement]
+requirements:
+  structured_text:       {criterion: machine_readable, check: document,
+                          text: "Aktuelle Fassung als strukturierter Text (XML/HTML), nicht nur als PDF"}
+  outline:               {criterion: fields, check: document,
+                          text: "Paragraf, Absatz, Aufzählung und Fussnote als Struktur, nicht nur im Fliesstext"}
+  act_identifier:        {criterion: identifier, check: document,
+                          text: "Dauerhafte Nummer des Erlasses (systematische Nummer)"}
+  section_identifier:    {criterion: identifier, check: source,
+                          text: "Dauerhafte Kennung je Paragraf, über Fassungen hinweg (ELI)"}
+  systematics:           {criterion: fields, check: source,
+                          text: "Einordnung in die Systematik der Sammlung (Stammliste der Erlasse)"}
+  versions:              {criterion: validity, check: source,
+                          text: "Alte und künftige Fassungen abrufbar"}
+  validity_as_date:      {criterion: validity, check: source,
+                          text: "Gültig ab / bis je Fassung als Datumsfeld, nicht als Freitext"}
+  metadata:              {criterion: description, check: document,
+                          text: "Titel, Beschlussdatum und Inkrafttreten je Erlass"}
+  api:                   {criterion: retrievable, check: source,
+                          text: "Abruf je Erlass und Fassung über eine Schnittstelle"}
+  change_list:           {criterion: changes, check: source,
+                          text: "Änderungen je Erlass als Liste über die Schnittstelle (nicht nur im HTML)"}
+  register:              {criterion: changes, check: source,
+                          text: "Verzeichnis aller Erlasse mit Änderungsdatum (neue Fassungen erkennbar)"}

@@ -1,0 +1,25 @@
+# Access levels (rule). Taken from the AGI data infrastructure (experiment, models of 12.11.2026):
+#   sogis/dateninfrastruktur-admin, models/SO_AGI_DataInfrastructure_Catalog_20261112.ili  (AccessLevel)
+#   sogis/dateninfrastruktur-admin, models/SO_AGI_DataInfrastructure_Access_20261112.ili   (grant; request/decision not taken over)
+#
+# - Two levels per dataset: open | restricted. No rights below the dataset: a more strictly protected part
+#   (e.g. the distribution list of a decision) is a dataset of its own.
+# - restricted is findable for everyone (catalog), its content only with a valid grant.
+# - Grant = right read_data for a group or person on a dataset (access/grants.yaml). How it comes about
+#   (request, decision) is not part of the prototype. Every access to restricted is recorded.
+# - Every interface checks the same grants, including the one used by the AI: the AI never sees more than the
+#   person asking.
+#
+# There is no cantonal classification yet, hence only the two levels of the data infrastructure.
+
+levels:
+  open:       {meaning: "öffentlich, für alle", dcat: "http://publications.europa.eu/resource/authority/access-right/PUBLIC"}
+  restricted: {meaning: "nur mit Freigabe", dcat: "http://publications.europa.eu/resource/authority/access-right/RESTRICTED"}
+
+# Access levels of the current data portal release (SO_AGI_DataCatalog_Base) -> these two levels.
+dataportal:
+  open: open
+  public_with_conditions: open
+  internal: restricted
+  restricted: restricted
+  confidental: restricted   # spelled as in the data portal model
